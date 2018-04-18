@@ -1,0 +1,25 @@
+{
+  "name": "Seriumium",
+  "version": "1.2.1",
+  "description": "The bot that works on Discord.",
+  "main": "default.js",
+  "scripts": {
+    "start": "node default.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artwork-if/auberant.git"
+  },
+  "keywords": [],
+  "author": "Let",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artwork-if/auberant/issues"
+  },
+  "homepage": "https://github.com/artwork-if/auberant#readme",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "opusscript": "0.0.6",
+    "request": "^2.85.0"
+  }
+}
