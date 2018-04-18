@@ -1,8 +1,8 @@
 **Discord, The secondary section of our knowledge. Now you can search wikipedia during the chat!**
-# Seriumium
+# Seriumium: Idlen
 __Copyright (c) 2018 Copyright Let All Rights Reserved.__
 
-#### Last updates
+### Last updates
 The first thing is now I am writing the note about Seriumium and you can check it.
 1. Re-scheduled bot's lifetime
 - Added some async-parts.
@@ -12,7 +12,7 @@ The first thing is now I am writing the note about Seriumium and you can check i
 3. Execute as administrator
 - Eval is now available for bot administrator (You can change the administrator id on **store/data/configure.json**)
 
-####The copy of help prompt
+### The copy of help prompt
 This is the list of our application(bot: seriumium)'s prompt. If you want to use prompts for moderators, add **.Moderators** role to yourself. under-lined prompt is for only moderators.
 
 __**Delete**__ bulk delete messages, up to 45 messages/request
@@ -23,7 +23,7 @@ __**Delete**__ bulk delete messages, up to 45 messages/request
 **Say** the application will reply with your message
 __**Sayd**__ the application will send your message and delete your message at same time
 
-####Setup for your server or you
+### Setup for your server or you
 1. Setting up for your server
 - [GitHub](https://github.com/seriumium)
 - [Webpage](https://seriumium.github.io)

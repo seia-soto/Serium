@@ -19,7 +19,7 @@ __**Delete**__ bulk delete messages, up to 45 messages/request
 __**Sayd**__ the application will send your message and delete your message at same time
 \n[GitHub](https://github.com/seriumium)\n[Webpage](https://seriumium.github.io)\n[Join to support server](https://discord.gg/YzBZNQq)\n[Invite seriumium](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)`,
     footer: {
-      text: `Nightly: Seriumium, 1.1.8`
+      text: `Nightly: Seriumium: Idlen, 1.1.8`
     }
   }})
 }
