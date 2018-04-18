@@ -1,6 +1,5 @@
 let options = {
-  permissions: 3,
-  interprete: [`seriumium`, `shell`, `env`, `se`]
+  permissions: 3
 }
 exports.options = options
 

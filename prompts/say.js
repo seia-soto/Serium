@@ -1,6 +1,5 @@
 let options = {
-  permissions: 0,
-  interprete: [`say`]
+  permissions: 0
 }
 exports.options = options
 

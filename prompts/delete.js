@@ -1,6 +1,5 @@
 let options = {
-  permissions: 1,
-  interprete: [`delete`, `삭제`]
+  permissions: 1
 }
 exports.options = options
 

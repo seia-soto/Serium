@@ -16,9 +16,7 @@ Fs.readdir(`./prompts/`, (error, prompts) => {
   if (error) console.error(error)
   prompts.forEach(prompts => {
     let base = require(`./prompts/${prompts}`)
-    base.options.interprete.forEach(alias => {
-      client.promptList.set(alias, base)
-    })
+    client.promptList.set(prompts.split(`.js`)[0], base)
   })
 })
 

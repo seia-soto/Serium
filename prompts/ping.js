@@ -1,6 +1,5 @@
 let options = {
-  permissions: 0,
-  interprete: [`ping`, `질의`]
+  permissions: 0
 }
 exports.options = options
 

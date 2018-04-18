@@ -15,6 +15,7 @@ The first thing is now I am writing the note about Seriumium and you can check i
 ### The copy of help prompt
 This is the list of our application(bot: seriumium)'s prompt. If you want to use prompts for moderators, add **.Moderators** role to yourself. under-lined prompt is for only moderators.
 
+**Circle** Returns you circle circumference and area about radius
 __**Delete**__ bulk delete messages, up to 45 messages/request
 **Help** the application's documentations
 **Library** search wikipedia and returns short version of document

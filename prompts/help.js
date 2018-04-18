@@ -1,13 +1,12 @@
 let options = {
-  permissions: 0,
-  interprete: [`help`, `도움말`]
+  permissions: 0
 }
 exports.options = options
 
 exports.execute = async (client, message, presets) => {
   message.channel.send({embed: {
     color: 16761035,
-    title: `**Help**`,
+    title: `Help`,
     description: `This is the list of our application(bot: seriumium)'s prompt. If you want to use prompts for moderators, add **.Moderators** role to yourself. under-lined prompt is for only moderators.
 \n__**Circle**__ Returns you circle circumference and area about radius
 __**Delete**__ bulk delete messages, up to 45 messages/request

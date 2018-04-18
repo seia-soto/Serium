@@ -1,7 +1,6 @@
 const Request = require(`request`)
 let options = {
-  permissions: 0,
-  interprete: [`library`, `라이브러리`]
+  permissions: 0
 }
 exports.options = options
 
@@ -13,7 +12,7 @@ exports.execute = async (client, message, presets) => {
           let result = JSON.parse(body)
           message.channel.send({embed: {
            color: 16761035,
-           title: `**Library:** ${result.title}`,
+           title: `${result.title}`,
            description: `${result.extract}`
           }})
         } catch (error) {
