@@ -31,18 +31,20 @@ client.on(`ready`, () => {
 })
 client.on(`message`, async (message) => {
   if (message.author.bot || message.channel.type === `dm`) return
+  if (!message.content.startsWith(accesspoints.Prefix)) return
   if (recentlyExecuted.has(message.author.id)) {
     message.reply(`You have to wait for 1.5 sec to use prompts`)
     return
   }
-  if (!message.content.startsWith(accesspoints.Prefix)) return
   let presets = {
     default: require(`./default.js`),
     name: message.content.split(` `)[0].slice(accesspoints.Prefix.length),
     arguments: message.content.split(` `).slice(1)
   }
   if (client.promptList.get(presets.name)) {
+    let permissionAllowed = finder.permissions(message)
     let prompt = client.promptList.get(presets.name)
+    if (permissionAllowed < prompt.options.permissions) return
     prompt.execute(client, message, presets)
     recentlyExecuted.add(message.author.id)
     let refresh = () => { recentlyExecuted.delete(message.author.id) }

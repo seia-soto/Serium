@@ -8,7 +8,8 @@ exports.execute = async (client, message, presets) => {
     color: 16761035,
     title: `Help`,
     description: `This is the list of our application(bot: seriumium)'s prompt. If you want to use prompts for moderators, add **.Moderators** role to yourself. under-lined prompt is for only moderators.
-\n__**Circle**__ Returns you circle circumference and area about radius
+\n**Avatar** Returns you the user's avatar
+**Circle** Returns you circle circumference and area about radius
 __**Delete**__ bulk delete messages, up to 45 messages/request
 **Help** the application's documentations
 **Library** search wikipedia and returns short version of document
