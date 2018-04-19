@@ -35,6 +35,7 @@ client.on(`message`, async (message) => {
     message.reply(`You have to wait for 1.5 sec to use prompts`)
     return
   }
+  if (!message.content.startsWith(accesspoints.Prefix)) return
   let presets = {
     default: require(`./default.js`),
     name: message.content.split(` `)[0].slice(accesspoints.Prefix.length),
