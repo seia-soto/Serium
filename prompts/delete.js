@@ -1,9 +1,8 @@
-let options = {
+module.exports.options = {
   permissions: 1
 }
-exports.options = options
 
-exports.execute = async (client, message, presets) => {
+module.exports.execute = async (client, message, presets) => {
   if (presets.arguments[0]) {
     message.delete()
     if (isNaN(presets.arguments[0]) === true || presets.arguments[0] > 45) return

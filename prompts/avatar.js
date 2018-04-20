@@ -1,9 +1,8 @@
-let options = {
+module.exports.options = {
   permissions: 0
 }
-exports.options = options
 
-exports.execute = async (client, message, presets) => {
+module.exports.execute = async (client, message, presets) => {
   if (presets.arguments[0]) {
     let user = await message.mentions.users.first()
     message.reply(user.avatarURL)

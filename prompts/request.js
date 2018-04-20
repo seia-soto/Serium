@@ -1,10 +1,9 @@
 const Request = require(`request`)
-let options = {
+module.exports.options = {
   permissions: 0
 }
-exports.options = options
 
-exports.execute = async (client, message, presets) => {
+module.exports.execute = async (client, message, presets) => {
   if (presets.arguments[0]) {
     await Request(`${presets.arguments.slice(0).join(' ')}`, (error, response, body) => {
       if (error) { message.reply(error) } else {

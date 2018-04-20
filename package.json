@@ -1,8 +1,8 @@
 {
   "name": "Seriumium",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "The bot that works on Discord.",
-  "main": "default.js",
+  "main": "index.js",
   "scripts": {
     "start": "node default.js"
   },

@@ -1,15 +1,14 @@
 const circle = require(`../store/functions/circle.js`)
-let options = {
+module.exports.options = {
   permissions: 0
 }
-exports.options = options
 
-exports.execute = async (client, message, presets) => {
+module.exports.execute = async (client, message, presets) => {
   if (presets.arguments[0]) {
     if (isNaN(presets.arguments[0]) === true) return
     message.channel.send({embed: {
      color: 16761035,
-     title: `About radius ${presets.arguments[0]}`,
+     title: `About radius ` + presets.arguments[0],
      description: `**PI** ${Math.PI}\n**Radius** ${presets.arguments[0]}\n**Area** ${circle.area(presets.arguments[0])}\n**Circumference** ${circle.circumference(presets.arguments[0])}`
     }})
   } else {
