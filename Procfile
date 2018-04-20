@@ -1,1 +1,1 @@
-worker: node default
+worker: node .

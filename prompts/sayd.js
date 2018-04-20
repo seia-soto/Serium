@@ -1,10 +1,8 @@
-let options = {
-  permissions: 1,
-  interprete: [`sayd`]
+module.exports.options = {
+  permissions: 1
 }
-exports.options = options
 
-exports.execute = async (client, message, presets) => {
+module.exports.execute = async (client, message, presets) => {
   message.delete()
-  message.channel.send(`${presets.arguments.slice(0).join(' ')}`)
+  message.channel.send(presets.arguments.slice(0).join(` `))
 }
