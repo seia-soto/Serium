@@ -9,11 +9,11 @@ const client = new Discord.Client()
 const prompts = new Discord.Collection()
 const recentlyExecuted = new Set()
 const accesspoints = {
-  Discord: `NDI5OTEzNDgwNzA4MDk2MDAw.DbJ2pA.ngB97xenr6HosPVuB33GFeM4-WY`,
+  Discord: process.env.Discord,
   Prefix: `;`
 }
 
-initialize.prompts(`dynamic`, prompts)
+initialize.prompts(`straight`, prompts)
 client.login(accesspoints.Discord)
 client.destroy().then(() => client.login(accesspoints.Discord))
 
