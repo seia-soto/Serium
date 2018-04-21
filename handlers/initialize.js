@@ -4,14 +4,16 @@ const prompt = require(`../prompts`)
 
 module.exports.prompts = (type, prompts) => {
   switch (type) {
-    case `straight`:
+    case `strict`:
       prompts.set(`avatar`, prompt.avatar)
       prompts.set(`circle`, prompt.circle)
       prompts.set(`delete`, prompt.delete)
       prompts.set(`help`, prompt.help)
-      prompts.set(`wikipedia`, prompt.wikipedia)
+      prompts.set(`library`, prompt.library)
       prompts.set(`neko`, prompt.neko)
+      prompts.set(`nt`, prompt.nt)
       prompts.set(`ping`, prompt.ping)
+      prompts.set(`probability`, prompt.probability)
       prompts.set(`request`, prompt.request)
       prompts.set(`say`, prompt.say)
       prompts.set(`sayd`, prompt.sayd)

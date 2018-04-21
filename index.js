@@ -13,7 +13,7 @@ const accesspoints = {
   Prefix: `;`
 }
 
-initialize.prompts(`straight`, prompts)
+initialize.prompts(`strict`, prompts)
 client.login(accesspoints.Discord)
 client.destroy().then(() => client.login(accesspoints.Discord))
 
