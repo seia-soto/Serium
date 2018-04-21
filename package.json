@@ -4,22 +4,24 @@
   "description": "The bot that works on Discord.",
   "main": "index.js",
   "scripts": {
-    "start": "node default.js"
+    "start": "node .",
+    "test": "node ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/artwork-if/auberant.git"
+    "url": "git+https://github.com/seriumium/seriumiumDiscord.git"
   },
   "keywords": [],
   "author": "Let",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/artwork-if/auberant/issues"
+    "url": "https://github.com/seriumium/seriumiumDiscord/issues"
   },
-  "homepage": "https://github.com/artwork-if/auberant#readme",
+  "homepage": "https://github.com/seriumium/seriumiumDiscord#readme",
   "dependencies": {
     "discord.js": "^11.3.2",
     "opusscript": "0.0.6",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "safe-eval": "^0.3.0"
   }
 }
