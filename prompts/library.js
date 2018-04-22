@@ -15,11 +15,11 @@ module.exports.execute = async (client, message, presets) => {
            description: `${result.extract}`
           }})
         } catch (error) {
-          message.reply(`Can't parse JSON response.`)
+          message.reply(presets.language.library.parseError)
         }
       }
     })
   } else {
-    message.reply(`Search wikipedia(en) and get result of document. Argument is string to search.`)
+    message.reply(presets.language.library.description)
   }
 }

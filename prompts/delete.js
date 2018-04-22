@@ -7,7 +7,7 @@ module.exports.execute = async (client, message, presets) => {
     message.delete()
     if (isNaN(presets.arguments[0]) === true || presets.arguments[0] > 45) return
     message.channel.bulkDelete(presets.arguments[0])
-      .then(messages => message.reply(`Bulk deleted ${messages.size} messages.`))
+      .then(messages => message.reply(presets.language.delete.description.replace(`%a`, messages.size)))
   } else {
     return
   }

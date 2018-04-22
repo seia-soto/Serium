@@ -5,5 +5,5 @@ module.exports.options = {
 
 module.exports.execute = async (client, message, presets) => {
   if (!presets.arguments[0]) return
-  message.reply(`The probability that ${presets.arguments.slice(0).join(' ')} is ${Math.floor(Math.random() * 100) + 1}%.`)
+  message.channel.send(presets.language.probability.result.replace(`%a`, presets.arguments.slice(0).join(' ')).replace(`%b`, Math.floor(Math.random() * 100) + 1))
 }

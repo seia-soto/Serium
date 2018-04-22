@@ -1,1 +1,1 @@
-module.exports = require(`./messages.json`)
+module.exports = require(`./translate.json`)

@@ -13,7 +13,7 @@ const accesspoints = {
   Prefix: `;`
 }
 
-initialize.prompts(`strict`, prompts)
+initialize.prompts(prompts)
 client.login(accesspoints.Discord)
 client.destroy().then(() => client.login(accesspoints.Discord))
 
@@ -24,21 +24,22 @@ client.on(`ready`, () => {
   client.user.setStatus(`idle`)
 })
 client.on(`message`, async (message) => {
+  const permissionAllowed = finder.permissions(message)
+  const prompt = prompts.get(message.content.split(` `)[0].slice(accesspoints.Prefix.length))
+  const isDenied =
+    (message.author.bot)
+    || (`dm` === message.channel.type)
+    || (!message.content.startsWith(accesspoints.Prefix))
+    || (recentlyExecuted.has(message.author.id))
+    || (!prompt)
+    || (permissionAllowed < prompt.options.permissions)
+  if (isDenied) { return }
+  const language = await finder.languages(message, accesspoints)
   const presets = {
     default: require(`./index`),
-    name: message.content.split(` `)[0].slice(accesspoints.Prefix.length),
-    arguments: message.content.split(` `).slice(1)
+    arguments: message.content.split(` `).slice(1),
+    language: require(`./store/i18n/${language}`)
   }
-  const prompt = prompts.get(presets.name)
-  const permissionAllowed = finder.permissions(message)
-  const isDenied =
-      (message.author.bot)
-      || (`dm` === message.channel.type)
-      || (!message.content.startsWith(accesspoints.Prefix))
-      || (recentlyExecuted.has(message.author.id))
-      || (!prompt)
-      || (permissionAllowed < prompt.options.permissions)
-  if (isDenied) { return }
   prompt.execute(client, message, presets)
   recentlyExecuted.add(message.author.id)
   setTimeout(() => { recentlyExecuted.delete(message.author.id) }, 1500)

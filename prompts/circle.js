@@ -4,14 +4,15 @@ module.exports.options = {
 }
 
 module.exports.execute = async (client, message, presets) => {
-  if (presets.arguments[0]) {
-    if (isNaN(presets.arguments[0]) === true) return
+  const argument = presets.arguments[0]
+  if (argument) {
+    if (isNaN(argument) === true) return
     message.channel.send({embed: {
      color: 16761035,
-     title: `About radius ` + presets.arguments[0],
-     description: `**PI** ${Math.PI}\n**Radius** ${presets.arguments[0]}\n**Area** ${Circle.area(presets.arguments[0])}\n**Circumference** ${Circle.circumference(presets.arguments[0])}`
+     title: presets.language.circle.title.replace(`%a`, argument),
+     description: presets.language.circle.result.replace(`%a`, Math.PI).replace(`%b`, argument).replace(`%c`, Circle.area(argument)).replace(`%d`, Circle.circumference(argument))
     }})
   } else {
-    message.reply(`Returns you circle circumference and area about radius.`)
+    message.reply(presets.language.circle.description)
   }
 }

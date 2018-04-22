@@ -15,6 +15,6 @@ module.exports.execute = async (client, message, presets) => {
       }
     })
   } else {
-    message.reply(`Push a request to url that you gave. Result is body and statusCode of respones. Argument is string to push.`)
+    message.reply(presets.language.request.description)
   }
 }

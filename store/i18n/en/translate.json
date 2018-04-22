@@ -1,0 +1,34 @@
+{
+  "avatar": null,
+  "circle": {
+    "title": "About radius %a",
+    "result": "**PI** %a\n**Radius** %b\n**Area** %c\n**Circumference** %d",
+    "description": "Returns you circle circumference and area about radius"
+  },
+  "delete": {
+    "description": "Bulk deleted %a messages."
+  },
+  "help": {
+    "description": "**Support Server:** [https://discord.gg/YzBZNQq](https://discord.gg/YzBZNQq)\n**Invite:** [Seriumium#2403](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)",
+    "fields": {
+      "Moderations": "Moderations",
+      "Images": "Images",
+      "Library": "Library"
+    }
+  },
+  "library": {
+    "parseError": "Can't parse JSON responses",
+    "description": "Search wikipedia(en) and get result of document. Argument is string to search."
+  },
+  "neko": {
+    "parseError": "Can't parse JSON responses",
+    "notNSFW": "Blocked because it can contains some NSFW-images. Please execute in NSFW channels instead."
+  },
+  "ping": null,
+  "probability": {
+    "result": "The probability that %a is %b%"
+  },
+  "request": {
+    "description": "Push a request to url that you gave. Result is body and statusCode of respones. Argument is string to push."
+  }
+}
