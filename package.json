@@ -1,6 +1,6 @@
 {
   "name": "Seriumium",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "The bot that works on Discord.",
   "main": "index.js",
   "scripts": {
@@ -20,8 +20,8 @@
   "homepage": "https://github.com/seriumium/seriumiumDiscord#readme",
   "dependencies": {
     "discord.js": "^11.3.2",
+    "hashmap": "^2.3.0",
     "opusscript": "0.0.6",
-    "request": "^2.85.0",
-    "safe-eval": "^0.3.0"
+    "request": "^2.85.0"
   }
 }

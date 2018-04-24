@@ -1,0 +1,4 @@
+hello world
+Application has been initialized at Tue Apr 24 2018 23:16:30 GMT+0900 (대한민국 표준시)
+Client session was destroyed at Tue Apr 24 2018 23:16:30 GMT+0900 (대한민국 표준시)
+Client signed in to Discord gateway at Tue Apr 24 2018 23:16:31 GMT+0900 (대한민국 표준시)

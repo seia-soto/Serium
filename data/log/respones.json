@@ -1,0 +1,5 @@
+{
+  "initialized": "Application has been initialized at ",
+  "signed_in": "Client signed in to Discord gateway at ",
+  "session_destroyed": "Client session was destroyed at "
+}
