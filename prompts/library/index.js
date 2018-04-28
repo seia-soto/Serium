@@ -13,6 +13,6 @@ module.exports.execute = (client, message, nt) => {
       }})
     })
   } else {
-    message.reply('There is no argument to search')
+    message.reply(nt.translations.library.invaild_string)
   }
 }

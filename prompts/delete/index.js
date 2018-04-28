@@ -1,12 +1,14 @@
 module.exports.permissions = 1
 module.exports.execute = (client, message, nt) => {
-  if (presets.arguments[0]) {
+  if (nt.arguments[0]) {
     message.delete()
-    if (isNaN(presets.arguments[0]) === true || presets.arguments[0] > 45) return
-    message.channel.bulkDelete(presets.arguments[0])
-      .then(messages => message.reply())
-        .then(message => delete(4500))
+    if (isNaN(nt.arguments[0]) === true || nt.arguments[0] > 45) return
+    try {
+      message.channel.bulkDelete(nt.arguments[0])
+    } catch (error) {
+      console.error(error)
+    }
   } else {
-    message.reply('Invaild parameter')
+    message.reply(nt.translations.delete.invaild_parameter)
   }
 }

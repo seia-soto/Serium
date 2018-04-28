@@ -1,21 +1,26 @@
 module.exports.permissions = 0
-module.exports.execute = (client, message) => {
+module.exports.execute = (client, message, nt) => {
   message.channel.send({embed: {
     color: 16761035,
-    title: `Seriumium`,
-    description: 'by <@324541397988409355> code with heart',
+    title: nt.translations.help.title,
+    description: nt.translations.help.description,
     fields: [
       {
-        name: 'Support',
-        value: '[Support server](https://discord.gg/YzBZNQq)\n[Invite Seriumium#2403](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot\n[GitHub](https://github.com/seriumium/seriumiumDiscord/)\n[Webpage](https://seriumium.github.io))'
+        name: nt.translations.help.names.seriumium,
+        value: nt.translations.help.values.seriumium
       },
       {
-        name: 'Prompts',
-        vale: '`avatar` `delete` `help` `library` `ping` `probability` `say` `sayd`'
+        name: nt.translations.help.names.moderations,
+        value: nt.translations.help.values.moderations
+      },
+      {
+        name: nt.translations.help.names.images,
+        value: nt.translations.help.values.images
+      },
+      {
+        name: nt.translations.help.names.gladsome,
+        value: nt.translations.help.values.gladsome
       }
-    ],
-    footer: {
-      text: `Seriumium (1.2.4 Idlen)`
-    }
+    ]
   }})
 }
