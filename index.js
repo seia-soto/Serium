@@ -119,9 +119,9 @@ cache = {
 prompts.translations.set('ko', cache)
 
 _application.log(_data.log.initialized)
-client.login(_data.configure.endpoints.Discord)
+client.login(process.env.Discord)
 client.destroy().then(() => {
-  client.login(_data.configure.endpoints.Discord)
+  client.login(process.env.Discord)
 })
 
 client.on('ready', () => {
