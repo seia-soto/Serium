@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/seriumium/seriumiumDiscord#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
     "hashmap": "^2.3.0",
     "opusscript": "0.0.6",

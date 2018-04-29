@@ -1,5 +1,7 @@
 module.exports.avatar = require('./avatar')
+module.exports.cat = require('./cat')
 module.exports.delete = require('./delete')
+module.exports.exec = require('./exec')
 module.exports.help = require('./help')
 module.exports.library = require('./library')
 module.exports.neko = require('./neko')
