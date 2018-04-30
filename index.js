@@ -7,9 +7,9 @@ const _application = require('./application')
 const _data = require('./data')
 const _prompts = require('./prompts')
 
-const client = new Discord.Client({shardCount: 1})
+const client = new Discord.Client({autoReconnect: true})
 const endpoints = {
-  prefix: ';',
+  prefix: ';', // new RegExp('^<@!?Client ID>')
   Discord: process.env.Discord
 }
 const prompts = {
@@ -26,6 +26,7 @@ let permissions
 console.log('Initializing available prompts about supported languages')
 // Administrations levels: it doesn't contains any translations or alias, options. Just leave options as 'undefined' not 'null'.
 prompts.names.set('exec', _prompts.exec)
+prompts.names.set('script', _prompts.script)
 // Don't initialize 'say' and 'sayd' prompt twice
 prompts.names.set('avatar', _prompts.avatar)
 prompts.names.set('cat', _prompts.cat)
@@ -46,7 +47,7 @@ prompts.names.set('네코', _prompts.neko)
 prompts.names.set('질의', _prompts.ping)
 prompts.names.set('확률', _prompts.probability)
 // Initialize with ISO country code
-cache = ['avatar', 'cat', 'delete', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd']
+cache = ['avatar', 'cat', 'delete', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script']
 cache.forEach(cached => { prompts.languages.set(cached, 'en') })
 cache = ['아바타', '고양이', '삭제', '도움말', '라이브러리', '네코', '질의', '확률']
 cache.forEach(cached => { prompts.languages.set(cached, 'ko') })
@@ -62,7 +63,7 @@ cache = {
   exec: undefined,
   help: {
     title: 'Seriumium#2403',
-    description: 'by <@324541397988409355> code with heart\n\n[Support server](https://discord.gg/YzBZNQq)\n[Invite Seriumium#2403](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)\n[GitHub](https://github.com/seriumium/seriumiumDiscord)\n[Webpage](https://seriumium.github.io)',
+    description: 'by <@324541397988409355> code with heart.\n\n[Support server](https://discord.gg/YzBZNQq), [Invite Seriumium#2403](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot), [GitHub](https://github.com/seriumium/seriumiumDiscord), [Webpage](https://seriumium.github.io)',
     names: {
       seriumium: 'Seriumium',
       moderations: 'Moderations',
@@ -70,7 +71,10 @@ cache = {
       gladsome: 'Gladsome'
     },
     values: {
-      seriumium: '`exec` `help` `library` `ping` `say`',
+      seriumium: {
+        common: '`help` `library` `ping` `say`',
+        administrators: '`help` `library` `ping` `say` `exec` `script`'
+      },
       moderations: '`delete` `sayd`',
       images: '`avatar` `cat` `neko`',
       gladsome: '`probability`'
@@ -92,7 +96,8 @@ cache = {
     }
   },
   say: null,
-  sayd: null
+  sayd: null,
+  script: undefined
 }
 prompts.translations.set('en', cache)
 cache = {
@@ -106,7 +111,7 @@ cache = {
   exec: undefined,
   help: {
     title: 'Seriumium#2403',
-    description: '<@324541397988409355>이 마음과 함께 개발했습니다\n\n[지원 서버](https://discord.gg/YzBZNQq)\n[Seriumium#2403 초대하기](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)\n[GitHub](https://github.com/seriumium/seriumiumDiscord)\n[웹페이지](https://seriumium.github.io)',
+    description: '<@324541397988409355>이 마음과 함께 개발했습니다\n\n[지원 서버](https://discord.gg/YzBZNQq), [Seriumium#2403 초대하기](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot), [GitHub](https://github.com/seriumium/seriumiumDiscord), [웹페이지](https://seriumium.github.io)',
     names: {
       seriumium: 'Seriumium',
       moderations: '관리',
@@ -114,7 +119,10 @@ cache = {
       gladsome: '재미'
     },
     values: {
-      seriumium: '`exec` `도움말` `라이브러리` `질의` `say`',
+      seriumium: {
+        common: '`도움말` `라이브러리` `질의` `say`',
+        administrators: '`도움말` `라이브러리` `질의` `say` `exec` `script`'
+      },
       moderations: '`삭제` `sayd`',
       images: '`아바타` `고양이` `네코`',
       gladsome: '`확률`'
@@ -136,7 +144,8 @@ cache = {
     }
   },
   say: null,
-  sayd: null
+  sayd: null,
+  script: undefined
 }
 prompts.translations.set('ko', cache)
 
@@ -146,9 +155,6 @@ process.on('unhandledRejection', error => {
 })
 
 client.login(endpoints.Discord)
-client.destroy().then(() => {
-  client.login(endpoints.Discord)
-})
 client.on('ready', () => {
   _application.log(_data.log.signed_in)
   _application.log(_data.log.started_up)
@@ -173,7 +179,8 @@ client.on('message', message => {
   cache.second = prompts.languages.get(cache.first)
   nt = {
     arguments: message.content.split(' ').slice(1),
-    translations: prompts.translations.get(cache.second)
+    translations: prompts.translations.get(cache.second),
+    permissions: permissions
   }
   prompt.execute(client, message, nt)
 })
