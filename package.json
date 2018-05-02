@@ -1,7 +1,7 @@
 {
-  "name": "Seriumium",
+  "name": "seriumium",
   "version": "1.2.6",
-  "description": "The bot that works on Discord.",
+  "description": "Discord, there was an error because I am so busy.",
   "main": "index.js",
   "scripts": {
     "start": "node .",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seriumium/seriumiumDiscord.git"
+    "url": "git+https://github.com/Seriumium/seriumium.git"
   },
   "keywords": [],
   "author": "Let",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/seriumium/seriumiumDiscord/issues"
+    "url": "https://github.com/Seriumium/seriumium/issues"
   },
-  "homepage": "https://github.com/seriumium/seriumiumDiscord#readme",
+  "homepage": "https://github.com/Seriumium/seriumium#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",

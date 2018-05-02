@@ -29,8 +29,10 @@ prompts.names.set('exec', _prompts.exec)
 prompts.names.set('script', _prompts.script)
 // Don't initialize 'say' and 'sayd' prompt twice
 prompts.names.set('avatar', _prompts.avatar)
+prompts.names.set('calculate', _prompts.calculate)
 prompts.names.set('cat', _prompts.cat)
 prompts.names.set('delete', _prompts.delete)
+prompts.names.set('dog', _prompts.dog)
 prompts.names.set('help', _prompts.help)
 prompts.names.set('library', _prompts.library)
 prompts.names.set('neko', _prompts.neko)
@@ -38,18 +40,22 @@ prompts.names.set('ping', _prompts.ping)
 prompts.names.set('probability', _prompts.probability)
 prompts.names.set('say', _prompts.say)
 prompts.names.set('sayd', _prompts.sayd)
+prompts.names.set('tags', _prompts.tags)
 prompts.names.set('아바타', _prompts.avatar)
+prompts.names.set('계산', _prompts.calculate)
 prompts.names.set('고양이', _prompts.cat)
+prompts.names.set('강아지', _prompts.dog)
 prompts.names.set('삭제', _prompts.delete)
 prompts.names.set('도움말', _prompts.help)
 prompts.names.set('라이브러리', _prompts.library)
 prompts.names.set('네코', _prompts.neko)
 prompts.names.set('질의', _prompts.ping)
 prompts.names.set('확률', _prompts.probability)
+prompts.names.set('태그', _prompts.tags)
 // Initialize with ISO country code
-cache = ['avatar', 'cat', 'delete', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script']
+cache = ['avatar', 'calculate', 'cat', 'delete', 'dog', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script', 'tags']
 cache.forEach(cached => { prompts.languages.set(cached, 'en') })
-cache = ['아바타', '고양이', '삭제', '도움말', '라이브러리', '네코', '질의', '확률']
+cache = ['아바타', '계산', '고양이', '삭제', '강아지', '도움말', '라이브러리', '네코', '질의', '확률' , '태그']
 cache.forEach(cached => { prompts.languages.set(cached, 'ko') })
 // Register the translations
 cache = {
@@ -59,6 +65,9 @@ cache = {
   },
   delete: {
     invaild_parameter: 'Invaild parameter: only data type of int can be vaild and it must smaller then 45'
+  },
+  dog: {
+    parse_failed: 'Can not read returned data\n\nFollowing is detail: '
   },
   exec: undefined,
   help: {
@@ -72,12 +81,12 @@ cache = {
     },
     values: {
       seriumium: {
-        common: '`help` `library` `ping` `say`',
-        administrators: '`help` `library` `ping` `say` `exec` `script`'
+        common: '`calculate` `help` `library` `ping` `say`',
+        administrators: '`calculate` `help` `library` `ping` `say` `exec` `script`'
       },
       moderations: '`delete` `sayd`',
-      images: '`avatar` `cat` `neko`',
-      gladsome: '`probability`'
+      images: '`avatar` `cat` `dog` `neko`',
+      gladsome: '`probability` `tags`'
     }
   },
   library: {
@@ -97,7 +106,14 @@ cache = {
   },
   say: null,
   sayd: null,
-  script: undefined
+  script: undefined,
+  tags: {
+    setted: 'Tag was modifyed',
+    deleted: 'Tag was deleted',
+    parse_failed: 'Can not read returned data\n\nFollowing is detail: ',
+    not_found: 'That tag was not found on this restdot server',
+    help: 'This is the function of beta! Please use carefully.\n\n**Create/Edit tags with ** `tags set KEY VALUE`\n**Delete tags with ** `tags delete KEY`\n**Open the tags with ** `tags KEY`'
+  }
 }
 prompts.translations.set('en', cache)
 cache = {
@@ -107,6 +123,9 @@ cache = {
   },
   delete: {
     invaild_parameter: '잘못된 매개변수: 올바른 데이터형은 int이며 45보다 작아야 합니다'
+  },
+  dog: {
+    parse_failed: '반환된 데이터를 읽을 수 없습니다\n\n자세한 정보는 다음과 같음: '
   },
   exec: undefined,
   help: {
@@ -120,12 +139,12 @@ cache = {
     },
     values: {
       seriumium: {
-        common: '`도움말` `라이브러리` `질의` `say`',
-        administrators: '`도움말` `라이브러리` `질의` `say` `exec` `script`'
+        common: '`계산` `도움말` `라이브러리` `질의` `say`',
+        administrators: '`계산` `도움말` `라이브러리` `질의` `say` `exec` `script`'
       },
       moderations: '`삭제` `sayd`',
-      images: '`아바타` `고양이` `네코`',
-      gladsome: '`확률`'
+      images: '`아바타` `고양이` `강아지` `네코`',
+      gladsome: '`확률` `태그`'
     }
   },
   library: {
@@ -140,12 +159,19 @@ cache = {
     result: {
       first: '',
       second: ' 확률은 ',
-      third: '%이다'
+      third: '%입니다'
     }
   },
   say: null,
   sayd: null,
-  script: undefined
+  script: undefined,
+  tags: {
+    setted: '태그가 관리되었습니다',
+    deleted: '태그가 삭제되었습니다',
+    parse_failed: '반환된 데이터를 읽을 수 없습니다\n\n자세한 정보는 다음과 같음: ',
+    not_found: '태그를 restdot 서버에서 찾을 수 없습니다',
+    help: '실험기능입니다! 조심히 사용해주세요.\n\n**태그 추가/편집 ** `태그 set KEY VALUE`\n**태그 삭제 ** `태그 delete KEY`\n**테그 열기 ** `태그 KEY`'
+  }
 }
 prompts.translations.set('ko', cache)
 
@@ -164,23 +190,27 @@ client.on('ready', () => {
   client.user.setStatus('idle')
 })
 client.on('message', message => {
-  if (message.channel.type === 'dm') return
-  if (message.channel.permissionsFor(message.author).has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
-  if (message.author.id === '324541397988409355') permissions = 4
-  prompt = prompts.names.get(message.content.split(' ')[0].slice(endpoints.prefix.length))
-  notAllowed =
-    (message.author.bot)
-    || (message.channel.type === 'dm')
-    || (!message.content.startsWith(endpoints.prefix))
-    || (!prompt)
-    || (permissions < prompt.permissions)
-  if (notAllowed) { return }
-  cache.first = message.content.split(' ')[0].slice(endpoints.prefix.length)
-  cache.second = prompts.languages.get(cache.first)
-  nt = {
-    arguments: message.content.split(' ').slice(1),
-    translations: prompts.translations.get(cache.second),
-    permissions: permissions
+  try {
+    if (message.channel.type === 'dm') return
+    if (message.channel.permissionsFor(message.author).has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
+    if (message.author.id === '324541397988409355') permissions = 4
+    prompt = prompts.names.get(message.content.split(' ')[0].slice(endpoints.prefix.length))
+    notAllowed =
+      (message.author.bot)
+      || (message.channel.type === 'dm')
+      || (!message.content.startsWith(endpoints.prefix))
+      || (!prompt)
+      || (permissions < prompt.permissions)
+    if (notAllowed) { return }
+    cache.first = message.content.split(' ')[0].slice(endpoints.prefix.length)
+    cache.second = prompts.languages.get(cache.first)
+    nt = {
+      arguments: message.content.split(' ').slice(1),
+      translations: prompts.translations.get(cache.second),
+      permissions: permissions
+    }
+    prompt.execute(client, message, nt)
+  } catch (error) {
+    console.error(error)
   }
-  prompt.execute(client, message, nt)
 })
