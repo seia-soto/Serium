@@ -41,6 +41,7 @@ prompts.names.set('probability', _prompts.probability)
 prompts.names.set('say', _prompts.say)
 prompts.names.set('sayd', _prompts.sayd)
 prompts.names.set('tags', _prompts.tags)
+prompts.names.set('userinfo', _prompts.userinfo)
 prompts.names.set('아바타', _prompts.avatar)
 prompts.names.set('계산', _prompts.calculate)
 prompts.names.set('고양이', _prompts.cat)
@@ -52,10 +53,11 @@ prompts.names.set('네코', _prompts.neko)
 prompts.names.set('질의', _prompts.ping)
 prompts.names.set('확률', _prompts.probability)
 prompts.names.set('태그', _prompts.tags)
+prompts.names.set('사용자정보', _prompts.userinfo)
 // Initialize with ISO country code
-cache = ['avatar', 'calculate', 'cat', 'delete', 'dog', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script', 'tags']
+cache = ['avatar', 'calculate', 'cat', 'delete', 'dog', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script', 'tags', 'userinfo']
 cache.forEach(cached => { prompts.languages.set(cached, 'en') })
-cache = ['아바타', '계산', '고양이', '삭제', '강아지', '도움말', '라이브러리', '네코', '질의', '확률' , '태그']
+cache = ['아바타', '계산', '고양이', '삭제', '강아지', '도움말', '라이브러리', '네코', '질의', '확률' , '태그', '사용자정보']
 cache.forEach(cached => { prompts.languages.set(cached, 'ko') })
 // Register the translations
 cache = {
@@ -86,7 +88,7 @@ cache = {
       },
       moderations: '`delete` `sayd`',
       images: '`avatar` `cat` `dog` `neko`',
-      gladsome: '`probability` `tags`'
+      gladsome: '`probability` `tags` `userinfo`'
     }
   },
   library: {
@@ -113,6 +115,23 @@ cache = {
     parse_failed: 'Can not read returned data\n\nFollowing is detail: ',
     not_found: 'That tag was not found on this restdot server',
     help: 'This is the function of beta! Please use carefully.\n\n**Create/Edit tags with ** `tags set KEY VALUE`\n**Delete tags with ** `tags delete KEY`\n**Open the tags with ** `tags KEY`'
+  },
+  userinfo: {
+    not_found: {
+      title: 'Not found',
+      description: 'The user provided was not found'
+    },
+    endpoints: {
+      createdAt: 'Registered Discord at ',
+      title: 'Endpoints',
+      bot: '**Bot** ',
+      web: '\n**WebApplication** '
+    },
+    presence: {
+      title: 'Presence',
+      status: '**Status** ',
+      game: '\n**Game** '
+    }
   }
 }
 prompts.translations.set('en', cache)
@@ -144,7 +163,7 @@ cache = {
       },
       moderations: '`삭제` `sayd`',
       images: '`아바타` `고양이` `강아지` `네코`',
-      gladsome: '`확률` `태그`'
+      gladsome: '`확률` `태그` `사용자정보`'
     }
   },
   library: {
@@ -171,6 +190,23 @@ cache = {
     parse_failed: '반환된 데이터를 읽을 수 없습니다\n\n자세한 정보는 다음과 같음: ',
     not_found: '태그를 restdot 서버에서 찾을 수 없습니다',
     help: '실험기능입니다! 조심히 사용해주세요.\n\n**태그 추가/편집 ** `태그 set KEY VALUE`\n**태그 삭제 ** `태그 delete KEY`\n**테그 열기 ** `태그 KEY`'
+  },
+  userinfo: {
+    not_found: {
+      title: '사용자 없음',
+      description: '주어진 사용자가 존재하지 않습니다'
+    },
+    endpoints: {
+      createdAt: '다음 날짜에 Discord에 가입했습니다: ',
+      title: '접속점',
+      bot: '**Bot** ',
+      web: '\n**웹앱** '
+    },
+    presence: {
+      title: '상태',
+      status: '**상태** ',
+      game: '\n**게임** '
+    }
   }
 }
 prompts.translations.set('ko', cache)
@@ -193,7 +229,7 @@ client.on('message', message => {
   try {
     if (message.channel.type === 'dm') return
     if (message.channel.permissionsFor(message.author).has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
-    if (message.author.id === '324541397988409355') permissions = 4
+    if (message.author.id === '324541397988409355' || message.author.id === '404107090009784320') permissions = 4
     prompt = prompts.names.get(message.content.split(' ')[0].slice(endpoints.prefix.length))
     notAllowed =
       (message.author.bot)

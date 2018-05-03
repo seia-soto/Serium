@@ -1,5 +1,5 @@
 const request = require('request')
-const endpoint = 'https://' + process.env.Restdot + '/read'
+const endpoint = process.env.Restdot + '/read'
 let data
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
