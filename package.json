@@ -1,6 +1,6 @@
 {
   "name": "seriumium",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Discord, there was an error because I am so busy.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "discord.js": "^11.3.2",
     "hashmap": "^2.3.0",
     "opusscript": "0.0.6",
+    "querystring": "^0.2.0",
     "request": "^2.85.0"
   }
 }

@@ -29,7 +29,6 @@ prompts.names.set('exec', _prompts.exec)
 prompts.names.set('script', _prompts.script)
 // Don't initialize 'say' and 'sayd' prompt twice
 prompts.names.set('avatar', _prompts.avatar)
-prompts.names.set('calculate', _prompts.calculate)
 prompts.names.set('cat', _prompts.cat)
 prompts.names.set('delete', _prompts.delete)
 prompts.names.set('dog', _prompts.dog)
@@ -40,10 +39,9 @@ prompts.names.set('ping', _prompts.ping)
 prompts.names.set('probability', _prompts.probability)
 prompts.names.set('say', _prompts.say)
 prompts.names.set('sayd', _prompts.sayd)
-prompts.names.set('tags', _prompts.tags)
+prompts.names.set('search', _prompts.search)
 prompts.names.set('userinfo', _prompts.userinfo)
 prompts.names.set('아바타', _prompts.avatar)
-prompts.names.set('계산', _prompts.calculate)
 prompts.names.set('고양이', _prompts.cat)
 prompts.names.set('강아지', _prompts.dog)
 prompts.names.set('삭제', _prompts.delete)
@@ -52,12 +50,16 @@ prompts.names.set('라이브러리', _prompts.library)
 prompts.names.set('네코', _prompts.neko)
 prompts.names.set('질의', _prompts.ping)
 prompts.names.set('확률', _prompts.probability)
-prompts.names.set('태그', _prompts.tags)
+prompts.names.set('검색', _prompts.search)
 prompts.names.set('사용자정보', _prompts.userinfo)
 // Initialize with ISO country code
-cache = ['avatar', 'calculate', 'cat', 'delete', 'dog', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script', 'tags', 'userinfo']
+cache = [
+  'avatar', 'cat', 'delete', 'dog', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script', 'search', 'userinfo'
+]
 cache.forEach(cached => { prompts.languages.set(cached, 'en') })
-cache = ['아바타', '계산', '고양이', '삭제', '강아지', '도움말', '라이브러리', '네코', '질의', '확률' , '태그', '사용자정보']
+cache = [
+  '아바타', '고양이', '삭제', '강아지', '도움말', '라이브러리', '네코', '질의', '확률', '검색', '사용자정보'
+]
 cache.forEach(cached => { prompts.languages.set(cached, 'ko') })
 // Register the translations
 cache = {
@@ -83,12 +85,12 @@ cache = {
     },
     values: {
       seriumium: {
-        common: '`calculate` `help` `library` `ping` `say`',
-        administrators: '`calculate` `help` `library` `ping` `say` `exec` `script`'
+        common: '`help` `library` `ping` `search` `say`',
+        administrators: '`help` `library` `ping` `search` `say` `exec` `script`'
       },
       moderations: '`delete` `sayd`',
       images: '`avatar` `cat` `dog` `neko`',
-      gladsome: '`probability` `tags` `userinfo`'
+      gladsome: '`probability` `userinfo`'
     }
   },
   library: {
@@ -109,12 +111,10 @@ cache = {
   say: null,
   sayd: null,
   script: undefined,
-  tags: {
-    setted: 'Tag was modifyed',
-    deleted: 'Tag was deleted',
-    parse_failed: 'Can not read returned data\n\nFollowing is detail: ',
-    not_found: 'That tag was not found on this restdot server',
-    help: 'This is the function of beta! Please use carefully.\n\n**Create/Edit tags with ** `tags set KEY VALUE`\n**Delete tags with ** `tags delete KEY`\n**Open the tags with ** `tags KEY`'
+  search: {
+    result: 'Following are searched result\n',
+    error: 'There was an error or result was not found on Google',
+    not_found: 'Result was not found on Google'
   },
   userinfo: {
     not_found: {
@@ -158,12 +158,12 @@ cache = {
     },
     values: {
       seriumium: {
-        common: '`계산` `도움말` `라이브러리` `질의` `say`',
-        administrators: '`계산` `도움말` `라이브러리` `질의` `say` `exec` `script`'
+        common: '`도움말` `라이브러리` `질의` `검색` `say`',
+        administrators: '`도움말` `라이브러리` `질의` `검색` `say` `exec` `script`'
       },
       moderations: '`삭제` `sayd`',
       images: '`아바타` `고양이` `강아지` `네코`',
-      gladsome: '`확률` `태그` `사용자정보`'
+      gladsome: '`확률` `사용자정보`'
     }
   },
   library: {
@@ -184,12 +184,10 @@ cache = {
   say: null,
   sayd: null,
   script: undefined,
-  tags: {
-    setted: '태그가 관리되었습니다',
-    deleted: '태그가 삭제되었습니다',
-    parse_failed: '반환된 데이터를 읽을 수 없습니다\n\n자세한 정보는 다음과 같음: ',
-    not_found: '태그를 restdot 서버에서 찾을 수 없습니다',
-    help: '실험기능입니다! 조심히 사용해주세요.\n\n**태그 추가/편집 ** `태그 set KEY VALUE`\n**태그 삭제 ** `태그 delete KEY`\n**테그 열기 ** `태그 KEY`'
+  search: {
+    result: '다음은 검색된 결과입니다\n',
+    error: '오류가 발생했거나 Google에서 검색결과를 찾지 못했습니다',
+    not_found: 'Google에서 검색결과를 찾지 못했습니다'
   },
   userinfo: {
     not_found: {
