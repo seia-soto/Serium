@@ -14,7 +14,7 @@ module.exports.execute = (client, message, nt) => {
   } else {
     user = message.author
   }
-  let embed = new Discord.RichEmbed()
+  const embed = new Discord.RichEmbed()
     .setTitle(user.username)
     .setAuthor(user.tag, user.avatarURL)
     .setColor(16761035)

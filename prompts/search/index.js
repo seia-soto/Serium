@@ -9,6 +9,11 @@ module.exports.execute = (client, message, nt) => {
       if (error) { message.reply(error); return }
       const $ = cheerio.load(body)
       const query = querystring.parse($('.r').first().find('a').first().attr('href').replace('/url?', ''))
+        .catch(error => {
+          console.error(error)
+          message.reply(error)
+          return
+        })
       const result = query.q
       if (result === undefined) {
         message.reply(nt.translations.search.not_found)

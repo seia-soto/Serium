@@ -9,7 +9,7 @@ const _prompts = require('./prompts')
 
 const client = new Discord.Client({autoReconnect: true})
 const endpoints = {
-  prefix: ';', // new RegExp('^<@!?Client ID>')
+  prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
   Discord: process.env.Discord
 }
 const prompts = {
@@ -40,6 +40,7 @@ prompts.names.set('probability', _prompts.probability)
 prompts.names.set('say', _prompts.say)
 prompts.names.set('sayd', _prompts.sayd)
 prompts.names.set('search', _prompts.search)
+prompts.names.set('serverinfo', _prompts.serverinfo)
 prompts.names.set('userinfo', _prompts.userinfo)
 prompts.names.set('아바타', _prompts.avatar)
 prompts.names.set('고양이', _prompts.cat)
@@ -51,14 +52,15 @@ prompts.names.set('네코', _prompts.neko)
 prompts.names.set('질의', _prompts.ping)
 prompts.names.set('확률', _prompts.probability)
 prompts.names.set('검색', _prompts.search)
+prompts.names.set('서버정보', _prompts.serverinfo)
 prompts.names.set('사용자정보', _prompts.userinfo)
 // Initialize with ISO country code
 cache = [
-  'avatar', 'cat', 'delete', 'dog', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script', 'search', 'userinfo'
+  'avatar', 'cat', 'delete', 'dog', 'exec', 'help', 'library', 'neko', 'ping', 'probability', 'say', 'sayd', 'script', 'search', 'serverinfo', 'userinfo'
 ]
 cache.forEach(cached => { prompts.languages.set(cached, 'en') })
 cache = [
-  '아바타', '고양이', '삭제', '강아지', '도움말', '라이브러리', '네코', '질의', '확률', '검색', '사용자정보'
+  '아바타', '고양이', '삭제', '강아지', '도움말', '라이브러리', '네코', '질의', '확률', '검색', '서버정보', '사용자정보'
 ]
 cache.forEach(cached => { prompts.languages.set(cached, 'ko') })
 // Register the translations
@@ -85,12 +87,12 @@ cache = {
     },
     values: {
       seriumium: {
-        common: '`help` `library` `ping` `search` `say`',
-        administrators: '`help` `library` `ping` `search` `say` `exec` `script`'
+        common: '`help` `library` `ping` `search` `userinfo` `say`',
+        administrators: '`help` `library` `ping` `search` `userinfo` `say` `exec` `script`'
       },
       moderations: '`delete` `sayd`',
       images: '`avatar` `cat` `dog` `neko`',
-      gladsome: '`probability` `userinfo`'
+      gladsome: '`probability`'
     }
   },
   library: {
@@ -115,6 +117,28 @@ cache = {
     result: 'Following are searched result\n',
     error: 'There was an error or result was not found on Google',
     not_found: 'Result was not found on Google'
+  },
+  serverinfo: {
+    title: {
+      owned: 'Following user owned this server; '
+    },
+    description: {
+      members: ' members, ',
+      channels: ' channels, ',
+      roles: ' roles are available on this server'
+    },
+    users: {
+      title: 'Size',
+      count: '**Users** ',
+      large: '\n**isLarge** '
+    },
+    configures: {
+      title: 'Levels',
+      afkTimeout: '**afkTimeout** ',
+      afkChannel: '\n**afkChannel** ',
+      verificationLevel: '\n**Verification level** ',
+      explicitContentFilter: '\n**Explicit content filter** '
+    }
   },
   userinfo: {
     not_found: {
@@ -158,8 +182,8 @@ cache = {
     },
     values: {
       seriumium: {
-        common: '`도움말` `라이브러리` `질의` `검색` `say`',
-        administrators: '`도움말` `라이브러리` `질의` `검색` `say` `exec` `script`'
+        common: '`도움말` `라이브러리` `질의` `검색` `서버정보` `say`',
+        administrators: '`도움말` `라이브러리` `질의` `검색` `서버정보` `say` `exec` `script`'
       },
       moderations: '`삭제` `sayd`',
       images: '`아바타` `고양이` `강아지` `네코`',
@@ -168,10 +192,10 @@ cache = {
   },
   library: {
     invaild_string: '찾을 문자열을 인수에서 찾을 수 없습니다',
-    not_found: '위키백과(영문)에서 해당 문서를 찾을 수 없습니다\n\n자세한 정보는 다음과 같음: '
+    not_found: '위키백과(영문)에서 해당 문서를 찾을 수 없습니다\n\n자세한 정보는 다음과 같습니다; '
   },
   neko: {
-    parse_failed: '반환된 데이터를 읽을 수 없습니다\n\n자세한 정보는 다음과 같음: '
+    parse_failed: '반환된 데이터를 읽을 수 없습니다\n\n자세한 정보는 다음과 같습니다; '
   },
   ping: null,
   probability: {
@@ -185,9 +209,31 @@ cache = {
   sayd: null,
   script: undefined,
   search: {
-    result: '다음은 검색된 결과입니다\n',
+    result: '검색결과입니다;\n',
     error: '오류가 발생했거나 Google에서 검색결과를 찾지 못했습니다',
     not_found: 'Google에서 검색결과를 찾지 못했습니다'
+  },
+  serverinfo: {
+    title: {
+      owned: '다음 사용자가 이 서버를 소유했습니다; '
+    },
+    description: {
+      members: ' 사용자, ',
+      channels: ' 채널, ',
+      roles: ' 개의 역할이 이 서버에서 사용가능합니다'
+    },
+    users: {
+      title: '크기',
+      count: '**사용자들** ',
+      large: '\n**큼** '
+    },
+    configures: {
+      title: '수준',
+      afkTimeout: '**자리비움 제한시간** ',
+      afkChannel: '\n**자리비움 채널** ',
+      verificationLevel: '\n**인증** ',
+      explicitContentFilter: '\n**메세지 필터링** '
+    }
   },
   userinfo: {
     not_found: {
@@ -220,14 +266,14 @@ client.on('ready', () => {
   _application.log(_data.log.started_up)
   console.log()
   console.log(client.user.tag)
-  client.user.setActivity(';help | seriumium.github.io')
+  client.user.setActivity(';help | seriumium.tk')
   client.user.setStatus('idle')
 })
 client.on('message', message => {
   try {
     if (message.channel.type === 'dm') return
     if (message.channel.permissionsFor(message.author).has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
-    if (message.author.id === '324541397988409355' || message.author.id === '404107090009784320') permissions = 4
+    if (message.author.id === '324541397988409355' || message.author.id === '404107090009784320' || message.author.id === '265003834521157633') permissions = 4
     prompt = prompts.names.get(message.content.split(' ')[0].slice(endpoints.prefix.length))
     notAllowed =
       (message.author.bot)
