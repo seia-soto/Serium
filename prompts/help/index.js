@@ -1,6 +1,6 @@
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  const translate = nt.i('help', nt.language)
+  const translate = nt.i('help')
   message.channel.send({embed: {
     color: 16761035,
     title: translate.title,
@@ -8,23 +8,23 @@ module.exports.execute = (client, message, nt) => {
     '\n\n:earth_asia: https://seriumium.tk\n:sparkles: https://seriumium.github.io/invite\n:candle: https://github.com/Seriumium\n:bulb: ' + require('../../package.json').version,
     fields: [
       {
-        name: nt.i('seriumium', nt.language),
+        name: nt.i('seriumium'),
         value: translate.values.seriumium
       },
       {
-        name: nt.i('moderations', nt.language),
+        name: nt.i('moderations'),
         value: translate.values.moderations
       },
       {
-        name: nt.i('gladsome', nt.language),
+        name: nt.i('gladsome'),
         value: translate.values.gladsome
       },
       {
-        name: nt.i('images', nt.language),
+        name: nt.i('images'),
         value: translate.values.images
       },
       {
-        name: nt.i('about', nt.language),
+        name: nt.i('about'),
         value: translate.values.about
       }
     ]

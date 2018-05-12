@@ -11,10 +11,10 @@ module.exports.execute = (client, message, nt) => {
       const query = querystring.parse($('.r').first().find('a').first().attr('href').replace('/url?', ''))
       const result = query.q
       if (result === undefined) {
-        message.reply(nt.i('noResult_fromRemote', nt.language))
+        message.reply(nt.i('noResult_fromRemote'))
         return
       }
-      message.reply(nt.i('searchResult', nt.language) + ' ' + result)
+      message.reply(nt.i('searchResult') + ' ' + result)
     })
   } catch (error) {
     message.reply(nt.i('parseError_fromRemote') + ' ' + error)

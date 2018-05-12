@@ -14,9 +14,9 @@ module.exports.execute = (client, message, nt) => {
         }})
       })
     } catch (error) {
-      message.reply(nt.i('parseError_fromRemote'), nt.language)
+      message.reply(nt.i('parseError_fromRemote'))
     }
   } else {
-    message.reply(nt.i('emptyParameter', nt.language))
+    message.reply(nt.i('emptyParameter'))
   }
 }

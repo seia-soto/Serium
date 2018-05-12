@@ -9,6 +9,6 @@ module.exports.execute = (client, message, nt) => {
       console.error(error)
     }
   } else {
-    message.reply(nt.i('invaildParameter', nt.language))
+    message.reply(nt.i('invaildParameter'))
   }
 }

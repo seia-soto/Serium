@@ -1,6 +1,6 @@
 {
   "name": "seriumium",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "url": "git+https://github.com/Seriumium/seriumium.git"
   },
   "keywords": [],
-  "author": "Let",
-  "license": "MIT",
+  "author": "Seriumium",
+  "license": "Artistic License 2.0",
   "bugs": {
     "url": "https://github.com/Seriumium/seriumium/issues"
   },
@@ -21,7 +21,6 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
-    "hashmap": "^2.3.0",
     "opusscript": "0.0.6",
     "querystring": "^0.2.0",
     "request": "^2.85.0"

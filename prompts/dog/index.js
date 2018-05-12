@@ -9,6 +9,6 @@ module.exports.execute = (client, message, nt) => {
       message.reply(result.data[0].url)
     })
   } catch (error) {
-    message.reply(nt.i('parseError_fromRemote', nt.language))
+    message.reply(nt.i('parseError_fromRemote'))
   }
 }

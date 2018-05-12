@@ -13,12 +13,12 @@
   },
   "probability": {
     "front": "",
-    "middle": " 확률은",
+    "middle": " 확률은 ",
     "last": "%입니다."
   },
   "serverinfo": {
     "whoOwned": "다음 사용자가 이 서버를 소유했습니다;",
-    "availableFor": "개가 이 서버에서 사용 가능합니다"
+    "availableFor": "을 이 서버에서 사용 가능합니다"
   },
   "userinfo": {
     "when": "다음 날짜에 Discord에 가입했습니다; "

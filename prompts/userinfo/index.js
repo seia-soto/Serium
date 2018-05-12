@@ -7,7 +7,7 @@ module.exports.execute = (client, message, nt) => {
       message.channel.send({embed: {
         color: 16761035,
         title: user.id,
-        description: nt.i('noResult', nt.language)
+        description: nt.i('noResult')
       }})
       return
     }
@@ -18,14 +18,14 @@ module.exports.execute = (client, message, nt) => {
     .setTitle(user.username)
     .setAuthor(user.tag, user.avatarURL)
     .setColor(16761035)
-    .setDescription(nt.i('userinfo', nt.language).when + user.createdAt)
+    .setDescription(nt.i('userinfo').when + user.createdAt)
     .setThumbnail(user.avatarURL)
     .setURL(user.avatarURL)
-    .addField(nt.i('endpoints', nt.language),
-    '**' + nt.i('bot', nt.language) + '** ' + user.bot +
-    '\n**' + nt.i('web', nt.language) + '** ' + user.client.browser, true)
-    .addField(nt.i('presence', nt.language),
-    '**' + nt.i('status', nt.language) + '** ' + user.presence.status +
-    '\n**' + nt.i('game', nt.language) + '** ' + user.presence.game, true)
+    .addField(nt.i('endpoints'),
+    '**' + nt.i('bot') + '** ' + user.bot +
+    '\n**' + nt.i('web') + '** ' + user.client.browser, true)
+    .addField(nt.i('presence'),
+    '**' + nt.i('status') + '** ' + user.presence.status +
+    '\n**' + nt.i('game') + '** ' + user.presence.game, true)
   message.channel.send({embed})
 }
