@@ -9,6 +9,6 @@ module.exports.execute = (client, message, nt) => {
       message.reply(result.url)
     })
   } catch (error) {
-    message.reply(nt.translations.neko.parse_failed + error)
+    message.reply(nt.i('parseError_fromRemote', nt.language))
   }
 }

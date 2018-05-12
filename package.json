@@ -1,7 +1,7 @@
 {
   "name": "seriumium",
-  "version": "1.2.9",
-  "description": "Discord, there was an error because I am so busy.",
+  "version": "1.2.10",
+  "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {
     "start": "node .",

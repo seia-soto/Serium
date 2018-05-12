@@ -9,19 +9,14 @@ module.exports.execute = (client, message, nt) => {
       if (error) { message.reply(error); return }
       const $ = cheerio.load(body)
       const query = querystring.parse($('.r').first().find('a').first().attr('href').replace('/url?', ''))
-        .catch(error => {
-          console.error(error)
-          message.reply(error)
-          return
-        })
       const result = query.q
       if (result === undefined) {
-        message.reply(nt.translations.search.not_found)
+        message.reply(nt.i('noResult_fromRemote', nt.language))
         return
       }
-      message.reply(nt.translations.search.result + result)
+      message.reply(nt.i('searchResult', nt.language) + ' ' + result)
     })
   } catch (error) {
-    message.reply(nt.translations.search.error + error)
+    message.reply(nt.i('parseError_fromRemote') + ' ' + error)
   }
 }

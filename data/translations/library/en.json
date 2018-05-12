@@ -1,0 +1,69 @@
+{
+  "__comment__": "Prompts",
+  "help": {
+    "title": "Help",
+    "description": "Soto coded and modifyed with heart.",
+    "values": {
+      "seriumium": "`help` `exec` `script`",
+      "moderations": "`delete` `sayd`",
+      "gladsome": "`probability`",
+      "images": "`avatar` `neko` `cat` `dog`",
+      "about": "`library` `ping` `search` `serverinfo` `userinfo`"
+    }
+  },
+  "probability": {
+    "front": "The probability that ",
+    "middle": " is ",
+    "last": " percent."
+  },
+  "serverinfo": {
+    "whoOwned": "Following user owned this server;",
+    "availableFor": "are available on this server."
+  },
+  "userinfo": {
+    "when": "Signed up to Discord at "
+  },
+  "__comment__": "Common",
+  "users": "users",
+  "channels": "channels",
+  "roles": "roles",
+  "emojis": "emojis",
+  "isHuge": "isHuge",
+  "afkTimeout": "afkTimeout",
+  "afkChannel": "afkChannel",
+  "verificationLevel": "Verification level",
+  "ExplicitContentFilter": "Explicit content filter",
+  "level": "Level",
+  "size": "Size",
+  "seriumium": "Seriumium",
+  "moderations": "Moderations",
+  "gladsome": "Gladsome",
+  "images": "Images",
+  "about": "About",
+  "endpoints": "Endpoints",
+  "bot": "Bot",
+  "web": "Web",
+  "presence": "Presence",
+  "status": "Status",
+  "game": "Game",
+  "__comment__": "Results",
+  "executeResult": "Following is the result of executed of your request.",
+  "searchResult": "Following is the result of searched of your request.",
+  "queryResult": "Following is the result of queryed of your request.",
+  "noResult": "The result of request was not found on this server.",
+  "invaildResult": "Can't handle the result of your request local server queryed.",
+  "noResult_fromRemote": "The result of request was not found on remote server which queryed.",
+  "invaildResult_fromRemote": "The result from remote server which you requested was invaild.",
+  "__comment__": "Parameters",
+  "emptyParameter": "Received empty parameter from your request. Please confirm you sent not empty request before submit.",
+  "invaildParameter": "Received invaild parameter from your request. Please confirm you are using vaild letters before submit.",
+  "__comment__": "Errors",
+  "parseError": "Can't parse received data.",
+  "readError": "Can't read received data.",
+  "writeError": "Can't write data to local storage.",
+  "permissionError": "Can't execute command because the permissions which you have is not enought to execute command that you want.",
+  "parseError_fromRemote": "Can't parse received data from remote server.",
+  "readError_fromRemote": "Can't read received data from remote server.",
+  "writeError_fromRemote": "Can't write data to remote server.",
+  "permissionError_fromRemote": "Can't attempt command on remote server because the permissions which you have is not enought to execute command that you want."
+}

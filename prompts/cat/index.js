@@ -11,6 +11,6 @@ module.exports.execute = (client, message, nt) => {
       message.reply(result)
     })
   } catch (error) {
-    message.reply(nt.translations.cat.parse_failed + error)
+    message.reply(nt.i('parseError_fromRemote', nt.language))
   }
 }

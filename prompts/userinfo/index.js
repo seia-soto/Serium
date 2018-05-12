@@ -6,8 +6,8 @@ module.exports.execute = (client, message, nt) => {
     if (!user.id) {
       message.channel.send({embed: {
         color: 16761035,
-        title: nt.translations.userinfo.not_found.title,
-        description: nt.translations.userinfo.not_found.description
+        title: user.id,
+        description: nt.i('noResult', nt.language)
       }})
       return
     }
@@ -18,10 +18,14 @@ module.exports.execute = (client, message, nt) => {
     .setTitle(user.username)
     .setAuthor(user.tag, user.avatarURL)
     .setColor(16761035)
-    .setDescription(nt.translations.userinfo.endpoints.createdAt + user.createdAt)
+    .setDescription(nt.i('userinfo', nt.language).when + user.createdAt)
     .setThumbnail(user.avatarURL)
     .setURL(user.avatarURL)
-    .addField(nt.translations.userinfo.endpoints.title, nt.translations.userinfo.endpoints.bot + user.bot + nt.translations.userinfo.endpoints.web + user.client.browser, true)
-    .addField(nt.translations.userinfo.presence.title, nt.translations.userinfo.presence.status + user.presence.status + nt.translations.userinfo.presence.game + user.presence.game, true)
+    .addField(nt.i('endpoints', nt.language),
+    '**' + nt.i('bot', nt.language) + '** ' + user.bot +
+    '\n**' + nt.i('web', nt.language) + '** ' + user.client.browser, true)
+    .addField(nt.i('presence', nt.language),
+    '**' + nt.i('status', nt.language) + '** ' + user.presence.status +
+    '\n**' + nt.i('game', nt.language) + '** ' + user.presence.game, true)
   message.channel.send({embed})
 }

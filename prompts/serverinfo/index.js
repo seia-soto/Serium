@@ -2,13 +2,23 @@ const Discord = require('discord.js')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
   const server = message.guild
+  const translate = nt.i('serverinfo', nt.language)
   const embed = new Discord.RichEmbed()
-    .setTitle(nt.translations.serverinfo.title.owned + client.users.get(server.ownerID).tag)
+    .setTitle(translate.whoOwned + ' ' + client.users.get(server.ownerID).tag)
     .setAuthor(server.name, server.iconURL)
     .setColor(16761035)
-    .setDescription(server.members.size + nt.translations.serverinfo.description.members + server.channels.size + nt.translations.serverinfo.description.channels + server.roles.size + nt.translations.serverinfo.description.roles)
+    .setDescription(server.members.size + ' ' + nt.i('users', nt.language) + ' ' +
+    server.channels.size + ' ' + nt.i('channels', nt.language) + ' ' +
+    server.roles.size + ' ' + nt.i('roles', nt.language) + ' ' +
+    translate.availableFor)
     .setThumbnail(server.iconURL)
-    .addField(nt.translations.serverinfo.users.title, nt.translations.serverinfo.users.count + server.memberCount + nt.translations.serverinfo.users.large + server.large, true)
-    .addField(nt.translations.serverinfo.configures.title, nt.translations.serverinfo.configures.afkTimeout + server.afkTimeout + nt.translations.serverinfo.configures.afkChannel + `<#${server.afkChannelID}>` + nt.translations.serverinfo.configures.verificationLevel + server.verificationLevel + nt.translations.serverinfo.configures.explicitContentFilter + server.explicitContentFilter, true)
+    .addField(nt.i('size', nt.language),
+    '**' + nt.i('users', nt.language) + '** ' + server.memberCount +
+    '\n**' + nt.i('isHuge', nt.language) + '** ' + server.large, true)
+    .addField(nt.i('level', nt.language),
+    '**' + nt.i('afkTimeout', nt.language) + '** ' + server.afkTimeout +
+    '\n**' + nt.i('afkChannel', nt.language) + '** ' + `<#${server.afkChannelID}>` +
+    '\n**' + nt.i('verificationLevel', nt.language) + '** ' + server.verificationLevel +
+    '\n**' + nt.i('explicitContentFilter', nt.language) + '** ' + server.explicitContentFilter, true)
   message.channel.send({embed})
 }
