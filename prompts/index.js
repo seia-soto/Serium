@@ -1,5 +1,6 @@
 module.exports.avatar = require('./avatar')
 module.exports.cat = require('./cat')
+module.exports.choose = require('./choose')
 module.exports.delete = require('./delete')
 module.exports.dog = require('./dog')
 module.exports.exec = require('./exec')

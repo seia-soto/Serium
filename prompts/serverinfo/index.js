@@ -10,6 +10,7 @@ module.exports.execute = (client, message, nt) => {
     .setDescription(server.members.size + ' ' + nt.i('users') + ' ' +
     server.channels.size + ' ' + nt.i('channels') + ' ' +
     server.roles.size + ' ' + nt.i('roles') + ' ' +
+    server.emojis.size + ' ' + nt.i('emojis') + ' ' +
     translate.availableFor)
     .setThumbnail(server.iconURL)
     .addField(nt.i('size'),

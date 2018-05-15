@@ -18,6 +18,7 @@ prompts.set('script', { worker: _prompts.script, language: 'en' })
 // NOTE: Don't initialize 'say' and 'sayd' prompt twice
 prompts.set('avatar', { worker: _prompts.avatar, language: 'en' })
 prompts.set('cat', { worker: _prompts.cat, language: 'en' })
+prompts.set('choose', { worker: _prompts.choose, language: 'en' })
 prompts.set('delete', { worker: _prompts.delete, language: 'en' })
 prompts.set('dog', { worker: _prompts.dog, language: 'en' })
 prompts.set('help', { worker: _prompts.help, language: 'en' })
@@ -32,6 +33,7 @@ prompts.set('serverinfo', { worker: _prompts.serverinfo, language: 'en' })
 prompts.set('userinfo', { worker: _prompts.userinfo, language: 'en' })
 prompts.set('아바타', { worker: _prompts.avatar, language: 'ko' })
 prompts.set('고양이', { worker: _prompts.cat, language: 'ko' })
+prompts.set('선택', { worker: _prompts.choose, language: 'ko' })
 prompts.set('강아지', { worker: _prompts.dog, language: 'ko' })
 prompts.set('삭제', { worker: _prompts.delete, language: 'ko' })
 prompts.set('도움말', { worker: _prompts.help, language: 'ko' })
@@ -57,7 +59,7 @@ client.on('message', message => {
   try {
     if (message.channel.permissionsFor(message.author).has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
     if (message.author.id === '324541397988409355' || message.author.id === '404107090009784320' || message.author.id === '265003834521157633') permissions = 4
-    let prompt = prompts.get(message.content.split(' ')[0].slice(endpoints.prefix.length))
+    let prompt = prompts.get(message.content.split(' ')[0].slice(endpoints.prefix.length).toLowerCase())
     let notAllowed =
       (message.author.bot)
       || (message.channel.type === 'dm')

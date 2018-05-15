@@ -1,12 +1,15 @@
 {
   "__comment__": "Prompts",
+  "choose": {
+    "resultIs": "선택했네요; "
+  },
   "help": {
     "title": "도움말",
     "description": "소토가 마음을 담아 개발하고 관리하고 있습니다",
     "values": {
       "seriumium": "`도움말` `exec` `script`",
       "moderations": "`삭제` `sayd`",
-      "gladsome": "`확률`",
+      "gladsome": "`확률` `선택`",
       "images": "`아바타` `네코` `고양이` `강아지`",
       "about": "`라이브러리` `질의` `검색` `서버정보` `사용자정보`"
     }
@@ -57,6 +60,7 @@
   "__comment__": "Parameters",
   "emptyParameter": "당신의 요청에서 빈 매개함수를 받았습니다. 전송하기 전에 비어 있는 메세지인지 확인해주세요.",
   "invaildParameter": "당신의 요청에서 잘못된 매개함수를 받았습니다. 전송하기 전에 올바른 문자인지 확인해주세요.",
+  "longParameter": "당신의 요청에서 올바른 매개함수를 받았지만 너무 깁니다. 매개함수의 배열 또는 값이 45보다 작거나 같은지 다시 확인해주세요.",
   "__comment__": "Errors",
   "parseError": "받은 데이터를 해석할 수 없습니다.",
   "readError": "받은 데이터를 읽을 수 없습니다.",

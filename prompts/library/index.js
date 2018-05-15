@@ -1,7 +1,11 @@
 const request = require('request')
+const endpoint_i = {
+  en: 'en',
+  ko: 'ko'
+}
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  const endpoint = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + nt.arguments.slice(0).join(' ').replace(' ', '%20')
+  const endpoint = 'https://' + endpoint_i[nt.language] || 'en' + '.wikipedia.org/api/rest_v1/page/summary/' + nt.arguments.slice(0).join(' ').replace(' ', '%20')
   if (nt.arguments[0]) {
     try {
       request(endpoint, (error, response, body) => {

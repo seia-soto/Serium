@@ -1,12 +1,15 @@
 {
   "__comment__": "Prompts",
+  "choose": {
+    "resultIs": "Chose; "
+  },
   "help": {
     "title": "Help",
     "description": "Soto coded and modifyed with heart.",
     "values": {
       "seriumium": "`help` `exec` `script`",
       "moderations": "`delete` `sayd`",
-      "gladsome": "`probability`",
+      "gladsome": "`probability` `choose`",
       "images": "`avatar` `neko` `cat` `dog`",
       "about": "`library` `ping` `search` `serverinfo` `userinfo`"
     }
@@ -51,12 +54,13 @@
   "searchResult": "Following is the result of searched of your request.",
   "queryResult": "Following is the result of queryed of your request.",
   "noResult": "The result of request was not found on this server.",
-  "invaildResult": "Can't handle the result of your request local server queryed.",
+  "invalidResult": "Can't handle the result of your request local server queryed.",
   "noResult_fromRemote": "The result of request was not found on remote server which queryed.",
-  "invaildResult_fromRemote": "The result from remote server which you requested was invaild.",
+  "invalidResult_fromRemote": "The result from remote server which you requested was invalid.",
   "__comment__": "Parameters",
-  "emptyParameter": "Received empty parameter from your request. Please confirm you sent not empty request before submit.",
-  "invaildParameter": "Received invaild parameter from your request. Please confirm you are using vaild letters before submit.",
+  "emptyParameter": "Received empty parameter from your request. Please confirm sending not empty request before submit.",
+  "invalidParameter": "Received invalid parameter from your request. Please confirm you are using valid letters before submit.",
+  "longParameter": "Received valid parameter from you request but size of parameter is too huge. Please confirm parameter size's maximum value is under then 45 or same.",
   "__comment__": "Errors",
   "parseError": "Can't parse received data.",
   "readError": "Can't read received data.",
