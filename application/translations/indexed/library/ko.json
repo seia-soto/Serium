@@ -1,15 +1,15 @@
 {
   "__comment__": "Prompts",
   "choose": {
-    "resultIs": "선택했네요; "
+    "resultIs": "선택했어요; "
   },
   "help": {
     "title": "도움말",
-    "description": "소토가 마음을 담아 개발하고 관리하고 있습니다",
+    "description": "소토가 마음을 담아 개발하고 관리하고 있습니다.",
     "values": {
       "seriumium": "`도움말` `exec` `script`",
       "moderations": "`삭제` `sayd`",
-      "gladsome": "`확률` `선택`",
+      "gladsome": "`확률` `선택` `가위바위보`",
       "images": "`아바타` `네코` `고양이` `강아지`",
       "about": "`라이브러리` `질의` `검색` `서버정보` `사용자정보`"
     }
@@ -18,6 +18,16 @@
     "front": "",
     "middle": " 확률은 ",
     "last": "%입니다."
+  },
+  "rps": {
+    "title": "가위바위보",
+    "won": "이겼닭! 오늘 저녁은 치킨이닭!",
+    "lose": "괜찮아. 다음에 더 잘할 수 있어.",
+    "draw": "비겼어. 한판 더?",
+    "picked": {
+      "bot": "Seriumium의 선택",
+      "user": "당신의 선택"
+    }
   },
   "serverinfo": {
     "whoOwned": "다음 사용자가 이 서버를 소유했습니다;",
@@ -54,12 +64,12 @@
   "searchResult": "다음은 당신의 요청에 대한 검색결과입니다.",
   "queryResult": "다음은 당신의 요청에 대한 조회결과입니다.",
   "noResult": "당신의 요청에 대한 결과를 내부 서버에서 찾을 수 없었습니다.",
-  "invaildResult": "내부 서버에서 조회한 결과를 처리할 수 없습니다.",
+  "invalidResult": "내부 서버에서 조회한 결과를 처리할 수 없습니다.",
   "noResult_fromRemote": "조회한 외부 서버에서 당신의 요청에 대한 결과를 찾을 수 없습니다.",
-  "invaildResult_fromRemote": "당신이 요청한 외부 서버에서의 결과가 잘못되었습니다.",
+  "invalidResult_fromRemote": "당신이 요청한 외부 서버에서의 결과가 잘못되었습니다.",
   "__comment__": "Parameters",
   "emptyParameter": "당신의 요청에서 빈 매개함수를 받았습니다. 전송하기 전에 비어 있는 메세지인지 확인해주세요.",
-  "invaildParameter": "당신의 요청에서 잘못된 매개함수를 받았습니다. 전송하기 전에 올바른 문자인지 확인해주세요.",
+  "invalidParameter": "당신의 요청에서 잘못된 매개함수를 받았습니다. 전송하기 전에 올바른 문자인지 확인해주세요.",
   "longParameter": "당신의 요청에서 올바른 매개함수를 받았지만 너무 깁니다. 매개함수의 배열 또는 값이 45보다 작거나 같은지 다시 확인해주세요.",
   "__comment__": "Errors",
   "parseError": "받은 데이터를 해석할 수 없습니다.",

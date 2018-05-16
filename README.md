@@ -1,36 +1,39 @@
-**Discord, The secondary section of our knowledge. Now you can search wikipedia during the chat!**
-# Seriumium: Idlen
-__Copyright (c) 2018 Copyright Let All Rights Reserved.__
+[Seriumium#2403](https://seriumium.tk/)
+==================================================
 
-### Last updates
-The first thing is now I am writing the note about Seriumium and you can check it.
-1. Re-scheduled bot's lifetime
-- Added some async-parts.
-- Now users only can execute prompts every 1.5 sec.
-2. Store(also database of this application)'s structure
-- Now there is 'function' folder.
-3. Execute as administrator
-- Eval is now available for bot administrator (You can change the administrator id on **store/data/configure.json**)
+[![Meet us at Discord](https://discordapp.com/api/guilds/383944425648422912/embed.png?style=banner2)](https://discord.gg/YzBZNQq)
 
-### The copy of help prompt
-This is the list of our application(bot: seriumium)'s prompt. If you want to use prompts for moderators, add **.Moderators** role to yourself. under-lined prompt is for only moderators.
+* Use public version of Seriumium if you don't have any programing experiences.
+* Seriumium is using Artistic License 2.0.
 
-**Circle** Returns you circle circumference and area about radius
-__**Delete**__ bulk delete messages, up to 45 messages/request
-**Help** the application's documentations
-**Library** search wikipedia and returns short version of document
-**Ping** checked the leaked time of respones
-**Request** request the web-site and return body
-**Say** the application will reply with your message
-__**Sayd**__ the application will send your message and delete your message at same time
+Setting up server to execute
+----------------------------
+Connect via SSH to your server and install the latest version of NodeJS; (Currently developed in v10)
 
-### Setup for your server or you
-1. Setting up for your server
-- [GitHub](https://github.com/seriumium)
-- [Webpage](https://seriumium.github.io)
-- [Join to support server](https://discord.gg/YzBZNQq)
-- [Invite seriumium](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)
-2. For your own
-- Install the latest version of [Node.JS](https://nodejs.org)
-- Download or clone this repository and execute **npm i --save** to install dependencies
-- Before launch(**node default** to start the bot) check the configure.json(**store/data/configure.json**)
+And open the test editor and open the file called index.js on root directory.
+```JavaScript
+const endpoints = {
+  prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
+  Discord: process.env.Discord // NOTE: 'Client Token'
+}
+```
+Edit the values of various endpoints.
+You can use mention as prefix by using RegExp.
+
+Be always online
+----------------------------
+There is some unhandledRejection events and unknown errors on Seriumium.
+Use forever to be always online
+```bash
+sudo npm i -g forever
+forever start index.js
+```
+Open the command prompt or powershell as administrator
+```cmd
+npm i -g forever
+forever start index.js
+```
+
+License
+----------------------------
+Seriumium is licensed under  [Artistic License 2.0 ](https://github.com/Seriumium/seriumium/blob/nightly/LICENSE)

@@ -9,7 +9,7 @@
     "values": {
       "seriumium": "`help` `exec` `script`",
       "moderations": "`delete` `sayd`",
-      "gladsome": "`probability` `choose`",
+      "gladsome": "`probability` `choose` `rps`",
       "images": "`avatar` `neko` `cat` `dog`",
       "about": "`library` `ping` `search` `serverinfo` `userinfo`"
     }
@@ -18,6 +18,16 @@
     "front": "The probability that ",
     "middle": " is ",
     "last": " percent."
+  },
+  "rps": {
+    "title": "Rock Paper Scissors",
+    "won": "You won!",
+    "lose": "You lose.",
+    "draw": "Draw! Try again?",
+    "picked": {
+      "bot": "Bot picked",
+      "user": "User picked"
+    }
   },
   "serverinfo": {
     "whoOwned": "Following user owned this server;",
