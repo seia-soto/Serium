@@ -9,16 +9,24 @@
     "values": {
       "seriumium": "`help` `exec` `script`",
       "moderations": "`delete` `sayd`",
-      "gladsome": "`probability` `choose` `rps`",
-      "images": "`avatar` `neko` `cat` `dog`",
-      "about": "`library` `ping` `search` `serverinfo` `userinfo`"
+      "gladsome": "`probability` `choose` `rps` `ready` `say`",
+      "images": "`avatar` `neko` `cat` `dog` `shy`",
+      "about": "`library` `ping` `search` `serverinfo` `userinfo` `namuwiki`"
     }
+  },
+  "namuwiki": {
+    "keep": "Keep read on Namuwiki",
+    "edit": "Edit",
+    "content": "Introduction",
+    "quickmenu": "Fast-Executable menu"
   },
   "probability": {
     "front": "The probability that ",
     "middle": " is ",
     "last": " percent."
   },
+  "shy": "Who? When? Where? What? How? Why..?",
+  "ready": "Ready, player",
   "rps": {
     "title": "Rock Paper Scissors",
     "won": "You won!",

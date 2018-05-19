@@ -5,8 +5,8 @@ module.exports = (request) => {
       scissors: true
     },
     paper: {
-      scissors: false,
-      paper: true
+      rock: true,
+      scissors: false
     },
     scissors: {
       rock: false,
