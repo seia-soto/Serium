@@ -7,15 +7,15 @@
     "title": "Help",
     "description": "Soto coded and modifyed with heart.",
     "values": {
-      "seriumium": "`help` `exec` `script`",
+      "seriumium": "`exec` `script`",
       "moderations": "`delete` `sayd`",
       "gladsome": "`probability` `choose` `rps` `ready` `say`",
       "images": "`avatar` `neko` `cat` `dog` `shy`",
-      "about": "`library` `ping` `search` `serverinfo` `userinfo` `namuwiki`"
+      "about": "`help` `library` `ping` `search` `serverinfo` `userinfo` `namuwiki`"
     }
   },
-  "namuwiki": {
-    "keep": "Keep read on Namuwiki",
+  "wiki": {
+    "keep": "Read more",
     "edit": "Edit",
     "content": "Introduction",
     "quickmenu": "Fast-Executable menu"
@@ -67,6 +67,8 @@
   "presence": "Presence",
   "status": "Status",
   "game": "Game",
+  "configurations": "Configurations",
+  "location": "location",
   "__comment__": "Results",
   "executeResult": "Following is the result of executed of your request.",
   "searchResult": "Following is the result of searched of your request.",

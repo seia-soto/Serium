@@ -2,7 +2,7 @@ const cheerio = require('cheerio')
 const request = require('request')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  const translate = nt.i('namuwiki')
+  const translate = nt.i('wiki')
   const endpoint = 'https://namu.wiki/w/' + encodeURIComponent(nt.arguments.slice(0).join(' '))
   if (nt.arguments[0]) {
     try {
@@ -13,6 +13,8 @@ module.exports.execute = (client, message, nt) => {
         let extract = $('div .wiki-heading-content').first().find('p').remove('img').text().replace(/<(?:.|\n)*?>/gm, '\n')
         if (!extract) {
           extract = nt.i('noResult_fromRemote')
+        } else if (extract.length > 2001) {
+          extract = extract.substr(0, 2000) + '...'
         }
         message.channel.send({embed: {
           color: 16761035,

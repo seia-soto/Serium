@@ -1,20 +1,26 @@
 console.log('Starting up at ' + new Date())
+// NOTE: You can use 'non-production' branch as Heroku version
 const Discord = require('discord.js')
 const fs = require('fs')
+const events = require('events')
 
 const _application = require('./application')
+const _data = require('./data')
 const _prompts = require('./prompts')
 
+class Handler extends events {}
+const application = new Handler()
 const client = new Discord.Client({autoReconnect: true})
 const endpoints = {
   prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
-  Discord: 'NDI5OTEzNDgwNzA4MDk2MDAw.DeCDUw.JHYCyJGdSGSMObFuC7rTSPWt8DA' // NOTE: process.env.Discord
+  Discord: 'NDQ3NDcxOTY0OTE1ODkyMjI0.DeIEQw.JrLrcgx-h9lMvGvyM9-djNRhLHI' // NOTE: process.env.Discord
 }
 const prompts = new Map()
 
 // NOTE: Administrations levels: it doesn't contains any translations or alias, options. Just leave options as 'undefined' not 'null'.
 prompts.set('exec', { worker: _prompts.exec, language: 'en' })
 prompts.set('script', { worker: _prompts.script, language: 'en' })
+prompts.set('se', { worker: _prompts.se, language: 'en' })
 // NOTE: Don't initialize 'say' and 'sayd' prompt twice
 prompts.set('avatar', { worker: _prompts.avatar, language: 'en' })
 prompts.set('cat', { worker: _prompts.cat, language: 'en' })
@@ -57,6 +63,10 @@ process.on('unhandledRejection', error => {
   console.error('Uncaught Promise Error: \n' + error.stack)
 })
 
+application.on('modifyed', () => {
+  delete require.cache[require.resolve('./data/configures/index.json')]
+})
+
 client.login(endpoints.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
@@ -71,13 +81,15 @@ client.on('message', message => {
     const notAllowed =
       (message.author.bot)
       || (message.channel.type === 'dm')
+      || (_data.configures['blacklist'][message.author.id])
       || (!message.content.startsWith(endpoints.prefix))
       || (!prompt)
       || (permissions < prompt.worker.permissions)
     if (notAllowed) { return }
     const nt = {
       arguments: message.content.split(' ').slice(1),
-      i: _application.translations(prompt.language)
+      i: _application.translations(prompt.language),
+      application: application
     }
     prompt.worker.execute(client, message, nt)
   } catch (error) {

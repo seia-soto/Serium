@@ -6,7 +6,7 @@ module.exports.execute = (client, message, nt) => {
     title: translate.title,
     description: translate.description +
     '\n\n:earth_asia: https://seriumium.tk\n:sparkles: https://seriumium.github.io/invite\n:candle: https://github.com/Seriumium\n:bulb: ' +
-    require('../package.json').version,
+    require('../../../package.json').version + '\n:tophat: https://goo.gl/forms/xRF686tSyanEZSBy1',
     fields: [
       {
         name: nt.i('seriumium'),

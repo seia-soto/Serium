@@ -12,12 +12,12 @@ module.exports.execute = (client, message, nt) => {
     request(endpoint, (error, response, body) => {
       if (error) { message.reply(error); return }
       const $ = cheerio.load(body)
-      const query = querystring.parse($('.r').first().find('a').first().attr('href').replace('/url?', ''))
-      const result = query.q
-      if (result === undefined) {
+      if (!body.match('/url?')) {
         message.reply(nt.i('noResult_fromRemote'))
         return
       }
+      const query = querystring.parse($('.r').first().find('a').first().attr('href').replace('/url?', ''))
+      const result = query.q
       message.reply(nt.i('searchResult') + ' ' + result)
     })
   } catch (error) {

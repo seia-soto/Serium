@@ -11,12 +11,12 @@
       "moderations": "`삭제` `sayd`",
       "gladsome": "`확률` `선택` `가위바위보` `준비` `say`",
       "images": "`아바타` `네코` `고양이` `강아지` `부끄러워`",
-      "about": "`라이브러리` `질의` `검색` `서버정보` `사용자정보` `나무위키`"
+      "about": "`도움말` `라이브러리` `질의` `검색` `서버정보` `사용자정보` `나무위키`"
     }
   },
-  "namuwiki": {
-    "keep": "나무위키에서 계속 읽기",
-    "edit": "문서 편집하기",
+  "wiki": {
+    "keep": "계속 읽기",
+    "edit": "편집하기",
     "content": "개요",
     "quickmenu": "빠른실행 도구"
   },
@@ -39,7 +39,7 @@
   },
   "serverinfo": {
     "whoOwned": "다음 사용자가 이 서버를 소유했습니다;",
-    "availableFor": "을 이 서버에서 사용 가능합니다"
+    "availableFor": "를 이 서버에서 사용 가능합니다"
   },
   "userinfo": {
     "when": "다음 날짜에 Discord에 가입했습니다; "
@@ -67,6 +67,8 @@
   "presence": "상태",
   "status": "상태",
   "game": "게임",
+  "configurations": "설정",
+  "location": "위치",
   "__comment__": "Results",
   "executeResult": "다음은 당신의 요청에 대한 실행결과입니다.",
   "searchResult": "다음은 당신의 요청에 대한 검색결과입니다.",

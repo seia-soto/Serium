@@ -18,8 +18,10 @@ module.exports.execute = (client, message, nt) => {
     '\n**' + nt.i('isHuge') + '** ' + server.large, true)
     .addField(nt.i('level'),
     '**' + nt.i('afkTimeout') + '** ' + server.afkTimeout +
-    '\n**' + nt.i('afkChannel') + '** ' + `<#${server.afkChannelID}>` +
     '\n**' + nt.i('verificationLevel') + '** ' + server.verificationLevel +
     '\n**' + nt.i('ExplicitContentFilter') + '** ' + server.explicitContentFilter, true)
+    .addField(nt.i('configurations'),
+    '**' + nt.i('location') + '** ' + server.region +
+    '\n**' + nt.i('afkChannel') + '** ' + `<#${server.afkChannelID}>`, true)
   message.channel.send({embed})
 }

@@ -1,5 +1,5 @@
 // NOTE: seriumium
-module.exports.help = require('./seriumium/help')
+module.exports.se = require('./seriumium/se')
 module.exports.exec = require('./seriumium/exec')
 module.exports.script = require('./seriumium/script')
 // NOTE: moderations
@@ -18,6 +18,7 @@ module.exports.dog = require('./images/dog')
 module.exports.neko = require('./images/neko')
 module.exports.shy = require('./images/shy')
 // NOTE: about
+module.exports.help = require('./about/help')
 module.exports.library = require('./about/library')
 module.exports.namuwiki = require('./about/namuwiki')
 module.exports.ping = require('./about/ping')
