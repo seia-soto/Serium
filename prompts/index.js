@@ -19,9 +19,10 @@ module.exports.neko = require('./images/neko')
 module.exports.shy = require('./images/shy')
 // NOTE: about
 module.exports.help = require('./about/help')
-module.exports.library = require('./about/library')
-module.exports.namuwiki = require('./about/namuwiki')
 module.exports.ping = require('./about/ping')
 module.exports.search = require('./about/search')
 module.exports.serverinfo = require('./about/serverinfo')
 module.exports.userinfo = require('./about/userinfo')
+// NOTE: wiki
+module.exports.library = require('./wiki/library')
+module.exports.namuwiki = require('./wiki/namuwiki')

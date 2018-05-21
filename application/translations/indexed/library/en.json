@@ -11,7 +11,8 @@
       "moderations": "`delete` `sayd`",
       "gladsome": "`probability` `choose` `rps` `ready` `say`",
       "images": "`avatar` `neko` `cat` `dog` `shy`",
-      "about": "`help` `library` `ping` `search` `serverinfo` `userinfo` `namuwiki`"
+      "about": "`help` `ping` `search` `serverinfo` `userinfo`",
+      "wiki": "`library` `namuwiki`"
     }
   },
   "wiki": {
@@ -25,7 +26,6 @@
     "middle": " is ",
     "last": " percent."
   },
-  "shy": "Who? When? Where? What? How? Why..?",
   "ready": "Ready, player",
   "rps": {
     "title": "Rock Paper Scissors",
@@ -69,6 +69,7 @@
   "game": "Game",
   "configurations": "Configurations",
   "location": "location",
+  "wiki": "Wiki",
   "__comment__": "Results",
   "executeResult": "Following is the result of executed of your request.",
   "searchResult": "Following is the result of searched of your request.",

@@ -27,6 +27,10 @@ module.exports.execute = (client, message, nt) => {
       {
         name: nt.i('about'),
         value: translate.values.about
+      },
+      {
+        name: nt.i('wiki'),
+        value: translate.values.wiki
       }
     ]
   }})
