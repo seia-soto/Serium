@@ -9,10 +9,20 @@
     "values": {
       "seriumium": "`도움말` `exec` `script`",
       "moderations": "`삭제` `sayd`",
-      "gladsome": "`확률` `선택` `가위바위보` `준비` `say`",
+      "gladsome": "`확률` `선택` `가위바위보` `준비` `노트` `say`",
       "images": "`아바타` `네코` `고양이` `강아지` `부끄러워`",
       "about": "`도움말` `질의` `검색` `서버정보` `사용자정보`",
       "wiki": "`라이브러리` `나무위키`"
+    }
+  },
+  "notes": {
+    "title": "노트",
+    "description": "Seriumium에서 제공하는 노트는 ID의 최대값이 9999인 INT 정수형으로 저장되는 임시적인 메모장입니다. 이 노트는 다른 사용자가 같은 ID의 노트를 추가했을 때 덮어씌워지며 업데이트 시 삭제되기 때문에 끝없이 유효한 노트가 아닙니다. 또한 이 노트에 포함된 내용에 대해서 Seriumium은 책임지지 않습니다.",
+    "created": "아무런 위험없이 노트가 생성되었어요! 이제 ID와 함께 노트를 열어볼 수 있습니다. 생성된 노트의 ID는",
+    "is": "입니다",
+    "how": {
+      "create": "`;노트 추가 <내용>`",
+      "open": "`;노트 <ID>`"
     }
   },
   "wiki": {
@@ -45,6 +55,7 @@
     "when": "다음 날짜에 Discord에 가입했습니다; "
   },
   "__comment__": "Common",
+  "create": "추가",
   "users": "사용자",
   "channels": "채널",
   "roles": "역할",
@@ -70,6 +81,7 @@
   "configurations": "설정",
   "location": "위치",
   "wiki": "위키",
+  "open": "열기",
   "__comment__": "Results",
   "executeResult": "다음은 당신의 요청에 대한 실행결과입니다.",
   "searchResult": "다음은 당신의 요청에 대한 검색결과입니다.",

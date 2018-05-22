@@ -9,10 +9,20 @@
     "values": {
       "seriumium": "`exec` `script`",
       "moderations": "`delete` `sayd`",
-      "gladsome": "`probability` `choose` `rps` `ready` `say`",
+      "gladsome": "`probability` `choose` `rps` `ready` `note` `say`",
       "images": "`avatar` `neko` `cat` `dog` `shy`",
       "about": "`help` `ping` `search` `serverinfo` `userinfo`",
       "wiki": "`library` `namuwiki`"
+    }
+  },
+  "notes": {
+    "title": "Note",
+    "description": "The notes provided by Seriumium are temporary notepads that are stored as an INT integer with a maximum ID value of 9999. This note is overwritten when another user adds a note with the same ID, and is not an endlessly valid note because it is deleted when update. Seriumium is not responsible for the contents of this note.",
+    "created": "Your note was created without any risks! You can open your note with identificate of note created. The identificate of note created is",
+    "is": "",
+    "how": {
+      "create": "`;note create <content>`",
+      "open": "`;note <identificate>`"
     }
   },
   "wiki": {
@@ -45,6 +55,7 @@
     "when": "Signed up to Discord at "
   },
   "__comment__": "Common",
+  "create": "create",
   "users": "users",
   "channels": "channels",
   "roles": "roles",
@@ -70,6 +81,7 @@
   "configurations": "Configurations",
   "location": "location",
   "wiki": "Wiki",
+  "open": "Open",
   "__comment__": "Results",
   "executeResult": "Following is the result of executed of your request.",
   "searchResult": "Following is the result of searched of your request.",

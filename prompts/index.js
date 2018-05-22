@@ -1,5 +1,4 @@
 // NOTE: seriumium
-module.exports.se = require('./seriumium/se')
 module.exports.exec = require('./seriumium/exec')
 module.exports.script = require('./seriumium/script')
 // NOTE: moderations
@@ -7,6 +6,7 @@ module.exports.delete = require('./moderations/delete')
 module.exports.sayd = require('./moderations/sayd')
 // NOTE: gladsome
 module.exports.choose = require('./gladsome/choose')
+module.exports.note = require('./gladsome/note')
 module.exports.probability = require('./gladsome/probability')
 module.exports.ready = require('./gladsome/ready')
 module.exports.rps = require('./gladsome/rps')

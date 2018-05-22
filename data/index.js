@@ -1,1 +1,1 @@
-module.exports.configures = require('./configures')
+module.exports.prompts = require('./prompts')
