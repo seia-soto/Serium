@@ -20,16 +20,16 @@ module.exports.execute = (client, message, nt) => {
     return
   }
   const results = {
-    true: translate.won,
-    false: translate.lose,
-    draw: translate.draw
+    true: nt.i('wonGame'),
+    false: nt.i('loseGame'),
+    draw: nt.i('drawGame')
   }
   const evaluated = evaluate(request)
   message.channel.send({embed: {
     color: 16761035,
-    title: translate.title,
-    description: '**' + translate.picked.bot + '** ' + evaluated.picked +
-    '\n**' + translate.picked.user + '** ' + request +
+    title: nt.i('rps', true),
+    description: '**' + nt.i('botPicked') + '** ' + evaluated.picked +
+    '\n**' + nt.i('userPicked').replace('{name}', message.author.username) + '** ' + request +
     '\n\n**' + results[evaluated.result] + '** '
   }})
 }

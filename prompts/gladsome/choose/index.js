@@ -1,8 +1,8 @@
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  if (nt.arguments.size > 46) {
+  if (nt.arguments.size > 76) {
     message.reply(nt.i('longParameter'))
     return
   }
-  message.reply(nt.i('choose').resultIs + '; **' + nt.arguments[Math.floor(Math.random() * nt.arguments.length)] + '**')
+  message.reply(nt.i('chose', true).replace('{picked}', ' ' + nt.arguments[Math.floor(Math.random() * nt.arguments.length)]))
 }

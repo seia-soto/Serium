@@ -10,6 +10,6 @@ module.exports.execute = (client, message, nt) => {
   if (avatar) {
     message.reply(avatar)
   } else {
-    message.reply(nt.i('avatar').default)
+    message.reply(nt.i('defaultAvatar'))
   }
 }

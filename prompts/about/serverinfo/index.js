@@ -2,26 +2,24 @@ const Discord = require('discord.js')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
   const server = message.guild
-  const translate = nt.i('serverinfo')
   const embed = new Discord.RichEmbed()
-    .setTitle(translate.whoOwned + ' ' + client.users.get(server.ownerID).tag)
+    .setTitle(nt.i('serverOwner').replace('{name}', client.users.get(server.ownerID).tag))
     .setAuthor(server.name, server.iconURL)
     .setColor(16761035)
-    .setDescription(server.members.size + ' ' + nt.i('users') + ' ' +
-    server.channels.size + ' ' + nt.i('channels') + ' ' +
-    server.roles.size + ' ' + nt.i('roles') + ' ' +
-    server.emojis.size + ' ' + nt.i('emojis') + ' ' +
-    translate.availableFor)
+    .setDescription(nt.i('serverSources').replace('{users}', server.memberCount)
+      .replace('{channels}', server.channels.size)
+      .replace('{roles}', server.roles.size)
+      .replace('{emojis}', server.emojis.size))
     .setThumbnail(server.iconURL)
-    .addField(nt.i('size'),
-    '**' + nt.i('users') + '** ' + server.memberCount +
+    .addField(nt.i('size', true),
+    '**' + nt.i('user', true) + '** ' + server.memberCount +
     '\n**' + nt.i('isHuge') + '** ' + server.large, true)
     .addField(nt.i('level'),
-    '**' + nt.i('afkTimeout') + '** ' + server.afkTimeout +
-    '\n**' + nt.i('verificationLevel') + '** ' + server.verificationLevel +
-    '\n**' + nt.i('ExplicitContentFilter') + '** ' + server.explicitContentFilter, true)
+    '**' + nt.i('afktimeout') + '** ' + server.afkTimeout +
+    '\n**' + nt.i('verificationlevel', true) + '** ' + server.verificationLevel +
+    '\n**' + nt.i('explicitcontentfilter', true) + '** ' + server.explicitContentFilter, true)
     .addField(nt.i('configurations'),
-    '**' + nt.i('location') + '** ' + server.region +
-    '\n**' + nt.i('afkChannel') + '** ' + `<#${server.afkChannelID}>`, true)
+    '**' + nt.i('location', true) + '** ' + server.region +
+    '\n**' + nt.i('afkchannel') + '** ' + `<#${server.afkChannelID}>`, true)
   message.channel.send({embed})
 }

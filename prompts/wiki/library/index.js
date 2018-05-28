@@ -9,7 +9,7 @@ module.exports.execute = (client, message, nt) => {
         const result = JSON.parse(body)
         message.channel.send({embed: {
           color: 16761035,
-          title: result.title,
+          title: nt.i('library', true),
           description: result.extract
         }})
       })

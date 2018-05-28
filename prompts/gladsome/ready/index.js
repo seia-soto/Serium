@@ -6,5 +6,5 @@ module.exports.execute = (client, message, nt) => {
   fs.writeFile('./data/prompts/ready/index.json', JSON.stringify(last), (error) => {
     if (error) { console.error(error); return }
   })
-  message.reply(nt.i('ready') + ' **' + last.count + '**!')
+  message.reply(nt.i('readyPlayer').replace('{number}', last.count))
 }

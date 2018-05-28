@@ -24,7 +24,7 @@ module.exports = (prompts, _prompts) => {
   prompts.set('userinfo', { worker: _prompts.userinfo, language: 'en' })
   prompts.set('note', { worker: _prompts.note, language: 'en' })
 
-  // NOTE: Korean Language Packages
+  // NOTE: Korean Language Package
   prompts.set('아바타', { worker: _prompts.avatar, language: 'ko' })
   prompts.set('고양이', { worker: _prompts.cat, language: 'ko' })
   prompts.set('선택', { worker: _prompts.choose, language: 'ko' })

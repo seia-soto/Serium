@@ -2,7 +2,7 @@ const cheerio = require('cheerio')
 const request = require('request')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  const translate = nt.i('wiki')
+  const translate = nt.i('wiki', true)
   const endpoint = 'https://namu.wiki/w/' + encodeURIComponent(nt.arguments.slice(0).join(' '))
   if (nt.arguments[0]) {
     try {
@@ -22,12 +22,12 @@ module.exports.execute = (client, message, nt) => {
             icon_url: 'https://raw.githubusercontent.com/Seriumium/seriumium.github.io/master/cdn/seriumium/namuwiki.jpg',
             name: title
           },
-          title: translate.quickmenu,
-          description: '[' + translate.keep + '](' + endpoint + '); ' + title.replace(' - 나무위키', '') +
-          '\n[' + title.replace(' - 나무위키', ' ') + translate.edit + '](' + endpoint.replace('/w', '/edit') + ')',
+          title: nt.i('menu', true),
+          description: '[' + nt.i('keepReading').replace('{source}', '나무위키') + '](' + endpoint + '); ' + title.replace(' - 나무위키', '') +
+          '\n[' + title.replace(' - 나무위키', ' ') + nt.i('edit', true) + '](' + endpoint.replace('/w', '/edit') + ')',
           fields: [
             {
-              name: translate.content,
+              name: nt.i('introduction', true),
               value: extract
             }
           ]

@@ -18,14 +18,14 @@ module.exports.execute = (client, message, nt) => {
     .setTitle(user.username)
     .setAuthor(user.tag, user.avatarURL)
     .setColor(16761035)
-    .setDescription(nt.i('userinfo').when + user.createdAt)
+    .setDescription(nt.i('signedupAt').replace('{date}', user.createdAt))
     .setThumbnail(user.avatarURL)
     .setURL(user.avatarURL)
-    .addField(nt.i('endpoints'),
-    '**' + nt.i('bot') + '** ' + user.bot +
-    '\n**' + nt.i('web') + '** ' + user.client.browser, true)
-    .addField(nt.i('presence'),
-    '**' + nt.i('status') + '** ' + user.presence.status +
-    '\n**' + nt.i('game') + '** ' + user.presence.game, true)
+    .addField(nt.i('endpoints', true),
+    '**' + nt.i('bot', true) + '** ' + user.bot +
+    '\n**' + nt.i('web', true) + '** ' + user.client.browser, true)
+    .addField(nt.i('presence', true),
+    '**' + nt.i('status', true) + '** ' + user.presence.status +
+    '\n**' + nt.i('game', true) + '** ' + user.presence.game, true)
   message.channel.send({embed})
 }

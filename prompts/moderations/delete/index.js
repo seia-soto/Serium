@@ -2,7 +2,7 @@ module.exports.permissions = 1
 module.exports.execute = (client, message, nt) => {
   if (nt.arguments[0]) {
     message.delete()
-    if (isNaN(nt.arguments[0]) === true || nt.arguments[0] > 46) return
+    if (isNaN(nt.arguments[0]) === true || nt.arguments[0] > 76) return
     try {
       message.channel.bulkDelete(nt.arguments[0])
     } catch (error) {

@@ -26,5 +26,4 @@ module.exports.userinfo = require('./about/userinfo')
 module.exports.library = require('./wiki/library')
 module.exports.namuwiki = require('./wiki/namuwiki')
 // NOTE: functions
-module.exports.request = require('./functions/request')
 module.exports.search = require('./functions/search')

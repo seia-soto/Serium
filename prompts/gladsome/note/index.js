@@ -2,7 +2,6 @@ const fs = require('fs')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
   const notes = require('../../../data/prompts/note/index.json')
-  const translate = nt.i('notes')
   if (nt.arguments[0]) {
     if (nt.arguments[0] === nt.i('create')) {
       const identificate = Math.floor(Math.random() * 9999) + 1
@@ -13,8 +12,8 @@ module.exports.execute = (client, message, nt) => {
       })
       message.channel.send({embed: {
         color: 16761035,
-        title: translate.title,
-        description: translate.created + ' **' + identificate + '**' + translate.is + '.'
+        title: nt.i('note', true),
+        description: nt.i('noteCreated').replace('{identificate}', identificate)
       }})
     } else {
       if (!notes[nt.arguments[0]]) {
@@ -23,23 +22,23 @@ module.exports.execute = (client, message, nt) => {
       }
       message.channel.send({embed: {
         color: 16761035,
-        title: translate.title,
+        title: nt.i('note', true),
         description: notes[nt.arguments[0]]
       }})
     }
   } else {
     message.channel.send({embed: {
       color: 16761035,
-      title: translate.title,
-      description: translate.description,
+      title: nt.i('note', true),
+      description: nt.i('noteDescription'),
       fields: [
         {
-          name: nt.i('create'),
-          value: translate.how.create
+          name: nt.i('create', true),
+          value: nt.i('createNote')
         },
         {
-          name: nt.i('open'),
-          value: translate.how.open
+          name: nt.i('open', true),
+          value: nt.i('openNote')
         }
       ]
     }})
