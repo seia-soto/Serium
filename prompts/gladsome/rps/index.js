@@ -14,7 +14,7 @@ module.exports.execute = (client, message, nt) => {
     '가위': 'scissors',
     '주먹': 'rock'
   }
-  const request = list[nt.arguments[0]]
+  const request = list[nt.arguments[0].toLowerCase()]
   if (!request) {
     message.reply(nt.i('invalidParameter'))
     return

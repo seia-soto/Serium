@@ -1,7 +1,10 @@
 {
   "__comment__": "Prompts",
+  "avatar": {
+    "default": "사용자를 포함한 아바타의 주소가 Discord의 기본값으로 설정되어 있기 때문에 유효하지 않습니다."
+  },
   "choose": {
-    "resultIs": "선택했어요; "
+    "resultIs": "선택했어요"
   },
   "help": {
     "title": "도움말",
@@ -11,8 +14,9 @@
       "moderations": "`삭제` `sayd`",
       "gladsome": "`확률` `선택` `가위바위보` `준비` `노트` `say`",
       "images": "`아바타` `네코` `고양이` `강아지` `부끄러워`",
-      "about": "`도움말` `질의` `검색` `서버정보` `사용자정보`",
-      "wiki": "`라이브러리` `나무위키`"
+      "about": "`도움말` `질의` `서버정보` `사용자정보`",
+      "wiki": "`라이브러리` `나무위키`",
+      "functions": "W`검색`"
     }
   },
   "notes": {
@@ -26,6 +30,7 @@
     }
   },
   "wiki": {
+    "title": "위키",
     "keep": "계속 읽기",
     "edit": "편집하기",
     "content": "개요",
@@ -72,6 +77,7 @@
   "gladsome": "재미",
   "images": "이미지",
   "about": "정보",
+  "functions": "기능",
   "endpoints": "접속점",
   "bot": "로봇",
   "web": "웹",
@@ -80,8 +86,9 @@
   "game": "게임",
   "configurations": "설정",
   "location": "위치",
-  "wiki": "위키",
   "open": "열기",
+  "original": "원본",
+  "method": "방법",
   "__comment__": "Results",
   "executeResult": "다음은 당신의 요청에 대한 실행결과입니다.",
   "searchResult": "다음은 당신의 요청에 대한 검색결과입니다.",

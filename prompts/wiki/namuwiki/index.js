@@ -13,8 +13,8 @@ module.exports.execute = (client, message, nt) => {
         let extract = $('div .wiki-heading-content').first().find('p').remove('img').text().replace(/<(?:.|\n)*?>/gm, '\n')
         if (!extract) {
           extract = nt.i('noResult_fromRemote')
-        } else if (extract.length > 2001) {
-          extract = extract.substr(0, 2000) + '...'
+        } else if (extract.length > 991) {
+          extract = extract.substr(0, 990) + '...'
         }
         message.channel.send({embed: {
           color: 16761035,

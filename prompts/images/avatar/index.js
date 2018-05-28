@@ -1,10 +1,15 @@
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
+  let avatar
   if (nt.arguments[0]) {
     let user = message.mentions.users.first()
-    message.reply(user.avatarURL)
-      .catch(error => message.reply(error))
+    avatar = user.avatarURL
   } else {
-    message.reply(message.author.avatarURL)
+    avatar = message.author.avatarURL
+  }
+  if (avatar) {
+    message.reply(avatar)
+  } else {
+    message.reply(nt.i('avatar').default)
   }
 }

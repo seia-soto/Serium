@@ -40,10 +40,13 @@ Prompts (Commands)
 `;choose A B C D`
 
 * rps
-`;rps <R/P/S>`
+`;rps R/P/S`
 
 * ready
 `;ready`
+
+* note
+`;note`
 
 * say
 `;say something`

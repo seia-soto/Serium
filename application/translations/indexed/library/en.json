@@ -1,7 +1,10 @@
 {
   "__comment__": "Prompts",
+  "avatar": {
+    "default": "The avatar url including you is not valid because avatar's url is Discord's default."
+  },
   "choose": {
-    "resultIs": "Chose; "
+    "resultIs": "Chose"
   },
   "help": {
     "title": "Help",
@@ -11,8 +14,9 @@
       "moderations": "`delete` `sayd`",
       "gladsome": "`probability` `choose` `rps` `ready` `note` `say`",
       "images": "`avatar` `neko` `cat` `dog` `shy`",
-      "about": "`help` `ping` `search` `serverinfo` `userinfo`",
-      "wiki": "`library` `namuwiki`"
+      "about": "`help` `ping` `serverinfo` `userinfo`",
+      "wiki": "`library` `namuwiki`",
+      "functions": "`search`"
     }
   },
   "notes": {
@@ -26,6 +30,7 @@
     }
   },
   "wiki": {
+    "title": "Wiki",
     "keep": "Read more",
     "edit": "Edit",
     "content": "Introduction",
@@ -72,6 +77,7 @@
   "gladsome": "Gladsome",
   "images": "Images",
   "about": "About",
+  "functions": "Functions",
   "endpoints": "Endpoints",
   "bot": "Bot",
   "web": "Web",
@@ -80,8 +86,10 @@
   "game": "Game",
   "configurations": "Configurations",
   "location": "location",
-  "wiki": "Wiki",
-  "open": "Open",
+  "open": "open",
+  "original": "original",
+  "hashed": "hashed",
+  "method": "method",
   "__comment__": "Results",
   "executeResult": "Following is the result of executed of your request.",
   "searchResult": "Following is the result of searched of your request.",

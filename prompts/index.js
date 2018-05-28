@@ -20,9 +20,11 @@ module.exports.shy = require('./images/shy')
 // NOTE: about
 module.exports.help = require('./about/help')
 module.exports.ping = require('./about/ping')
-module.exports.search = require('./about/search')
 module.exports.serverinfo = require('./about/serverinfo')
 module.exports.userinfo = require('./about/userinfo')
 // NOTE: wiki
 module.exports.library = require('./wiki/library')
 module.exports.namuwiki = require('./wiki/namuwiki')
+// NOTE: functions
+module.exports.request = require('./functions/request')
+module.exports.search = require('./functions/search')
