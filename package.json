@@ -1,6 +1,6 @@
 {
   "name": "seriumium",
-  "version": "1.3.4",
+  "version": "1.3.6",
   "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {

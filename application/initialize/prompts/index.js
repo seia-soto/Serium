@@ -23,6 +23,7 @@ module.exports = (prompts, _prompts) => {
   prompts.set('serverinfo', { worker: _prompts.serverinfo, language: 'en' })
   prompts.set('userinfo', { worker: _prompts.userinfo, language: 'en' })
   prompts.set('note', { worker: _prompts.note, language: 'en' })
+  prompts.set('hash', { worker: _prompts.hash, language: 'en' })
 
   // NOTE: Korean Language Package
   prompts.set('아바타', { worker: _prompts.avatar, language: 'ko' })
@@ -43,4 +44,5 @@ module.exports = (prompts, _prompts) => {
   prompts.set('서버정보', { worker: _prompts.serverinfo, language: 'ko' })
   prompts.set('사용자정보', { worker: _prompts.userinfo, language: 'ko' })
   prompts.set('노트', { worker: _prompts.note, language: 'ko' })
+  prompts.set('해시', { worker: _prompts.hash, language: 'ko' })
 }

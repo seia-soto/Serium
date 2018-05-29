@@ -13,7 +13,7 @@ const application = new Handler()
 const client = new Discord.Client({autoReconnect: true})
 const endpoints = {
   prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
-  Discord: 'aNull' // NOTE: process.env.Discord
+  Discord: '!Null' // NOTE: process.env.Discord
 }
 const prompts = new Map()
 

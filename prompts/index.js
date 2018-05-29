@@ -27,3 +27,4 @@ module.exports.library = require('./wiki/library')
 module.exports.namuwiki = require('./wiki/namuwiki')
 // NOTE: functions
 module.exports.search = require('./functions/search')
+module.exports.hash = require('./functions/hash')
