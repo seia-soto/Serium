@@ -46,9 +46,9 @@ client.on('message', message => {
       || (permissions < prompt.worker.permissions)
     if (notAllowed) { return }
     const nt = {
+      application: application,
       arguments: message.content.split(' ').slice(1),
-      i: _application.translations(prompt.language),
-      application: application
+      i: _application.translations(prompt.language)
     }
     prompt.worker.execute(client, message, nt)
   } catch (error) {

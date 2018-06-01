@@ -25,7 +25,7 @@ module.exports = (prompts, _prompts) => {
   prompts.set('note', { worker: _prompts.note, language: 'en' })
   prompts.set('hash', { worker: _prompts.hash, language: 'en' })
 
-  // NOTE: Korean Language Package
+  // NOTE: Additional Korean Package
   prompts.set('아바타', { worker: _prompts.avatar, language: 'ko' })
   prompts.set('고양이', { worker: _prompts.cat, language: 'ko' })
   prompts.set('선택', { worker: _prompts.choose, language: 'ko' })
