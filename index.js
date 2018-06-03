@@ -30,7 +30,7 @@ application.on('modifyed', () => {
 client.login(endpoints.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
-  client.user.setActivity(';help (seriumium.tk)')
+  client.user.setActivity(';help (Latest, ' + require('./package.json').version + ')')
   client.user.setStatus('idle')
 })
 client.on('message', message => {
