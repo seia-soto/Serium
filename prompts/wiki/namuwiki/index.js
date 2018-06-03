@@ -19,7 +19,7 @@ module.exports.execute = (client, message, nt) => {
         message.channel.send({embed: {
           color: 16761035,
           author: {
-            icon_url: 'https://raw.githubusercontent.com/Seriumium/seriumium.github.io/master/cdn/seriumium/namuwiki.jpg',
+            icon_url: 'https://seriumium.tk/cdn/seriumium/namuwiki.jpg',
             name: title
           },
           title: nt.i('menu', true),

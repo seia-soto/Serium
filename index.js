@@ -1,19 +1,15 @@
 console.log('Starting up at ' + new Date())
 // NOTE: You can use 'non-production' branch as Heroku version
 const Discord = require('discord.js')
-const fs = require('fs')
-const events = require('events')
 
 const _application = require('./application')
 const _data = require('./data')
 const _prompts = require('./prompts')
 
-class Handler extends events {}
-const application = new Handler()
 const client = new Discord.Client({autoReconnect: true})
 const endpoints = {
   prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
-  Discord: '!Null' // NOTE: process.env.Discord
+  Discord: '!aNull' // NOTE: process.env.Discord
 }
 const prompts = new Map()
 
@@ -23,14 +19,10 @@ process.on('unhandledRejection', error => {
   console.error(error.stack)
 })
 
-application.on('modifyed', () => {
-  delete require.cache[require.resolve('./index')]
-})
-
 client.login(endpoints.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
-  client.user.setActivity(';help (seriumium.tk)')
+  client.user.setActivity(';help (Enhanced, ' + require('./package.json').version + ')')
   client.user.setStatus('idle')
 })
 client.on('message', message => {
@@ -47,8 +39,7 @@ client.on('message', message => {
     if (notAllowed) { return }
     const nt = {
       arguments: message.content.split(' ').slice(1),
-      i: _application.translations(prompt.language),
-      application: application
+      i: _application.translations(prompt.language)
     }
     prompt.worker.execute(client, message, nt)
   } catch (error) {

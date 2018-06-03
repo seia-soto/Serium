@@ -1,6 +1,6 @@
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  if (nt.arguments.size > 76) {
+  if (nt.arguments.size > 128) {
     message.reply(nt.i('longParameter'))
     return
   }

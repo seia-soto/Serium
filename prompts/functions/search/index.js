@@ -1,26 +1,20 @@
-const cheerio = require('cheerio')
-const request = require('request')
-const querystring = require('querystring')
+const google = require('./google')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
   if (nt.arguments[0] === undefined) {
     message.reply(nt.i('emptyParameter'))
     return
   }
-  const endpoint = 'https://www.google.com/search?q=' + encodeURIComponent(nt.arguments.slice(0).join(' '))
-  try {
-    request(endpoint, (error, response, body) => {
-      if (error) { message.reply(error); return }
-      const $ = cheerio.load(body)
-      if (!body.match('/url?')) {
-        message.reply(nt.i('noResult_fromRemote'))
-        return
-      }
-      const query = querystring.parse($('.r').first().find('a').first().attr('href').replace('/url?', ''))
-      const result = query.q
-      message.reply(nt.i('searchResult') + ' ' + result)
-    })
-  } catch (error) {
-    message.reply(nt.i('parseError_fromRemote') + ' ' + error)
-  }
+  google.resultsPerPage = 1
+  let nextCounter = 0
+  google(nt.arguments.slice(0).join(' '), (error, response) => {
+    if (error) { message.reply(error); return }
+    const conclusion = response.link[0]
+    message.channel.send({embed: {
+      color: 16761035,
+      title: nt.i('searchResult'),
+      description: '**[' + conclusion.title + '](' + conclusion.href + ')**' +
+      '\n' + conclusion.description
+    }})
+  })
 }

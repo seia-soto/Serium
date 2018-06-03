@@ -10,86 +10,70 @@ Feedback
 ----------------------------
 **[Check it out!](https://goo.gl/forms/xRF686tSyanEZSBy1)**
 
+General Informations
+----------------------------
+* Prefix `;`
+* [Invite](https://seriumium.tk/invite)
+
 Prompts (Commands)
 ----------------------------
 ### 1. Seriumium; available when you launch yourself
 
 * exec
-`;exec Shell`
 
 * script
-`;script JavaScript`
-
-* se
-`;se blacklist USER-ID`
 
 ### 2. Moderations; requires your GUILD_MANAGE permission to launch
 
 * delete
-`;delete amount-UPTO-45`
 
 * sayd
-`;sayd something`
 
 ### 3. Gladsome
 
 * probability
-`;probaility ABOUT`
 
 * choose
-`;choose A B C D`
 
 * rps
-`;rps R/P/S`
 
 * ready
-`;ready`
 
 * note
-`;note`
 
 * say
-`;say something`
 
 ### 4. Images
 
 * avatar
-`;avatar <@MENTION>`
 
 * neko
-`;neko`
 
 * cat
-`;cat`
 
 * dog
-`;dog`
 
 * shy
-`;shy`
 
 ### 5. About
 
 * help
-`;help`
-
-* library
-`;library WIKIPEDIA-DOCUMENT`
 
 * ping
-`;ping`
-
-* search
-`;search ON-GOOGLE`
 
 * serverinfo
-`;serverinfo`
 
 * userinfo
-`;userinfo <@MENTION>`
+
+### 6. Wiki
+
+* library
 
 * namuwiki
-`;namuwiki NAMUWIKI-DOCUMENT`
+
+### 7. Functions
+
+* search
 
 Setting up server to execute
 ----------------------------
