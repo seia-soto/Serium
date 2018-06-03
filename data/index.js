@@ -1,1 +1,1 @@
-module.exports.prompts = require('./prompts')
+module.exports = ''
