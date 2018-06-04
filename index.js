@@ -9,7 +9,7 @@ const _prompts = require('./prompts')
 const client = new Discord.Client({autoReconnect: true})
 const endpoints = {
   prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
-  Discord: '' // NOTE: process.env.Discord
+  Discord: '!aNull' // NOTE: process.env.Discord
 }
 const prompts = new Map()
 
@@ -22,7 +22,7 @@ process.on('unhandledRejection', (error) => {
 client.login(endpoints.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
-  client.user.setActivity(endpoints.prefix + 'help (Nightly, ' + require('./package.json').version + ')')
+  client.user.setActivity(endpoints.prefix + 'help (Initialized, ' + require('./package.json').version + ')')
   client.user.setStatus('online')
 })
 client.on('message', (message) => {
