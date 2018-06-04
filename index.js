@@ -15,17 +15,17 @@ const prompts = new Map()
 
 _application.initialize.prompts(prompts, _prompts)
 
-process.on('unhandledRejection', error => {
+process.on('unhandledRejection', (error) => {
   console.error(error.stack)
 })
 
 client.login(endpoints.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
-  client.user.setActivity(';help (Enhanced, ' + require('./package.json').version + ')')
-  client.user.setStatus('idle')
+  client.user.setActivity(endpoints.prefix + 'help (Initialized, ' + require('./package.json').version + ')')
+  client.user.setStatus('online')
 })
-client.on('message', message => {
+client.on('message', (message) => {
   try {
     if (message.channel.permissionsFor(message.author).has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
     if (message.author.id === '324541397988409355') permissions = 4
@@ -43,6 +43,6 @@ client.on('message', message => {
     }
     prompt.worker.execute(client, message, nt)
   } catch (error) {
-    console.error(error)
+    console.log(error)
   }
 })

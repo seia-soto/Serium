@@ -26,6 +26,7 @@
   "subjectFunctions": "`검색` `해시`",
   "chose": "선택했어요! **{picked}**",
   "deleted": "{amount}개의 메세지가 삭제되었습니다.",
+  "notSearched": "{object}에 대한 검색 결과가 없습니다.",
   "__comment__": "Words",
   "note": "노트",
   "help": "도움말",
