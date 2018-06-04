@@ -9,7 +9,11 @@ module.exports.execute = (client, message, nt) => {
   let nextCounter = 0
   google(nt.arguments.slice(0).join(' '), (error, response) => {
     if (error) { message.reply(error); return }
-    const conclusion = response.link[0]
+    const conclusion = response.links[0]
+    if (!conclusion) {
+      message.reply(nt.i('notSearched').replace('{object}', nt.arguments.slice(0).join(' ')))
+      return
+    }
     message.channel.send({embed: {
       color: 16761035,
       title: nt.i('searchResult'),
