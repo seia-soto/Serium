@@ -26,6 +26,7 @@
   "subjectFunctions": "`search` `hash`",
   "chose": "chose **{picked}**",
   "deleted": "Deleted {amount} messages.",
+  "notSearched": "There is no result matches with {object}.",
   "__comment__": "Words",
   "note": "note",
   "help": "help",

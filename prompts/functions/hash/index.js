@@ -1,4 +1,4 @@
-const hash = require('./hash')
+const crypto = require('crypto')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
   const string = nt.arguments.slice(0).join(' ')
@@ -7,6 +7,6 @@ module.exports.execute = (client, message, nt) => {
     title: nt.i('messagedigest', true) + ' 5',
     description: '**' + nt.i('method', true) + '** MD5, UTF8 Encoded (Hex)' +
     '\n**' + nt.i('original', true) + '** ' + string +
-    '\n**' + nt.i('hashed', true) + '** ' + hash(string)
+    '\n**' + nt.i('hashed', true) + '** ' + crypto.createHash('md5').update(string).digest('hex')
   }})
 }
