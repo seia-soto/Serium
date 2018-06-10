@@ -1,7 +1,7 @@
 const fs = require('fs')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  const notes = require('../../../data/note/index.json')
+  const notes = require('../../../data').note
   if (nt.arguments[0]) {
     if (nt.arguments[0] === nt.i('create')) {
       const identificate = Math.floor(Math.random() * 9999) + 1

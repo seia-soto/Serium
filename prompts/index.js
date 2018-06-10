@@ -1,5 +1,6 @@
 // NOTE: seriumium
 module.exports.exec = require('./seriumium/exec')
+module.exports.notificate = require('./seriumium/notificate')
 module.exports.script = require('./seriumium/script')
 // NOTE: moderations
 module.exports.delete = require('./moderations/delete')
@@ -26,5 +27,6 @@ module.exports.userinfo = require('./about/userinfo')
 module.exports.library = require('./wiki/library')
 module.exports.namuwiki = require('./wiki/namuwiki')
 // NOTE: functions
+module.exports.case = require('./functions/case')
 module.exports.search = require('./functions/search')
 module.exports.hash = require('./functions/hash')
