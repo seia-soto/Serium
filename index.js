@@ -8,6 +8,7 @@ const _prompts = require('./prompts')
 
 const client = new Discord.Client({autoReconnect: true})
 const endpoints = {
+<<<<<<< HEAD
   prefix: 'n;', // NOTE: new RegExp('^<@!?Client ID>')
   Discord: '' // NOTE: process.env.Discord
 }
@@ -60,6 +61,10 @@ const prompts = {
   '노트': { worker: _prompts.note, language: 'ko' },
   '해시': { worker: _prompts.hash, language: 'ko' },
   '격': { worker: _prompts.case, language: 'ko' }
+=======
+  prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
+  Discord: '!Null' // NOTE: process.env.Discord
+>>>>>>> 258e5d4a60b1ac125ea8a825dea15fe10206392d
 }
 
 process.on('unhandledRejection', (error) => {
@@ -69,8 +74,13 @@ process.on('unhandledRejection', (error) => {
 client.login(endpoints.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
+<<<<<<< HEAD
   client.user.setActivity(endpoints.prefix + 'help (Initialized, ' + require('./package.json').version + ')')
   client.user.setStatus('idle')
+=======
+  client.user.setActivity(endpoints.prefix + 'help (Nightly, ' + require('./package.json').version + ')')
+  client.user.setStatus('online')
+>>>>>>> 258e5d4a60b1ac125ea8a825dea15fe10206392d
 })
 client.on('message', (message) => {
   try {
