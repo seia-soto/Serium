@@ -70,7 +70,7 @@ client.login(endpoints.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
   client.user.setActivity(endpoints.prefix + 'help (Initialized, ' + require('./package.json').version + ')')
-  client.user.setStatus('idle')
+  client.user.setStatus('online')
 })
 client.on('message', (message) => {
   try {
