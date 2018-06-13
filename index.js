@@ -1,5 +1,4 @@
 console.log('Starting up at ' + new Date())
-// NOTE: You can use 'non-production' branch as Heroku version
 const Discord = require('discord.js')
 
 const _application = require('./application')
@@ -39,6 +38,7 @@ const prompts = {
   note: { worker: _prompts.note, language: 'en' },
   hash: { worker: _prompts.hash, language: 'en' },
   case: { worker: _prompts.case, language: 'en' },
+  colored: { worker: _prompts.colored, language: 'en' },
   __comment__lpkk: 'Korean Language Pack; remove all these aliases if you do not want to use.',
   '아바타': { worker: _prompts.avatar, language: 'ko' },
   '고양이': { worker: _prompts.cat, language: 'ko' },
@@ -59,7 +59,8 @@ const prompts = {
   '사용자정보': { worker: _prompts.userinfo, language: 'ko' },
   '노트': { worker: _prompts.note, language: 'ko' },
   '해시': { worker: _prompts.hash, language: 'ko' },
-  '격': { worker: _prompts.case, language: 'ko' }
+  '격': { worker: _prompts.case, language: 'ko' },
+  '색': { worker: _prompts.colored, language: 'ko' }
 }
 
 process.on('unhandledRejection', (error) => {
@@ -73,25 +74,21 @@ client.on('ready', () => {
   client.user.setStatus('online')
 })
 client.on('message', (message) => {
-  try {
-    const notAllowedEnviroments =
-      (message.author.bot)
-      || (message.channel.type === 'dm')
-      || (!message.content.startsWith(endpoints.prefix))
-    if (notAllowedEnviroments) { return }
-    if (message.member.permissions.has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
-    if (message.author.id === '324541397988409355') permissions = 4
-    const prompt = prompts[message.content.split(' ')[0].slice(endpoints.prefix.length).toLowerCase()]
-    const notAllowed =
-      (!prompt)
-      || (permissions < prompt.worker.permissions)
-    if (notAllowed) { return }
-    const nt = {
-      arguments: message.content.split(' ').slice(1),
-      i: _application.translations(prompt.language)
-    }
-    prompt.worker.execute(client, message, nt)
-  } catch (error) {
-    console.log(error)
+  const notAllowedEnviroments =
+    (message.author.bot)
+    || (message.channel.type === 'dm')
+    || (!message.content.startsWith(endpoints.prefix))
+  if (notAllowedEnviroments) { return }
+  if (message.member.permissions.has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
+  if (message.author.id === '324541397988409355') permissions = 4
+  const prompt = prompts[message.content.split(' ')[0].slice(endpoints.prefix.length).toLowerCase()]
+  const notAllowed =
+    (!prompt)
+    || (permissions < prompt.worker.permissions)
+  if (notAllowed) { return }
+  const nt = {
+    arguments: message.content.split(' ').slice(1),
+    i: _application.translations(prompt.language)
   }
+  prompt.worker.execute(client, message, nt)
 })

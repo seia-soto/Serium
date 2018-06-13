@@ -28,5 +28,6 @@ module.exports.library = require('./wiki/library')
 module.exports.namuwiki = require('./wiki/namuwiki')
 // NOTE: functions
 module.exports.case = require('./functions/case')
+module.exports.colored = require('./functions/colored')
 module.exports.search = require('./functions/search')
 module.exports.hash = require('./functions/hash')
