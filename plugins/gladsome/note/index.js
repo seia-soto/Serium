@@ -1,13 +1,13 @@
 const fs = require('fs')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  const notes = require('../../../data').note
+  const notes = nt.application.stores.note
   if (nt.arguments[0]) {
     if (nt.arguments[0] === nt.i('create')) {
       const identificate = Math.floor(Math.random() * 9999) + 1
       let modifyed = notes
       modifyed[identificate] = nt.arguments.slice(1).join(' ')
-      fs.writeFile('./data/note/index.json', JSON.stringify(modifyed), (error) => {
+      fs.writeFile('./stores/note/index.json', JSON.stringify(modifyed), (error) => {
         if (error) { console.error(error); return }
       })
       message.channel.send({embed: {

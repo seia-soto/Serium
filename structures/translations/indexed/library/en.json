@@ -1,6 +1,6 @@
 {
   "__comment__": "Descriptions",
-  "defaultAvatar": "Cannot load avatar because avatar's url is Discord's default.",
+  "invalidAvatar": "Cannot load avatar. Is the user is not exists or avatar is default?",
   "noteDescription": "The notes provided by Seriumium are temporary notepads. This note is overwritten when another user adds a note with the same ID, and is not an endlessly valid note because it is deleted when update. Seriumium is not responsible for the contents of this note.",
   "noteCreated": "Your note was created without any risks! You can open your note with identificate of note created. The identificate of note created is **{identificate}**.",
   "createNote": "`;note create <content>`",

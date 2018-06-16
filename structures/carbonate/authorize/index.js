@@ -1,4 +1,4 @@
-const stone = require('../../../data').carbonate
+const stone = require('../../../stores').carbonate
 module.exports = (message) => {
   let authorized = true
   if (stone[message.guild.id]) {
