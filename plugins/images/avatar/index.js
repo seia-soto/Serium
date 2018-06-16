@@ -4,8 +4,6 @@ module.exports.execute = (client, message, nt) => {
   if (nt.arguments[0]) {
     if (nt.arguments[0].startsWith('<@')) {
       user = message.mentions.users.first()
-    } else {
-      user = message.guild.users.find('name', nt.arugments[0])
     }
   } else {
     user = message.author

@@ -1,35 +1,36 @@
 // NOTE: seriumium
-const exec = require('./seriumium/exec')
-const notificate = require('./seriumium/notificate')
-const script = require('./seriumium/script')
+module.exports.exec = require('./seriumium/exec')
+module.exports.notificate = require('./seriumium/notificate')
+module.exports.script = require('./seriumium/script')
 // NOTE: moderations
-const purge = require('./moderations/delete')
-const sayd = require('./moderations/sayd')
+module.exports.purge = require('./moderations/delete')
+module.exports.sayd = require('./moderations/sayd')
 // NOTE: gladsome
-const choose = require('./gladsome/choose')
-const note = require('./gladsome/note')
-const probability = require('./gladsome/probability')
-const ready = require('./gladsome/ready')
-const rps = require('./gladsome/rps')
-const say = require('./gladsome/say')
+module.exports.choose = require('./gladsome/choose')
+module.exports.note = require('./gladsome/note')
+module.exports.probability = require('./gladsome/probability')
+module.exports.ready = require('./gladsome/ready')
+module.exports.rps = require('./gladsome/rps')
+module.exports.say = require('./gladsome/say')
 // NOTE: images
-const avatar = require('./images/avatar')
-const cat = require('./images/cat')
-const dog = require('./images/dog')
-const neko = require('./images/neko')
-const shy = require('./images/shy')
+module.exports.avatar = require('./images/avatar')
+module.exports.cat = require('./images/cat')
+module.exports.dog = require('./images/dog')
+module.exports.neko = require('./images/neko')
+module.exports.shy = require('./images/shy')
 // NOTE: about
-const help = require('./about/help')
-const ping = require('./about/ping')
-const serverinfo = require('./about/serverinfo')
-const userinfo = require('./about/userinfo')
+module.exports.help = require('./about/help')
+module.exports.ping = require('./about/ping')
+module.exports.serverinfo = require('./about/serverinfo')
+module.exports.userinfo = require('./about/userinfo')
+module.exports.invite = require('./about/invite')
 // NOTE: wiki
-const library = require('./wiki/library')
-const namuwiki = require('./wiki/namuwiki')
+module.exports.library = require('./wiki/library')
+module.exports.namuwiki = require('./wiki/namuwiki')
 // NOTE: functions
-const colored = require('./functions/colored')
-const search = require('./functions/search')
-const hash = require('./functions/hash')
+module.exports.colored = require('./functions/colored')
+module.exports.search = require('./functions/search')
+module.exports.hash = require('./functions/hash')
 
 module.exports.answerList = {
   __comment__ap: 'Administrations levels: it does not contains any translations, alias or options.',
@@ -59,6 +60,7 @@ module.exports.answerList = {
   note: { worker: note, language: 'en' },
   hash: { worker: hash, language: 'en' },
   colored: { worker: colored, language: 'en' },
+  invite: { worker: invite, language: 'en' },
   __comment__lpkk: 'Korean Language Pack; remove all these aliases if you do not want to use.',
   '아바타': { worker: avatar, language: 'ko' },
   '고양이': { worker: cat, language: 'ko' },
@@ -79,5 +81,6 @@ module.exports.answerList = {
   '사용자정보': { worker: userinfo, language: 'ko' },
   '노트': { worker: note, language: 'ko' },
   '해시': { worker: hash, language: 'ko' },
-  '색': { worker: colored, language: 'ko' }
+  '색': { worker: colored, language: 'ko' },
+  '초대': { worker: invite, language: 'ko' }
 }
