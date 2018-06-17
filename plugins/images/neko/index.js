@@ -1,7 +1,7 @@
 const request = require('request')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  const subjects = require('../../../data/endpoints/nekos-dot-life.json')
+  const subjects = require('../../../stores').endpoints.nekos_dot_life
   const flags = {
     sfw: '`tickle`, `slap`, `poke`, `pat`, `neko`, `meow`, `lizard`, `kiss`, `hug`, `foxgirl`, `feed`, `cuddle`, `why`, `cattext`, `owoify`, `8ball`, `fact`, `chat`, `nekogif`, `kemonomimi`, `holo`, `erofeet`',
     all: '`tickle`, `slap`, `poke`, `pat`, `neko`, `meow`, `lizard`, `kiss`, `hug`, `foxgirl`, `feed`, `cuddle`, `why`, `cattext`, `owoify`, `8ball`, `fact`, `chat`, `nekogif`, `kemonomimi`, `holo`, `erofeet`, `ramdomhentaigif`, `pussy`, `nekogif`, `neko`, lesbian`, `kuni`, `cumsluts`, `classic`, `boobs`, `bj`, `anal`, `analarts`, `yuri`, `trap`, `tits`, `girlsologif`, `girlsolo`, `smallboobs`, `pussywankgif`, `pussyart`, `kemonomimi`, `kitsune`, `keta`, `holo`, `holoero`, `hentai`, `futanari`, `femdom`, `feetgif`, `feet`, `ero`, `erokitsune`, `eroneko`, `eroyuri`, `cumarts`, `blowjob`, `pussygif`'

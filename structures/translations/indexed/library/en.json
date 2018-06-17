@@ -21,7 +21,7 @@
   "subjectModerations": "`delete`, `sayd`",
   "subjectGladsome": "`probability`, `choose`, `rps`, `ready`, `note`, `say`",
   "subjectImages": "`avatar`, `neko`, `cat`, `dog`, `shy`",
-  "subjectAbout": "`help`, `invite`, `ping`, `serverinfo`, `userinfo`",
+  "subjectAbout": "`help`, `ping`, `serverinfo`, `userinfo`",
   "subjectWiki": "`library`, `namuwiki`",
   "subjectFunctions": "`case`, `colored`, `search`, `hash`",
   "chose": "chose **{picked}**",

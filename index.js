@@ -8,8 +8,8 @@ const application = {
 }
 const client = new Discord.Client({autoReconnect: true})
 const endpoints = {
-  prefix: 'n;', // NOTE: new RegExp('^<@!?Client ID>')
-  Discord: 'NDUzMjU1NjYwMTY4MTUxMDUw.DgU8sA.KY2JcmtGY86OoSY7cCHyINJM1Ao' // NOTE: process.env.Discord
+  prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
+  Discord: '' // NOTE: process.env.Discord
 }
 
 process.on('unhandledRejection', (error) => {
