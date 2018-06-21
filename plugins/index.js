@@ -12,6 +12,7 @@ const probability = require('./gladsome/probability')
 const ready = require('./gladsome/ready')
 const rps = require('./gladsome/rps')
 const say = require('./gladsome/say')
+const dont = require('./gladsome/dont')
 // NOTE: images
 const avatar = require('./images/avatar')
 const cat = require('./images/cat')
@@ -59,6 +60,7 @@ module.exports.answerList = {
   note: { worker: note, language: 'en' },
   hash: { worker: hash, language: 'en' },
   colored: { worker: colored, language: 'en' },
+  dont: { worker: dont, language: 'en' },
   __comment__lpkk: 'Korean Language Pack; remove all these aliases if you do not want to use.',
   '아바타': { worker: avatar, language: 'ko' },
   '고양이': { worker: cat, language: 'ko' },
@@ -79,5 +81,6 @@ module.exports.answerList = {
   '사용자정보': { worker: userinfo, language: 'ko' },
   '노트': { worker: note, language: 'ko' },
   '해시': { worker: hash, language: 'ko' },
-  '색': { worker: colored, language: 'ko' }
+  '색': { worker: colored, language: 'ko' },
+  '하지마': { worker: dont, language: 'ko' }
 }
