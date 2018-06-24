@@ -31,6 +31,7 @@
   "invalidHexColor": "Invalid hex code was received; Correction:`;colored #FFFFFF`",
   "getColored": "You get colored!",
   "needSupports": "Need additional supports about Seriumium? [goto support server]({link})",
+  "noPlayer": "_______________________DUMP______________________",
   "__comment__": "Words",
   "note": "note",
   "help": "help",

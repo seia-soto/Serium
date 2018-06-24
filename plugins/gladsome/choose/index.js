@@ -4,5 +4,5 @@ module.exports.execute = (client, message, nt) => {
     message.reply(nt.i('longParameter'))
     return
   }
-  message.reply(nt.i('chose', true).replace('{picked}', ' ' + nt.arguments[Math.floor(Math.random() * nt.arguments.length)]))
+  message.reply(nt.i('chose', true).replace('{picked}', ' ' + nt.arguments[Math.floor(Math.random() * nt.arguments.length)].replace('@here', '^@!?here').replace('@everyone', '^@!?everyone')))
 }
