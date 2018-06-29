@@ -12,7 +12,6 @@ const probability = require('./gladsome/probability')
 const ready = require('./gladsome/ready')
 const rps = require('./gladsome/rps')
 const say = require('./gladsome/say')
-const dont = require('./gladsome/dont')
 // NOTE: images
 const avatar = require('./images/avatar')
 const cat = require('./images/cat')
@@ -31,6 +30,7 @@ const namuwiki = require('./wiki/namuwiki')
 const colored = require('./functions/colored')
 const search = require('./functions/search')
 const hash = require('./functions/hash')
+const itunes = require('./functions/itunes')
 
 module.exports.answerList = {
   __comment__ap: 'Administrations levels: it does not contains any translations, alias or options.',
@@ -60,7 +60,7 @@ module.exports.answerList = {
   note: { worker: note, language: 'en' },
   hash: { worker: hash, language: 'en' },
   colored: { worker: colored, language: 'en' },
-  dont: { worker: dont, language: 'en' },
+  itunes: { worker: itunes, language: 'en' },
   __comment__lpkk: 'Korean Language Pack; remove all these aliases if you do not want to use.',
   '아바타': { worker: avatar, language: 'ko' },
   '고양이': { worker: cat, language: 'ko' },
@@ -82,5 +82,5 @@ module.exports.answerList = {
   '노트': { worker: note, language: 'ko' },
   '해시': { worker: hash, language: 'ko' },
   '색': { worker: colored, language: 'ko' },
-  '하지마': { worker: dont, language: 'ko' }
+  '아이튠즈': { worker: itunes, language: 'ko' }
 }

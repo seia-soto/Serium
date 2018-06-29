@@ -6,10 +6,10 @@ const application = {
   stores: require('./stores'),
   structures: require('./structures')
 }
-const client = new Discord.Client({autoReconnect: true})
+const client = new Discord.Client({autoReconnect: true, disableEveryone: true, messageCacheLifetime: 16})
 const endpoints = {
   prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
-  Discord: '' // NOTE: process.env.Discord
+  Discord: 'Insert the client token here' // NOTE: process.env.Discord
 }
 
 process.on('unhandledRejection', (error) => {
