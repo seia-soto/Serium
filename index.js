@@ -6,10 +6,27 @@ const application = {
   stores: require('./stores'),
   structures: require('./structures')
 }
-const client = new Discord.Client({autoReconnect: true, disableEveryone: true, messageCacheLifetime: 16})
+const client = new Discord.Client({
+  autoReconnect: true,
+  disableEveryone: true,
+  messageCacheLifetime: 16
+})
 const endpoints = {
-  prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
-  Discord: 'Insert the client token here' // NOTE: process.env.Discord
+  prefix: 'n;', // NOTE: new RegExp('^<@!?Client ID>')
+  Discord: '' // NOTE: process.env.Discord
+}
+const issued = {
+  recently: [],
+  timeout: 1250 // NOTE: Integer
+}
+
+const usage = {
+  rate: (user) => {
+    issued.recently.push(user.id)
+  },
+  initialize: (user) => {
+    issued.recently.splice(issued.recently.indexOf(user.id), 1)
+  }
 }
 
 process.on('unhandledRejection', (error) => {
@@ -34,11 +51,16 @@ client.on('message', (message) => {
   const notAllowed =
     (!plugin)
     || (permissions < plugin.worker.permissions)
-  if (notAllowed) { return }
+    || (issued.recently.indexOf(message.author.id).toString() !== '-1')
+  if (notAllowed) {
+    return message.reply(application.structures.translations(plugin.language)('notAllowed'))
+  }
   const nt = {
     arguments: message.content.split(' ').slice(1),
     i: application.structures.translations(plugin.language),
     application: application
   }
   plugin.worker.execute(client, message, nt)
+  usage.rate(message.author)
+  setTimeout(() => { usage.initialize(message.author) }, issued.timeout)
 })

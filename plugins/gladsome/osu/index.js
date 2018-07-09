@@ -6,7 +6,7 @@ module.exports.execute = (client, message, nt) => {
     if (error) { message.reply(error); return }
     const profile = JSON.parse(body)
     if (profile.user_id) {
-      // NOTE: 이것도 완성해! 마감: 내일
+      
     } else {
       message.reply(nt.i('noPlayer'))
     }

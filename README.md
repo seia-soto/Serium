@@ -1,4 +1,4 @@
-[Seriumium#2403](https://seriumium.tk/)
+[Seriumium#2403](https://soto-seia.github.io/)
 ====
 
 
@@ -6,6 +6,11 @@
 
 * Full documentation will available on [Seriumium on Web](https://seriumium.tk).
 * Supports multi-languages by aliases for you. `;도움말`
+
+
+Notifications
+----
+Now the neko prompt will work with channel's status like it is NSFW channel and now bot has the time
 
 
 Feedback
@@ -16,13 +21,13 @@ Feedback
 General Informations
 ----
 * Prefix `;`
-* [Invite to your server](https://seriumium.tk/invite)
+* [Invite to your server](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)
 
 
 Reporting issues
 ----
 Seriumium is watting for error reports.
-Write logs of console and why in [issues tab](https://github.com/Seriumium/seriumium/issues).
+Write logs of console and why in [issues tab](https://github.com/Soto-Seia/Serium/issues).
 
 
 Preparing the enviroment (Ubuntu)
@@ -80,4 +85,4 @@ Oof! Sorry but version 0.x is not available this time.
 
 License
 ----
-Seriumium is licensed under  [Artistic License 2.0 ](https://github.com/Seriumium/seriumium/blob/nightly/LICENSE)
+Seriumium is licensed under  [Artistic License 2.0 ](https://github.com/Soto-Seia/Serium/blob/nightly/LICENSE)

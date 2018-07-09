@@ -5,7 +5,7 @@ module.exports.execute = (client, message, nt) => {
     .then(condition => {
       client.guilds.forEach(guild => {
         client.users.get(guild.ownerID).send(nt.arguments.slice(0).join(' '))
-        guilds = guilds + guild.name + '\n'
+        guilds = guilds + '\n' + guild.name
       })
       guilds = guilds + '\nSent notification to ' + client.guilds.size + ' guilds.'
       condition.edit(guilds)

@@ -1,6 +1,6 @@
 {
   "name": "seriumium",
-  "version": "1.4.3",
+  "version": "1.4.5",
   "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Seriumium/seriumium.git"
+    "url": "git+https://github.com/Soto-Seia/Serium.git"
   },
   "keywords": [],
   "author": "Seia Soto",
   "license": "Artistic-2.0",
   "bugs": {
-    "url": "https://github.com/Seriumium/seriumium/issues"
+    "url": "https://github.com/Soto-Seia/Serium/issues"
   },
-  "homepage": "https://github.com/Seriumium/seriumium#readme",
+  "homepage": "https://github.com/Soto-Seia/Serium#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
