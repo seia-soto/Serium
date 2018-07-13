@@ -12,7 +12,7 @@ const client = new Discord.Client({
   messageCacheLifetime: 16
 })
 const endpoints = {
-  prefix: 'n;', // NOTE: new RegExp('^<@!?Client ID>')
+  prefix: ';', // NOTE: new RegExp('^<@!?Client ID>')
   Discord: '' // NOTE: process.env.Discord
 }
 const issued = {
@@ -36,7 +36,7 @@ process.on('unhandledRejection', (error) => {
 client.login(endpoints.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
-  client.user.setActivity(endpoints.prefix + 'help (Initialized, ' + require('./package.json').version + ')')
+  client.user.setActivity(endpoints.prefix + 'help (' + issued.timeout 'ms/prompt, ' + require('./package.json').version + ')')
   client.user.setStatus('online')
 })
 client.on('message', (message) => {
@@ -52,9 +52,7 @@ client.on('message', (message) => {
     (!plugin)
     || (permissions < plugin.worker.permissions)
     || (issued.recently.indexOf(message.author.id).toString() !== '-1')
-  if (notAllowed) {
-    return message.reply(application.structures.translations(plugin.language)('notAllowed'))
-  }
+  if (notAllowed) return
   const nt = {
     arguments: message.content.split(' ').slice(1),
     i: application.structures.translations(plugin.language),
