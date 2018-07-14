@@ -6,7 +6,14 @@ module.exports.execute = (client, message, nt) => {
     if (error) { message.reply(error); return }
     const profile = JSON.parse(body)
     if (profile.user_id) {
-      
+      const embed = new Discord.RichEmbed()
+        .setTitle(profile.username + ' (' + profile.user_id + ')')
+        .setColor(16761035)
+        .setDescription(nt.i('defPlayer').replace('{country}', profile.country).replace('{playcount}', profile.playcount))
+        .addField(nt.i('level', true),
+        '**' + nt.i('totalscore', true) + '** ' + profile.total_score +
+        '\n**' + nt.i('bestscore') + '** ' + profile.best_score, true)
+      message.channel.send({embed})
     } else {
       message.reply(nt.i('noPlayer'))
     }

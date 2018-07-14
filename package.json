@@ -1,6 +1,6 @@
 {
   "name": "seriumium",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Soto-Seia/Serium.git"
   },
   "keywords": [],
-  "author": "Seia Soto",
+  "author": "Soto",
   "license": "Artistic-2.0",
   "bugs": {
     "url": "https://github.com/Soto-Seia/Serium/issues"

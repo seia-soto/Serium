@@ -1,10 +1,9 @@
-[Seriumium#2403](https://soto-seia.github.io/)
+[Seriumium#2403](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)
 ====
 
 
 [![Meet us at Discord](https://discordapp.com/api/guilds/383944425648422912/embed.png?style=banner2)](https://discord.gg/YzBZNQq)
 
-* Full documentation will available on [Seriumium on Web](https://seriumium.tk).
 * Supports multi-languages by aliases for you. `;도움말`
 
 
