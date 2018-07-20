@@ -12,6 +12,7 @@ const probability = require('./gladsome/probability')
 const ready = require('./gladsome/ready')
 const rps = require('./gladsome/rps')
 const say = require('./gladsome/say')
+const osu = require('./gladsome/osu')
 // NOTE: images
 const avatar = require('./images/avatar')
 const cat = require('./images/cat')
@@ -59,6 +60,7 @@ module.exports.answerList = {
   hash: { worker: hash, language: 'en' },
   colored: { worker: colored, language: 'en' },
   itunes: { worker: itunes, language: 'en' },
+  osu: { worker: osu, language: 'en' },
   __comment__lpkk: 'Korean Language Pack; remove all these aliases if you do not want to use.',
   '아바타': { worker: avatar, language: 'ko' },
   '고양이': { worker: cat, language: 'ko' },

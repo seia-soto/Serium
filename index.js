@@ -32,7 +32,7 @@ client.login(configures.secret.Discord)
 client.on('ready', () => {
   console.log(client.user.tag)
   client.user.setActivity(configures.answer.prefix + 'help (' +
-    configures.answer.limit + 'ms/prompt, ' +
+    configures.answer.limit / 1000 + 's/p, ' +
     require('./package.json').version + ')')
   client.user.setStatus('online')
 })

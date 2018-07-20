@@ -5,7 +5,8 @@ module.exports.execute = (client, message, nt) => {
     (!colorsRole)
     || (!message.guild.members.get(client.user.id).permissions.has('MANAGE_ROLES'))
   const notAllowedCodes =
-    (!nt.arguments[0].match('#'))
+    (!nt.arguments[0])
+    || (!nt.arguments[0].match('#'))
     || (nt.arguments[0].length > 8)
   if (notAllowedEnviroments) {
     message.reply(nt.i('requirementsInvalidToColored'))
@@ -17,8 +18,8 @@ module.exports.execute = (client, message, nt) => {
     const issuedRole = message.guild.roles.find('name', 'Color' + nt.arguments[0])
     if (issuedRole === null || !issuedRole) {
       message.guild.createRole({
-        name: 'Color' + nt.arguments[0],
-        color: nt.arguments[0].replace('#', ''),
+        name: 'Color' + nt.arguments[0].toLowerCase(),
+        color: nt.arguments[0].replace('#', '').toLowerCase(),
         hoisted: false,
         position: colorsRole.position - 1,
         permissions: 0,

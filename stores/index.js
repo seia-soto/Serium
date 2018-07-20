@@ -4,7 +4,7 @@ module.exports.note = require('./note')
 module.exports.configures = {
   answer: {
     prefix: ';',
-    limit: 0
+    limit: 2000
   },
   secret: {
     Discord: '',
