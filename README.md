@@ -1,4 +1,4 @@
-[Seriumium#2403](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)
+[Serium#2403](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)
 ====
 
 
@@ -61,7 +61,7 @@ const endpoints = {
 ```
 
 You can change values of endpoints to customize to your own.
-Insert token to `endpoints.Discord`.
+Insert tokens to `stores/index.configurations`.
 
 ```bash
 npm install --save
@@ -79,7 +79,7 @@ Just do installation again.
 
 Considering previous versions to use
 ----
-Oof! Sorry but version 0.x is not available this time.
+We are recommending you to use previous version of Serium if you want to more stable version of Serium and currently the latest previous one is I might 1.3.x and 1.2.14 or upper but errors were not identified.
 
 
 License
