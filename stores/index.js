@@ -3,11 +3,11 @@ module.exports.note = require('./note')
 
 module.exports.configures = {
   answer: {
-    prefix: 'n;',
+    prefix: ';',
     limit: 2000
   },
   secret: {
-    Discord: 'NDUzMjU1NjYwMTY4MTUxMDUw.DjT-Xg.1JaulBNTm1eiM0IRdBF274cSVgM',
+    Discord: '',
     Osu: ''
   }
 }
