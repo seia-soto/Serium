@@ -25,6 +25,7 @@ const serverinfo = require('./about/serverinfo')
 const userinfo = require('./about/userinfo')
 // NOTE: wiki
 const library = require('./wiki/library')
+const librewiki = require('./wiki/librewiki')
 const namuwiki = require('./wiki/namuwiki')
 // NOTE: functions
 const colored = require('./functions/colored')
@@ -60,7 +61,8 @@ module.exports.answerList = {
   hash: { worker: hash, language: 'en' },
   colored: { worker: colored, language: 'en' },
   itunes: { worker: itunes, language: 'en' },
-  osu: { worker: osu, language: 'en' },
+  librewiki: { worker: librewiki, language: 'en' },
+  //osu: { worker: osu, language: 'en' },
   __comment__lpkk: 'Korean Language Pack; remove all these aliases if you do not want to use.',
   '아바타': { worker: avatar, language: 'ko' },
   '고양이': { worker: cat, language: 'ko' },
@@ -81,5 +83,6 @@ module.exports.answerList = {
   '노트': { worker: note, language: 'ko' },
   '해시': { worker: hash, language: 'ko' },
   '색': { worker: colored, language: 'ko' },
-  '아이튠즈': { worker: itunes, language: 'ko' }
+  '아이튠즈': { worker: itunes, language: 'ko' },
+  '리브레위키': { worker: librewiki, language: 'ko' }
 }

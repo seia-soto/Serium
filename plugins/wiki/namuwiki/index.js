@@ -19,7 +19,7 @@ module.exports.execute = (client, message, nt) => {
         message.channel.send({embed: {
           color: 16761035,
           author: {
-            icon_url: 'https://soto-seia.github.io/external/namuwiki.png',
+            icon_url: 'https://seia-soto.github.io/assets/images/namuwiki.png',
             name: title
           },
           title: nt.i('menu', true),

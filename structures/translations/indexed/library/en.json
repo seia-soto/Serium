@@ -21,7 +21,7 @@
   "subjectGladsome": "`probability`, `choose`, `rps`, `ready`, `note`, `say`",
   "subjectImages": "`avatar`, `neko`, `cat`, `dog`",
   "subjectAbout": "`help`, `ping`, `serverinfo`, `userinfo`",
-  "subjectWiki": "`library`, `namuwiki`",
+  "subjectWiki": "`library`, `librewiki`, `namuwiki`",
   "subjectFunctions": "`colored`, `search`, `hash` `itunes`",
   "chose": "chose **{picked}**",
   "deleted": "Deleted {amount} messages.",
