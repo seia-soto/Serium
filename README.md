@@ -1,10 +1,10 @@
-[Seriumium#2403](https://soto-seia.github.io/)
+[Serium#2403](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot)
 ====
 
 
 [![Meet us at Discord](https://discordapp.com/api/guilds/383944425648422912/embed.png?style=banner2)](https://discord.gg/YzBZNQq)
 
-* Full documentation will available on [Seriumium on Web](https://seriumium.tk).
+* This README.md didn't modifyed! (WARN)
 * Supports multi-languages by aliases for you. `;도움말`
 
 
@@ -26,7 +26,7 @@ General Informations
 
 Reporting issues
 ----
-Seriumium is watting for error reports.
+Serium is watting for error reports.
 Write logs of console and why in [issues tab](https://github.com/Soto-Seia/Serium/issues).
 
 
@@ -62,7 +62,7 @@ const endpoints = {
 ```
 
 You can change values of endpoints to customize to your own.
-Insert token to `endpoints.Discord`.
+Insert tokens to `stores/index.configurations`.
 
 ```bash
 npm install --save
@@ -80,9 +80,9 @@ Just do installation again.
 
 Considering previous versions to use
 ----
-Oof! Sorry but version 0.x is not available this time.
+We are recommending you to use previous version of Serium if you want to more stable version of Serium and currently the latest previous one is I might 1.3.x and 1.2.14 or upper but errors were not identified.
 
 
 License
 ----
-Seriumium is licensed under  [Artistic License 2.0 ](https://github.com/Soto-Seia/Serium/blob/nightly/LICENSE)
+Serium is licensed under  [Artistic License 2.0 ](https://github.com/Seia-Soto/Serium/blob/nightly/LICENSE)

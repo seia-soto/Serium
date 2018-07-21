@@ -19,12 +19,12 @@ module.exports.execute = (client, message, nt) => {
         message.channel.send({embed: {
           color: 16761035,
           author: {
-            icon_url: 'https://soto-seia.github.io/external/namuwiki.png',
+            icon_url: 'https://seia-soto.github.io/assets/images/namuwiki.png',
             name: title
           },
           title: nt.i('menu', true),
           description: '[' + nt.i('keepReading').replace('{source}', '나무위키') + '](' + endpoint + '); ' + title.replace(' - 나무위키', '') +
-          '\n[' + title.replace(' - 나무위키', ' ') + nt.i('edit', true) + '](' + endpoint.replace('/w', '/edit') + ')',
+          '\n[' + nt.i('edit', true) + title.replace(' - 나무위키', ' ') + '](' + endpoint.replace('/w', '/edit') + ')',
           fields: [
             {
               name: nt.i('introduction', true),

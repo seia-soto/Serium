@@ -3,8 +3,9 @@ module.exports.execute = (client, message, nt) => {
   message.channel.send({embed: {
     color: 16761035,
     title: nt.i('help', true),
-    description: nt.i('creatorCredits') +
-    '\n\n:earth_asia: https://soto-seia.github.io\n:sparkles: https://discordapp.com/api/oauth2/authorize?client_id=' + client.user.id + '&permissions=8&scope=bot',
+    description: '\n\n:earth_asia: https://soto-seia.github.io' +
+    '\n:sparkles: [' + nt.i('invite', true) + ': ' + client.user.tag + '](https://discordapp.com/api/oauth2/authorize?client_id=' + client.user.id + '&permissions=8&scope=bot)' +
+    '\n:information_source: v' + require('../../../package.json').version,
     fields: [
       {
         name: nt.i('Serium'),

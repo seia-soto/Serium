@@ -1,7 +1,7 @@
 const fs = require('fs')
 module.exports.permissions = 0
 module.exports.execute = (client, message, nt) => {
-  const notes = nt.application.stores.note
+  const notes = require('../../../stores').note
   if (nt.arguments[0]) {
     if (nt.arguments[0] === nt.i('create')) {
       const identificate = Math.floor(Math.random() * 9999) + 1
