@@ -25,7 +25,7 @@ module.exports.execute = (client, message, nt) => {
           },
           title: nt.i('menu', true),
           description: '[' + nt.i('keepReading').replace('{source}', '리브레위키') + '](https://librewiki.net/wiki/' + selector + '); ' +
-          title + '\n[' + title + ' ' + nt.i('edit', true) + '](https://librewiki.net/index.php?title=' + selector + '&action=edit)',
+          title + '\n[' + nt.i('edit', true) + title + ' ' + '](https://librewiki.net/index.php?title=' + selector + '&action=edit)',
           fields: [
             {
               name: nt.i('introduction', true),

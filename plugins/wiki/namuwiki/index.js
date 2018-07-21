@@ -24,7 +24,7 @@ module.exports.execute = (client, message, nt) => {
           },
           title: nt.i('menu', true),
           description: '[' + nt.i('keepReading').replace('{source}', '나무위키') + '](' + endpoint + '); ' + title.replace(' - 나무위키', '') +
-          '\n[' + title.replace(' - 나무위키', ' ') + nt.i('edit', true) + '](' + endpoint.replace('/w', '/edit') + ')',
+          '\n[' + nt.i('edit', true) + title.replace(' - 나무위키', ' ') + '](' + endpoint.replace('/w', '/edit') + ')',
           fields: [
             {
               name: nt.i('introduction', true),
