@@ -29,6 +29,7 @@
   "requirementsInvalidToColored": "계속하려면 Colors라고 이름 지어진 역할과 Serium에게 역할을 설정할 권한이 필요합니다.",
   "invalidHexColor": "잘못된 Hex 코드가 주어졌습니다; 올바른 예:`;색 #FFFFFF`",
   "getColored": "이제 색으로 칠해졌네요!",
+  "notplaying": "플레이 중인 게임이 없네요",
   "__comment__": "Words",
   "note": "노트",
   "help": "도움말",

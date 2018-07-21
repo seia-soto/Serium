@@ -14,6 +14,12 @@ module.exports.execute = (client, message, nt) => {
   } else {
     user = message.author
   }
+  let presence
+  if (user.presence.status !== null) {
+    presence = user.presence.status.name
+  } else {
+    presence = nt.i('notplaying')
+  }
   const embed = new Discord.RichEmbed()
     .setTitle(user.username)
     .setAuthor(user.tag, user.avatarURL)
@@ -26,6 +32,6 @@ module.exports.execute = (client, message, nt) => {
     '\n**' + nt.i('web', true) + '** ' + user.client.browser, true)
     .addField(nt.i('presence', true),
     '**' + nt.i('status', true) + '** ' + user.presence.status +
-    '\n**' + nt.i('game', true) + '** ' + user.presence.game, true)
+    '\n**' + nt.i('game', true) + '** ' + presence, true)
   message.channel.send({embed})
 }

@@ -32,6 +32,7 @@
   "needSupports": "Need additional supports about Serium? [goto support server]({link})",
   "noPlayer": "Cannot find player with that name.",
   "defPlayer": "This player came from {country} and played {playcount} beatmaps.",
+  "notplaying": "There is no game playing",
   "__comment__": "Words",
   "note": "note",
   "help": "help",
