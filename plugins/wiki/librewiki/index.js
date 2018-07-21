@@ -10,7 +10,7 @@ module.exports.execute = (client, message, nt) => {
         if (error) { message.reply(error); return }
         const result = JSON.parse(body)
         let output = nt.i('noResult_fromRemote')
-        if (result.parse.properties) {
+        if (result.parse) {
           output = result.parse.properties[0]['*']
           if (output.length > 991) {
             output = extract.substr(0, 990) + '...'
