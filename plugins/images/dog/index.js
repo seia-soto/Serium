@@ -1,6 +1,5 @@
 const request = require('request')
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   const endpoint = 'https://api.thedogapi.co.uk/v2/dog.php?limit=1'
   try {
     request(endpoint, (error, response, body) => {

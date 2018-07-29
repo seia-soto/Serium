@@ -1,12 +1,16 @@
 const request = require('request')
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
-  const endpoint = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(nt.arguments.slice(0).join(' '))
-  if (nt.arguments[0]) {
+module.exports = (client, message, nt) => {
+  const endpoints = {
+    ko: 'https://ko.wikipedia.org/api/rest_v1/page/summary/',
+    en: 'https://en.wikipedia.org/api/rest_v1/page/summary/'
+  }
+  const endpoint = endpoint[nt.l] + encodeURIComponent(nt.parameters.slice(0).join(' '))
+  if (nt.parameters[0]) {
     try {
       request(endpoint, (error, response, body) => {
         if (error) { message.reply(error); return }
-        const result = JSON.parse(body)
+        let result = JSON.parse(body)
+        if (nt.l !== 'en') result.extract = decodeURIComponent(result.extract)
         message.channel.send({embed: {
           color: 16761035,
           title: nt.i('library', true),

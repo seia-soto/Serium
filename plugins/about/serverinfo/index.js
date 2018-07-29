@@ -1,6 +1,5 @@
 const Discord = require('discord.js')
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   const server = message.guild
   const embed = new Discord.RichEmbed()
     .setTitle(nt.i('serverOwner').replace('{name}', client.users.get(server.ownerID).tag))

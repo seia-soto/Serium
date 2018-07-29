@@ -1,5 +1,4 @@
-module.exports.permissions = 1
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   message.delete()
-  message.channel.send(nt.arguments.slice(0).join(' '))
+  message.channel.send(nt.parameters.slice(0).join(' '))
 }

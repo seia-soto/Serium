@@ -1,6 +1,5 @@
 const Discord = require('discord.js')
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   let user = message.mentions.users.first()
   if (user) {
     if (!user.id) {

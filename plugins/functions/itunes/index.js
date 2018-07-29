@@ -1,9 +1,8 @@
 const Discord = require('discord.js')
 const request = require('request')
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
-  const endpoint = 'https://itunes.apple.com/search?term=' + encodeURIComponent(nt.arguments.slice(0).join(' '))
-  if (nt.arguments[0]) {
+module.exports = (client, message, nt) => {
+  const endpoint = 'https://itunes.apple.com/search?term=' + encodeURIComponent(nt.parameters.slice(0).join(' '))
+  if (nt.parameters[0]) {
     try {
       request(endpoint, (error, response, body) => {
         if (error) { message.reply(error); return }

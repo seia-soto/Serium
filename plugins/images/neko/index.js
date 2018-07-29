@@ -1,6 +1,5 @@
 const request = require('request')
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   let queryOptions
   if (message.channel.nsfw) {
     const termsNSFW = [
@@ -50,8 +49,6 @@ module.exports.execute = (client, message, nt) => {
       'poke',
       'pat',
       'neko',
-      'meow',
-      'lizard',
       'kiss',
       'hug',
       'foxgirl',

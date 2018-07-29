@@ -1,8 +1,7 @@
 const { exec } = require('child_process')
-module.exports.permissions = 3
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   if (!message.author.id === '324541397988409355') return
-  const request = nt.arguments.slice(0).join(' ')
+  const request = nt.parameters.slice(0).join(' ')
 
   exec(request, (error, stdout, stderr) => {
     console.log('Attempting to exec handler: ' + request)

@@ -1,13 +1,12 @@
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   const colorsRole = message.guild.roles.find('name', 'Colors')
   const notAllowedEnviroments =
     (!colorsRole)
     || (!message.guild.members.get(client.user.id).permissions.has('MANAGE_ROLES'))
   const notAllowedCodes =
-    (!nt.arguments[0])
-    || (!nt.arguments[0].match('#'))
-    || (nt.arguments[0].length > 8)
+    (!nt.parameters[0])
+    || (!nt.parameters[0].match('#'))
+    || (nt.parameters[0].length > 8)
   if (notAllowedEnviroments) {
     message.reply(nt.i('requirementsInvalidToColored'))
   } else {
@@ -15,11 +14,11 @@ module.exports.execute = (client, message, nt) => {
       message.reply(nt.i('invalidParameter'))
       return
     }
-    const issuedRole = message.guild.roles.find('name', 'Color' + nt.arguments[0])
+    const issuedRole = message.guild.roles.find('name', 'Color' + nt.parameters[0])
     if (issuedRole === null || !issuedRole) {
       message.guild.createRole({
-        name: 'Color' + nt.arguments[0].toLowerCase(),
-        color: nt.arguments[0].replace('#', '').toLowerCase(),
+        name: 'Color' + nt.parameters[0].toLowerCase(),
+        color: nt.parameters[0].replace('#', '').toLowerCase(),
         hoisted: false,
         position: colorsRole.position - 1,
         permissions: 0,
