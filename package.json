@@ -13,6 +13,10 @@
   },
   "keywords": [],
   "author": "Seia-Soto",
+  "contributors": {
+    "structures": ["danueP", "RanolP", "네모"],
+    "interfaces": ["Tenpower"]
+  },
   "license": "Artistic-2.0",
   "bugs": {
     "url": "https://github.com/Seia-Soto/Serium/issues"
