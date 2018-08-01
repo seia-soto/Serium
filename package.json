@@ -14,8 +14,14 @@
   "keywords": [],
   "author": "Seia-Soto",
   "contributors": {
-    "structures": ["danueP", "RanolP", "네모"],
-    "interfaces": ["Tenpower"]
+    "structures": [
+      "danueP",
+      "RanolP",
+      "네모"
+    ],
+    "interfaces": [
+      "Tenpower"
+    ]
   },
   "license": "Artistic-2.0",
   "bugs": {
@@ -25,6 +31,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
+    "mysql": "^2.16.0",
     "opusscript": "0.0.6",
     "querystring": "^0.2.0",
     "request": "^2.87.0"
