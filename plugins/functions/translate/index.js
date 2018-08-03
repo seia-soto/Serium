@@ -1,7 +1,7 @@
 const translate = require('google-translate-api')
 module.exports = (client, message, nt) => {
   if (nt.parameters[0] && nt.parameters[1]) {
-    translate(nt.arguments.slice(1).join(' '), {to: nt.parameters[0]}).then(res => {
+    translate(nt.parameters.slice(1).join(' '), {to: nt.parameters[0]}).then(res => {
       message.channel.send({embed: {
         color: 16761035,
         title: nt.i('translate', true),
