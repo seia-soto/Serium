@@ -1,10 +1,9 @@
 const cheerio = require('cheerio')
 const request = require('request')
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   const translate = nt.i('wiki', true)
-  const endpoint = 'https://namu.wiki/w/' + encodeURIComponent(nt.arguments.slice(0).join(' '))
-  if (nt.arguments[0]) {
+  const endpoint = 'https://namu.wiki/w/' + encodeURIComponent(nt.parameters.slice(0).join(' '))
+  if (nt.parameters[0]) {
     try {
       request(endpoint, (error, response, body) => {
         if (error) { message.reply(error); return }

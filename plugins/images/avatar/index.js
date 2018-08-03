@@ -1,8 +1,7 @@
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   let user
-  if (nt.arguments[0]) {
-    if (nt.arguments[0].startsWith('<@')) {
+  if (nt.parameters[0]) {
+    if (nt.parameters[0].startsWith('<@')) {
       user = message.mentions.users.first()
     }
   } else {

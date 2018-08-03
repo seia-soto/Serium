@@ -1,7 +1,6 @@
 const evaluate = require('./rps.js')
-module.exports.permissions = 0
-module.exports.execute = (client, message, nt) => {
-  if (nt.arguments[0]) {
+module.exports = (client, message, nt) => {
+  if (nt.parameters[0]) {
     const translate = nt.i('rps')
     const list = {
       rock: 'rock',
@@ -15,7 +14,7 @@ module.exports.execute = (client, message, nt) => {
       '가위': 'scissors',
       '주먹': 'rock'
     }
-    const request = list[nt.arguments[0].toLowerCase()]
+    const request = list[nt.parameters[0].toLowerCase()]
     if (!request) {
       message.reply(nt.i('invalidParameter'))
       return

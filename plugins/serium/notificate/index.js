@@ -1,10 +1,9 @@
-module.exports.permissions = 3
-module.exports.execute = (client, message, nt) => {
+module.exports = (client, message, nt) => {
   let guilds = 'Sending notification to each server..'
   message.channel.send(guilds)
     .then(condition => {
       client.guilds.forEach(guild => {
-        client.users.get(guild.ownerID).send(nt.arguments.slice(0).join(' '))
+        client.users.get(guild.ownerID).send(nt.parameters.slice(0).join(' '))
         guilds = guilds + '\n' + guild.name
       })
       guilds = guilds + '\nSent notification to ' + client.guilds.size + ' guilds.'

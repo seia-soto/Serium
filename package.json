@@ -13,6 +13,16 @@
   },
   "keywords": [],
   "author": "Seia-Soto",
+  "contributors": {
+    "structures": [
+      "danueP",
+      "RanolP",
+      "네모"
+    ],
+    "interfaces": [
+      "Tenpower"
+    ]
+  },
   "license": "Artistic-2.0",
   "bugs": {
     "url": "https://github.com/Seia-Soto/Serium/issues"
@@ -21,6 +31,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
+    "google-translate-api": "^2.3.0",
     "opusscript": "0.0.6",
     "querystring": "^0.2.0",
     "request": "^2.87.0"

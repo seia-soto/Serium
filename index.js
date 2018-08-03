@@ -33,7 +33,7 @@ client.on('ready', () => {
   console.log(client.user.tag)
   client.user.setActivity(configures.answer.prefix + 'help (' +
     configures.answer.limit / 1000 + 's/p, ' +
-    require('./package.json').version + ')')
+    'v' + require('./package.json').version + ')')
   client.user.setStatus('online')
 })
 client.on('message', (message) => {
@@ -47,14 +47,15 @@ client.on('message', (message) => {
   const plugin = application.plugins.answerList[message.content.split(' ')[0].slice(configures.answer.prefix.length).toLowerCase()]
   const notAllowed =
     (!plugin)
-    || (permissions < plugin.worker.permissions)
+    || (permissions < plugin.permissions)
     || (issued.indexOf(message.author.id).toString() !== '-1')
   if (notAllowed) return
   const nt = {
-    arguments: message.content.split(' ').slice(1),
-    i: application.structures.translations(plugin.language)
+    parameters: message.content.split(' ').slice(1),
+    i: application.structures.translations(plugin.language),
+    l: plugin.language
   }
-  plugin.worker.execute(client, message, nt)
+  plugin.worker(client, message, nt)
   rate.issue(message.author)
   setTimeout(() => { rate.initialize(message.author) }, configures.answer.limit)
 })
