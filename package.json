@@ -35,5 +35,9 @@
     "opusscript": "0.0.6",
     "querystring": "^0.2.0",
     "request": "^2.87.0"
-  }
+  },
+  "setlessDependencies": [
+    "google",
+    "ascii-fullwidth-halfwidth-convert"
+  ]
 }
