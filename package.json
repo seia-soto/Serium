@@ -1,6 +1,6 @@
 {
   "name": "seriumium",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/Seia-Soto/Serium#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "discord.js": "^11.3.2",
+    "discord.js": "^11.4.0",
     "google-translate-api": "^2.3.0",
     "opusscript": "0.0.6",
     "querystring": "^0.2.0",
