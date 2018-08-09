@@ -1,3 +1,3 @@
 module.exports = (client, message, nt) => {
-  message.channel.send(nt.arguments.slice(0).join(' '))
+  message.channel.send(nt.parameters.slice(0).join(' '))
 }
