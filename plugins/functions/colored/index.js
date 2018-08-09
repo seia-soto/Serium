@@ -14,7 +14,7 @@ module.exports = (client, message, nt) => {
       message.reply(nt.i('invalidParameter'))
       return
     }
-    const issuedRole = message.guild.roles.find('name', 'Color' + nt.parameters[0])
+    const issuedRole = message.guild.roles.find(items => items.name === 'Color' + nt.parameters[0])
     if (issuedRole === null || !issuedRole) {
       message.guild.createRole({
         name: 'Color' + nt.parameters[0].toLowerCase(),

@@ -4,7 +4,7 @@ module.exports = (client, message, nt) => {
     ko: 'https://ko.wikipedia.org/api/rest_v1/page/summary/',
     en: 'https://en.wikipedia.org/api/rest_v1/page/summary/'
   }
-  const endpoint = endpoint[nt.l] + encodeURIComponent(nt.parameters.slice(0).join(' '))
+  const endpoint = endpoints[nt.l] + encodeURIComponent(nt.parameters.slice(0).join(' '))
   if (nt.parameters[0]) {
     try {
       request(endpoint, (error, response, body) => {
