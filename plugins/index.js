@@ -27,6 +27,7 @@ const userinfo = require('./about/userinfo')
 const library = require('./wiki/library')
 const librewiki = require('./wiki/librewiki')
 const namuwiki = require('./wiki/namuwiki')
+const shortwiki = require('./wiki/shortwiki')
 // NOTE: functions
 const colored = require('./functions/colored')
 const search = require('./functions/search')
@@ -64,6 +65,7 @@ module.exports.answerList = {
   itunes: { worker: itunes, language: 'en', permissions: 0 },
   librewiki: { worker: librewiki, language: 'en', permissions: 0 },
   translate: { worker: translate, language: 'en', permissions: 0 },
+  shortwiki: { worker: shortwiki, language: 'en', permissions: 0 },
   __comment__lpeu_ev: 'Do not initialize say and sayd prompt twice.',
   pfp: { worker: avatar, language: 'en', permissions: 0 },
   meow: { worker: cat, language: 'en', permissions: 0 },
@@ -89,6 +91,7 @@ module.exports.answerList = {
   appstore: { worker: itunes, language: 'en', permissions: 0 },
   libre: { worker: librewiki, language: 'en', permissions: 0 },
   tr: { worker: translate, language: 'en', permissions: 0 },
+  short: { worker: shortwiki, language: 'en', permissions: 0 },
   __comment__lpkk: 'Korean Language Pack; remove all these aliases if you do not want to use.',
   '아바타': { worker: avatar, language: 'ko', permissions: 0 },
   '고양이': { worker: cat, language: 'ko', permissions: 0 },
@@ -112,6 +115,7 @@ module.exports.answerList = {
   '아이튠즈': { worker: itunes, language: 'ko', permissions: 0 },
   '리브레위키': { worker: librewiki, language: 'ko', permissions: 0 },
   '번역': { worker: translate, language: 'ko', permissions: 0 },
+  '쇼트위키': { worker: shortwiki, language: 'ko', permissions: 0 },
   __comment__lpkk_ev: 'The extra version of Korean Language Pack;',
   '프사': { worker: avatar, language: 'ko', permissions: 0 },
   '냥이': { worker: cat, language: 'ko', permissions: 0 },
@@ -133,6 +137,7 @@ module.exports.answerList = {
   '해싱': { worker: hash, language: 'ko', permissions: 0 },
   '색얻기': { worker: colored, language: 'ko', permissions: 0 },
   '앱스토어': { worker: itunes, language: 'ko', permissions: 0 },
-  '리브레': { worker: librewiki, language: 'ko', permissions: 0 }
+  '리브레': { worker: librewiki, language: 'ko', permissions: 0 },
+  '쇼트': { worker: shortwiki, language: 'ko', permissions: 0 }
   //'번역': { worker: translate, language: 'ko', permissions: 0 },
 }
