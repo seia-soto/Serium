@@ -28,7 +28,7 @@
   "notSearched": "There is no result matches with {object}.",
   "requirementsInvalidToColored": "If you want continue, you need to create role named Colors and Serium needs MANAGE_ROLES permission.",
   "invalidHexColor": "Invalid hex code was received; Correction:`;colored #FFFFFF`",
-  "getColored": "You get colored!",
+  "getColored": "You got colored!",
   "needSupports": "Need additional supports about Serium? [goto support server]({link})",
   "noPlayer": "Cannot find player with that name.",
   "defPlayer": "This player came from {country} and played {playcount} beatmaps.",
