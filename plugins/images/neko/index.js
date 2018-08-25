@@ -34,6 +34,7 @@ module.exports = (client, message, nt) => {
       'feetg',
       'feet',
       'ero',
+      'erofeet',
       'erok',
       'erokemo',
       'eroyuri',
@@ -56,8 +57,7 @@ module.exports = (client, message, nt) => {
       'cuddle',
       'ngif',
       'kemonomimi',
-      'holo',
-      'erofeet'
+      'holo'
     ]
     queryOptions = termsSFW[Math.floor(Math.random() * termsSFW.length)]
   }

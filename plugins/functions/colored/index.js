@@ -1,5 +1,5 @@
 module.exports = (client, message, nt) => {
-  const colorsRole = message.guild.roles.find('name', 'Colors')
+  const colorsRole = message.guild.roles.find(items => items.name === 'Colors')
   const notAllowedEnviroments =
     (!colorsRole)
     || (!message.guild.members.get(client.user.id).permissions.has('MANAGE_ROLES'))
