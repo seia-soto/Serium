@@ -89,6 +89,7 @@ module.exports.answerList = {
   appstore: { worker: itunes, language: 'en', permissions: 0 },
   libre: { worker: librewiki, language: 'en', permissions: 0 },
   tr: { worker: translate, language: 'en', permissions: 0 },
+  play: { worker: translate, language: 'en', permissions: 0 },
   __comment__lpkk: 'Korean Language Pack; remove all these aliases if you do not want to use.',
   '아바타': { worker: avatar, language: 'ko', permissions: 0 },
   '고양이': { worker: cat, language: 'ko', permissions: 0 },

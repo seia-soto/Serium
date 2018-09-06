@@ -1,5 +1,5 @@
-const request = require('request')
 const cheerio = require('cheerio')
+const request = require('request')
 module.exports = (client, message, nt) => {
   const endpoint = 'http://thecatapi.com/api/images/get?format=html&results_per_page=1'
   try {

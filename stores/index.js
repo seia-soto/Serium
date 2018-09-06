@@ -2,7 +2,7 @@ module.exports.note = require('./note')
 
 module.exports.configures = {
   answer: {
-    prefix: ';',
+    prefix: '.',
     limit: 2000
   },
   secret: {
