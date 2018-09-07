@@ -31,13 +31,12 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.4.0",
-    "google-translate-api": "^2.3.0",
     "mysql2": "^1.6.1",
     "opusscript": "0.0.6",
     "querystring": "^0.2.0",
+    "redis": "^2.8.0",
     "request": "^2.87.0",
     "sequelize": "^4.38.0",
-    "sqlite3": "^4.0.2",
-    "ytdl-core": "^0.25.0"
+    "sqlite3": "^4.0.2"
   }
 }
