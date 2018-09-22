@@ -1,0 +1,9 @@
+{
+  "client": {
+    "options": {
+      "autoReconnect": true,
+      "disableEveryone": true
+    },
+    "token": ""
+  }
+}
