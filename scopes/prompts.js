@@ -1,7 +1,7 @@
 module.exports = {
   ping: {
-    executable: require('../commands/general/ping'),
+    execute: require('../plugins/general/ping'),
     description: 'Checks application\'s websocket tick.',
-    to: '@everyone'
+    to: '0'
   }
 }
