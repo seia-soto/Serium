@@ -30,6 +30,7 @@ client.on('ready', () => {
 })
 client.on('message', message => {
   const data = {
+    application: scopes.properties.embed,
     guild: structures.construct.guild(client, message),
     message: structures.construct.message(message),
     user: structures.construct.user(message, assets)

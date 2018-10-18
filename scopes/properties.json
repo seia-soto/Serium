@@ -4,6 +4,9 @@
       "autoReconnect": true,
       "disableEveryone": true
     },
-    "token": "TOKEN"
+    "token": "N"
+  },
+  "embed": {
+    "color": 16761035
   }
 }
