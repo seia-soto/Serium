@@ -4,6 +4,6 @@
       "autoReconnect": true,
       "disableEveryone": true
     },
-    "token": ""
+    "token": "TOKEN"
   }
 }

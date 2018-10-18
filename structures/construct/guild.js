@@ -6,39 +6,28 @@ const filter = {
   }
 }
 
-module.exports = class {
-  constructor(message) {
-    this.data = message
-    this.template = {
-      identification: message.guild.id,
-      verificationLevel: filter.guild.verificationLevel[message.guild.verificationLevel],
-      explicitContentFilter: filter.guild.explicitContentFilter[message.guild.explicitContentFilter],
-      mfaLevel: filter.guild.mfaLevel[message.guild.mfaLevel],
-      permissions: {
-        messages: {
-          read: message.guild.me.permissions.has('VIEW_CHANNEL'),
-          write: message.guild.me.permissions.has('SEND_MESSAGES'),
-          manage: message.guild.me.permissions.has('MANAGE_MESSAGES')
-        },
-        member: {
-          role: message.guild.me.permissions.has('MANAGE_ROLES'),
-          nickname: message.guild.me.permissions.has('MANAGE_NICKNAMES')
-        },
-        server: {
-          kick: message.guild.me.permissions.has('KICK_MEMBERS'),
-          ban: message.guild.me.pemrissions.has('BAN_MEMBERS'),
-          invite: message.guild.me.permissions.has('CREATE_INSTANT_INVITE')
-        }
+module.exports = (client, message) => {
+  const template = {
+    identification: message.guild.id,
+    verificationLevel: filter.guild.verificationLevel[message.guild.verificationLevel],
+    explicitContentFilter: filter.guild.explicitContentFilter[message.guild.explicitContentFilter],
+    mfaLevel: filter.guild.mfaLevel[message.guild.mfaLevel],
+    permissions: {
+      messages: {
+        read: message.guild.me.permissions.has('VIEW_CHANNEL'),
+        write: message.guild.me.permissions.has('SEND_MESSAGES'),
+        manage: message.guild.me.permissions.has('MANAGE_MESSAGES')
+      },
+      member: {
+        role: message.guild.me.permissions.has('MANAGE_ROLES'),
+        nickname: message.guild.me.permissions.has('MANAGE_NICKNAMES')
+      },
+      server: {
+        kick: message.guild.me.permissions.has('KICK_MEMBERS'),
+        ban: message.guild.me.permissions.has('BAN_MEMBERS'),
+        invite: message.guild.me.permissions.has('CREATE_INSTANT_INVITE')
       }
     }
   }
-
-  collect(thing) {
-    const collected = this.data[thing]
-    return collected
-  }
-  raw() {
-    const raw = this.data
-    return raw
-  }
+  return template
 }
