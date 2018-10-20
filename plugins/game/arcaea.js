@@ -22,7 +22,7 @@ module.exports = (client, message, data, translate) => {
     })
 
     message.channel.send({embed: {
-      color: data.application.color,
+      color: data.application.embed.color,
       author: {
         name: translate.arcaea.title
       },
@@ -31,7 +31,7 @@ module.exports = (client, message, data, translate) => {
       fields: rank.splice(0, 5),
       timestamp: new Date(),
       footer: {
-        text: 'Copyright 2018 lowiro'
+        text: 'Copyright 2017-2018 lowiro'
       }
     }})
   }

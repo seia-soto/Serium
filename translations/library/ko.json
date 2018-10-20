@@ -1,5 +1,11 @@
 {
   "generic": {
+    "descriptions": {
+      "help": "Serium의 도움말을 출력하고 각 명령어에 대한 자세한 정보를 표시합니다.",
+      "ping": "클라이언트와 API 서버 간의 지연시간을 가져옵니다, 이 수치는 얼마나 봇이 메세지를 빨리 전송할지도 관여합니다.",
+      "arcaea": "Arcaea의 실시간 곡 순위를 보여줍니다.",
+      "serverinfo": "현재 서버의 통계와 지역과 같은 정보를 보여줍니다."
+    },
     "errors": {
       "evaluation": [
         "명령어는 텍스트 채널에서만 사용할 수 있습니다!",
@@ -18,5 +24,63 @@
     "ms가 걸려 Discord와 하이파이브하고 왔어요!",
     "ms나 걸려버렸어요...",
     "ms라니, 계주는 포기해야 할지도 모르겠네요."
-  ]
+  ],
+  "help": {
+    "thanks": "Serium을 채택해주셔서 감사합니다!\n아래에서 부가적인 서비스 이용에 대한 도움말을 찾으실 수 있습니다.\n\n",
+    "title": [
+      "도움말",
+      "다음 명령어에 대한 자세한 정보"
+    ],
+    "detailed": [
+      "각 명령어에 대한 자세한 사용법을 보려면 b;help [명령어]를 사용하세요.",
+      "Serium을 사용해주셔서 감사합니다"
+    ],
+    "usage": "사용법"
+  },
+  "serverinfo": {
+    "region": "지역",
+    "count": {
+      "title": "통계",
+      "units": [
+        "명",
+        "채널",
+        "역할",
+        "이모지"
+      ]
+    },
+    "owner": "소유자",
+    "verificationLevel": "보안 수준",
+    "explicitContentFilter": "유해 콘텐츠 필터",
+    "mfaLevel": "서버 2단계 인증",
+    "defaultMessageNotifications": "알림 설정",
+    "filter": {
+      "verificationLevel": [
+        "없음 (제한 없음)",
+        "낮음 (자신의 Discord 계정이 이메일 인증을 받은 적이 있어야 합니다.)",
+        "중간 (추가로 Discord에 가입한지 5분이 지나야 합니다.)",
+        "(╯°□°）╯︵ ┻━┻ (추가로 이 서버의 멤버가 된 지 10분이 지나야 합니다.)",
+        "┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻ (전화 인증이 완료된 Discord 계정이어야 합니다.)"
+      ],
+      "explicitContentFilter": [
+        "메세지를 스캔하지 않습니다.",
+        "역할이 없는 사용자의 메세지를 스캔합니다.",
+        "모든 사용자의 메세지를 스캔합니다."
+      ],
+      "mfaLevel": [
+        "서버 2단계 인증이 비활성화되어 있습니다.",
+        "서버 2단계 인증이 활성화되어 있습니다."
+      ],
+      "defaultMessageNotifications": {
+        "MENTIONS": "@mentions만",
+        "ALL": "모든 메세지"
+      }
+    },
+    "afkChannel": "잠수 채널",
+    "afkTimeout": "잠수 제한 시간",
+    "second": "초"
+  },
+  "language": {
+    "updated": "(으)로 Serium의 말을 듣게 됩니다!",
+    "notfound": "(은)는 현재 사용가능한 언어가 아닙니다!"
+  }
 }

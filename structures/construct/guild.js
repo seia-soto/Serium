@@ -1,17 +1,8 @@
-const filter = {
-  guild: {
-    verificationLevel: ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻'],
-    explicitContentFilter: ['Don\'t scan any messages.', 'Scan messages from members without a role.', 'Scan messages sent by all members.'],
-    mfaLevel: ['2FA Requirement has enabled.', '2FA Requirement has disabled.']
-  }
-}
-
 module.exports = (client, message) => {
   const template = {
-    identification: message.guild.id,
-    verificationLevel: filter.guild.verificationLevel[message.guild.verificationLevel],
-    explicitContentFilter: filter.guild.explicitContentFilter[message.guild.explicitContentFilter],
-    mfaLevel: filter.guild.mfaLevel[message.guild.mfaLevel],
+    verificationLevel: message.guild.verificationLevel,
+    explicitContentFilter: message.guild.explicitContentFilter,
+    mfaLevel: message.guild.mfaLevel,
     permissions: {
       messages: {
         read: message.guild.me.permissions.has('VIEW_CHANNEL'),
@@ -27,7 +18,8 @@ module.exports = (client, message) => {
         ban: message.guild.me.permissions.has('BAN_MEMBERS'),
         invite: message.guild.me.permissions.has('CREATE_INSTANT_INVITE')
       }
-    }
+    },
+    owner: client.users.get(message.guild.ownerID)
   }
   return template
 }
