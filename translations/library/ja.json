@@ -1,0 +1,87 @@
+{
+  "generic": {
+    "descriptions": {
+      "help": "Seriumのヘルプを出力し各コマンドに対する詳しい情報を表示します。",
+      "ping": "クライアントとAPIサーバー間の遅延時間を呼び出します。この値はボットがいくらにメッセージを早く送るかも関与します",
+      "arcaea": "Arcaeaのリアルタイム楽曲順位を見せます。",
+      "serverinfo": "このサーバーの統計、リージョンのような情報を見せます。",
+      "language": "Sets your default language to use Serium."
+    },
+    "errors": {
+      "evaluation": [
+        "You can use commands in text channel only!",
+        "Requested command wasn't found!"
+      ],
+      "request": " is not responding or cannot access to there! Please retry after a few minutes."
+    }
+  },
+  "arcaea": {
+    "title": "Song ranking of Arcaea",
+    "artist": " wrote the song.",
+    "ranked": " Ranked",
+    "uri": "Visit Arcaea song rank page"
+  },
+  "ping": [
+    "ms was taken during giving a five to Discord!",
+    "ms is too long...",
+    "ms? It seems I cannot become relay player."
+  ],
+  "help": {
+    "thanks": "Thank you for selecting Serium!\nYou can find additional documents below.\n\n",
+    "title": [
+      "Help",
+      "Detailed infos of command"
+    ],
+    "detailed": [
+      "To see detailed infos of command, use b;help [command]",
+      "Thank you for using Serium"
+    ],
+    "usage": "Usage"
+  },
+  "serverinfo": {
+    "region": "Region",
+    "count": {
+      "title": "Counting",
+      "units": [
+        " Members",
+        " Channels",
+        " Roles",
+        " Emojis"
+      ]
+    },
+    "owner": "Owner",
+    "verificationLevel": "Verification Level",
+    "explicitContentFilter": "Explicit Content Filter",
+    "mfaLevel": "Multiple Factor Authentications",
+    "defaultMessageNotifications": "Notification Settings",
+    "filter": {
+      "verificationLevel": [
+        "None (Unrestricted)",
+        "Low (Must have a verified email on their Discord account.)",
+        "Medium (Must also be registered on Discord for longer than 5 minutes.)",
+        "(╯°□°）╯︵ ┻━┻ (Must also be a member of this server for longer than 10 minutes.)",
+        "┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻ (Must have a verified phone on their Discord account.)"
+      ],
+      "explicitContentFilter": [
+        "Don't scan any messages.",
+        "Scan messages from members without a role.",
+        "Scan messages sent by all members."
+      ],
+      "mfaLevel": [
+        "Server Two-Factor Authentications disabled.",
+        "Server Two-Factor Authentications enabled."
+      ],
+      "defaultMessageNotifications": {
+        "MENTIONS": "Only @mentions",
+        "ALL": "All Messages"
+      }
+    },
+    "afkChannel": "AFK Channel",
+    "afkTimeout": "AFK Timeout",
+    "second": " Seconds"
+  },
+  "language": {
+    "updated": " is now your default language!",
+    "notfound": " is not available yet!"
+  }
+}
