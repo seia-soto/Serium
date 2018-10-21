@@ -19,7 +19,6 @@ const data = new Events.EventEmitter()
 const client = new Discord.Client(scopes.properties.client.options)
 
 let assets = JSON.parse(fs.readFileSync('./assets/users.json', 'utf8'))
-
 data.on('modified', () => {
   assets = JSON.parse(fs.readFileSync('./assets/users.json', 'utf8'))
 })
@@ -34,20 +33,23 @@ client.on('message', message => {
     application: scopes.properties,
     guild: structures.construct.guild(client, message),
     message: structures.construct.message(message),
-    user: structures.construct.user(message, assets)
+    user: structures.construct.user(message, assets),
+    permissions: structures.construct.permissions(message)
   }
   const enviroment =
     (message.author.bot) ||
     (!message.content.startsWith('b;')) ||
     (!options.message.construct) ||
     (!options.guild.permissions.messages.write)
+
+  const translate = translations(options.user.language)
   const evaluation = [
     (message.channel.type === 'text'),
     (options.message.construct in plugins)
+    ((options.permissions & scopes.properties.application.permissions[plugins[options.message.construct].permissions]) === scopes.properties.application.permissions[plugins[options.message.construct].permissions])
   ]
-  const translate = translations(options.user.language)
 
   if (enviroment) return
   if (evaluation.includes(false) === true) return message.channel.send(translate.generic.errors.evaluation[evaluation.indexOf(false)])
-  plugins[options.message.construct].execute(client, message, options, translate)
+  plugin.execute(client, message, options, translate)
 })

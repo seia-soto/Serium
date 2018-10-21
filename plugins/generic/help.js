@@ -18,7 +18,7 @@ module.exports = (client, message, data, translate) => {
       },
       {
         name: 'Util',
-        value: '``serverinfo``'
+        value: '``serverinfo``, ``userinfo``'
       }
     ],
     footer: {

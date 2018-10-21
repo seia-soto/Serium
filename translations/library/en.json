@@ -83,5 +83,15 @@
   "language": {
     "updated": " is now your default language!",
     "notfound": " is not available yet!"
+  },
+  "userinfo": {
+    "notplaying": "There is no game that playing.",
+    "notfound": "Cannot find that user.",
+    "nickname": "Nickname",
+    "status": "Status",
+    "presence": "Playing",
+    "joined": "Joined at",
+    "roles": "Roles",
+    "language": "Language"
   }
 }
