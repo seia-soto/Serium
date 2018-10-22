@@ -41,6 +41,21 @@
   },
   "serverinfo": {
     "region": "Region",
+    "regions": {
+      "brazil": ":flag_br: Brazil",
+      "eu-central": ":flag_eu: Central Europe",
+      "hongkong": ":flag_hk: Hong Kong",
+      "japan": ":flag_jp: Japan",
+      "russia": ":flag_ru: Russia",
+      "singapore": ":flag_sg: Singapore",
+      "southafrica": ":flag_za: South Africa",
+      "sydney": ":flag_au: Sydney",
+      "us-central": ":flag_us: US Central",
+      "us-east": ":flag_us: US East",
+      "us-south": ":flag_us: US South",
+      "us-west": ":flag_us: US West",
+      "eu-west": ":flag_eu: Westurn Europe"
+    },
     "count": {
       "title": "Counting",
       "units": [

@@ -1,6 +1,6 @@
 module.exports = (message, assets) => {
   const template = {
-    language: 'ko'
+    language: 'en'
   }
   return assets[message.author.id] || template
 }

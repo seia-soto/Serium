@@ -7,7 +7,7 @@ module.exports = (client, message, data, translate) => {
     .setThumbnail(message.guild.iconURL)
 
     .addField('ID', message.guild.id, true)
-    .addField(translate.serverinfo.region, message.guild.region, true)
+    .addField(translate.serverinfo.region, translate.serverinfo.regions[message.guild.region], true)
     .addField(translate.serverinfo.count.title, message.guild.memberCount + translate.serverinfo.count.units[0] +
     ' / ' + message.guild.channels.size + translate.serverinfo.count.units[1] +
     ' / ' + message.guild.roles.size + translate.serverinfo.count.units[2] +

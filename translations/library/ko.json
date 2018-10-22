@@ -41,6 +41,21 @@
   },
   "serverinfo": {
     "region": "지역",
+    "regions": {
+      "brazil": ":flag_br: 브라질",
+      "eu-central": ":flag_eu: 유럽 중부",
+      "hongkong": ":flag_hk: 홍콩",
+      "japan": ":flag_jp: 일본",
+      "russia": ":flag_ru: 러시아",
+      "singapore": ":flag_sg: 싱가포르",
+      "southafrica": ":flag_za: 남아프리카",
+      "sydney": ":flag_au: 시드니",
+      "us-central": ":flag_us: 미국 중부",
+      "us-east": ":flag_us: 미국 동부",
+      "us-south": ":flag_us: 미국 남부",
+      "us-west": ":flag_us: 미국 서부",
+      "eu-west": ":flag_eu: 서유럽"
+    },
     "count": {
       "title": "통계",
       "units": [
