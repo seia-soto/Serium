@@ -40,16 +40,17 @@ client.on('message', message => {
     (message.author.bot) ||
     (!message.content.startsWith('b;')) ||
     (!options.message.construct) ||
-    (!options.guild.permissions.messages.write)
+    (!options.guild.permissions.messages.write) ||
+    (!plugins[options.message.construct])
+  if (enviroment) return
 
   const translate = translations(options.user.language)
+  const plugin = plugins[options.message.construct]
   const evaluation = [
     (message.channel.type === 'text'),
-    (options.message.construct in plugins)
-    ((options.permissions & scopes.properties.application.permissions[plugins[options.message.construct].permissions]) === scopes.properties.application.permissions[plugins[options.message.construct].permissions])
+    ((options.permissions & scopes.properties.application.permissions[plugin.permissions]) === scopes.properties.application.permissions[plugin.permissions])
   ]
 
-  if (enviroment) return
-  if (evaluation.includes(false) === true) return message.channel.send(translate.generic.errors.evaluation[evaluation.indexOf(false)])
+  if (evaluation.includes(false) === true) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
   plugin.execute(client, message, options, translate)
 })

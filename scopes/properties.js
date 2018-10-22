@@ -12,7 +12,7 @@ module.exports = {
       autoReconnect: true,
       disableEveryone: true
     },
-    token: 'NTAyMDcwNjM2MzExNzQwNDI2.DquJcA.nlDpuzqlq0NqsOtiTmv6Sex8MJI',
+    token: 'N',
     invite: 'https://discordapp.com/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot'
   },
   embed: {

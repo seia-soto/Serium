@@ -10,7 +10,7 @@
     "errors": {
       "evaluation": [
         "You can use commands in text channel only!",
-        "Requested command wasn't found!"
+        "You aren't have permission that can use command!"
       ],
       "request": " is not responding or cannot access to there! Please retry after a few minutes."
     }
