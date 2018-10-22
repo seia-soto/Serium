@@ -38,7 +38,7 @@ client.on('message', message => {
   }
   const enviroment =
     (message.author.bot) ||
-    (!message.content.startsWith('b;')) ||
+    (!message.content.startsWith(scopes.properties.application.prefix)) ||
     (!options.message.construct) ||
     (!options.guild.permissions.messages.write) ||
     (!plugins[options.message.construct])

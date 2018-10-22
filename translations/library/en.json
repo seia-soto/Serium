@@ -5,6 +5,7 @@
       "ping": "Get the latency between client and API server, also this determinds how fast bot will send message.",
       "arcaea": "Displays Arcaea's current song ranking.",
       "serverinfo": "Displays current server's counts and infos like region.",
+      "userinfo": "Show infos like user ID or maybe else.",
       "language": "Sets your default language to use Serium."
     },
     "errors": {

@@ -1,4 +1,5 @@
 const dictionary = require('../')
+const properties = require('../../scopes/properties')
 
 module.exports = (client, message, data, translate) => {
   let form = {
@@ -14,7 +15,7 @@ module.exports = (client, message, data, translate) => {
       },
       {
         name: 'Generic',
-        value: '``help``, ``ping``'
+        value: '``help``, ``ping``, ``language``'
       },
       {
         name: 'Util',
@@ -37,7 +38,7 @@ module.exports = (client, message, data, translate) => {
       fields: [
         {
           name: translate.help.usage,
-          value: `b;${dictionary[selection].usage}`
+          value: `${properties.application.prefix}${dictionary[selection].usage}`
         }
       ],
       footer: {
