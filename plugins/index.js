@@ -16,6 +16,11 @@ module.exports.ping = {
   permissions: 'common'
 }
 module.exports.pong = this.ping
+module.exports.welcome = {
+  execute: require('./generic/welcome'),
+  usage: 'welcome <message>',
+  permissions: 'moderate'
+}
 
 // NOTE: Game
 module.exports.arcaea = {

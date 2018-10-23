@@ -8,7 +8,8 @@
       "userinfo": "Show infos like user ID or maybe else.",
       "language": "Sets your default language to use Serium.",
       "cat": "Shows you a random cat image.",
-      "dog": "Shows you a random dog image."
+      "dog": "Shows you a random dog image.",
+      "welcome": "Sends welcome message to new member."
     },
     "errors": {
       "evaluation": [
@@ -113,5 +114,9 @@
     "language": "Language"
   },
   "cat": null,
-  "dog": null
+  "dog": null,
+  "welcome": {
+    "updated": " is now your server's welcome message and the message will send to this channel when new member arrived!",
+    "disabled": "Your server's welcome message disabled!"
+  }
 }

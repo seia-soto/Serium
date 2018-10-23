@@ -18,9 +18,15 @@ const translations = require('./translations')
 const data = new Events.EventEmitter()
 const client = new Discord.Client(scopes.properties.client.options)
 
-let assets = JSON.parse(fs.readFileSync('./assets/users.json', 'utf8'))
-data.on('modified', () => {
-  assets = JSON.parse(fs.readFileSync('./assets/users.json', 'utf8'))
+let assets = {
+  users: JSON.parse(fs.readFileSync('./assets/users.json', 'utf8')),
+  guilds: JSON.parse(fs.readFileSync('./assets/guilds.json', 'utf8'))
+}
+data.on('modified', (which, input) => {
+  const storage = `./assets/${which}.json`
+
+  fs.writeFileSync(storage, JSON.stringify(input), 'utf8')
+  assets[which] = input
 })
 
 client.login(scopes.properties.client.token)
@@ -30,6 +36,7 @@ client.on('ready', () => {
 client.on('message', message => {
   const options = {
     assets: data,
+    stores: assets,
     application: scopes.properties,
     guild: structures.construct.guild(client, message),
     message: structures.construct.message(message),
@@ -53,4 +60,17 @@ client.on('message', message => {
 
   if (evaluation.includes(false) === true) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
   plugin.execute(client, message, options, translate)
+})
+
+client.on('guildMemberAdd', member => {
+  const disabled =
+    (!member.guild.id in assets.guilds) ||
+    (!assets.guilds[member.guild.id].welcome) ||
+    (!client.channels.get(assets.guilds[member.guild.id].welcome.channel).permissionsFor(member.guild.client.user).has('SEND_MESSAGES'))
+  if (disabled) return
+
+  const welcome = assets.guilds[member.guild.id].welcome.message
+    .replace(/{member}/, member)
+    .replace(/{server}/, member.guild.name)
+  client.channels.get(assets.guilds[member.guild.id].welcome.channel).send(welcome)
 })
