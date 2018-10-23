@@ -6,7 +6,9 @@
       "arcaea": "Displays Arcaea's current song ranking.",
       "serverinfo": "Displays current server's counts and infos like region.",
       "userinfo": "Show infos like user ID or maybe else.",
-      "language": "Sets your default language to use Serium."
+      "language": "Sets your default language to use Serium.",
+      "cat": "Shows you a random cat image.",
+      "dog": "Shows you a random dog image."
     },
     "errors": {
       "evaluation": [
@@ -109,5 +111,7 @@
     "joined": "Joined at",
     "roles": "Roles",
     "language": "Language"
-  }
+  },
+  "cat": null,
+  "dog": null
 }

@@ -1,5 +1,23 @@
+const { readdirSync } = require('fs')
+
 const dictionary = require('../')
 const properties = require('../../scopes/properties')
+
+const directories = [
+  'Game', 'Generic', 'Image', 'Util'
+]
+let list = []
+
+directories.forEach(directory => {
+  const i = directories.indexOf(directory)
+  list.push({
+    name: directory,
+    value: ''
+  })
+  readdirSync(`./plugins/${directory.toLowerCase()}`).forEach(file => {
+    list[i].value += `\`\`${file.replace('.js', '')}\`\` `
+  })
+})
 
 module.exports = (client, message, data, translate) => {
   let form = {
@@ -8,20 +26,7 @@ module.exports = (client, message, data, translate) => {
       name: translate.help.title[0]
     },
     description: `${translate.help.thanks}[Terms of Service](https://b2.seia.io/terms) | [Invite](${data.application.client.invite})`,
-    fields: [
-      {
-        name: 'Game',
-        value: '``arcaea``'
-      },
-      {
-        name: 'Generic',
-        value: '``help``, ``ping``, ``language``'
-      },
-      {
-        name: 'Util',
-        value: '``serverinfo``, ``userinfo``'
-      }
-    ],
+    fields: list,
     footer: {
       text: translate.help.detailed[0]
     }

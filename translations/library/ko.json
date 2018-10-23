@@ -6,7 +6,9 @@
       "arcaea": "Arcaea의 실시간 곡 순위를 보여줍니다.",
       "serverinfo": "현재 서버의 통계와 지역과 같은 정보를 보여줍니다.",
       "userinfo": "사용자의 이름 및 ID 등과 같은 정보를 보여줍니다.",
-      "language": "Serium을 사용할 기본 언어를 설정합니다."
+      "language": "Serium을 사용할 기본 언어를 설정합니다.",
+      "cat": "무작위의 고양이 사진을 보여줍니다.",
+      "dog": "무작위의 강아지 사진을 보여줍니다."
     },
     "errors": {
       "evaluation": [
@@ -109,5 +111,7 @@
     "joined": "가입일자",
     "roles": "역할",
     "language": "언어"
-  }
+  },
+  "cat": null,
+  "dog": null
 }

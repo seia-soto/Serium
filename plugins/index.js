@@ -35,3 +35,15 @@ module.exports.userinfo = {
   usage: 'userinfo',
   permissions: 'common'
 }
+
+// NOTE: Image
+module.exports.cat = {
+  execute: require('./image/cat'),
+  usage: 'cat',
+  permissions: 'common'
+}
+module.exports.dog = {
+  execute: require('./image/dog'),
+  usage: 'dog',
+  permissions: 'common'
+}
