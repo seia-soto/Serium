@@ -9,7 +9,8 @@
       "language": "Sets your default language to use Serium.",
       "cat": "Shows you a random cat image.",
       "dog": "Shows you a random dog image.",
-      "welcome": "Sends welcome message to new member."
+      "welcome": "Sends welcome message to new member.",
+      "minecraft": "Checks Minecraft server infos."
     },
     "errors": {
       "evaluation": [
@@ -111,12 +112,28 @@
     "presence": "Playing",
     "joined": "Joined at",
     "roles": "Roles",
-    "language": "Language"
+    "language": "Language",
+    "last": {
+      "message": "Last message"
+    }
   },
   "cat": null,
   "dog": null,
   "welcome": {
     "updated": " is now your server's welcome message and the message will send to this channel when new member arrived!",
     "disabled": "Your server's welcome message disabled!"
+  },
+  "minecraft": {
+    "title": "Minecraft server status",
+    "errors": {
+      "parameter": "Please make sure your command is complete! You didn't specificed the server address you want to see status.",
+      "offline": "Saw the server is currently offline or may not been online with port 25565!"
+    },
+    "domain": "Domain",
+    "version": "Version",
+    "players": {
+      "current": "Current playing",
+      "max": "Maximum connections"
+    }
   }
 }

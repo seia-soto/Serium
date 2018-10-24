@@ -23,6 +23,7 @@ module.exports = (client, message, data, translate) => {
     .addField(translate.userinfo.status, user.presence.status, true)
     .addField(translate.userinfo.presence, game, true)
     .addField(translate.userinfo.joined, new Date(user.joinedTimestamp).toDateString(), true)
+    .addField(translate.userinfo.last.message, new Date(user.lastMessage.createdTimestamp).toDateString(), true)
     .addField(translate.userinfo.roles, roles, true)
   message.channel.send({embed})
 }
