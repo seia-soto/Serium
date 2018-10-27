@@ -109,13 +109,22 @@
     "notfound": "Cannot find that user.",
     "nickname": "Nickname",
     "status": "Status",
+    "conditions": {
+      "offline": "Offline",
+      "dnd": "Do Not Disturb",
+      "idle": "Idle",
+      "online": "Online"
+    },
     "presence": "Playing",
     "joined": "Joined at",
     "roles": "Roles",
     "language": "Language",
     "last": {
       "message": "Last message"
-    }
+    },
+    "cannotfetch": "Failed to fetch this maybe cannot access.",
+    "noroles": "It seems user don't have any roles.",
+    "nonickname": "It seems user didn't set nickname."
   },
   "cat": null,
   "dog": null,

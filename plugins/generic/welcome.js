@@ -2,9 +2,9 @@ const dictionary = require('../')
 const properties = require('../../scopes/properties')
 
 module.exports = (client, message, data, translate) => {
-  const as = data.message.index.raw.slice(1).join(' ')
+  const to = data.message.index.raw.slice(1).join(' ')
   const disabled = ['off', 'disable', 'turn off', 'none']
-  if (!as) return message.channel.send({embed: {
+  if (!to) return message.channel.send({embed: {
     color: data.application.embed.color,
     author: {
       name: `${translate.help.title[1]}; welcome`
@@ -21,15 +21,15 @@ module.exports = (client, message, data, translate) => {
     }
   }})
 
-  let reply = `**${as}**${translate.welcome.updated}`
+  let reply = `**${to}**${translate.welcome.updated}`
 
   data.stores.guilds[message.guild.id] = {
     welcome: {
       channel: message.channel.id,
-      message: as
+      message: to
     }
   }
-  if (data.stores.guilds[message.guild.id] && disabled[as]) {
+  if (disabled.includes(to)) {
     data.stores.guilds[message.guild.id].welcome = undefined
     reply = translate.welcome.disabled
   }

@@ -3,7 +3,7 @@ module.exports = message => {
     raw: message.content,
     index: {
       raw: message.content.split(' '),
-      diff: message.content.split(' ').shift()
+      diff: message.content.split(' ').splice(0)
     },
     prefix: message.content.substr(0, 1),
     construct: message.content.split(' ')[0].toLowerCase().replace('b;', '')
