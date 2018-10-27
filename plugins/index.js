@@ -28,11 +28,6 @@ module.exports.arcaea = {
   usage: 'arcaea',
   permissions: 'common'
 }
-module.exports.minecraft = {
-  execute: require('./game/minecraft'),
-  usage: 'minecraft <server>',
-  permissions: 'common'
-}
 
 // NOTE: Util
 module.exports.serverinfo = {
@@ -55,5 +50,12 @@ module.exports.cat = {
 module.exports.dog = {
   execute: require('./image/dog'),
   usage: 'dog',
+  permissions: 'common'
+}
+
+// NOTE: Music
+module.exports.play = {
+  execute: require('./music/play'),
+  usage: 'play',
   permissions: 'common'
 }

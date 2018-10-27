@@ -31,8 +31,12 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.4.2",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "googleapis": "^34.0.0",
     "opusscript": "0.0.6",
     "querystring": "^0.2.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "ytdl-core": "^0.26.3"
   }
 }

@@ -20,7 +20,12 @@ const client = new Discord.Client(scopes.properties.client.options)
 
 let assets = {
   users: JSON.parse(fs.readFileSync('./assets/users.json', 'utf8')),
-  guilds: JSON.parse(fs.readFileSync('./assets/guilds.json', 'utf8'))
+  guilds: JSON.parse(fs.readFileSync('./assets/guilds.json', 'utf8')),
+  thridparty: {
+    music: {
+      queue: JSON.parse(fs.readFileSync('./assets/music/queue.json'))
+    }
+  }
 }
 data.on('modified', (which, input) => {
   const storage = `./assets/${which}.json`
@@ -59,12 +64,14 @@ client.on('message', message => {
   ]
 
   if (evaluation.includes(false) === true) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
+  message.channel.startTyping()
   plugin.execute(client, message, options, translate)
+  message.channel.stopTyping()
 })
 
 client.on('guildMemberAdd', member => {
+  if (!assets.guilds[member.guild.id]) return
   const disabled =
-    (!member.guild.id in assets.guilds) ||
     (!assets.guilds[member.guild.id].welcome) ||
     (!client.channels.get(assets.guilds[member.guild.id].welcome.channel).permissionsFor(member.guild.client.user).has('SEND_MESSAGES'))
   if (disabled) return
