@@ -52,10 +52,3 @@ module.exports.dog = {
   usage: 'dog',
   permissions: 'common'
 }
-
-// NOTE: Music
-module.exports.play = {
-  execute: require('./music/play'),
-  usage: 'play',
-  permissions: 'common'
-}

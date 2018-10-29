@@ -1,49 +1,53 @@
 const { createReadStream } = require('fs')
 
+let handles = {}
+
 module.exports = class {
   constructor(message) {
     this.identificate = message.guild.id
 
-    this.handle = {
-      voiceChannel: message.member.voiceChannel,
-      dispatcher: null,
-      playing: false
+    if (!handles[this.identificate]) {
+      handles[this.identificate] = {
+        voiceChannel: message.member.voiceChannel,
+        dispatcher: null,
+        playing: false
+      }
     }
   }
 
   dispatcher() {
-    return this.handle.dispatcher
+    return handles[this.identificate].dispatcher
   }
   playing() {
-    return this.handle.playing
+    return handles[this.identificate].playing
   }
 
   join() {
-    if (this.handle.playing) return
-    this.handle.voiceChannel.join()
+    if (handles[this.identificate].playing) return
+    handles[this.identificate].voiceChannel.join()
   }
   leave() {
     this.end()
-    this.handle.voiceChannel.leave()
+    handles[this.identificate].voiceChannel.leave()
   }
 
   stream(input) {
-    this.handle.dispatcher = this.handle.voiceChannel.connection.playStream(input)
-    this.handle.dispatcher.setBitrate(96)
+    handles[this.identificate].dispatcher = handles[this.identificate].voiceChannel.connection.playStream(input)
+    handles[this.identificate].dispatcher.setBitrate(96)
 
-    this.handle.playing = true
+    handles[this.identificate].playing = true
   }
   pause() {
-    this.handle.dispatcher.pause()
+    handles[this.identificate].dispatcher.pause()
   }
   resume() {
-    if (this.handle.dispatcher.paused) this.handle.dispatcher.resume()
+    if (handles[this.identificate].dispatcher.paused) handles[this.identificate].dispatcher.resume()
   }
   at() {
-    return this.handle.dispatcher.time
+    return handles[this.identificate].dispatcher.time
   }
   end() {
-    this.handle.dispatcher.end()
-    this.handle = undefined
+    handles[this.identificate].dispatcher.end()
+    handles[this.identificate] = undefined
   }
 }

@@ -21,11 +21,6 @@ const client = new Discord.Client(scopes.properties.client.options)
 let assets = {
   users: JSON.parse(fs.readFileSync('./assets/users.json', 'utf8')),
   guilds: JSON.parse(fs.readFileSync('./assets/guilds.json', 'utf8')),
-  thridparty: {
-    music: {
-      queue: JSON.parse(fs.readFileSync('./assets/music/queue.json'))
-    }
-  }
 }
 data.on('modified', (which, input) => {
   const storage = `./assets/${which}.json`
