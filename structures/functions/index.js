@@ -1,1 +1,1 @@
-module.exports.minestat = require('./minestat')
+module.exports.voice = require('./voice')

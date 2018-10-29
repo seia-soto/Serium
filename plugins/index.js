@@ -28,11 +28,6 @@ module.exports.arcaea = {
   usage: 'arcaea',
   permissions: 'common'
 }
-module.exports.minecraft = {
-  execute: require('./game/minecraft'),
-  usage: 'minecraft <server>',
-  permissions: 'common'
-}
 
 // NOTE: Util
 module.exports.serverinfo = {
