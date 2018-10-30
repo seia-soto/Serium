@@ -22,6 +22,18 @@ module.exports.welcome = {
   permissions: 'moderate'
 }
 
+// NOTE: Crypto
+module.exports.crypto = {
+  execute: require('./crypto/crypto'),
+  usage: 'crypto [hash]',
+  permissions: 'common'
+}
+module.exports.md5 = {
+  execute: require('./crypto/md5'),
+  usage: 'md5 [hash]',
+  permissions: 'common'
+}
+
 // NOTE: Game
 module.exports.arcaea = {
   execute: require('./game/arcaea'),
