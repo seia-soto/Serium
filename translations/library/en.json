@@ -10,7 +10,9 @@
       "cat": "Shows you a random cat image.",
       "dog": "Shows you a random dog image.",
       "welcome": "Sends welcome message to new member.",
-      "crypto": "Hashes the context which you served."
+      "crypto": "Hashes the context which you served.",
+      "flipcoin": "Flip a coin and see which is in front.",
+      "wiki": "Search things on Wikipedia and get the extract of descriptions."
     },
     "errors": {
       "evaluation": [
@@ -136,5 +138,14 @@
   "welcome": {
     "updated": " is now your server's welcome message and the message will send to this channel when new member arrived!",
     "disabled": "Your server's welcome message disabled!"
+  },
+  "coinflip": [
+    "I saw the coin landed on **heads**..!? Maybe?",
+    "The coin landed on **tails**!"
+  ],
+  "wiki": {
+    "title": "WikiPedia",
+    "nokeyword": "Please return me a keyword to search!",
+    "language": "To change language you use, please use b;language [language]"
   }
 }

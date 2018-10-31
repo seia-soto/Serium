@@ -25,12 +25,29 @@ module.exports.welcome = {
 // NOTE: Crypto
 module.exports.crypto = {
   execute: require('./crypto/crypto'),
-  usage: 'crypto [hash]',
+  usage: 'crypto [algorithm] [hash]',
   permissions: 'common'
 }
 module.exports.md5 = {
   execute: require('./crypto/md5'),
-  usage: 'md5 [hash]',
+  usage: 'md5 [context]',
+  permissions: 'common'
+}
+
+// NOTE: Fun
+module.exports.coinflip = {
+  execute: require('./fun/coinflip'),
+  usage: 'coinflip',
+  permissions: 'common'
+}
+module.exports.say = {
+  execute: require('./fun/say'),
+  usage: 'say [context]',
+  permissions: 'common'
+}
+module.exports.sayd = {
+  execute: require('./fun/sayd'),
+  usage: 'sayd [context]',
   permissions: 'common'
 }
 
@@ -49,7 +66,12 @@ module.exports.serverinfo = {
 }
 module.exports.userinfo = {
   execute: require('./util/userinfo'),
-  usage: 'userinfo',
+  usage: 'userinfo [@mention]',
+  permissions: 'common'
+}
+module.exports.wiki = {
+  execute: require('./util/wiki'),
+  usage: 'wiki [keyword]',
   permissions: 'common'
 }
 

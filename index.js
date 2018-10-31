@@ -21,6 +21,10 @@ const client = new Discord.Client(scopes.properties.client.options)
 let assets = {
   users: JSON.parse(fs.readFileSync('./assets/users.json', 'utf8')),
   guilds: JSON.parse(fs.readFileSync('./assets/guilds.json', 'utf8')),
+
+  thirdparties: {
+    // NOTE: Additional thirdparty assets can be located in here, recommended.
+  }
 }
 data.on('modified', (which, input) => {
   const storage = `./assets/${which}.json`
@@ -58,7 +62,7 @@ client.on('message', message => {
     ((options.permissions & scopes.properties.application.permissions[plugin.permissions]) === scopes.properties.application.permissions[plugin.permissions])
   ]
 
-  if (evaluation.includes(false) === true) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
+  if (evaluation.includes(false)) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
   message.channel.startTyping()
   plugin.execute(client, message, options, translate)
   message.channel.stopTyping()

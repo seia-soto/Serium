@@ -12,7 +12,7 @@ module.exports = (client, message, data, translate) => {
     author: {
       name: 'Crypto'
     },
-    description: `${translate.generic.crypto.nohash}${list.toString().replace(/ /, ', ')}`
+    description: `${translate.generic.crypto.nohash}${list.join(', ')}`
   }
 
   if (list.includes(initial.type) && initial.message !== '') {
