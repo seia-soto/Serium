@@ -1,7 +1,7 @@
 const properties = require('../../scopes/properties')
 
 module.exports = message => {
-  if (!message.guild) return null
+  if (!message.member) return
 
   const special = [
     '324541397988409355' // NOTE: Seia#0002

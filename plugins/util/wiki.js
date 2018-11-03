@@ -1,6 +1,6 @@
 const request = require('request')
 
-const form = {
+let form = {
   url: 'https://arcaea.lowiro.com/en/song_rank',
   headers: {
     'User-Agent': 'Seia-Deployment/Serium (v2)'
@@ -13,11 +13,13 @@ const endpoints = {
 
 module.exports = (client, message, data, translate) => {
   if (!data.message.index.diff.slice(0).join(' ')) return message.reply(translate.wiki.nokeyword)
-  const endpoint = endpoints[data.user.language] + encodeURIComponent(data.message.index.diff.slice(0).join(' '))
+  form.url = endpoints[data.user.language] + encodeURIComponent(data.message.index.diff.slice(0).join(' '))
 
   const callback = (error, response, body) => {
     if (error && response.statusCode !== 200) return message.reply(form.url + translate.generic.errors.request)
-    const queried = decodeURIComponent(JSON.parse(body))
+
+    let queried = JSON.parse(body)
+    if (!queried.extract) queried.extract = translate.wiki.nocontext
 
     message.channel.send({embed: {
       color: data.application.embed.color,

@@ -20,7 +20,11 @@
       "네모"
     ],
     "interfaces": [
-      "Tenpower"
+      "Tenpower",
+      "Lemongreen"
+    ],
+    "translations": [
+      "Choux_a_la_Creme"
     ]
   },
   "license": "Artistic-2.0",
@@ -34,6 +38,7 @@
     "discord.js": "^11.4.2",
     "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^4.0.0",
+    "google-translate-query": "^2.4.3",
     "googleapis": "^34.0.0",
     "libsodium-wrappers": "^0.7.3",
     "opusscript": "0.0.6",

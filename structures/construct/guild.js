@@ -1,5 +1,5 @@
 module.exports = (client, message) => {
-  if (!message.guild) return null
+  if (!message.guild) return
 
   const template = {
     verificationLevel: message.guild.verificationLevel,

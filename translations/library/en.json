@@ -17,7 +17,10 @@
       "md5": "Creates MD5 hashes of context which you added to option.",
       "say": "Just like you! Talking like you.",
       "sayd": "I am just faster then you! Deletes you wrote before sending copy of your message.",
-      "avatar": "Loads user's avatar, it is also available on userinfo too."
+      "avatar": "Loads user's avatar, it is also available on userinfo too.",
+      "if": "Get randomized probability of context.",
+      "neko": "Get randomized neko images.",
+      "translate": "Translate strings from Google Translate."
     },
     "errors": {
       "evaluation": [
@@ -149,6 +152,7 @@
   "wiki": {
     "title": "WikiPedia",
     "nokeyword": "Please return me a keyword to search!",
+    "nocontext": "This document is empty.",
     "language": "To change language you use, please use ;language [language]"
   },
   "play": {
@@ -158,5 +162,15 @@
       "I cannot find any medias from YouTube!"
     ],
     "title": "Play"
+  },
+  "if": [
+    "The probability that ",
+    " is ",
+    "%."
+  ],
+  "translate": {
+    "title": "Translate",
+    "origin": "Starting language",
+    "translated": "Translated"
   }
 }
