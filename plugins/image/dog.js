@@ -4,7 +4,7 @@ const request = require('request')
 const form = {
   url: 'https://dog.ceo/api/breeds/image/random',
   headers: {
-    'User-Agent': 'Seia-Deployment/Serium (v2)'
+    'User-Agent': 'Seia-Deployment/Serium'
   }
 }
 

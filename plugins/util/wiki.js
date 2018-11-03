@@ -28,4 +28,5 @@ module.exports = (client, message, data, translate) => {
       }
     }})
   }
+  request(form, callback)
 }

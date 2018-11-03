@@ -1,53 +1,75 @@
-const { createReadStream } = require('fs')
+const ytdl = require('ytdl-core')
 
-let handles = {}
+const Handles = new Map()
 
 module.exports = class {
-  constructor(message) {
-    this.identificate = message.guild.id
-
-    if (!handles[this.identificate]) {
-      handles[this.identificate] = {
-        voiceChannel: message.member.voiceChannel,
-        dispatcher: null,
+  constructor(identificate, voiceChannel) {
+    if (!Handles.get(identificate)) {
+      Handles.set(identificate, {
+        voiceChannel: voiceChannel,
+        queue: [],
         playing: false
-      }
+      })
     }
   }
 
-  dispatcher() {
-    return handles[this.identificate].dispatcher
+  start(identificate) {
+    if (!Handles.get(identificate).playing) return this.startStream(identificate)
   }
-  playing() {
-    return handles[this.identificate].playing
-  }
-
-  join() {
-    if (handles[this.identificate].playing) return
-    handles[this.identificate].voiceChannel.join()
-  }
-  leave() {
-    this.end()
-    handles[this.identificate].voiceChannel.leave()
+  next(identificate) {
+    if (this.getQueue(identificate)) {
+      this.startStream(identificate)
+    } else {
+      this.endStream(identificate)
+    }
   }
 
-  stream(input) {
-    handles[this.identificate].dispatcher = handles[this.identificate].voiceChannel.connection.playStream(input)
-    handles[this.identificate].dispatcher.setBitrate(96)
+  getQueue(identificate) {
+    const latest = Handles.get(identificate).queue[0]
 
-    handles[this.identificate].playing = true
+    if (latest) {
+      return latest
+    } else {
+      return false
+    }
   }
-  pause() {
-    handles[this.identificate].dispatcher.pause()
+  addQueue(identificate, videoURL) {
+    Handles.get(identificate).queue.push(videoURL)
   }
-  resume() {
-    if (handles[this.identificate].dispatcher.paused) handles[this.identificate].dispatcher.resume()
+  removeQueue(identificate, index) {
+    Handles.get(identificate).queue.splice(index, 1)
   }
-  at() {
-    return handles[this.identificate].dispatcher.time
+
+  startStream(identificate) {
+    Handles.get(identificate).voiceChannel.join()
+    if (Handles.get(identificate).playing) return
+
+    const stream = ytdl(this.getQueue(identificate), {
+      quality: 'highest',
+      filter: 'audioonly'
+    })
+      .on('error', error => {
+        return `0;${error}`
+      })
+    const dispatcher = Handles.get(identificate).voiceChannel.connection.playStream(stream)
+
+    Handles.get(identificate).playing = true
+    this.removeQueue(identificate, 0)
+
+    dispatcher.setBitrate(96)
+    dispatcher.on('end', () => {
+      Handles.get(identificate).playing = false
+      this.next(identificate)
+    })
   }
-  end() {
-    handles[this.identificate].dispatcher.end()
-    handles[this.identificate] = undefined
+  endStream(identificate) {
+    Handles.get(identificate).voiceChannel.connection.dispatcher.end()
+    Handles.get(identificate).voiceChannel.leave()
+  }
+  pauseStream(identificate) {
+    Handles.get(identificate).voiceChannel.connection.dispatcher.pause()
+  }
+  resumeStream(identificate) {
+    Handles.get(identificate).voiceChannel.connection.dispatcher.resume()
   }
 }

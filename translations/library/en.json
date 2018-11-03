@@ -12,7 +12,12 @@
       "welcome": "Sends welcome message to new member.",
       "crypto": "Hashes the context which you served.",
       "flipcoin": "Flip a coin and see which is in front.",
-      "wiki": "Search things on Wikipedia and get the extract of descriptions."
+      "wiki": "Search things on Wikipedia and get the extract of descriptions.",
+      "crypto": "Creates hashes of context which you added to option.",
+      "md5": "Creates MD5 hashes of context which you added to option.",
+      "say": "Just like you! Talking like you.",
+      "sayd": "I am just faster then you! Deletes you wrote before sending copy of your message.",
+      "avatar": "Loads user's avatar, it is also available on userinfo too."
     },
     "errors": {
       "evaluation": [
@@ -45,7 +50,7 @@
       "Detailed infos of command"
     ],
     "detailed": [
-      "To see detailed infos of command, use b;help [command]",
+      "To see detailed infos of command, use ;help [command]",
       "Thank you for using Serium"
     ],
     "usage": "Usage"
@@ -133,8 +138,6 @@
     "noroles": "It seems user don't have any roles.",
     "nonickname": "It seems user didn't set nickname."
   },
-  "cat": null,
-  "dog": null,
   "welcome": {
     "updated": " is now your server's welcome message and the message will send to this channel when new member arrived!",
     "disabled": "Your server's welcome message disabled!"
@@ -146,6 +149,14 @@
   "wiki": {
     "title": "WikiPedia",
     "nokeyword": "Please return me a keyword to search!",
-    "language": "To change language you use, please use b;language [language]"
+    "language": "To change language you use, please use ;language [language]"
+  },
+  "play": {
+    "errors": [
+      "Cannot find any YouTube video URL or keyword to search, please check you included URL or keyword!",
+      "You are not in voice channel, please ask me to the party after you joined!",
+      "I cannot find any medias from YouTube!"
+    ],
+    "title": "Play"
   }
 }

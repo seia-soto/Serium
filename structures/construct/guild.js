@@ -1,4 +1,6 @@
 module.exports = (client, message) => {
+  if (!message.guild) return null
+
   const template = {
     verificationLevel: message.guild.verificationLevel,
     explicitContentFilter: message.guild.explicitContentFilter,

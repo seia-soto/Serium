@@ -4,7 +4,7 @@ const request = require('request')
 const form = {
   url: 'https://api.thecatapi.com/api/images/get?format=json&results_per_page=1',
   headers: {
-    'User-Agent': 'Seia-Deployment/Serium (v2)'
+    'User-Agent': 'Seia-Deployment/Serium'
   }
 }
 
