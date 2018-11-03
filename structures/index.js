@@ -1,1 +1,2 @@
-module.exports.translations = require('./translations')
+module.exports.construct = require('./construct')
+module.exports.functions = require('./functions')

@@ -1,61 +1,82 @@
 console.log('Starting up at ' + new Date())
+process.title = `Serium v${require('./package.json').version}, ${process.platform}-${process.arch}`
+
+process.on('unhandledRejection', detailed => {
+  if (!detailed) detailed = 'No detail provided.'
+  console.log('UnhandledRejection:', detailed)
+})
+
 const Discord = require('discord.js')
+const Events = require('events')
+const fs = require('fs')
 
-const application = {
-  plugins: require('./plugins'),
-  stores: require('./stores'),
-  structures: require('./structures')
-}
-const client = new Discord.Client({
-  autoReconnect: true,
-  disableEveryone: true,
-  messageCacheMaxSize: 256,
-  messageCacheLifetime: 16,
-  messageSweepInterval: 2
-})
-const configures = require('./stores').configures
-const issued = []
-const rate = {
-  issue: (user) => {
-    issued.push(user.id)
-  },
-  initialize: (user) => {
-    issued.splice(issued.indexOf(user.id), 1)
+const plugins = require('./plugins')
+const scopes = require('./scopes')
+const structures = require('./structures')
+const translations = require('./translations')
+
+const data = new Events.EventEmitter()
+const client = new Discord.Client(scopes.properties.client.options)
+
+let assets = {
+  users: JSON.parse(fs.readFileSync('./assets/users.json', 'utf8')),
+  guilds: JSON.parse(fs.readFileSync('./assets/guilds.json', 'utf8')),
+
+  thirdparties: {
+    // NOTE: Additional thirdparty assets can be located in here, recommended.
   }
 }
+data.on('modified', (which, input) => {
+  const storage = `./assets/${which}.json`
 
-process.on('unhandledRejection', (error) => {
-  console.error(error.stack)
+  fs.writeFileSync(storage, JSON.stringify(input), 'utf8')
+  assets[which] = input
 })
 
-client.login(configures.secret.Discord)
+client.login(scopes.properties.client.token)
 client.on('ready', () => {
-  console.log(client.user.tag)
-  client.user.setActivity(configures.answer.prefix + 'help (' +
-    configures.answer.limit / 1000 + 's/p, ' +
-    'v' + require('./package.json').version + ')')
-  client.user.setStatus('online')
+  console.log('Connected to Discord at ' + new Date())
 })
-client.on('message', (message) => {
-  const invalidEnviroments =
-    (message.author.bot)
-    || (message.channel.type !== 'text')
-    || (!message.content.startsWith(configures.answer.prefix))
-  if (invalidEnviroments) return
-  if (message.member.permissions.has('MANAGE_GUILD')) { permissions = 2 } else { permissions = 0 }
-  if (message.author.id === '324541397988409355') permissions = 4
-  const plugin = application.plugins.answerList[message.content.split(' ')[0].slice(configures.answer.prefix.length).toLowerCase()]
-  const notAllowed =
-    (!plugin)
-    || (permissions < plugin.permissions)
-    || (issued.indexOf(message.author.id).toString() !== '-1')
-  if (notAllowed) return
-  const nt = {
-    parameters: message.content.split(' ').slice(1),
-    i: application.structures.translations(plugin.language),
-    l: plugin.language
+client.on('message', message => {
+  const options = {
+    assets: data,
+    stores: assets,
+    application: scopes.properties,
+    guild: structures.construct.guild(client, message),
+    message: structures.construct.message(message),
+    user: structures.construct.user(message, assets),
+    permissions: structures.construct.permissions(message)
   }
-  plugin.worker(client, message, nt)
-  rate.issue(message.author)
-  setTimeout(() => { rate.initialize(message.author) }, configures.answer.limit)
+  const enviroment =
+    (message.author.bot) ||
+    (!message.content.startsWith(scopes.properties.application.prefix)) ||
+    (!options.message.construct) ||
+    (!options.guild.permissions.messages.write) ||
+    (!plugins[options.message.construct])
+  if (enviroment) return
+
+  const translate = translations(options.user.language)
+  const plugin = plugins[options.message.construct]
+  const evaluation = [
+    (message.channel.type === 'text'),
+    ((options.permissions & scopes.properties.application.permissions[plugin.permissions]) === scopes.properties.application.permissions[plugin.permissions])
+  ]
+
+  if (evaluation.includes(false)) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
+  message.channel.startTyping()
+  plugin.execute(client, message, options, translate)
+  message.channel.stopTyping()
+})
+
+client.on('guildMemberAdd', member => {
+  if (!assets.guilds[member.guild.id]) return
+  const disabled =
+    (!assets.guilds[member.guild.id].welcome) ||
+    (!client.channels.get(assets.guilds[member.guild.id].welcome.channel).permissionsFor(member.guild.client.user).has('SEND_MESSAGES'))
+  if (disabled) return
+
+  const welcome = assets.guilds[member.guild.id].welcome.message
+    .replace(/{member}/, member)
+    .replace(/{server}/, member.guild.name)
+  client.channels.get(assets.guilds[member.guild.id].welcome.channel).send(welcome)
 })
