@@ -56,16 +56,15 @@ client.on('message', message => {
   if (enviroment) return
 
   const translate = translations(options.user.language)
-  const plugin = plugins[options.message.construct]
+  const plugin = plugins[options.message.construct]\
+
   const evaluation = [
     (message.channel.type === 'text'),
     ((options.permissions & scopes.properties.application.permissions[plugin.permissions]) === scopes.properties.application.permissions[plugin.permissions])
   ]
-
   if (evaluation.includes(false)) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
-  message.channel.startTyping()
+
   plugin.execute(client, message, options, translate)
-  message.channel.stopTyping()
 })
 
 client.on('guildMemberAdd', member => {

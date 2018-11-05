@@ -1,7 +1,7 @@
 const request = require('request')
 
 let form = {
-  url: 'https://arcaea.lowiro.com/en/song_rank',
+  url: '',
   headers: {
     'User-Agent': 'Seia-Deployment/Serium (v2)'
   }

@@ -20,7 +20,8 @@
       "avatar": "Loads user's avatar, it is also available on userinfo too.",
       "if": "Get randomized probability of context.",
       "neko": "Get randomized neko images.",
-      "translate": "Translate strings from Google Translate."
+      "translate": "Translate strings from Google Translate.",
+      "itunes": "Search songs on iTunes and launch iTunes in-app by clicking the link(maybe only available on iOS)."
     },
     "errors": {
       "evaluation": [
@@ -172,5 +173,13 @@
     "title": "Translate",
     "origin": "Starting language",
     "translated": "Translated"
+  },
+  "itunes": {
+    "noresult": "There is no track named like you typed.",
+    "type": "Type",
+    "info": "Details",
+    "artist": "Artist",
+    "collection": "Collection",
+    "track": "Track"
   }
 }

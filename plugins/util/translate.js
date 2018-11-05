@@ -17,7 +17,7 @@ module.exports = (client, message, data, translate) => {
       fields: [
         {
           name: translate.help.usage,
-          value: `${properties.application.prefix}${dictionary.welcome.usage}`
+          value: `${properties.application.prefix}${dictionary.translate.usage}`
         }
       ],
       footer: {

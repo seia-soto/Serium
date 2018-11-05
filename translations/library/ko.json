@@ -20,7 +20,8 @@
       "avatar": "사용자의 프로필사진을 불러옵니다. 이것은 userinfo에서도 사용할 수 있습니다.",
       "if": "내용에 대한 무작위한 확률을 구합니다.",
       "neko": "무작위의 네코 이미지를 가져옵니다.",
-      "translate": "구글 번역으로 문자열을 번역합니다."
+      "translate": "구글 번역으로 문자열을 번역합니다.",
+      "itunes": "iTunes에서 음악을 찾고 인앱에서 바로 iTunes를 엽니다(iOS만 지원할 수 있음)."
     },
     "errors": {
       "evaluation": [
@@ -174,5 +175,13 @@
     "title": "번역",
     "origin": "시작 언어",
     "translated": "번역 됨"
+  },
+  "itunes": {
+    "noresult": "입력한 이름의 음악을 찾을 수 없었어요.",
+    "type": "종류",
+    "info": "자세한 정보",
+    "artist": "작곡가",
+    "collection": "컬렉션",
+    "track": "음악"
   }
 }

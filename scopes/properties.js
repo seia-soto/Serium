@@ -1,6 +1,6 @@
 module.exports = {
   application: {
-    prefix: 'b;',
+    prefix: ';',
     permissions: {
       administrate: 0b001,
       moderate: 0b010,
