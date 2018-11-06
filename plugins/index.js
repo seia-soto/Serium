@@ -88,11 +88,16 @@ module.exports.neko = {
 // NOTE: Music
 module.exports.itunes = {
   execute: require('./music/itunes'),
-  usage: 'itunes',
+  usage: 'itunes [keyword]',
   permissions: 'common'
 }
 
 // NOTE: Util
+module.exports.applicationinfo = {
+  execute: require('./util/applicationinfo'),
+  usage: 'applicationinfo',
+  permissions: 'common'
+}
 module.exports.serverinfo = {
   execute: require('./util/serverinfo'),
   usage: 'serverinfo',

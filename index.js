@@ -56,7 +56,7 @@ client.on('message', message => {
   if (enviroment) return
 
   const translate = translations(options.user.language)
-  const plugin = plugins[options.message.construct]\
+  const plugin = plugins[options.message.construct]
 
   const evaluation = [
     (message.channel.type === 'text'),
