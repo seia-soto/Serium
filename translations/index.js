@@ -3,7 +3,7 @@ const library = {
   en: require('./library/en')
 }
 
-module.exports = (language, data) => {
+module.exports = (language) => {
   const template = library[language]
   return template
 }
