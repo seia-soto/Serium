@@ -14,7 +14,9 @@ const endpoints = {
 
 module.exports = (client, message, data, translate) => {
   if (!data.message.index.diff.slice(0).join(' ')) return message.reply(translate.wiki.nokeyword)
-  form.url = endpoints[data.user.language] + encodeURIComponent(data.message.index.diff.slice(0).join(' '))
+
+  const keyword = encodeURIComponent(data.message.index.diff.slice(0).join(' '))
+  form.url = endpoints[data.user.language] + keyword
 
   const callback = (error, response, body) => {
     if (error && response.statusCode !== 200) return message.reply(form.url + translate.generic.errors.request)
@@ -28,7 +30,7 @@ module.exports = (client, message, data, translate) => {
       .setTitle(`${translate.wiki.title}; ${data.message.index.diff.slice(0).join(' ')}`)
       .setThumbnail(queried.originalimage.source)
 
-      .setDescription(`${queried.extract} [...](${queried.content_urls.desktop.page})`)
+      .setDescription(`${queried.extract} [...](https://${data.user.language}.wikipedia.org/wiki/${keyword})`)
       .setFooter(
         translate.wiki.language,
         'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Wikipedia-logo-v2-200px-transparent.png/140px-Wikipedia-logo-v2-200px-transparent.png'

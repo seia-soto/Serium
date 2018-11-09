@@ -21,7 +21,9 @@
       "if": "Get randomized probability of context.",
       "neko": "Get randomized neko images.",
       "translate": "Translate strings from Google Translate.",
-      "itunes": "Search songs on iTunes and launch iTunes in-app by clicking the link(maybe only available on iOS)."
+      "itunes": "Search songs on iTunes and launch iTunes in-app by clicking the link(maybe only available on iOS).",
+      "applicationinfo": "Get what version of Serium is running in this server.",
+      "cdnjs": "Get package info from CDNJS."
     },
     "errors": {
       "evaluation": [
@@ -181,5 +183,12 @@
     "artist": "Artist",
     "collection": "Collection",
     "track": "Track"
+  },
+  "cdnjs": {
+    "noresult": "There is no package named you typed.",
+    "version": "Version",
+    "description": "Description",
+    "repository": "Repository",
+    "keywords": "Keyword(s)"
   }
 }

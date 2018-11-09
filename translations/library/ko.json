@@ -21,7 +21,9 @@
       "if": "내용에 대한 무작위한 확률을 구합니다.",
       "neko": "무작위의 네코 이미지를 가져옵니다.",
       "translate": "구글 번역으로 문자열을 번역합니다.",
-      "itunes": "iTunes에서 음악을 찾고 인앱에서 바로 iTunes를 엽니다(iOS만 지원할 수 있음)."
+      "itunes": "iTunes에서 음악을 찾고 인앱에서 바로 iTunes를 엽니다(iOS만 지원할 수 있음).",
+      "applicationinfo": "현재 서버에서 어떤 버전의 Serium을 실행 중인지 봅니다.",
+      "cdnjs": "CDNJS에서 패키지 정보를 불러옵니다."
     },
     "errors": {
       "evaluation": [
@@ -183,5 +185,12 @@
     "artist": "작곡가",
     "collection": "컬렉션",
     "track": "음악"
+  },
+  "cdnjs": {
+    "noresult": "해당 패키지를 NPM 저장소에서 찾을 수 없었습니다.",
+    "version": "버전",
+    "description": "설명",
+    "repository": "저장소",
+    "keywords": "키워드"
   }
 }

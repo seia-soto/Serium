@@ -98,6 +98,11 @@ module.exports.applicationinfo = {
   usage: 'applicationinfo',
   permissions: 'common'
 }
+module.exports.cdnjs = {
+  execute: require('./util/cdnjs'),
+  usage: 'cdnjs [package]',
+  permissions: 'common'
+}
 module.exports.serverinfo = {
   execute: require('./util/serverinfo'),
   usage: 'serverinfo',
