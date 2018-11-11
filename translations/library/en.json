@@ -24,7 +24,8 @@
       "itunes": "Search songs on iTunes and launch iTunes in-app by clicking the link(maybe only available on iOS).",
       "applicationinfo": "Get what version of Serium is running in this server.",
       "cdnjs": "Get package info from CDNJS.",
-      "invite": "Get the invite link of Serium."
+      "invite": "Get the invite link of Serium.",
+      "purge": "Deletes one to 100 messages in this channel."
     },
     "errors": {
       "evaluation": [
@@ -195,5 +196,13 @@
   "invite": {
     "title": "Invite",
     "description": "Thank you for inviting Serium!\n\nBefore migrate Serium to your server, please confirm that Serium can send embed messages and read messages."
+  },
+  "purge": {
+    "errors": [
+      "Message size to delete have to one or greater.",
+      "Message size to delete have to 100 or lower.",
+      "I don't have permission to delete messages in this channel!"
+    ],
+    "done": " messages were deleted from this channel!"
   }
 }

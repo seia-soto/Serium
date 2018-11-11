@@ -91,6 +91,11 @@ module.exports.neko = {
 }
 
 // NOTE: Moderate
+module.exports.purge = {
+  execute: require('./moderate/purge'),
+  usage: 'purge [size]',
+  permissions: 'moderate'
+}
 
 // NOTE: Music
 module.exports.itunes = {

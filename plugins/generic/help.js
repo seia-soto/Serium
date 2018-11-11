@@ -4,7 +4,7 @@ const dictionary = require('../')
 const properties = require('../../scopes/properties')
 
 const directories = [
-  'Crypto', 'Fun', 'Game', 'Generic', 'Image', 'Music', 'Util'
+  'Crypto', 'Fun', 'Game', 'Generic', 'Image', 'Moderate', 'Music', 'Util'
 ]
 let list = []
 
