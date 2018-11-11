@@ -1,6 +1,7 @@
 const library = {
   ko: require('./library/ko'),
-  en: require('./library/en')
+  en: require('./library/en'),
+  ja: require('./library/ja')
 }
 
 module.exports = (language) => {

@@ -2,9 +2,9 @@ module.exports = {
   application: {
     prefix: ';',
     permissions: {
-      administrate: 0b001,
+      administrate: 0b100,
       moderate: 0b010,
-      common: 0b100
+      common: 0b001
     }
   },
   client: {

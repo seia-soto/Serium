@@ -8,7 +8,7 @@ module.exports = (client, message) => {
     permissions: {
       messages: {
         read: message.channel.permissionsFor(message.guild.me).has('VIEW_CHANNEL'),
-        write: message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'),
+        write: message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS'),
         manage: message.channel.permissionsFor(message.guild.me).has('MANAGE_MESSAGES')
       },
       member: {

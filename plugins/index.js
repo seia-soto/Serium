@@ -4,6 +4,11 @@ module.exports.help = {
   usage: 'help [command]',
   permissions: 'common'
 }
+module.exports.invite = {
+  execute: require('./generic/invite'),
+  usage: 'invite',
+  permissions: 'common'
+}
 module.exports.language = {
   execute: require('./generic/language'),
   usage: 'language <language>',
@@ -81,9 +86,11 @@ module.exports.dog = {
 }
 module.exports.neko = {
   execute: require('./image/neko'),
-  usage: 'dog',
+  usage: 'neko',
   permissions: 'common'
 }
+
+// NOTE: Moderate
 
 // NOTE: Music
 module.exports.itunes = {

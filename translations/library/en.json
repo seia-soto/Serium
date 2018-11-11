@@ -23,7 +23,8 @@
       "translate": "Translate strings from Google Translate.",
       "itunes": "Search songs on iTunes and launch iTunes in-app by clicking the link(maybe only available on iOS).",
       "applicationinfo": "Get what version of Serium is running in this server.",
-      "cdnjs": "Get package info from CDNJS."
+      "cdnjs": "Get package info from CDNJS.",
+      "invite": "Get the invite link of Serium."
     },
     "errors": {
       "evaluation": [
@@ -134,7 +135,7 @@
       "online": "Online"
     },
     "presence": "Playing",
-    "joined": "Joined at",
+    "joined": "Joined to this server at",
     "roles": "Roles",
     "language": "Language",
     "last": {
@@ -190,5 +191,9 @@
     "description": "Description",
     "repository": "Repository",
     "keywords": "Keyword(s)"
+  },
+  "invite": {
+    "title": "Invite",
+    "description": "Thank you for inviting Serium!\n\nBefore migrate Serium to your server, please confirm that Serium can send embed messages and read messages."
   }
 }
