@@ -12,10 +12,6 @@ module.exports = (client, message, data, translate) => {
   message.channel.bulkDelete(numberic)
     .then(messages => {
       message.reply(messages.size + translate.purge.done)
-        .then(result => {
-          setTimeout(() => {
-            result.delete()
-          }, 3000)
-        })
+        .then(result => setTimeout(() => result.delete(), 3000))
     })
 }

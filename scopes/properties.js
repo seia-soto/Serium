@@ -12,6 +12,13 @@ module.exports = {
       autoReconnect: true,
       disableEveryone: true
     },
+    presence: {
+      status: 'online',
+      game: {
+        name: ';help (Seia-Deployments/Worker)',
+        type: 'LISTENING'
+      }
+    },
     token: 'N',
     invite: 'https://discordapp.com/oauth2/authorize?client_id=429913480708096000&permissions=8&scope=bot'
   },

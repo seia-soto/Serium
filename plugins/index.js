@@ -26,6 +26,7 @@ module.exports.welcome = {
   usage: 'welcome <message>',
   permissions: 'common'
 }
+module.exports.setwelcome = this.welcome
 
 // NOTE: Crypto
 module.exports.crypto = {

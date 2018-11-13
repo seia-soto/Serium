@@ -36,6 +36,8 @@ data.on('modified', (which, input) => {
 client.login(scopes.properties.client.token)
 client.on('ready', () => {
   console.log('Connected to Discord at ' + new Date())
+
+  client.user.setPresence(scopes.properties.client.presence)
 })
 client.on('message', message => {
   const options = {
