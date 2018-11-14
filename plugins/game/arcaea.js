@@ -12,6 +12,7 @@ module.exports = (client, message, data, translate) => {
   const callback = (error, response, body) => {
     if (error && response.statusCode !== 200) return message.reply(form.url + translate.generic.errors.request)
     let rank = []
+
     const $ = cheerio.load(body)
     $('.rank-song-in').each((i, element) => {
       const querySelector = cheerio.load(element)

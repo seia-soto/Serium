@@ -4,6 +4,7 @@ const properties = require('../../scopes/properties')
 module.exports = (client, message, data, translate) => {
   const to = data.message.index.raw.slice(1).join(' ')
   const disabled = ['off', 'disable', 'turn off', 'none']
+
   if (!to) return message.channel.send({embed: {
     color: data.application.embed.color,
     author: {
@@ -23,17 +24,17 @@ module.exports = (client, message, data, translate) => {
 
   let reply = `**${to}**${translate.welcome.updated}`
 
-  data.stores.guilds[message.guild.id] = {
+  data.assets.guilds[message.guild.id] = {
     welcome: {
       channel: message.channel.id,
       message: to
     }
   }
   if (disabled.includes(to)) {
-    data.stores.guilds[message.guild.id].welcome = undefined
+    data.assets.guilds[message.guild.id].welcome = undefined
     reply = translate.welcome.disabled
   }
 
-  data.assets.emit('modified', 'guilds', data.stores.guilds)
+  data.assets.handle.emit('modified', 'guilds', data.assets.guilds)
   message.reply(reply)
 }

@@ -106,11 +106,6 @@ module.exports.itunes = {
 }
 
 // NOTE: Util
-module.exports.applicationinfo = {
-  execute: require('./util/applicationinfo'),
-  usage: 'applicationinfo',
-  permissions: 'common'
-}
 module.exports.cdnjs = {
   execute: require('./util/cdnjs'),
   usage: 'cdnjs [package]',

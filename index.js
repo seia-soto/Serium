@@ -24,7 +24,9 @@ let assets = {
 
   thirdparties: {
     // NOTE: Additional thirdparty assets can be located in here, recommended.
-  }
+  },
+
+  handle: data
 }
 data.on('modified', (which, input) => {
   const storage = `./assets/${which}.json`
@@ -41,8 +43,7 @@ client.on('ready', () => {
 })
 client.on('message', message => {
   const options = {
-    assets: data,
-    stores: assets,
+    assets: assets,
     application: scopes.properties,
     guild: structures.construct.guild(client, message),
     message: structures.construct.message(message),
@@ -59,14 +60,15 @@ client.on('message', message => {
 
   const translate = translations(options.user.language)
   const plugin = plugins[options.message.construct]
-
   const evaluation = [
     (message.channel.type === 'text'),
     ((options.permissions & scopes.properties.application.permissions[plugin.permissions]) === scopes.properties.application.permissions[plugin.permissions])
   ]
-  if (evaluation.includes(false)) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
 
+  if (evaluation.includes(false)) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
+  message.channel.startTyping()
   plugin.execute(client, message, options, translate)
+  message.channel.stopTyping()
 })
 
 client.on('guildMemberAdd', member => {

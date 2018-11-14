@@ -5,10 +5,10 @@ module.exports = (client, message, data, translate) => {
   let reply = `**${selection}**${translate.language.updated}`
 
   if (selection in translations) {
-    data.stores.users[message.author.id] = {
+    data.assets.users[message.author.id] = {
       language: selection
     }
-    data.assets.emit('modified', 'users', data.stores.users)
+    data.assets.handle.emit('modified', 'users', data.assets.users)
   } else {
     reply = `**${selection}**${translate.language.notfound}`
   }
