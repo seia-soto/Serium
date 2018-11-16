@@ -10,6 +10,8 @@ const Discord = require('discord.js')
 const Events = require('events')
 const fs = require('fs')
 
+const callbacks = require('./callbacks')
+const extensions = require('./extensions')
 const plugins = require('./plugins')
 const scopes = require('./scopes')
 const structures = require('./structures')
@@ -23,15 +25,16 @@ let assets = {
   guilds: JSON.parse(fs.readFileSync('./assets/guilds.json', 'utf8')),
 
   thirdparties: {
-    // NOTE: Additional thirdparty assets can be located in here, recommended.
+    usageLogger: {
+      usage: JSON.parse(fs.readFileSync('./assets/thirdparties/usageLogger/usage.json', 'utf8'))
+    }
   },
 
   handle: data
 }
-data.on('modified', (which, input) => {
-  const storage = `./assets/${which}.json`
 
-  fs.writeFileSync(storage, JSON.stringify(input), 'utf8')
+data.on('modified', (which, input) => {
+  fs.writeFile(`./assets/${which}.json`, JSON.stringify(input), 'utf8', callbacks.fs.writeFile)
   assets[which] = input
 })
 
@@ -58,15 +61,17 @@ client.on('message', message => {
     (!plugins[options.message.construct])
   if (enviroment) return
 
-  const translate = translations(options.user.language)
-  const plugin = plugins[options.message.construct]
+  let translate = translations(options.user.language)
+  let plugin = plugins[options.message.construct]
+
   const evaluation = [
     (message.channel.type === 'text'),
     ((options.permissions & scopes.properties.application.permissions[plugin.permissions]) === scopes.properties.application.permissions[plugin.permissions])
   ]
-
   if (evaluation.includes(false)) return message.reply(translate.generic.errors.evaluation[evaluation.indexOf(false)])
+
   message.channel.startTyping()
+  extensions.fetch(client, message, options)
   plugin.execute(client, message, options, translate)
   message.channel.stopTyping()
 })
