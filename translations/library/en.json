@@ -203,6 +203,7 @@
       "Message size to delete have to 100 or lower.",
       "I don't have permission to delete messages in this channel!"
     ],
-    "done": " messages were deleted from this channel!"
+    "done": " messages were deleted from this channel!",
+    "failed": "Couldn't continue, I cannot delete messages over 14 days."
   }
 }

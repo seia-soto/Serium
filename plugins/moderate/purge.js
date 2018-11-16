@@ -14,4 +14,5 @@ module.exports = (client, message, data, translate) => {
       message.reply(messages.size + translate.purge.done)
         .then(result => setTimeout(() => result.delete(), 3000))
     })
+    .catch(error => message.reply(translate.purge.failed))
 }

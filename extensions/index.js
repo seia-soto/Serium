@@ -1,4 +1,5 @@
 const extensions = Object.values({
+  usageLimitter: require('./usageLimitter'),
   usageLogger: require('./usageLogger')
 })
 
