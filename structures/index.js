@@ -1,2 +1,2 @@
-module.exports.construct = require('./construct')
-module.exports.functions = require('./functions')
+module.exports.MessageParser = require('./MessageParser')
+module.exports.PreferenceIndicator = require('./PreferenceIndicator')

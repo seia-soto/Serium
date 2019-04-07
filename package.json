@@ -1,6 +1,6 @@
 {
   "name": "serium",
-  "version": "2.0.0",
+  "version": "3.0.1",
   "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,6 @@
       "네모"
     ],
     "interfaces": [
-      "Tenpower",
       "Lemongreen"
     ],
     "translations": [
@@ -33,18 +32,14 @@
   },
   "homepage": "https://github.com/Seia-Soto/Serium#readme",
   "dependencies": {
-    "bufferutil": "^4.0.0",
+    "bufferutil": "^4.0.1",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.4.2",
-    "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^4.0.0",
     "google-translate-query": "^2.4.3",
-    "googleapis": "^34.0.0",
-    "libsodium-wrappers": "^0.7.3",
-    "opusscript": "0.0.6",
+    "js-yaml": "^3.13.1",
+    "mysql": "^2.16.0",
     "querystring": "^0.2.0",
-    "request": "^2.88.0",
-    "uws": "^99.0.0",
-    "ytdl-core": "^0.26.3"
+    "request": "^2.88.0"
   }
 }
