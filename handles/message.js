@@ -1,29 +1,32 @@
+const prompts = require('../prompts')
 const structures = require('../structures')
-const exceptions = require('./exceptions')
 
-const {MessageParser, PreferenceIndicator} = structures
-const {PermissionMissing, PromptUnavailable} = exceptions
+const {MessageParser, PermissionParser, PreferenceIndicator, ReportException} = structures
 
-const ExceptionHandles = [
-  () => null, // NOTE: Ignore
-  PermissionMissing,
-  /*
-   * Constructing divided callbacks;
-   */
-  PromptUnavailable.forGuild,
-  PromptUnavailable.forUser
-]
+const MessageHandler = (rawMessage, client) => {
+  const message = MessageParser(rawMessage)
+  const permission = PermissionParser(rawMessage)
 
-const MessageHandler = (raw, client) => {
-  const message = MessageParser(raw)
-
-  const Exceptions = [
-    (!message.startsWith(PreferenceIndicator.App.Prefix)),
+  let Exceptions = [
+    (message.author.bot), // NOTE: Check if author is bot.
+    (message.guild === null), // NOTE: Check if channel is DM.
+    (!message.content.startsWith(PreferenceIndicator.App.Prefix)),
     (!message.guild.me.hasPermission('SEND_MESSAGES')),
-    (!message._se.prompt in PromptIndicator.availableFor('guild', message.guild)),
-    (!message._se.prompt in PromptIndicator.availableFor('user', message.author))
+    (!(message._se.prompt in prompts))
   ]
-  if (Exceptions) ExceptionHandles[Exceptions.indexOf(true)](message)
+  if (!Exceptions.includes(true)) {
+    try {
+      if (PermissionParser.isValidFor(message._se.prompt, permission)) {
+        prompts[message._se.prompt].require(message, client)
+      } else {
+        message.reply('이 명령어를 실행하기에 권한이 부족합니다.')
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  ReportException(message, Exceptions)
 }
 
 module.exports = MessageHandler

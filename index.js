@@ -16,6 +16,6 @@ const client = new Discord.Client(PreferenceIndicator.Discord.Client)
 
 client.once('ready', () => handles.ready(client))
 client.on('message', message => handles.message(message, client))
-// client.on('guild_member_add', member => handles.guildMemberAdd(member, client))
+client.on('guildMemberAdd', member => handles.guildMemberAdd(member, client))
 
 client.login(PreferenceIndicator.App.Token)

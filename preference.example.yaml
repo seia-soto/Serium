@@ -40,5 +40,3 @@ Discord:
   EventOptions:
     guildMemberAdd:
       StartingRole: Pending verification
-Prompts:
-  - ping
