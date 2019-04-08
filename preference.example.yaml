@@ -1,8 +1,5 @@
 Fine:
   id: 563994944604340254
-  limited:
-    prompts:
-      - palette
 
 App:
   Token: ''
@@ -39,4 +36,6 @@ Discord:
       - RELATIONSHIP_REMOVE
   EventOptions:
     guildMemberAdd:
-      StartingRole: Pending verification
+      StartingRole:
+        - Plug-Ins
+        - Pending verification
