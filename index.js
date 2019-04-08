@@ -7,7 +7,7 @@ const {PreferenceIndicator} = structures
 
 process.on('unhandledRejection', detailed => {
   if (!detailed) detailed = 'No detail provided.'
-  console.log(chalk.bgRed('UnhandledRejection:'), detailed)
+  console.error('UnhandledRejection:', detailed)
 })
 
 console.log(`Planning application...`)

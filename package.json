@@ -35,7 +35,6 @@
     "bufferutil": "^4.0.1",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.4.2",
-    "ffmpeg-binaries": "^4.0.0",
     "google-translate-query": "^2.4.3",
     "js-yaml": "^3.13.1",
     "mysql": "^2.16.0",

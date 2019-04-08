@@ -4,12 +4,13 @@ const structures = require('../structures')
 const {MessageParser, PermissionParser, PreferenceIndicator, ReportException} = structures
 
 const MessageHandler = (rawMessage, client) => {
+  // NOTE: Remove all un-handled requests.
+  if (rawMessage.author.bot || rawMessage.channel.type === 'dm') return
+
   const message = MessageParser(rawMessage)
   const permission = PermissionParser(rawMessage)
 
-  let Exceptions = [
-    (message.author.bot), // NOTE: Check if author is bot.
-    (message.guild === null), // NOTE: Check if channel is DM.
+  const Exceptions = [
     (!message.content.startsWith(PreferenceIndicator.App.Prefix)),
     (!message.guild.me.hasPermission('SEND_MESSAGES')),
     (!(message._se.prompt in prompts))
