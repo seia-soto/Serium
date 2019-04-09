@@ -6,7 +6,7 @@ const MessageParser = message => {
   }
 
   message._se.filter = message.content.replace(PreferenceIndicator.App.Prefix, '').split(' ')
-  message._se.data = message._se.filter.slice(0)
+  message._se.data = message._se.filter.slice(1)
 
   message._se.prompt = message._se.filter[0]
 

@@ -10,7 +10,7 @@ process.on('unhandledRejection', detailed => {
   console.error('UnhandledRejection:', detailed)
 })
 
-console.log(`Planning application...`)
+console.log('Planning application...')
 
 const client = new Discord.Client(PreferenceIndicator.Discord.Client)
 

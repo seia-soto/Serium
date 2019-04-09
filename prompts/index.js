@@ -7,6 +7,7 @@ let Categories = {
 
 // NOTE: Categorized
 Categories.common = require('./common')
+Categories.fine = require('./fine')
 
 Object.values(Categories).forEach(category => {
   Object.values(category).forEach(prompt => {

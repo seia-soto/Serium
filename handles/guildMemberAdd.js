@@ -5,6 +5,9 @@ const {PreferenceIndicator, CaptchaIndicator} = structures
 const timeout = 1000 * 60 * 5
 
 const OnGuildMemberAdd = (member, client) => {
+  // NOTE: Ignore bots for trigger.
+  if (member.bot) return
+
   // NOTE: Welcome trigger.
   PreferenceIndicator.Discord.EventOptions.guildMemberAdd.StartingRole.forEach(StartingRole => {
     const roleToAdd = member.guild.roles.find(values => values.name === StartingRole)
