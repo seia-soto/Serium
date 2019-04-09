@@ -1,3 +1,4 @@
+module.exports.CaptchaIndicator = require('./CaptchaIndicator')
 module.exports.MessageParser = require('./MessageParser')
 module.exports.PermissionParser = require('./PermissionParser')
 module.exports.PreferenceIndicator = require('./PreferenceIndicator')

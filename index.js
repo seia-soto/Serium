@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 const handles = require('./handles')
 const structures = require('./structures')
 
-const {PreferenceIndicator} = structures
+const {PreferenceIndicator, CaptchaManager} = structures
 
 process.on('unhandledRejection', detailed => {
   if (!detailed) detailed = 'No detail provided.'
