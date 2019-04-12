@@ -8,6 +8,19 @@ App:
   Permissions:
     # MochiMochi Fine; Staffs
     Administrations: 0
+  WebClient: 'Mozilla/5.0 (Node.JS; v8js; rv:null) Request/^2.88.0 Serium/3.0.2'
+  Captcha:
+    size: 6
+    ignoreChars: '0o1i'
+    noise: 4
+    color: true
+  # Include things outside of this preference.
+  Externals:
+    root: preferences
+    extension: yaml
+    for:
+      - NekosLifeAPIRoutes
+      - PresenceLines
 Discord:
   Client:
     autoReconnect: true
