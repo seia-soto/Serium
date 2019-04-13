@@ -17,6 +17,11 @@ Only upper than [Notice](#notice) section is written with English.
   - [Preference configuration](#preference-configuration)
 - [Structures](#structures)
   - [CaptchaIndicator](#captchaindicator)
+  - [MessageParser](#messageparser)
+  - [NekosLifeAPIParser](#nekoslifeapiparser)
+  - [PermissionParser](#permissionparser)
+  - [PreferenceIndicator](#preferenceindicator)
+  - [ReportException](#reportexception)
 
 ----
 
