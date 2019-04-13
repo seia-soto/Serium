@@ -4,6 +4,10 @@ const {PreferenceIndicator, CaptchaIndicator} = structures
 
 const timeout = 1000 * 60 * 5
 
+/*
+ * OnGuildMemberAdd;
+ *   Handles when new member joined to this server.
+ */
 const OnGuildMemberAdd = (member, client) => {
   // NOTE: Ignore bots for trigger.
   if (member.bot) return
@@ -12,10 +16,12 @@ const OnGuildMemberAdd = (member, client) => {
   PreferenceIndicator.Discord.EventOptions.guildMemberAdd.StartingRole.forEach(StartingRole => {
     const roleToAdd = member.guild.roles.find(values => values.name === StartingRole)
 
+    // NOTE: Handle errors.
     member.addRole(roleToAdd)
       .catch(error => console.error)
   })
 
+  // NOTE: Get captcha's image file uri and send it to user.
   CaptchaIndicator(timeout)
     .then(captcha => {
       const attachment = {

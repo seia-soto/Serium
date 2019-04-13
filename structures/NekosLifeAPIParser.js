@@ -13,6 +13,7 @@ const TypeIdentifier = type => {
     return false
   }
 }
+// NOTE: This function will go to one of dedicated function of structures at future.
 const RequestHandler = uri => {
   return new Promise((resolve, reject) => {
     let options = {
