@@ -21,6 +21,7 @@ App:
     for:
       - NekosLifeAPIRoutes
       - PresenceLines
+      - PromotionLines
 Discord:
   Client:
     autoReconnect: true
