@@ -1,6 +1,6 @@
 {
   "name": "serium",
-  "version": "3.1.1",
+  "version": "3.2.1",
   "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {
@@ -35,12 +35,16 @@
     "bufferutil": "^4.0.1",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.4.2",
+    "erlpack": "^0.1.2",
+    "ffmpeg-binaries": "^4.0.0",
     "google-translate-query": "^2.4.3",
     "js-yaml": "^3.13.1",
     "mysql": "^2.16.0",
+    "node-opus": "^0.3.1",
     "querystring": "^0.2.0",
     "request": "^2.88.0",
     "sharp": "^0.22.0",
-    "svg-captcha": "^1.3.12"
+    "svg-captcha": "^1.3.12",
+    "ytdl-core": "^0.29.1"
   }
 }

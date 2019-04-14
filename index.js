@@ -6,8 +6,8 @@ const structures = require('./structures')
 const {PreferenceIndicator, CaptchaManager} = structures
 
 process.on('unhandledRejection', detailed => {
-  if (!detailed) detailed = 'No detail provided.'
-  console.error('UnhandledRejection:', detailed)
+if (!detailed) detailed = 'No detail provided.'
+console.error('UnhandledRejection:', detailed)
 })
 
 console.log('Planning application...')

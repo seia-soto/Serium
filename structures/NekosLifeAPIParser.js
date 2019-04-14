@@ -1,9 +1,7 @@
-const request = require('request')
-
 const PreferenceIndicator = require('./PreferenceIndicator')
+const RequestHandler = require('./RequestHandler')
 
 const types = PreferenceIndicator.App.Externals.NekosLifeAPIRoutes
-const webclient = PreferenceIndicator.App.WebClient
 const baseURI = 'https://nekos.life/api/v2'
 
 const TypeIdentifier = type => {
@@ -12,25 +10,6 @@ const TypeIdentifier = type => {
   } else {
     return false
   }
-}
-// NOTE: This function will go to one of dedicated function of structures at future.
-const RequestHandler = uri => {
-  return new Promise((resolve, reject) => {
-    let options = {
-      url: uri,
-      headers: {
-        'User-Agent': webclient,
-        'Upgrade-Insecure-Requests': 1 // NOTE: Add request to upgrade insecure connections.
-      }
-    }
-    request(options, (error, response, body) => {
-      if (error) {
-        reject(error)
-      }
-
-      resolve(body)
-    })
-  })
 }
 const NekosLifeAPIParser = type => {
   return new Promise((resolve, reject) => {

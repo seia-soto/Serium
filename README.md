@@ -232,3 +232,11 @@ PreferenceIndicator.App.Externals.for.forEach(External => {
 ### ReportException
 
 오류를 기록해주는 로직입니다, 단, 지금은 사용되지 않습니다.
+
+### RequestHandler
+
+HTTP 요청을 통해 외부의 RESTful API 등에 접근을 위한 로직입니다.
+
+### VideoStreamIndicator
+
+현재는 사용되지 않습니다, 그러나 추후에 음악 재생 등에 파일스트림을 제공합니다.

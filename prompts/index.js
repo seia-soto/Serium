@@ -9,6 +9,8 @@ let Categories = {
 Categories.common = require('./common')
 Categories.fine = require('./fine')
 Categories.images = require('./images')
+// Unlink due to issue: https://github.com/discordjs/discord.js/issues/3205; Categories.music = require('./music')
+Categories.nsfw = require('./nsfw')
 
 Object.values(Categories).forEach(category => {
   Object.values(category).forEach(prompt => {

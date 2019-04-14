@@ -3,10 +3,13 @@ const structures = require('../../structures')
 const {NekosLifeAPIParser} = structures
 
 const Plan = (message, client) => {
-  NekosLifeAPIParser('neko').then(imageURI => {
+  if (!message.channel.nsfw) {
+    message.reply('실은 학생회는 이런 일은 처리하지 않는다냥?')
+  }
+  NekosLifeAPIParser('lewd').then(imageURI => {
     message.channel.send({
       embed: {
-        title: '저만큼은 아니... 아니지만...! 으엑... 귀여운 네코다냥?',
+        title: '으엥... 학생회는 이런거 몰라도 되는거 아니야?',
         image: {
           url: imageURI
         }
@@ -17,7 +20,7 @@ const Plan = (message, client) => {
   })
 }
 const Properties = {
-  name: 'neko',
+  name: 'lewd',
   requiredPermission: 0x0
 }
 
