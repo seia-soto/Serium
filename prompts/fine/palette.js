@@ -1,7 +1,7 @@
 const Plan = (message, client) => {
-  const color = message._se.data[0] || ''
+  const color = (message._se.data[0] || '').toLowerCase()
 
-  if (/#[a-f0-9]{3,6}/.test(color.toLowerCase())) {
+  if (/#[a-f0-9]{3,6}/.test(color)) {
     const coloredRole = message.guild.roles.find(values => values.name === color)
     const coloredRolesMemberHas = message.member.roles.filter(values => values.name.startsWith('#'))
 
