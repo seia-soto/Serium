@@ -1,0 +1,4 @@
+root:
+  public: 0x00
+  staff: 0x01
+  suser: 0x11

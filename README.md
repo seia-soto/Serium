@@ -12,16 +12,12 @@ Only upper than [Notice](#notice) section is written with English.
 
 - [Notice](#notice)
   - [Legal](#legal)
+  - [Versions](#versions)
+  - [Developers](#developers)
 - [Handbook](#handbook)
   - [Installation guide](#installation-guide)
   - [Preference configuration](#preference-configuration)
 - [Structures](#structures)
-  - [CaptchaIndicator](#captchaindicator)
-  - [MessageParser](#messageparser)
-  - [NekosLifeAPIParser](#nekoslifeapiparser)
-  - [PermissionParser](#permissionparser)
-  - [PreferenceIndicator](#preferenceindicator)
-  - [ReportException](#reportexception)
 
 ----
 
@@ -43,6 +39,20 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 - [request](https://www.npmjs.com/package/request) with Apache 2.0 License
 - [sharp](https://www.npmjs.com/package/sharp) with Apache 2.0 License
 - [svg-captcha](https://www.npmjs.com/package/svg-captcha) with MIT License
+
+### Versions
+
+이 부분에서는 Serium의 이전 버전 간의 업그레이드 및 새 기능에 대해 다룹니다.
+
+현재 Serium은 총 3가지의 버전으로 구성되어 있습니다.
+
+- Idlen (마지막 릴리즈: v1.4.9)
+- Solid (마지막 릴리즈: v2.0.0)
+- Fine (마지막 릴리즈: v3.3.0)
+
+### Developers
+
+개발을 위해 Serium의 세부 로직에 대한 추가 정보가 필요하시다면, [위키](https://github.com/Seia-Soto/Serium/wiki)를 탐험해보세요.
 
 ----
 
@@ -209,6 +219,8 @@ const RequestHandler = uri => {
 
 메세지를 보낸 사람의 역할 등을 확인하여 비트플래그로 권한을 지정해줍니다.
 
+- Serium v3.3.0으로 업그레이드하여 로직의 오류를 수정해야 합니다.
+
 ### PreferenceIndicator
 
 구성 설정과 외부 구성을 읽어 제공하는 로직입니다.
@@ -227,7 +239,9 @@ PreferenceIndicator.App.Externals.for.forEach(External => {
 
 ### PresenceHandler
 
-지속적으로 클라이언트의 플레이 중인 게임을 업데이트해주는 로직입니다.
+지속적으로 클라이언트의 플레이 중인 게임을 업데이트해주는 로직입니다. **Client:ready** 이벤트(`handles/ready.js`)에서 자세히 구성할 수 있습니다.
+
+또한 문장의 경우, 난수를 통해 15분마다 결정(기본값)하는데, 해당 문장의 경우 `pereferences/PersenceLines.yaml`에 배열로 지정되어 있습니다.
 
 ### ReportException
 

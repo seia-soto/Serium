@@ -47,7 +47,7 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'help',
-  requiredPermission: 0x0
+  requiredPermission: 'public'
 }
 
 module.exports = Plan

@@ -22,7 +22,7 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'lewd',
-  requiredPermission: 0x0
+  requiredPermission: 'public'
 }
 
 module.exports = Plan

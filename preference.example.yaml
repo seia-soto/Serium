@@ -20,6 +20,7 @@ App:
     extension: yaml
     for:
       - NekosLifeAPIRoutes
+      - PermissionIdentities
       - PresenceLines
       - PromotionLines
 Discord:

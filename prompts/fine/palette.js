@@ -27,7 +27,7 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'palette',
-  requiredPermission: 0x0
+  requiredPermission: 'palette'
 }
 
 module.exports = Plan

@@ -3,7 +3,7 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'ping',
-  requiredPermission: 0x0
+  requiredPermission: 'public'
 }
 
 module.exports = Plan

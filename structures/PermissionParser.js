@@ -2,7 +2,7 @@ const prompts = require('../prompts')
 const PreferenceIndicator = require('./PreferenceIndicator')
 
 const CheckPermissionValid = (toVerify, permission) => {
-  const promptPermission = prompts[toVerify].requiredPermission
+  const promptPermission = PreferenceIndicator.App.Externals.PermissionIdentities[prompts[toVerify].requiredPermission]
 
   if ((permission & promptPermission) === promptPermission) {
     return true
@@ -11,15 +11,15 @@ const CheckPermissionValid = (toVerify, permission) => {
   }
 }
 const PermissionParser = message => {
-  const staffRole = message.guild.roles.find(value => value.id === PreferenceIndicator.App.Permissions.Administrations)
+  const staffRole = message.guild.roles.find(value => value.name === PreferenceIndicator.App.Permissions.Administrations)
 
-  const basicPermission = 0x0
-  const staffPermission = 0x1
+  let authorPermission = PreferenceIndicator.App.Externals.PermissionIdentities.public
 
-  let authorPermission = basicPermission
-
-  if (message.member.roles.has(staffRole)) {
-    authorPermission = authorPermission | staffPermission
+  if (message.member.roles.has(staffRole.id)) {
+    authorPermission = authorPermission | PreferenceIndicator.App.Externals.PermissionIdentities.staff
+  }
+  if (message.author.id === PreferenceIndicator.App.Permissions.Superuser) {
+    authorPermission = authorPermission | PreferenceIndicator.App.Externals.PermissionIdentities.suser
   }
 
   return authorPermission
