@@ -1,6 +1,11 @@
+const fs = require('fs')
+const path = require('path')
+
 const structures = require('../../structures')
 
 const {NekosLifeAPIParser} = structures
+
+const InPath = path.join(__dirname, '../')
 
 const Plan = (message, client) => {
   fs.readdirSync(InPath).forEach(category => {

@@ -48,7 +48,7 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 
 - Idlen (마지막 릴리즈: v1.4.9)
 - Solid (마지막 릴리즈: v2.0.0)
-- Fine (마지막 릴리즈: v3.3.0)
+- Fine (마지막 릴리즈: v3.3.1)
 
 ### Developers
 
