@@ -20,7 +20,7 @@ let documentEmbed = {
       }
     ],
     footer: {
-      text: 'Copyright 2019 Seia-Soto. All rights reserved. 언제나 사용해주셔서 감사해요 >~<'
+      text: 'Copyright 2019 Seia-Soto. All rights reserved.'
     }
   }
 }

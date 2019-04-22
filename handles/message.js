@@ -3,10 +3,6 @@ const structures = require('../structures')
 
 const {MessageParser, PermissionParser, PreferenceIndicator, ReportException} = structures
 
-/*
- * MessageHandler;
- *   When client get message, passed this module to handle commands.
- */
 const MessageHandler = (rawMessage, client) => {
   // NOTE: Remove all un-handled requests.
   if (rawMessage.author.bot || rawMessage.channel.type === 'dm') return

@@ -4,13 +4,9 @@ const {PreferenceIndicator, CaptchaIndicator} = structures
 
 const timeout = 1000 * 60 * 5
 
-/*
- * OnGuildMemberAdd;
- *   Handles when new member joined to this server.
- */
 const OnGuildMemberAdd = (member, client) => {
-  // NOTE: Ignore bots for trigger.
-  if (member.bot) return
+  // NOTE: Ignore bots and other servers for trigger.
+  if (member.bot || PreferenceIndicator.Fine.id !== member.guild.id) return
 
   // NOTE: Welcome trigger.
   PreferenceIndicator.Discord.EventOptions.guildMemberAdd.StartingRole.forEach(StartingRole => {
@@ -41,7 +37,7 @@ const OnGuildMemberAdd = (member, client) => {
             time: timeout,
             errors: ['time']
           }).then(collected => {
-            message.channel.send('서명을 확인해주셔서 감사합니다, 이제 서버에서 채팅을 계속하실 수 있습니다.')
+            message.channel.send('서명을 확인해주셔서 감사합니다, 이제 서버에서의 채팅이 허용되었습니다!')
 
             // NOTE: Verified, remove roles.
             PreferenceIndicator.Discord.EventOptions.guildMemberAdd.StartingRole.forEach(StartingRole => {
