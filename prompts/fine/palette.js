@@ -1,4 +1,8 @@
 const Plan = (message, client) => {
+  if (!message.guild.me.hasPermission('MANAGE_ROLES')) {
+    return message.reply('죄송해요, 아직 제가 이 서버에서 색칠하기 위해 역할을 관리할 권한이 부족한 것처럼 보여요!')
+  }
+
   const color = (message._se.data[0] || '').toLowerCase()
 
   if (/#[a-f0-9]{3,6}/.test(color)) {
