@@ -35,6 +35,8 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'translate',
+  alias: ['tr'],
+
   requiredPermission: 'public'
 }
 

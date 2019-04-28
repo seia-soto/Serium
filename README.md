@@ -42,6 +42,8 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 
 ### Versions
 
+__**Serium은 더 이상 음성 지원을 하지 않습니다**__
+
 이 부분에서는 Serium의 이전 버전 간의 업그레이드 및 새 기능에 대해 다룹니다.
 
 현재 Serium은 총 3가지의 버전으로 구성되어 있습니다.
@@ -250,7 +252,3 @@ PreferenceIndicator.App.Externals.for.forEach(External => {
 ### RequestHandler
 
 HTTP 요청을 통해 외부의 RESTful API 등에 접근을 위한 로직입니다.
-
-### VideoStreamIndicator
-
-현재는 사용되지 않습니다, 그러나 추후에 음악 재생 등에 파일스트림을 제공합니다.

@@ -21,7 +21,6 @@ App:
     root: preferences
     extension: yaml
     for:
-      - NekosLifeAPIRoutes
       - PermissionIdentities
       - PresenceLines
       - PromotionLines
