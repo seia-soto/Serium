@@ -25,6 +25,8 @@ App:
       - PresenceLines
       - PromotionLines
       - LanguageList
+AppData:
+  driver: blob
 Discord:
   Client:
     autoReconnect: true

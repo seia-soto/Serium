@@ -47,7 +47,7 @@ const OnGuildMemberAdd = (member, client) => {
                 .catch(error => console.error)
             })
           }).catch(() => {
-            message.channel.send('죄송합니다, 서명을 확인할 수 없습니다.')
+            message.channel.send('죄송합니다, 서명을 확인할 수 없습니다. 다시시도하려면 서버에 재입장해야 합니다.')
 
             // NOTE: Couldn't verify, kick user.
             member.kick()
