@@ -12,7 +12,6 @@ Only upper than [Notice](#notice) section is written with English.
 
 - [Notice](#notice)
   - [Legal](#legal)
-  - [Versions](#versions)
   - [Developers](#developers)
 - [Handbook](#handbook)
   - [Installation guide](#installation-guide)
@@ -32,6 +31,7 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 - [bufferutil](https://www.npmjs.com/package/bufferutil) with MIT License
 - [cheerio](https://www.npmjs.com/package/cheerio) with MIT License
 - [discord.js](https://www.npmjs.com/package/discord.js) with Apache 2.0 License
+- [google](https://www.npmjs.com/package/google) with MIT License
 - [google-translate-query](https://www.npmjs.com/package/google-translate-query) with MIT License
 - [js-yaml](https://www.npmjs.com/package/js-yaml) with MIT License
 - [mysql](https://www.npmjs.com/package/mysql) with MIT License
@@ -39,18 +39,6 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 - [request](https://www.npmjs.com/package/request) with Apache 2.0 License
 - [sharp](https://www.npmjs.com/package/sharp) with Apache 2.0 License
 - [svg-captcha](https://www.npmjs.com/package/svg-captcha) with MIT License
-
-### Versions
-
-__**Serium은 더 이상 음성 지원을 하지 않습니다**__
-
-이 부분에서는 Serium의 이전 버전 간의 업그레이드 및 새 기능에 대해 다룹니다.
-
-현재 Serium은 총 3가지의 버전으로 구성되어 있습니다.
-
-- Idlen (마지막 릴리즈: v1.4.9)
-- Solid (마지막 릴리즈: v2.0.0)
-- Fine (마지막 릴리즈: v3.3.1)
 
 ### Developers
 
@@ -64,12 +52,12 @@ __**Serium은 더 이상 음성 지원을 하지 않습니다**__
 
 이 애플리케이션을 사용하려면 [Node.JS](https://nodejs.org) JavaScript 런타임을 사용하여 제 3자 소프트웨어 등을 직접 설치하셔야 합니다. 먼저 서버 또는 데스크톱 환경에 Node.JS를 설치하여, 기본 환경을 구성합니다.
 
-**주의;** Node.JS의 v11 버전에는 빌드에 필요한 [node-pre-gyp](https://github.com/addaleax/lzma-native/issues/67) 모듈에 문제가 있어 대부분의 시스템에서 웹소켓 연결에 도움을 주는 [bufferutil](https://www.npmjs.com/package/bufferutil)이 제대로 설치되지 않을 수 있으므로 v10 버전을 설치해주시는 것을 권장합니다.
+**주의;** Node.JS의 v11 버전에는 빌드에 필요한 [node-pre-gyp](https://github.com/addaleax/lzma-native/issues/67) 모듈에 문제가 있어 대부분의 시스템에서 웹소켓 연결에 도움을 주는 [bufferutil](https://www.npmjs.com/package/bufferutil)이 제대로 설치되지 않을 수 있으므로 v10 버전을 설치해주시는 것을 권장합니다. (`sudo apt-get install build-essentails -y`를 통해 추가로 필요한 빌드 소프트웨어도 설치하세요)
 
 설치가 완료되면, 빈 폴더를 새로 만들어 해당 폴더 안에서 Git을 사용해 이 프로젝트를 클론합니다.
 
 ```sh
-git clone -b nightly https://github.com/Seia-Soto/Serium.git
+git clone -b nightly https://github.com/serium-departments/Serium.git
 ```
 
 다음으로는 애플리케이션을 위한 제 3자 소프트웨어를 설치합니다. 제 3자 소프트웨어들의 라이선스는 [Legal](#legal)에서 확인하실 수 있습니다.
@@ -114,7 +102,9 @@ App:
   # Permissions as role id on Discord.
   Permissions:
     # MochiMochi Fine; Staffs
-    Administrations: 0
+    Administrations: Staffs
+    # Personal devop id; Discord User ID
+    Superuser: '0'
   WebClient: 'Mozilla/5.0 (Node.JS; v8js; rv:null) Request/^2.88.0 Serium/3.0.2'
   Captcha:
     size: 6
@@ -126,8 +116,13 @@ App:
     root: preferences
     extension: yaml
     for:
-      - NekosLifeAPIRoutes
+      - DatabasePool
+      - PermissionIdentities
       - PresenceLines
+      - PromotionLines
+      - LanguageList
+AppData:
+  driver: blob
 Discord:
   Client:
     autoReconnect: true
@@ -139,6 +134,21 @@ Discord:
       StartingRole:
         - Plug-Ins
         - Pending verification
+```
+
+설정이 완료되면 파일명에서 `.example`을 제거해주세요. 다음은 서드파티 구성 설정에 대한 설명입니다.
+
+#### DatabasePool
+
+사용할 MySQL 데이터베이스 커넥션 풀 구성입니다. 자세한 사항은 [MySQL#Pooling-connections](https://www.npmjs.com/package/mysql#pooling-connections) 패키지를 참조해주세요.
+
+```yaml
+root:
+  connectionLimit: 8
+  host: localhost
+  user: someone
+  password: secret
+  database: name of database
 ```
 
 ----

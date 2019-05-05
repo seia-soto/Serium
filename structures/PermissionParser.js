@@ -15,7 +15,7 @@ const PermissionParser = message => {
 
   let authorPermission = PreferenceIndicator.App.Externals.PermissionIdentities.public
 
-  if (message.member.roles.has(staffRole.id)) {
+  if (message.member.hasPermission('ADMINISTRATOR')) {
     authorPermission = authorPermission | PreferenceIndicator.App.Externals.PermissionIdentities.staff
   }
   if (message.author.id === PreferenceIndicator.App.Permissions.Superuser) {

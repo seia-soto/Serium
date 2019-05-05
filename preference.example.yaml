@@ -6,8 +6,6 @@ App:
   Prefix: 'se '
   # Permissions as role id on Discord.
   Permissions:
-    # MochiMochi Fine; Staffs
-    Administrations: Staffs
     # Personal devop id; Discord User ID
     Superuser: '0'
   WebClient: 'Mozilla/5.0 (Node.JS; v8js; rv:null) Request/^2.88.0 Serium/3.0.2'
@@ -21,6 +19,7 @@ App:
     root: preferences
     extension: yaml
     for:
+      - DatabasePool
       - PermissionIdentities
       - PresenceLines
       - PromotionLines
