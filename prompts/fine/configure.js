@@ -1,33 +1,37 @@
 const structures = require('../../structures')
 
-let defaultEmbed = {
-  embed: {
-    title: '',
-    description: '현재 서버에 대한 구성 설정이예요!',
-    fields: [
-      {
-        name: '명령 확장',
-        value: ''
-      },
-      {
-        name: '이벤트 확장',
-        value: ''
-      }
-    ]
-  }
-}
+const {CaseSensitive, EndPreferenceIndicator} = structures
 
 const Plan = (message, client) => {
-  structures.EndPreferenceIndicator(message.guild.id).then(preference => {
-    // NOTE: Initialize embed object.
-    defaultEmbed.embed.title = `${message.guild.name} 구성설정`
-    defaultEmbed.embed.fields.forEach(field => field.value = '')
+  EndPreferenceIndicator(message.guild.id).then(preference => {
+    // NOTE: View of current per server preference.
+    let embed = {
+      embed: {
+        title: message.guild.name,
+        description: '현재 서버에 대한 구성 설정이예요! `se <enable|disable> [prefName]`와 같이 세부 구성을 수정할 수 있습니다.',
+        fields: [
+          {
+            name: '명령 확장',
+            value: ''
+          },
+          {
+            name: '이벤트 확장',
+            value: ''
+          }
+        ]
+      }
+    }
 
-    Object.entries(preference.prompts).forEach(entry => defaultEmbed.embed.fields[0].value += `**${entry[0]}** ${(entry[1]) ? '활성화됨' : '비활성화됨'}\n`)
+    const preferenceEntries = Object.entries(preference)
+    // NOTE: Example output; typeof _Array~ [[preferenceName, value], ...*[ <preferences> ]]
 
-    defaultEmbed.embed.fields[1].value += `**새 멤버에 대한 캡챠** ${(preference.events.guildMemberAdd.verifyCaptcha) ? '활성화됨' : '비활성화됨'}`
+    preferenceEntries.forEach(preferenceEntry => {
+      // NOTE: 0 means extended as command.
+      const preferenceExtendedType = (preferenceEntry[0].startsWith('prompt.')) ? 0 : 1
 
-    message.channel.send(defaultEmbed)
+      embed.embed.fields[preferenceExtendedType].value += `**${EndPreferenceIndicator.namespaces[preferenceEntry[0]]}(${preferenceEntry[0]})** ${CaseSensitive(preferenceEntry[1])}\n`
+    })
+    message.channel.send(embed)
   }).catch(error => {
     console.error(error)
 

@@ -1,12 +1,13 @@
 const structures = require('../structures')
 
-const {PreferenceIndicator, CaptchaIndicator} = structures
+const {CheckRequirements, CaptchaIndicator, PreferenceIndicator} = structures
 
+// NOTE: Five minutes.
 const timeout = 1000 * 60 * 5
 
 const OnGuildMemberAdd = (member, client) => {
   // NOTE: Ignore bots and other servers for trigger.
-  if (member.bot) return
+  if (member.bot || CheckRequirements.events.guildMemberAdd.verifyCaptcha(member.guild).signal === false) return
 
   // NOTE: Welcome trigger.
   PreferenceIndicator.Discord.EventOptions.guildMemberAdd.StartingRole.forEach(StartingRole => {

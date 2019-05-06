@@ -1,5 +1,5 @@
 root:
-  description: "The way how to get improved creativity and multi-purpose in Discord.
+  description: "현재 서버의 구성설정을 참조하려면 `se configure`를 사용하세요
   \n\n
   [Sewritten 초대하기](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&redirect_uri=https%3A%2F%2Fauthentication.seia.io%2Fdiscordapp&scope=bot) |
   [공부 안 하는 학생회](https://discordapp.com/invite/NjAjJqB) |

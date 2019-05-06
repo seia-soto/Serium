@@ -1,1 +1,1 @@
-CREATE TABLE `database_name`.`serium_servers` ( `identify` TEXT(16) NOT NULL , `preference` VARCHAR(2048) NOT NULL DEFAULT '{\"prompts\":{\"palette\":false},\"events\":{\"guildMemberAdd\":{\"verifyCaptcha\":false}}}' ) ENGINE = InnoDB;
+CREATE TABLE `database_name`.`serium_servers` ( `identify` TEXT(16) NOT NULL , `preference` VARCHAR(2048) NOT NULL DEFAULT '{"prompt.palette":true,"guildMemberAdd.verifyCaptcha":true}' ) ENGINE = InnoDB;
