@@ -1,4 +1,4 @@
-const structures = require('../../structures')
+const structures = require('@structures')
 
 const {CaseSensitive, EndPreferenceIndicator} = structures
 

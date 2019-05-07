@@ -1,4 +1,4 @@
-const structures = require('../../structures')
+const structures = require('@structures')
 
 const Plan = (message, client) => {
   const test = structures.CheckRequirement.prompts.palette(message.guild)

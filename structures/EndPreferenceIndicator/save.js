@@ -1,4 +1,4 @@
-const DatabasePool = require('./DatabasePool')
+const DatabasePool = require('../DatabasePool')
 
 const SaveEndPreference = (identify, data) => {
   return new Promise((resolve, reject) => {

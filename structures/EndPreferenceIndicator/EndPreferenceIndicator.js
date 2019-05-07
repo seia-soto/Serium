@@ -1,14 +1,8 @@
-const DatabasePool = require('./DatabasePool')
+const DatabasePool = require('../DatabasePool')
 
 const defaultPreference = {
-  prompts: {
-    palette: false
-  },
-  events: {
-    guildMemberAdd: {
-      verifyCaptcha: false
-    }
-  }
+  'prompt.palette': false,
+  'guildMemberAdd.verifyCaptcha': false
 }
 const EndPreferenceIndicator = identify => {
   return new Promise((resolve, reject) => {
