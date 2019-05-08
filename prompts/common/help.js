@@ -10,9 +10,6 @@ let documentEmbed = {
     title: 'Sewritten',
     description: PreferenceIndicator.App.Externals.PromotionLines.description,
     fields: [],
-    image: {
-      url: 'attachment://banner.png'
-    },
     footer: {
       text: 'Copyright 2019 Seia-Soto. All rights reserved.'
     }
