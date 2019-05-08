@@ -13,12 +13,6 @@ let documentEmbed = {
     image: {
       url: 'attachment://banner.png'
     },
-    files: [
-      {
-        attachment: path.join(__dirname, '../../assets/images/banner.png'),
-        name: 'banner.png'
-      }
-    ],
     footer: {
       text: 'Copyright 2019 Seia-Soto. All rights reserved.'
     }

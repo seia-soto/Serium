@@ -20,6 +20,7 @@ Object.values(Categories).forEach(category => {
     Prompts[prompt.properties.name] = prompt.properties
     Prompts[prompt.properties.name].require = prompt
 
+    // NOTE: Create aliases
     const aliasList = prompt.properties.alias || []
 
     aliasList.forEach(alias => {

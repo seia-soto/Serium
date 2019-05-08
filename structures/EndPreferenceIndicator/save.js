@@ -8,6 +8,7 @@ const SaveEndPreference = (identify, data) => {
       connection.query(`UPDATE serium_servers SET preference = '${JSON.stringify(data).replace(/\'/g, '\'')}' WHERE identify = ${identify}`, (queryError, results) => {
         if (queryError) reject(queryError)
 
+        connection.release()
         resolve()
       })
     })

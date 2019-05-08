@@ -1,6 +1,6 @@
 const structures = require('@structures')
 
-const {CaseSensitive, EndPreferenceIndicator} = structures
+const {EndPreferenceIndicator} = structures
 
 const Plan = (message, client) => {
   EndPreferenceIndicator(message.guild.id).then(preference => {
