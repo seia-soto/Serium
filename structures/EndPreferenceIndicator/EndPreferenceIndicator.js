@@ -1,35 +1,12 @@
 const DatabasePool = require('../DatabasePool')
+const PreferenceIndicator = require('../PreferenceIndicator')
 
-const defaultPreference = {
-  'prompt.palette': false,
-  'guildMemberAdd.verifyCaptcha': false
-}
-const EndPreferenceIndicator = identify => {
-  return new Promise((resolve, reject) => {
-    DatabasePool.getConnection((connectionError, connection) => {
-      if (connectionError) reject(connectionError)
+const Drivers = require('./Drivers')
 
-      connection.query(`SELECT preference FROM serium_servers WHERE identify = ${identify}`, (queryError, results) => {
-        if (queryError) reject(queryError)
+const driverType = PreferenceIndicator.App.AppData.driver.toLowerCase()
 
-        if (results[0]) {
-          connection.release()
-
-          resolve(JSON.parse(results[0].preference))
-        } else {
-          connection.query(`INSERT INTO serium_servers (identify, preference) VALUES ('${identify}', '${JSON.stringify(defaultPreference)}')`, creationError => {
-            connection.release()
-
-            if (creationError) {
-              reject(creationError)
-            } else {
-              resolve(defaultPreference)
-            }
-          })
-        }
-      })
-    })
-  })
-}
+const EndPreferenceIndicator = Drivers[driverType].getPreference
+const SaveEndPreference = Drivers[driverType].savePreference
 
 module.exports = EndPreferenceIndicator
+module.exports.save = SaveEndPreference
