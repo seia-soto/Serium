@@ -38,8 +38,25 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 
 ### Contributors
 
-- [Seia-Soto](https://github.com/Seia-Soto): Developer
-- [DetegiCE](https://github.com/DetegiCE): Donator
+#### Developers
+
+- [Seia-Soto](https://github.com/Seia-Soto), Seia(せいあそと{セイアソト}) is student who is developing with small base as well. Known as learner, translator, developer and illustrator.
+
+#### Sponsors
+
+- [DetegiCE](https://github.com/DetegiCE)
+- [ttakkku](https://github.com/ttakkku), おねがいシマス
+
+#### Translators
+
+- [Choux_a_la_Creme](https://discord.gg/9XYvKeT)
+
+#### Others
+
+- [Danuel](https://github.com/Danue1)
+- [Ranol](https://github.com/RanolP), Kotlin/Rust/TypeScript ♡
+- 네모
+- [starterDroid](https://github.com/Bananamilk452)
 
 ----
 
