@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const PreferenceIndicator = require('../../structures/PreferenceIndicator')
+const PreferenceIndicator = require('@structures/PreferenceIndicator')
 
 const InPath = path.join(__dirname, '../')
 

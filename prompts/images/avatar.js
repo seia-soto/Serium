@@ -13,7 +13,7 @@ const Plan = (message, client) => {
         url: mention.user.avatarURL
       }
     } else {
-      const member = message.guild.members.filter(user => user.user.username.toLowerCase().includes(message._se.data[0].toLowerCase())).first()
+      const member = message.guild.members.filter(user => user.user.username.toLowerCase().includes(message._se.data.join(' ').toLowerCase())).first()
 
       if (member) {
         avatar = {

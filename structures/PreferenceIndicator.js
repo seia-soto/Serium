@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const YAML = require('js-yaml')
 
-let rawdata = fs.readFileSync(path.join(__dirname, '../preference.yaml'))
+let rawdata = fs.readFileSync(path.join(__dirname, '../preferenced.yaml'))
 
 let PreferenceIndicator = YAML.safeLoad(rawdata)
 

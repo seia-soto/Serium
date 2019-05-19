@@ -1,6 +1,6 @@
 const translate = require('google-translate-query')
 
-const PreferenceIndicator = require('../../structures/PreferenceIndicator')
+const PreferenceIndicator = require('@structures/PreferenceIndicator')
 
 let basedEmbed = {
   embed: {

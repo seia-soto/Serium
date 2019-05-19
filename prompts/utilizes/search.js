@@ -1,6 +1,6 @@
 const search = require('google')
 
-const PreferenceIndicator = require('../../structures/PreferenceIndicator')
+const PreferenceIndicator = require('@structures/PreferenceIndicator')
 
 search.resultsPerPage = 1
 
