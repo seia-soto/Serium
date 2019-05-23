@@ -2,7 +2,7 @@ const structures = require('@structures')
 
 const {CheckRequirement, EndPreferenceIndicator, CaseSensitive} = structures
 
-const Plan = (message, client) => {
+const Prompt = (message, client) => {
   EndPreferenceIndicator(message.guild.id).then(preference => {
     const toEnable = message._se.data[0]
     if (!toEnable || typeof preference[toEnable] === undefined) return message.reply('정확히 뭘 활성화해야 하는지 모르겠어요!')
@@ -29,8 +29,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'enable',
+  description: 'Enable some function in server preference.',
+  usage: 'enable <preference>',
+
   requiredPermission: 'staff'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

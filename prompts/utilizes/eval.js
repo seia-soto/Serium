@@ -2,7 +2,7 @@ const vm2 = require('vm2')
 
 const {VM} = vm2
 
-const Plan = (message, client) => {
+const Prompt = (message, client) => {
   const startedAt = Date.now()
   const resultEmbed = {
     embed: {
@@ -42,8 +42,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'eval',
+  description: 'Run simple javascript on bot. *For developer by developer.*',
+  eval: 'eval <code>',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

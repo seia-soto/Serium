@@ -1,6 +1,4 @@
-const structures = require('@structures')
-
-const {NekosLifeAPIParser} = structures
+const NekosLifeAPI = require('@structures/NekosLifeAPI')
 
 let basedEmbed = {
   embed: {
@@ -11,8 +9,8 @@ let basedEmbed = {
   }
 }
 
-const Plan = (message, client) => {
-  NekosLifeAPIParser('hug').then(imageURI => {
+const Prompt = (message, client) => {
+  NekosLifeAPI.sfw.hug().then(response => {
     let targeted = message._se.data[0]
 
     if (targeted) {
@@ -25,7 +23,7 @@ const Plan = (message, client) => {
       basedEmbed.embed.title = '헤에... 나도... 나두나두 안아줘어~ >~<'
     }
 
-    basedEmbed.embed.image.url = imageURI
+    basedEmbed.embed.image.url = reponse.url
     message.channel.send(basedEmbed)
   }).catch(error => {
     message.reply('지금은 안아주기 싫은뎅... (주섬주섬')
@@ -33,8 +31,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'hug',
+  description: 'Let me hug someone! also can be used with mention to hug someone.',
+  usage: 'hug [someone-or-mention]',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

@@ -2,7 +2,7 @@ const structures = require('@structures')
 
 const {CaseSensitive, EndPreferenceIndicator} = structures
 
-const Plan = (message, client) => {
+const Prompt = (message, client) => {
   EndPreferenceIndicator(message.guild.id).then(preference => {
     // NOTE: View of current per server preference.
     let embed = {
@@ -40,8 +40,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'configure',
+  description: 'Show current server perfereces status.',
+  usage: 'configure',
+
   requiredPermission: 'staff'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

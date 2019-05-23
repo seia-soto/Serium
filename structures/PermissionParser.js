@@ -1,8 +1,8 @@
-const prompts = require('../prompts')
+const prompts = require('./PromptIndicator')
 const PreferenceIndicator = require('./PreferenceIndicator')
 
 const CheckPermissionValid = (toVerify, permission) => {
-  const promptPermission = PreferenceIndicator.App.Externals.PermissionIdentities[prompts[toVerify].requiredPermission]
+  const promptPermission = PreferenceIndicator.App.Externals.PermissionIdentities[prompts[toVerify].properties.requiredPermission]
 
   if ((permission & promptPermission) === promptPermission) {
     return true

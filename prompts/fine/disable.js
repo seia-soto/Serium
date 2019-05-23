@@ -1,8 +1,6 @@
-const structures = require('@structures')
+const EndPreferenceIndicator = require('@structures/EndPreferenceIndicator')
 
-const {EndPreferenceIndicator} = structures
-
-const Plan = (message, client) => {
+const Prompt = (message, client) => {
   EndPreferenceIndicator(message.guild.id).then(preference => {
     const toDisable = message._se.data[0]
     if (!toDisable || typeof preference[toDisable] === undefined) return message.reply('정확히 뭘 비활성화해야 하는지 모르겠어요!')
@@ -24,8 +22,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'disable',
+  description: 'Disable some function in server preferences.',
+  usage: 'disable <preference>',
+
   requiredPermission: 'staff'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

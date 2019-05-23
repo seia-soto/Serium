@@ -4,7 +4,7 @@ const PreferenceIndicator = require('@structures/PreferenceIndicator')
 
 search.resultsPerPage = 1
 
-const Plan = (message, client) => {
+const Prompt = (message, client) => {
   if (!message._se.data[0]) {
     return message.reply('으... 서기한테 너무 무례하게도 검색을 하라면서 검색어는 주시지도 않았어요!')
   } else {
@@ -35,8 +35,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'search',
+  description: 'Search something on Google.',
+  usage: 'search <keyword>',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

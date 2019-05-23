@@ -1,14 +1,12 @@
-const structures = require('@structures')
+const NekosLifeAPI = require('@structures/NekosLifeAPI')
 
-const {NekosLifeAPIParser} = structures
-
-const Plan = (message, client) => {
-  NekosLifeAPIParser('neko').then(imageURI => {
+const Prompt = (message, client) => {
+  NekosLifeAPI.sfw.neko.then(response => {
     message.channel.send({
       embed: {
         title: '저만큼은 아니... 아니지만...! 으엑... 귀여운 네코다냥?',
         image: {
-          url: imageURI
+          url: response.url
         }
       }
     })
@@ -18,8 +16,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'neko',
+  description: 'Image about cute cat girls? Maybe more *Moe* needed.',
+  usage: 'neko',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

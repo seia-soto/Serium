@@ -1,7 +1,7 @@
-const structures = require('@structures')
+const CheckRequirement = require('@structures/CheckRequirement')
 
-const Plan = (message, client) => {
-  const test = structures.CheckRequirement.prompts.palette(message.guild)
+const Prompt = (message, client) => {
+  const test = CheckRequirement.prompts.palette(message.guild)
   const color = (message._se.data[0] || '').toLowerCase()
 
   if (test.signal === false) {
@@ -34,8 +34,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'palette',
+  description: 'Color someone\'s nickname with server roles.',
+  usage: 'palette #<hex-color>',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

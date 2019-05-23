@@ -1,12 +1,13 @@
-const prompts = require('../prompts')
-const structures = require('../structures')
+const structures = require('@structures')
 
-const {CheckRequirement, EndPreferenceIndicator, MessageParser, PermissionParser, PreferenceIndicator, ReportException} = structures
+const {CheckRequirement, EndPreferenceIndicator, MessageParser, PermissionParser, PreferenceIndicator, PromptIndicator, ReportException} = structures
+const prompts = PromptIndicator
 
 const PostExceptionsMessages = [
   '어라... 당신, 그러고 보니 아직 벌서 이 명령어를 쓰기에는 약간 이를수도 있겠네요.',
   '현재 기능은 비활성화되어 있어요, `se configure`를 사용하여 확인해보세요.'
 ]
+
 const MessageHandler = (rawMessage, client) => {
   // NOTE: Remove all un-handled requests.
   if (rawMessage.author.bot || rawMessage.channel.type === 'dm') return
@@ -39,7 +40,7 @@ const MessageHandler = (rawMessage, client) => {
         }
 
         // NOTE: Execution of function.
-        prompts[message._se.prompt].require(message, client)
+        prompts[message._se.prompt](message, client)
       } catch (error) {
         console.error(error)
       }

@@ -1,12 +1,12 @@
 const DatabasePool = require('../DatabasePool')
 const PreferenceIndicator = require('../PreferenceIndicator')
 
-const Drivers = require('./Drivers')
-
 const driverType = PreferenceIndicator.App.AppData.driver.toLowerCase()
 
-const EndPreferenceIndicator = Drivers[driverType].getPreference
-const SaveEndPreference = Drivers[driverType].savePreference
+const Drivers = require(`./Drivers/${driverType}`)
+
+const EndPreferenceIndicator = Drivers.getPreference
+const SaveEndPreference = Drivers.savePreference
 
 module.exports = EndPreferenceIndicator
 module.exports.save = SaveEndPreference

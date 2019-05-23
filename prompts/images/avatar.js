@@ -1,4 +1,4 @@
-const Plan = (message, client) => {
+const Prompt = (message, client) => {
   let avatar = {
     username: message.author.username,
     url: message.author.avatarURL
@@ -36,8 +36,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'avatar',
+  description: 'Show someone\'s avatar with mention or search someone\'s name.',
+  usage: 'avatar [someone-or-mention]',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

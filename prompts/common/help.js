@@ -1,13 +1,9 @@
-const fs = require('fs')
-const path = require('path')
-
 const PreferenceIndicator = require('@structures/PreferenceIndicator')
+let PromptIndicator = null
 
-const InPath = path.join(__dirname, '../')
-
-let documentEmbed = {
+let helpEmbed = {
   embed: {
-    title: 'Sewritten',
+    title: 'Help',
     description: PreferenceIndicator.App.Externals.PromotionLines.description,
     fields: [],
     footer: {
@@ -15,31 +11,56 @@ let documentEmbed = {
     }
   }
 }
-fs.readdirSync(InPath).forEach(category => {
-  if (category === 'index.js') return
 
-  // NOTE: Scan static tree.
-  let field = {
-    name: category.charAt(0).toUpperCase() + category.slice(1),
-    value: '',
-    inline: true
-  }
+// NOTE: Due to circular dependency issue, reference at nextTick(means reference after all done) to resolve issue.
+process.nextTick(() => {
+  const prompts = require('@prompts')
+  PromptIndicator = require('@structures/PromptIndicator')
 
-  fs.readdirSync(`${InPath}${category}`).forEach(prompt => {
-    if (prompt === 'index.js') return
+  Object.keys(prompts).forEach(category => {
+    const field = {
+      name: category.charAt(0).toUpperCase() + category.slice(1),
+      value: '',
+      inline: true
+    }
 
-    field.value += `\`${prompt.replace('.js', '')}\` `
+    Object.keys(prompts[category]).forEach(prompt => field.value += '`' + prompt + '` ')
+    helpEmbed.embed.fields.push(field)
   })
-  documentEmbed.embed.fields.push(field)
 })
 
-const Plan = (message, client) => {
-  message.channel.send(documentEmbed)
+const Prompt = (message, client) => {
+  const selection = message._se.data[0]
+
+  if (selection && selection in PromptIndicator) {
+    const properties = PromptIndicator[selection].properties
+
+    message.channel.send({
+      embed: {
+        title: `Help: ${properties.name}`,
+        description: properties.description,
+        fields: [
+          {
+            name: 'Usage',
+            value: '``' + properties.usage + '``'
+          }
+        ],
+        footer: {
+          text: 'Copyright 2019 Seia-Soto. All rights reserved.'
+        }
+      }
+    })
+  } else {
+    message.channel.send(helpEmbed)
+  }
 }
 const Properties = {
   name: 'help',
+  description: 'Shows simple help documentation for this bot.',
+  usage: 'help [command]',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

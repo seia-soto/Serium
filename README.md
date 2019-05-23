@@ -30,6 +30,7 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 - [google-translate-query](https://www.npmjs.com/package/google-translate-query) with MIT License
 - [js-yaml](https://www.npmjs.com/package/js-yaml) with MIT License
 - [mysql](https://www.npmjs.com/package/mysql) with MIT License
+- [nekos.life](https://www.npmjs.com/package/nekos.life) with MIT License
 - [querystring](https://www.npmjs.com/package/querystring) without license
 - [request](https://www.npmjs.com/package/request) with Apache 2.0 License
 - [sharp](https://www.npmjs.com/package/sharp) with Apache 2.0 License
