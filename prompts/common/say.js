@@ -1,5 +1,5 @@
 const Prompt = (message, client) => {
-  message.channel.send(message._se.data.join(' ') || '서기는 뭘 보내야 할지 결정하지 못했어요 :/')
+  message.channel.send(message._se.data.join(' ') || '저는 뭘 보내야 할지 결정하지 못했어요 :/')
 }
 const Properties = {
   name: 'say',

@@ -1,6 +1,6 @@
 const package = require('../package')
 
-const structures = require('../structures')
+const structures = require('@structures')
 
 const {PresenceHandler} = structures
 
