@@ -1,3 +1,8 @@
+// NOTE: Register for module-aliases, refer to package.json/_moduleAliases.
+require('module-alias/register')
+
+// NOTE: Code it.
+console.log('Booting application...')
 const Discord = require('discord.js')
 
 const handles = require('./handles')

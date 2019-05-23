@@ -1,9 +1,12 @@
-const Plan = (message, client) => {
-  if (!message.guild.me.hasPermission('MANAGE_ROLES')) {
-    return message.reply('죄송해요, 아직 제가 이 서버에서 색칠하기 위해 역할을 관리할 권한이 부족한 것처럼 보여요!')
-  }
+const CheckRequirement = require('@structures/CheckRequirement')
 
+const Prompt = (message, client) => {
+  const test = CheckRequirement.prompts.palette(message.guild)
   const color = (message._se.data[0] || '').toLowerCase()
+
+  if (test.signal === false) {
+    return message.reply(test.message)
+  }
 
   if (/#[a-f0-9]{3,6}/.test(color)) {
     const coloredRole = message.guild.roles.find(values => values.name === color)
@@ -31,8 +34,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'palette',
+  description: 'Color someone\'s nickname with server roles.',
+  usage: 'palette #<hex-color>',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

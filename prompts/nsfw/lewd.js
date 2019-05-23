@@ -1,17 +1,15 @@
-const structures = require('../../structures')
+const NekosLifeAPI = require('@structures/NekosLifeAPI')
 
-const {NekosLifeAPIParser} = structures
-
-const Plan = (message, client) => {
+const Prompt = (message, client) => {
   if (!message.channel.nsfw) {
     message.reply('실은 학생회는 이런 일은 처리하지 않는다냥?')
   } else {
-    NekosLifeAPIParser('lewd').then(imageURI => {
+    NekosLifeAPI.nsfw.lewd().then(response => {
       message.channel.send({
         embed: {
           title: '으엥... 학생회는 이런거 몰라도 되는거 아니야?',
           image: {
-            url: imageURI
+            url: response.url
           }
         }
       })
@@ -22,8 +20,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'lewd',
+  description: 'LEWD is not recommended at all.',
+  usage: 'lewd',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

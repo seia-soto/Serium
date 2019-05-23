@@ -2,12 +2,13 @@ Fine:
   id: 563994944604340254
 
 App:
+  AppData:
+    # file or mysql (no case insesitives)
+    driver: mysql
   Token: ''
   Prefix: 'se '
   # Permissions as role id on Discord.
   Permissions:
-    # MochiMochi Fine; Staffs
-    Administrations: Staffs
     # Personal devop id; Discord User ID
     Superuser: '0'
   WebClient: 'Mozilla/5.0 (Node.JS; v8js; rv:null) Request/^2.88.0 Serium/3.0.2'
@@ -21,12 +22,11 @@ App:
     root: preferences
     extension: yaml
     for:
+      - DatabasePool
       - PermissionIdentities
       - PresenceLines
       - PromotionLines
       - LanguageList
-AppData:
-  driver: blob
 Discord:
   Client:
     autoReconnect: true
@@ -35,6 +35,4 @@ Discord:
       - TYPING_START
   EventOptions:
     guildMemberAdd:
-      StartingRole:
-        - Plug-Ins
-        - Pending verification
+      StartingRole: Pending verification

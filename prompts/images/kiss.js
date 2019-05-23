@@ -1,6 +1,4 @@
-const structures = require('../../structures')
-
-const {NekosLifeAPIParser} = structures
+const NekosLifeAPI = require('@structures/NekosLifeAPI')
 
 let basedEmbed = {
   embed: {
@@ -11,8 +9,8 @@ let basedEmbed = {
   }
 }
 
-const Plan = (message, client) => {
-  NekosLifeAPIParser('kiss').then(imageURI => {
+const Prompt = (message, client) => {
+  NekosLifeAPI.sfw.kiss().then(response => {
     let targeted = message._se.data[0]
 
     if (targeted) {
@@ -25,7 +23,7 @@ const Plan = (message, client) => {
       basedEmbed.embed.title = '흐응? 앗... 아?! 잠깐만요, 여기까지... 제발 여기까지요!'
     }
 
-    basedEmbed.embed.image.url = imageURI
+    basedEmbed.embed.image.url = response.url
     message.channel.send(basedEmbed)
   }).catch(error => {
     message.reply('으... 아하하... 시간이 다 되었다고요, 나중에 봐영~')
@@ -33,8 +31,11 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'kiss',
+  description: 'Hm... kiss someone on Discord, maybe not common.',
+  usage: 'kiss [someone-or-mention]',
+
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties

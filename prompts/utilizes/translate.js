@@ -1,6 +1,6 @@
 const translate = require('google-translate-query')
 
-const PreferenceIndicator = require('../../structures/PreferenceIndicator')
+const PreferenceIndicator = require('@structures/PreferenceIndicator')
 
 let basedEmbed = {
   embed: {
@@ -13,7 +13,7 @@ let basedEmbed = {
   }
 }
 
-const Plan = (message, client) => {
+const Prompt = (message, client) => {
   if (message._se.data.length < 2) {
     return message.reply('앗... 뭘 번역해야 할까요?')
   }
@@ -35,10 +35,12 @@ const Plan = (message, client) => {
 }
 const Properties = {
   name: 'translate',
-  alias: ['tr'],
+  description: 'Translate with Google. Requires country code ruled with 2 phrase.',
+  usage: 'translate <2-char-country-code> <string>',
 
+  alias: ['tr'],
   requiredPermission: 'public'
 }
 
-module.exports = Plan
+module.exports = Prompt
 module.exports.properties = Properties
