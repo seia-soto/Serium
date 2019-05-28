@@ -9,7 +9,13 @@ const PresenceHandler = (client, todo) => {
   })
 }
 const IntervalIndicator = (client, interval) => {
-  setInterval(() => PresenceHandler(client, PreferenceIndicator.App.Externals.PresenceLines[Math.floor((Math.random() * PreferenceIndicator.App.Externals.PresenceLines.length))]), interval)
+  setInterval(() => {
+    PresenceHandler(
+      client,
+      'se help | ' +
+      PreferenceIndicator.App.Externals.PresenceLines[Math.floor((Math.random() * PreferenceIndicator.App.Externals.PresenceLines.length))]
+    )
+  }, interval)
 }
 
 module.exports = PresenceHandler
