@@ -1,6 +1,6 @@
 const structures = require('@structures')
 
-const {CheckRequirement, EndPreferenceIndicator, CaptchaIndicator, PreferenceIndicator} = structures
+const {EndPreferenceIndicator, CaptchaIndicator, PreferenceIndicator} = structures
 
 // NOTE: Five minutes.
 const timeout = 1000 * 60 * 5

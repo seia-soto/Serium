@@ -1,6 +1,6 @@
 const structures = require('@structures')
 
-const {CheckRequirement, EndPreferenceIndicator, MessageParser, PermissionParser, PreferenceIndicator, PromptIndicator, ReportException} = structures
+const {EndPreferenceIndicator, MessageParser, PermissionParser, PreferenceIndicator, PromptIndicator, ReportException} = structures
 const prompts = PromptIndicator
 
 const PostExceptionsMessages = [
