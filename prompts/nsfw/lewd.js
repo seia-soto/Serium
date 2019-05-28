@@ -2,12 +2,12 @@ const NekosLifeAPI = require('@structures/NekosLifeAPI')
 
 const Prompt = (message, client) => {
   if (!message.channel.nsfw) {
-    message.reply('실은 ' + message.guild.name + '는 이런 일은 처리하지 않는다냥?')
+    message.reply('실은 이런 일은 처리하지 않는다냥?')
   } else {
     NekosLifeAPI.nsfw.lewd().then(response => {
       message.channel.send({
         embed: {
-          title: '으엥...  '+ message.guild.name + '는 이런거 몰라도 되는거 아니야?',
+          title: '으엥...  이런거 몰라도 되는거 아니야?',
           image: {
             url: response.url
           }

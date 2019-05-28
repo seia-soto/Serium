@@ -1,7 +1,7 @@
 const NekosLifeAPI = require('@structures/NekosLifeAPI')
 
 const Prompt = (message, client) => {
-  NekosLifeAPI.sfw.neko.then(response => {
+  NekosLifeAPI.sfw.neko().then(response => {
     message.channel.send({
       embed: {
         title: '저만큼은 아니... 아니지만...! 으엑... 귀여운 네코다냥?',

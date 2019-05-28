@@ -1,10 +1,11 @@
-const DatabasePool = require('@structures/DatabasePool')
+const DatabasePool = require('./DatabasePool')
 
 const defaultPreference = {
   'prompt.palette': false,
   'guildMemberAdd.verifyCaptcha': false
 }
-const EndPreferenceIndicator = identify => {
+
+const getGuildSettings = identify => {
   return new Promise((resolve, reject) => {
     DatabasePool.getConnection((connectionError, connection) => {
       if (connectionError) reject(connectionError)
@@ -31,5 +32,20 @@ const EndPreferenceIndicator = identify => {
     })
   })
 }
+const setGuildSettings = (identify, data) => {
+  return new Promise((resolve, reject) => {
+    DatabasePool.getConnection((connectionError, connection) => {
+      if (connectionError) reject(connectionError)
 
-module.exports = EndPreferenceIndicator
+      connection.query(`UPDATE serium_servers SET preference = '${JSON.stringify(data).replace(/\'/g, '\'')}' WHERE identify = ${identify}`, (queryError, results) => {
+        if (queryError) reject(queryError)
+
+        connection.release()
+        resolve()
+      })
+    })
+  })
+}
+
+module.exports.getGuildSettings = getGuildSettings
+module.exports.setGuildSettings = setGuildSettings

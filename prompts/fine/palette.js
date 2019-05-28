@@ -1,11 +1,9 @@
-const CheckRequirement = require('@structures/CheckRequirement')
-
 const Prompt = (message, client) => {
-  const test = CheckRequirement.prompts.palette(message.guild)
+  const test = (message.guild.me.hasPermission('MANAGE_ROLES'))
   const color = (message._se.data[0] || '').toLowerCase()
 
-  if (test.signal === false) {
-    return message.reply(test.message)
+  if (!test) {
+    return message.reply('현재 서버에서 역할을 관리할 권한이 없습니다.')
   }
 
   if (/#[a-f0-9]{3,6}/.test(color)) {

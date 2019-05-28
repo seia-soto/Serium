@@ -1,4 +1,3 @@
-module.exports.CheckRequirement = require('./CheckRequirement')
 module.exports.CaptchaIndicator = require('./CaptchaIndicator')
 module.exports.CaseSensitive = require('./CaseSensitive')
 module.exports.DatabasePool = require('./DatabasePool')

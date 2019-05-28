@@ -18,7 +18,7 @@ const MessageHandler = (rawMessage, client) => {
   const namespace = `prompt.${message._se.prompt}`
 
   // NOTE: Get EndPreferences.
-  EndPreferenceIndicator(message.guild.id).then(preference => {
+  EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
     const Exceptions = [
       (!message.content.startsWith(PreferenceIndicator.App.Prefix)),
       (!message.guild.me.hasPermission('SEND_MESSAGES')),
@@ -31,13 +31,6 @@ const MessageHandler = (rawMessage, client) => {
           (preference[namespace] === undefined || preference[namespace] === true)
         ]
         if (PostExceptions.includes(false)) return message.reply(PostExceptionsMessages[PostExceptions.indexOf(false)])
-
-        // NOTE: Check requirements for prompt.
-        if (CheckRequirement.for[namespace]) {
-          const test = CheckRequirement.for[namespace](message.guild)
-
-          if (!test.signal) return message.reply(test.message)
-        }
 
         // NOTE: Execution of function.
         prompts[message._se.prompt](message, client)

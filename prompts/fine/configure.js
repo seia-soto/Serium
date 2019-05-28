@@ -2,8 +2,13 @@ const structures = require('@structures')
 
 const {CaseSensitive, EndPreferenceIndicator} = structures
 
+const namespaces = {
+  'prompt.palette': '네임 파레트',
+  'guildMemberAdd.verifyCaptcha': '새 멤버에 대한 캡챠 검증'
+}
+
 const Prompt = (message, client) => {
-  EndPreferenceIndicator(message.guild.id).then(preference => {
+  EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
     // NOTE: View of current per server preference.
     let embed = {
       embed: {
@@ -29,7 +34,7 @@ const Prompt = (message, client) => {
       // NOTE: 0 means extended as command.
       const preferenceExtendedType = (preferenceEntry[0].startsWith('prompt.')) ? 0 : 1
 
-      embed.embed.fields[preferenceExtendedType].value += `**${EndPreferenceIndicator.namespaces[preferenceEntry[0]]}(${preferenceEntry[0]})** ${CaseSensitive(preferenceEntry[1])}\n`
+      embed.embed.fields[preferenceExtendedType].value += `**${namespaces[preferenceEntry[0]]}(${preferenceEntry[0]})** ${CaseSensitive(preferenceEntry[1])}\n`
     })
     message.channel.send(embed)
   }).catch(error => {

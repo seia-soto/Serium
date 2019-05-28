@@ -1,4 +1,0 @@
-This folder will synced when translations added on serium-departments/Serium-Translations repository.
-
-Also translations will loaded as dedicated, means without using preferences' structurized utils.
-However, util of translations modules located at `/structures` folder due to full application structure links.
