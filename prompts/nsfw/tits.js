@@ -4,10 +4,10 @@ const Prompt = (message, client) => {
   if (!message.channel.nsfw) {
     message.reply('실은 이런 일은 처리하지 않는다냥?')
   } else {
-    NekosLifeAPI.nsfw.lewd().then(response => {
+    NekosLifeAPI.nsfw.tits().then(response => {
       message.channel.send({
         embed: {
-          title: '으엥...  이런거 몰라도 되는거 아니야?',
+          title: '으엥... 이런거 몰라도 되는거 아니야?',
           image: {
             url: response.url
           }
@@ -19,9 +19,9 @@ const Prompt = (message, client) => {
   }
 }
 const Properties = {
-  name: 'lewd',
-  description: 'LEWD is not recommended at all.',
-  usage: 'lewd',
+  name: 'tits',
+  description: 'Also one of NSFW command, no description required. You can just launch this at NSFW channel to know what this mean.',
+  usage: 'tits',
 
   requiredPermission: 'public'
 }

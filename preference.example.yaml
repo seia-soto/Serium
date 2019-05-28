@@ -2,9 +2,6 @@ Fine:
   id: 563994944604340254
 
 App:
-  AppData:
-    # file or mysql (no case insesitives)
-    driver: mysql
   Token: ''
   Prefix: 'se '
   # Permissions as role id on Discord.
