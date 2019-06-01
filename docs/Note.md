@@ -1,0 +1,2 @@
+- structures => 봇 유틸을 위한 폴더
+- utils => Discord 관련 유틸을 위한 폴더

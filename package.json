@@ -56,6 +56,7 @@
     "@handles": "./handles",
     "@preferences": "./preferences",
     "@prompts": "./prompts",
-    "@structures": "./structures"
+    "@structures": "./structures",
+    "@utils": "./utils"
   }
 }

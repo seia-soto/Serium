@@ -1,3 +1,5 @@
+const findUser = require('@utils/findUser')
+
 const Prompt = (message, client) => {
   let avatar = {
     username: message.author.username,
@@ -13,21 +15,22 @@ const Prompt = (message, client) => {
         url: mention.user.avatarURL
       }
     } else {
-      const member = message.guild.members.filter(user => user.user.username.toLowerCase().includes(message._se.data.join(' ').toLowerCase())).first()
+      const user = findUser(message.guild.members, message._se.data.join(' '))
 
-      if (member) {
+      if (user) {
         avatar = {
-          username: member.user.username,
-          url: member.user.avatarURL
+          username: user.user.username,
+          url: user.user.avatarURL
         }
       } else {
-        return message.reply('누군지... 모르겠어요!')
+        return message.reply('누군지... 누군지 기억이 안 나는 걸까요? 모르겠어요!')
       }
     }
   }
   message.channel.send({
     embed: {
       title: `${avatar.username}님의 프로필 사진이예요!`,
+      description: `[직접 링크](${avatar.url})`,
       image: {
         url: avatar.url
       }
