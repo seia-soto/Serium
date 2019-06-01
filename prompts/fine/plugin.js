@@ -168,7 +168,7 @@ const Prompt = (message, client) => {
                     name: message.channel.name,
                     id: message.channel.id
                   },
-                  post: toPost => message.channel.send(toPost),
+                  post: toPost => message.channel.send(toPost.slice(0, 2000)),
 
                   // NOTE: Plug-in data store managements: Internal Data Store Bukkit
                   idsb: {
@@ -186,7 +186,7 @@ const Prompt = (message, client) => {
 
               virtualEnvironment.run(results.find(result => result.name === opts.action).script)
             } catch (error) {
-              message.reply(`플러그인 실행 중에 오류가 발생했어요!\n${error}`)
+              message.reply(`플러그인 실행 중에 오류가 발생했어요!\n${'```javascript\n' + error + '```'}`)
             }
 
             connection.release()
