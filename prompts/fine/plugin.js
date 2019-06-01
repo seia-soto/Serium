@@ -1,8 +1,29 @@
-const structures = require('@structures')
+const fs = require('fs')
+const path = require('path')
 const vm2 = require('vm2')
+const structures = require('@structures')
 
 const {DatabasePool, PermissionParser} = structures
 const {VM} = vm2
+
+const pluginDataStoreRoot = path.join(__dirname, '..', '..', 'assets', 'plugin_data')
+
+const getDataStoreName = (identify, pluginName) => {
+  return `${identify}-${pluginName}.json`
+}
+const loadPluginData = storeName => {
+  const storePath = `${pluginDataStoreRoot}/${storeName}`
+
+  if (!fs.existsSync(storePath)) {
+    fs.writeFileSync(storePath, '{}', 'utf8')
+  }
+  const file = fs.readFileSync(storePath, 'utf8')
+
+  return JSON.parse(file)
+}
+const savePluginData = (storeName, data) => {
+  fs.writeFileSync(`${pluginDataStoreRoot}/${storeName}`, JSON.stringify(data), 'utf8')
+}
 
 const Prompt = (message, client) => {
   const opts = {
@@ -10,13 +31,6 @@ const Prompt = (message, client) => {
     name: (message._se.data[1] || 'exception'),
     script: (message._se.data.slice(2).join(' ') || '')
   }
-
-  const pluginNamePolicy =
-    (opts.action.length > 12) ||
-    (opts.name.length > 12) ||
-    (!/^[a-zA-Z]+$/.test(opts.action)) ||
-    (!/^[a-zA-Z]+$/.test(opts.name))
-  if (pluginNamePolicy) return message.reply('플러그인의 이름은 12자 이하 영문만 사용가능해요!')
 
   DatabasePool.getConnection((connectionError, connection) => {
     if (connectionError) {
@@ -41,12 +55,19 @@ const Prompt = (message, client) => {
       switch (opts.action) {
         case 'set':
           if (!PermissionParser.isValidFor('staff', message._se.permission)) {
+            connection.release()
+
             return message.reply('이 서버에 플러그인을 추가하려면 관리자 권한이 필요해요!')
           }
           if (results.length >= 50) {
             connection.release()
 
             return message.reply('이미 너무 많은 플러그인을 설정하여 더 많은 플러그인을 설정할 수 없었어요!')
+          }
+          if (opts.name.length > 12) {
+            connection.release()
+
+            return message.reply('플러그인 이름은 12자 이하여야 해요.')
           }
 
           connection.query(`SELECT * FROM serium_plugins WHERE identify = ? AND name = ?`, [message.guild.id, opts.name], (queryError, results) => {
@@ -56,22 +77,27 @@ const Prompt = (message, client) => {
               toExecute = `UPDATE serium_plugins SET script = ${connection.escape(opts.script)} WHERE identify = ${message.guild.id} AND name = ${connection.escape(opts.name)}`
             }
             connection.query(toExecute, queryError => {
-                if (queryError) {
-                  connection.release()
-                  console.log(queryError);
-
-                  return message.reply('잠시 서비스에 문제가 생겨 플러그인을 지정하지 못했어요! 다시시도해주시겠어요?')
-                }
-
-                message.reply(`${opts.name} 플러그인을 지정했어요!`)
+              connection.release()
+              if (queryError) {
+                return message.reply('잠시 서비스에 문제가 생겨 플러그인을 지정하지 못했어요! 다시시도해주시겠어요?')
               }
-            )
+
+              message.reply(`${opts.name} 플러그인을 지정했어요!`)
+            })
           })
           break;
         case 'remove':
           if (!PermissionParser.isValidFor('staff', message._se.permission)) {
+            connection.release()
+
             return message.reply('이 서버에서 플러그인을 제거하려면 관리자 권한이 필요해요!')
           }
+          if (opts.name.length > 12) {
+            connection.release()
+
+            return message.reply('플러그인 이름은 12자 이하여야 해요.')
+          }
+
           if (plugins.indexOf(opts.name) === -1) {
             connection.release()
 
@@ -96,12 +122,25 @@ const Prompt = (message, client) => {
             }
           })
           break;
+        case 'raw':
+          connection.release()
+
+          message.channel.send({
+            embed: {
+              title: opts.name,
+              description: '```javascript\n' + results.find(result => result.name === opts.name).script + '```'
+            }
+          })
+          break;
         default:
           if (plugins.indexOf(opts.action) === -1) {
             connection.release()
 
             return message.reply('그런 이름을 가진 플러그인을 찾을 수 없었어요!')
           } else {
+            const dataStoreName = getDataStoreName(message.guild.id, opts.action)
+            const pluginData = loadPluginData(dataStoreName)
+
             try {
               const virtualEnvironment = new VM({
                 timeout: 1000 * 2,
@@ -109,20 +148,42 @@ const Prompt = (message, client) => {
                   seia: {
                     isKawaii: true
                   },
-                  params: message._se.data.slice(1).join(' ') || [],
+                  params: message._se.data.slice(1) || [],
                   server: {
                     name: message.guild.name,
                     id: message.guild.id,
-                    memberCount: message.guild.memberCount
+                    memberCount: message.guild.memberCount,
+                    region: message.guild.region,
+                    verified: message.guild.verified,
+                    afkTimeout: message.guild.afkTimeout
                   },
                   user: {
-                    name: message.author.username,
+                    name: message.author.displayName,
                     id: message.author.id,
-                    mention: `<@${message.author.id}>`
+                    mention: `<@${message.author.id}>`,
+                    color: message.member.displayHexColor,
+                    lastMessage: message.member.lastMessage.content
                   },
-                  post: toPost => message.channel.send(toPost)
+                  channel: {
+                    name: message.channel.name,
+                    id: message.channel.id
+                  },
+                  post: toPost => message.channel.send(toPost),
+
+                  // NOTE: Plug-in data store managements: Internal Data Store Bukkit
+                  idsb: {
+                    get: key => {
+                      return pluginData[key]
+                    },
+                    set: (key, value) => {
+                      pluginData[key] = value
+
+                      savePluginData(dataStoreName, pluginData)
+                    }
+                  }
                 }
               })
+
               virtualEnvironment.run(results.find(result => result.name === opts.action).script)
             } catch (error) {
               message.reply(`플러그인 실행 중에 오류가 발생했어요!\n${error}`)
@@ -137,7 +198,7 @@ const Prompt = (message, client) => {
 const Properties = {
   name: 'plugin',
   description: 'Extra command script space for users, also JavaScript based.',
-  usage: 'plugin (<set|remove|list> [plugin-name]> [script]|<plugin-name>)',
+  usage: 'plugin (<set|remove|list> [plugin-name]> [script]|<plugin-name> [params])',
 
   alias: ['p'],
   requiredPermission: 'public'
