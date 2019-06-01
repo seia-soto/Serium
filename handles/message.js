@@ -27,10 +27,13 @@ const MessageHandler = (rawMessage, client) => {
     if (!Exceptions.includes(true)) {
       try {
         const PostExceptions = [
-          (PermissionParser.isValidFor(message._se.prompt, permission)),
+          (PermissionParser.isValidFor(PromptIndicator[message._se.prompt].properties.requiredPermission, permission)),
           (preference[namespace] === undefined || preference[namespace] === true)
         ]
         if (PostExceptions.includes(false)) return message.reply(PostExceptionsMessages[PostExceptions.indexOf(false)])
+
+        // NOTE: Paste extra values.
+        message._se.permission = permission
 
         // NOTE: Execution of function.
         prompts[message._se.prompt](message, client)
