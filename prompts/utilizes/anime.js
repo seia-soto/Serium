@@ -16,11 +16,13 @@ const Prompt = (message, client) => {
           fields: [
             {
               name: '상영기간',
-              value: result.payload.aired
+              value: result.payload.aired,
+              inline: true
             },
             {
               name: '평점',
-              value: `${result.payload.score}점`
+              value: `${result.payload.score}점`,
+              inline: true
             }
           ],
           image: {

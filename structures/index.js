@@ -1,6 +1,7 @@
 module.exports.CaptchaIndicator = require('./CaptchaIndicator')
 module.exports.CaseSensitive = require('./CaseSensitive')
 module.exports.DatabasePool = require('./DatabasePool')
+module.exports.DateFormer = require('./DateFormer')
 module.exports.EndPreferenceIndicator = require('./EndPreferenceIndicator')
 module.exports.MessageParser = require('./MessageParser')
 module.exports.MyAnimeListAPI = require('./MyAnimeListAPI')

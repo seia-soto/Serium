@@ -3,7 +3,7 @@ const EndPreferenceIndicator = require('@structures/EndPreferenceIndicator')
 const Prompt = (message, client) => {
   EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
     const toDisable = message._se.data[0]
-    if (!toDisable || typeof preference[toDisable] === undefined) return message.reply('정확히 뭘 비활성화해야 하는지 모르겠어요!')
+    if (!toDisable || typeof preference[toDisable] === 'undefined') return message.reply('정확히 뭘 비활성화해야 하는지 모르겠어요!')
 
     preference[toDisable] = false
 
