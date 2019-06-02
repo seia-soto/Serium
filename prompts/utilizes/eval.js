@@ -32,7 +32,7 @@ const Prompt = (message, client) => {
     })
     const result = virtualEnvironment.run(message._se.data.join(' '))
 
-    resultEmbed.embed.fields[1].value = '```javascript\n' + (result || 'undefined').slice(0, 2000) + ' ```'
+    resultEmbed.embed.fields[1].value = '```javascript\n' + (result || 'undefined').toString().split('').slice(0, 2000).join('') + ' ```'
   } catch (error) {
     resultEmbed.embed.fields[1].value = '```javascript\n' + (error || 'undefined') + ' ```'
   }

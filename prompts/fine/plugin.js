@@ -158,9 +158,9 @@ const Prompt = (message, client) => {
                     afkTimeout: message.guild.afkTimeout
                   },
                   user: {
-                    name: message.author.displayName,
-                    id: message.author.id,
-                    mention: `<@${message.author.id}>`,
+                    name: message.member.displayName,
+                    id: message.member.id,
+                    mention: `<@${message.member.id}>`,
                     color: message.member.displayHexColor,
                     lastMessage: message.member.lastMessage.content
                   },
@@ -168,7 +168,7 @@ const Prompt = (message, client) => {
                     name: message.channel.name,
                     id: message.channel.id
                   },
-                  post: toPost => message.channel.send(toPost.slice(0, 2000)),
+                  post: toPost => message.channel.send((toPost || '(empty?)').toString().split('').slice(0, 2000).join('')),
 
                   // NOTE: Plug-in data store managements: Internal Data Store Bukkit
                   idsb: {

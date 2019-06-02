@@ -17,14 +17,14 @@ const MessageHandler = (rawMessage, client) => {
 
   const namespace = `prompt.${message._se.prompt}`
 
-  // NOTE: Get EndPreferences.
-  EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
-    const Exceptions = [
-      (!message.content.startsWith(PreferenceIndicator.App.Prefix)),
-      (!message.guild.me.hasPermission('SEND_MESSAGES')),
-      (!(message._se.prompt in prompts))
-    ]
-    if (!Exceptions.includes(true)) {
+  const Exceptions = [
+    (!message.content.startsWith(PreferenceIndicator.App.Prefix)),
+    (!message.guild.me.hasPermission('SEND_MESSAGES')),
+    (!(message._se.prompt in prompts))
+  ]
+  if (!Exceptions.includes(true)) {
+    // NOTE: Get EndPreferences.
+    EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
       try {
         const PostExceptions = [
           (PermissionParser.isValidFor(PromptIndicator[message._se.prompt].properties.requiredPermission, permission)),
@@ -40,12 +40,12 @@ const MessageHandler = (rawMessage, client) => {
       } catch (error) {
         console.error(error)
       }
-    }
+    }).catch(error => {
+      console.error(error)
+    })
+  }
 
-    ReportException(message, Exceptions)
-  }).catch(error => {
-    console.error(error)
-  })
+  ReportException(message, Exceptions)
 }
 
 module.exports = MessageHandler
