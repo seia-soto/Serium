@@ -7,11 +7,11 @@ const filters = {
     '아주 깨끗한 채팅 환경을 원할 시에는 **모든 멤버의 메세지를 스캔합니다.**'
   ],
   verificationLevel: [
-    '없음, 제한 없음',
-    '낮음, 자신의 Discord 계정이 이메일 인증을 받은 적이 있어야 합니다.',
-    '중간, 추가로 Discord에 가입한지 5분이 지나야 합니다.',
-    '(╯°□°）╯︵ ┻━┻, 추가로 이 서버의 멤버가 된 지 10분이 지나야 합니다.',
-    '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻, 전화 인증이 완료된 Discord 계정이어야 합니다.'
+    '**없음**, 제한 없음',
+    '**낮음**, 자신의 Discord 계정이 이메일 인증을 받은 적이 있어야 합니다.',
+    '**중간**, 추가로 Discord에 가입한지 5분이 지나야 합니다.',
+    '**(╯°□°）╯︵ ┻━┻**, 추가로 이 서버의 멤버가 된 지 10분이 지나야 합니다.',
+    '**┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻**, 전화 인증이 완료된 Discord 계정이어야 합니다.'
   ],
   mfaLevel: [
     '서버 2단계 인증이 비활성화되어 있습니다.',
@@ -51,11 +51,10 @@ const Prompt = (message, client) => {
         `**멤버 ${message.guild.memberCount}명**` +
           `(봇 ${message.guild.members.filter(member => member.user.bot).size}개, ` +
           `온라인 ${message.guild.members.filter(member => member.presence.status !== 'offline').size}명, ` +
-          `게임 플레이 중 ${message.guild.members.filter(member => member.presence.game).size}명)\n` +
-          /* DOCUMENT MISSING
-          `웹 클라이언트 사용 중 ${message.guild.members.filter(member => member.presence.clientStatus.web).size}명, ` +
-          `모바일 사용 중 ${message.guild.members.filter(member => member.presence.clientStatus.mobile).size}명, ` +
-          `데스크톱 사용 중 ${message.guild.members.filter(member => member.presence.clientStatus.desktop).size}명)\n` + */
+          `게임 플레이 중 ${message.guild.members.filter(member => member.presence.game).size}명, ` +
+          `웹 클라이언트 사용 중 ${message.guild.members.filter(member => (member.presence.clientStatus) ? member.presence.clientStatus.web : false).size}명, ` +
+          `모바일 사용 중 ${message.guild.members.filter(member => (member.presence.clientStatus) ? member.presence.clientStatus.mobile : false).size}명, ` +
+          `데스크톱 사용 중 ${message.guild.members.filter(member => (member.presence.clientStatus) ? member.presence.clientStatus.desktop : false).size}명)\n` +
         // NOTE: Roles
         `**역할 ${message.guild.roles.size}개**`,
       fields: [
@@ -85,6 +84,11 @@ const Prompt = (message, client) => {
           inline: true
         },
         {
+          name: '지역',
+          value: regionMap[message.guild.region],
+          inline: true
+        },
+        {
           name: '서버 생성일',
           value: DateFormer(message.guild.createdTimestamp),
           inline: true
@@ -107,11 +111,6 @@ const Prompt = (message, client) => {
         {
           name: '서버 2단계 인증',
           value: filters.mfaLevel[message.guild.mfaLevel],
-          inline: true
-        },
-        {
-          name: '지역',
-          value: regionMap[message.guild.region],
           inline: true
         }
       ],

@@ -11,7 +11,7 @@ App:
   WebClient: 'Mozilla/5.0 (Node.JS; v8js; rv:null) Request/^2.88.0 Serium/3.0.2'
   Captcha:
     size: 6
-    ignoreChars: '0o1i'
+    ignoreChars: '0o1il'
     noise: 4
     color: true
   # Include things outside of this preference.
