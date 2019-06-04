@@ -32,8 +32,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'palette',
-  description: 'Color someone\'s nickname with server roles.',
-  usage: 'palette #<hex-color>',
+  description: '앱이 자동으로 서버에 역할을 생성하여 사용자의 닉네임에 색을 칠해줍니다.',
+  usage: 'palette #<HEX 색코드>',
 
   requiredPermission: 'public'
 }

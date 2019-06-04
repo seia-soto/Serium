@@ -122,7 +122,7 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'serverinfo',
-  description: 'Get current serverinfo.',
+  description: '현재 서버의 지역이나 설정과 같은 정보를 가져옵니다.',
   usage: 'serverinfo',
 
   requiredPermission: 'public'

@@ -22,8 +22,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'enable',
-  description: 'Enable some function in server preference.',
-  usage: 'enable <preference>',
+  description: '서버 구성설정에서 원하는 것을 활성화합니다.',
+  usage: 'enable <원하는 것>',
 
   requiredPermission: 'staff'
 }

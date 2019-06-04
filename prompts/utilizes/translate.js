@@ -34,8 +34,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'translate',
-  description: 'Translate with Google. Requires country code ruled with 2 phrase.',
-  usage: 'translate <2-char-country-code> <string>',
+  description: 'Google은 번역도 할 수 있어요? (나만 몰랐다고요??)',
+  usage: 'translate <2자릿수 국가코드> <번역할 문자열>',
 
   alias: ['tr'],
   requiredPermission: 'public'

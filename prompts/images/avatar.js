@@ -39,8 +39,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'avatar',
-  description: 'Show someone\'s avatar with mention or search someone\'s name.',
-  usage: 'avatar [someone-or-mention]',
+  description: '누군가의 프로필 사진을 가져옵니다.',
+  usage: 'avatar [누군가의 멘션, 닉네임 혹은 별명]',
 
   requiredPermission: 'public'
 }

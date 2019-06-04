@@ -22,8 +22,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'disable',
-  description: 'Disable some function in server preferences.',
-  usage: 'disable <preference>',
+  description: '서버 구성설정에서 원하는 것을 비활성화합니다.',
+  usage: 'disable <비활성화할 것>',
 
   requiredPermission: 'staff'
 }

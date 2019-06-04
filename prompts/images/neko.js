@@ -16,7 +16,7 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'neko',
-  description: 'Image about cute cat girls? Maybe more *Moe* needed.',
+  description: '냥냥거리는 고양이 소녀에 대한 무작위 이미지인데요, 약간의 *모에함*이 있어야 해요!',
   usage: 'neko',
 
   requiredPermission: 'public'

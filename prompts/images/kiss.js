@@ -31,8 +31,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'kiss',
-  description: 'Hm... kiss someone on Discord, maybe not common.',
-  usage: 'kiss [someone-or-mention]',
+  description: 'Discord에서 키스하는 것은 일반적인 일은 아닌 것 맞죠? 그렇죠...?;',
+  usage: 'kiss [누군가]',
 
   requiredPermission: 'public'
 }

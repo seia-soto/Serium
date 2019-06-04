@@ -3,8 +3,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'say',
-  description: 'Is this you want to say? I said.',
-  usage: 'say [want to say]',
+  description: '아마 당신이 말했던 것 아닐까요? 한 번 해보세요.',
+  usage: 'say [말하고 싶은 것]',
 
   requiredPermission: 'public'
 }

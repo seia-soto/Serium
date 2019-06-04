@@ -3,7 +3,7 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'ping',
-  description: 'Get average ping-pong time to Discord API server.',
+  description: 'Discord API 서버와의 평균 지연시간을 가져옵니다.',
   usage: 'ping',
 
   requiredPermission: 'public'

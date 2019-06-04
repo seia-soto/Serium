@@ -34,8 +34,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'search',
-  description: 'Search something on Google.',
-  usage: 'search <keyword>',
+  description: 'Google은 모든 것을 알고 있어요.',
+  usage: 'search <키워드>',
 
   requiredPermission: 'public'
 }
