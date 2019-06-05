@@ -1,6 +1,6 @@
 # Serium
 
-The way how to get improved creativity and multi-purpose in Discord. (This application is only for one server)
+The way how to get improved creativity and multi-purpose in Discord. ([Want to invite public app?](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&redirect_uri=https%3A%2F%2Fauthentication.seia.io%2Fdiscordapp&scope=bot))
 
 [![Meet us at Discord](https://discordapp.com/api/guilds/563994944604340254/embed.png?style=banner2)](https://discord.gg/NjAjJqB)
 
@@ -29,6 +29,8 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 - [google](https://www.npmjs.com/package/google) with MIT License
 - [google-translate-query](https://www.npmjs.com/package/google-translate-query) with MIT License
 - [js-yaml](https://www.npmjs.com/package/js-yaml) with MIT License
+- [module-alias](https://www.npmjs.com/package/module-alias) with MIT License
+- [moment](https://www.npmjs.com/package/moment) with MIT License
 - [mysql](https://www.npmjs.com/package/mysql) with MIT License
 - [nekos.life](https://www.npmjs.com/package/nekos.life) with MIT License
 - [querystring](https://www.npmjs.com/package/querystring) without license

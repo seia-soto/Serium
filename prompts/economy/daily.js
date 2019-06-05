@@ -1,17 +1,16 @@
+const moment = require('moment')
 const structures = require('@structures')
 
 const {DateFormer, PreferenceIndicator, EndPreferenceIndicator} = structures
 
-const daily = 1000 * 60 * 60 * 24
+moment.locale('ko')
 
 const Prompt = (message, client) => {
   EndPreferenceIndicator.getUserSettings(message.author.id).then(preference => {
     const current = new Date()
     const lastConfirm = new Date(preference.economy.lastConfirm)
 
-    if (current - lastConfirm < daily) {
-      message.reply(`이미 오늘 받아가셨어얌! 약 ${(24 - lastConfirm.getHours()) ? (24 - lastConfirm.getHours()) + '시간' : lastConfirm.getMinutes() + '분'} 후에 다시오세요.`)
-    } else {
+    if (moment(current).isAfter(moment(lastConfirm).add(1, 'days'))) {
       preference.economy.lastConfirm = new Date()
       preference.economy.shards += PreferenceIndicator.Ecosystem.Economy.dailyWages
 
@@ -22,6 +21,8 @@ const Prompt = (message, client) => {
 
         message.reply('어라... 서비스 연결에 문제가 있었나 봐요.')
       })
+    } else {
+      message.reply(`이미 오늘은 받았잖아요! ${moment(lastConfirm).add(1, 'days').fromNow()}에 다시 사용가능해요.`)
     }
   }).catch(error => {
     console.error(error)

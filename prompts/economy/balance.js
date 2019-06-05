@@ -1,27 +1,15 @@
 const structures = require('@structures')
-const utils = require('@utils')
 
 const {PreferenceIndicator, EndPreferenceIndicator} = structures
-const {findUser} = utils
 
 const Prompt = (message, client) => {
   let identify = message.author.id
 
-  if (message._se.data[0]) {
-    const mention = message.mentions.members.first()
-
-    if (mention) {
-      identify = mention.user.id
-    } else {
-      const user = findUser(message.guild.members, message._se.data.join(' '))
-
-      if (user) {
-        identify = user.id
-      } else {
-        return message.reply('은행에서는 없는 사람 가지고 사기치는거 아니예요.')
-      }
-    }
+  const mention = message.mentions.members.first()
+  if (mention) {
+    identify = mention.user.id
   }
+
   EndPreferenceIndicator.getUserSettings(identify).then(preference => {
     message.reply(`${client.users.get(identify).username}님은 **${preference.economy.shards} ${PreferenceIndicator.Ecosystem.Economy.unit}**만큼 소유하고 있어요!`)
   }).catch(error => {

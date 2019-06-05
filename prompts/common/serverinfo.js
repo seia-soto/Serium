@@ -1,3 +1,4 @@
+const moment = require('moment')
 const DateFormer = require('@structures/DateFormer')
 
 const filters = {
@@ -34,6 +35,8 @@ const regionMap = {
   'us-west': ':flag_us: 미국 서부',
   'eu-west': ':flag_eu: 서유럽'
 }
+
+moment.locale('ko')
 
 const Prompt = (message, client) => {
   message.channel.send({
@@ -116,6 +119,9 @@ const Prompt = (message, client) => {
       ],
       thumbnail: {
         url: message.guild.iconURL
+      },
+      footer: {
+        text: `${moment(message.guild.createdTimestamp).fromNow()}에 이 서버가 만들어졌습니다.`
       }
     }
   })

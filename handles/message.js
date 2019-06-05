@@ -10,15 +10,18 @@ const MessageHandler = (rawMessage, client) => {
   const message = MessageParser(rawMessage)
   const permission = PermissionParser(rawMessage)
 
-  const Exceptions =
-    (!message.content.startsWith(PreferenceIndicator.App.Prefix)) ||
-    (!message.guild.me.hasPermission('SEND_MESSAGES')) ||
-    (!message._se.prompt in prompts) ||
-    (!PermissionParser.isValidFor(PromptIndicator[message._se.prompt].properties.requiredPermission, permission))
-  if (!Exceptions) {
+  const Exceptions = [
+    (message.content.startsWith(PreferenceIndicator.App.Prefix)),
+    (message.guild.me.hasPermission('SEND_MESSAGES')),
+    (message._se.prompt in prompts)
+  ]
+  if (!Exceptions.includes(false)) {
     EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
       try {
-        if (preference[`prompt.${message._se.prompt}`] === false) return
+        const PostExceptions =
+          (preference[`prompt.${message._se.prompt}`] === false) ||
+          (!PermissionParser.isValidFor(prompts[message._se.prompt].properties.requiredPermission, permission))
+        if (PostExceptions) return
 
         // NOTE: Paste extra values.
         message._se.permission = permission
