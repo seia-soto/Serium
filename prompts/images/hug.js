@@ -31,8 +31,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'hug',
-  description: 'Let me hug someone! also can be used with mention to hug someone.',
-  usage: 'hug [someone-or-mention]',
+  description: '누군가를 안게 해주세요! 안아주면 좋아하려나요...? 그럼 안될텐데...',
+  usage: 'hug [누군가]',
 
   requiredPermission: 'public'
 }

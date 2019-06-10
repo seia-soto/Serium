@@ -45,7 +45,7 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'configure',
-  description: 'Show current server perfereces status.',
+  description: '현재 서버 구성설정을 보여줍니다.',
   usage: 'configure',
 
   requiredPermission: 'staff'

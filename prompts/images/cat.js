@@ -16,7 +16,7 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'cat',
-  description: 'Real nyancats over the world.',
+  description: '이 세상에 존재하는 냥캣이라고요! *실제 냥캣*',
   usage: 'cat',
 
   requiredPermission: 'public'

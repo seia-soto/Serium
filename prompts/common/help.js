@@ -20,8 +20,7 @@ process.nextTick(() => {
   Object.keys(prompts).forEach(category => {
     const field = {
       name: category.charAt(0).toUpperCase() + category.slice(1),
-      value: '',
-      inline: true
+      value: ''
     }
 
     Object.keys(prompts[category]).forEach(prompt => field.value += '`' + prompt + '` ')
@@ -37,11 +36,11 @@ const Prompt = (message, client) => {
 
     message.channel.send({
       embed: {
-        title: `Help: ${properties.name}`,
+        title: `도움말: ${properties.name}`,
         description: properties.description,
         fields: [
           {
-            name: 'Usage',
+            name: '사용법',
             value: '``' + properties.usage + '``'
           }
         ],
@@ -56,8 +55,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'help',
-  description: 'Shows simple help documentation for this bot.',
-  usage: 'help [command]',
+  description: '이 앱에서 사용가능한 명령 셋을 가져옵니다.',
+  usage: 'help [명령]',
 
   requiredPermission: 'public'
 }

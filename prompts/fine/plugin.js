@@ -197,8 +197,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'plugin',
-  description: 'Extra command script space for users, also JavaScript based.',
-  usage: 'plugin (<set|remove|list> [plugin-name]> [script]|<plugin-name> [params])',
+  description: '서버 관리와 일부 유틸리티를 구성하기 위한 확장 플러그인 시스템입니다.',
+  usage: 'plugin (<set|remove|list> [플러그인 명칭]> [script]|<플러그인 명칭> [인수(선택적)])',
 
   alias: ['p'],
   requiredPermission: 'public'

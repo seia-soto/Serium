@@ -3,7 +3,7 @@ Fine:
 
 App:
   Token: ''
-  Prefix: 'se '
+  Prefix: 'sen '
   # Permissions as role id on Discord.
   Permissions:
     # Personal devop id; Discord User ID
@@ -11,7 +11,7 @@ App:
   WebClient: 'Mozilla/5.0 (Node.JS; v8js; rv:null) Request/^2.88.0 Serium/3.0.2'
   Captcha:
     size: 6
-    ignoreChars: '0o1il'
+    ignoreChars: '0o1i'
     noise: 4
     color: true
   # Include things outside of this preference.
@@ -33,3 +33,8 @@ Discord:
   EventOptions:
     guildMemberAdd:
       StartingRole: Pending verification
+# Internal ecosystem construction.
+Ecosystem:
+  Economy:
+    unit: Pin
+    dailyWages: 200

@@ -38,8 +38,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'anime',
-  description: 'Search anime on MyAnimeList.',
-  eval: 'anime <keyword>',
+  description: 'MyAnimeList에서 애니메이션을 검색합니다, 2D는 잘 몰라서 간단한 정보만 가져올거예요.',
+  eval: 'anime <키워드>',
 
   requiredPermission: 'public'
 }

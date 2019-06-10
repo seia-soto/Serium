@@ -42,8 +42,8 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'eval',
-  description: 'Run simple javascript on bot. *For developer by developer.*',
-  eval: 'eval <code>',
+  description: '앱에서 간단한 JavaScript를 실행합니다. *개발자를 위해, 개발자가.*',
+  eval: 'eval [코드]',
 
   requiredPermission: 'public'
 }

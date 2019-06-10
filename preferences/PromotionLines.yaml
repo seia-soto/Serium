@@ -1,5 +1,7 @@
 root:
-  description: "현재 서버의 구성설정을 참조하려면 `se configure`를 사용하세요
+  description: "현재 서버의 구성설정은 `se configure`를 사용하세요.
+  \n
+  특정 명령을 더 자세히 알아보려면 `se help [명령]`을 사용할 수 있는데, 이 때 사용법에 표시되는 대괄호는 선택적 인자, 등호는 필수 인자를 나타냅니다.
   \n\n
   [Sewritten 초대하기](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&redirect_uri=https%3A%2F%2Fauthentication.seia.io%2Fdiscordapp&scope=bot) |
   [서포트 서버](https://discordapp.com/invite/NjAjJqB) |
