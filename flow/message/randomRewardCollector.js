@@ -1,7 +1,7 @@
 const EndPreferenceIndicator = require('@structures/EndPreferenceIndicator')
 
 const isCollective = (maxPercentage, accptablePercentage) => {
-  return ((Math.round(Math.random() * maxPercentage) + 1) > accptablePercentage) ? true : false
+  return ((Math.round(Math.random() * maxPercentage) + 1) < accptablePercentage) ? true : false
 }
 const randomRewardCollector = message => {
   if (isCollective(100, 2)) {
