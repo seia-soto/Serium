@@ -54,6 +54,7 @@
   },
   "_moduleAliases": {
     "@root": ".",
+    "@flow": "./flow",
     "@handles": "./handles",
     "@preferences": "./preferences",
     "@prompts": "./prompts",

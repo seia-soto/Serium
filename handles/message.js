@@ -1,3 +1,4 @@
+const flow = require('@flow')
 const structures = require('@structures')
 
 const {EndPreferenceIndicator, MessageParser, PermissionParser, PreferenceIndicator, PromptIndicator, ReportException} = structures
@@ -36,7 +37,8 @@ const MessageHandler = (rawMessage, client) => {
     })
   }
 
-  ReportException(message, Exceptions)
+  // NOTE: Post tasks
+  flow.message(message)
 }
 
 module.exports = MessageHandler

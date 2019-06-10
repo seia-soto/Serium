@@ -6,7 +6,7 @@ const Prompt = (message, client) => {
   const mention = message.mentions.members.first()
 
   if (mention) {
-    if (!message._se.data[1] || isNaN(message._se.data[1])) return message.reply('얼마를 보내야 할 지 알려주세요!')
+    if (!message._se.data[1] || isNaN(message._se.data[1]) || Number(message._se.data[1]) < 0) return message.reply('얼마를 보내야 할 지 알려주세요!')
 
     message.reply('처리 중입니다... 잠시만 기다려주세요.').then(transferingMessage => {
       try {
