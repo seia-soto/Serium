@@ -38,3 +38,6 @@ Ecosystem:
   Economy:
     unit: Pin
     dailyWages: 200
+    randomWages:
+      amount: 2
+      percentage: 5
