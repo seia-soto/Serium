@@ -1,1 +1,4 @@
-module.exports.ko = require('./ko')
+const fs = require('fs')
+const YAML = require('js-yaml')
+
+module.exports.ko = YAML.safeLoad(fs.readFileSync('./ko.yaml'))

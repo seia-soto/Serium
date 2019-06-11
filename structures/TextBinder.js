@@ -10,4 +10,6 @@ const TextBinder = (text, parameters) => {
   return text
 }
 
+String.prototype.bind = TextBinder
+
 module.exports = TextBinder
