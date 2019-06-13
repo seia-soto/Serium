@@ -31,8 +31,7 @@ const MessageHandler = (rawMessage, client) => {
           message._se.permission = permission
           message._se.translates = translates['ko' /*userPreference.language*/].prompts[message._se.prompt]
           message._se.translates._language = 'ko'
-
-          console.log(message._se);
+          message._se.translates._errors = translates['ko'].errors
 
           // NOTE: Execution of function.
           prompts[message._se.prompt](message, client)
