@@ -7,4 +7,6 @@
 
 - discord.events.createMessage 에서 추가로 TextBinder 함수를 translate.bind 함수로 연결.
 
-(root) -> (lang) -> (categories...*)
+(root) -> (lang) -> (categories...\*)
+
+지금 기본 설정 언어 한국어

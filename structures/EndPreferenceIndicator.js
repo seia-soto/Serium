@@ -8,7 +8,8 @@ const defaultUserPreference = {
   economy: {
     shards: 0,
     lastConfirm: 0
-  }
+  },
+  language: 'en'
 }
 
 const getGuildSettings = identify => {

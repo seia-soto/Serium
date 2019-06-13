@@ -1,6 +1,6 @@
 {
   "name": "serium",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "Discord, there was an error that I am so busy.",
   "main": "index.js",
   "scripts": {
@@ -50,7 +50,7 @@
     "request": "^2.88.0",
     "sharp": "^0.22.1",
     "svg-captcha": "^1.3.12",
-    "vm2": "^3.8.1"
+    "vm2": "^3.8.2"
   },
   "_moduleAliases": {
     "@root": ".",
@@ -59,6 +59,7 @@
     "@preferences": "./preferences",
     "@prompts": "./prompts",
     "@structures": "./structures",
+    "@translates": "./translates",
     "@utils": "./utils"
   }
 }
