@@ -17,7 +17,7 @@
 		"help": {
 			"help": "도움말",
 			"detailed": {
-				"title": "{pluginName} 도움말",
+				"title": "도움말: {pluginName}",
 				"usage": "**사용법** `{usage}`"
 			}
 		},
