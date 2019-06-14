@@ -163,19 +163,15 @@
 			"onairDuration": "상영기간",
 			"publicScore": "평점"
 		},
-		"eval": {
-			"originalCode": "구문",
-			"result": "결과",
-			"scriptExecution": "JavaScript 실행에 {time}ms가 소요되었어요."
-		},
 		"search": {
 			"keywordMissing": "Google에 무엇을 물어보고 싶으신가요? 사실 Google이 모두 알고 있는 것은 맞잖아요.",
 			"nothingFound": "검색결과를 찾지 못했어요.",
 			"searchResultOf": "{keyword}에 대한 검색 결과예요."
 		},
 		"translate": {
-			"keywordMissing": "번역할 것을 줘보시겠어요? 실은 번역기지만요.",
-			"translateConversation": "**{from}**에서 **{to}**로 번역했습니다."
+			"translation": "번역",
+			"keywordMissing": "번역할 것과 목적어 언어 코드를 줘보시겠어요? 실은 번역기지만요.",
+			"translateConversation": "**{from}**에서 **{to}**로 번역했습니다.\n\n{result}"
 		}
 	}
 }
