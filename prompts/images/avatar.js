@@ -23,14 +23,14 @@ const Prompt = (message, client) => {
           url: user.user.avatarURL
         }
       } else {
-        return message.reply('누군지... 누군지 기억이 안 나는 걸까요? 모르겠어요!')
+        return message.reply(message._se.translates.userNotfound)
       }
     }
   }
   message.channel.send({
     embed: {
-      title: `${avatar.username}님의 프로필 사진이예요!`,
-      description: `[직접 링크](${avatar.url})`,
+      title: message._se.translates.avatarOf.bind({name: avatar.username}),
+      description: `[${message._se.directLink}](${avatar.url})`,
       image: {
         url: avatar.url
       }
@@ -39,8 +39,7 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'avatar',
-  description: '누군가의 프로필 사진을 가져옵니다.',
-  usage: 'avatar [누군가의 멘션, 닉네임 혹은 별명]',
+  usage: 'avatar [@mention, tag, username or nickname]',
 
   requiredPermission: 'public'
 }
