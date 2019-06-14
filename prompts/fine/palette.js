@@ -3,7 +3,7 @@ const Prompt = (message, client) => {
   const color = (message._se.data[0] || '').toLowerCase()
 
   if (!test) {
-    return message.reply('현재 서버에서 역할을 관리할 권한이 없습니다.')
+    return message.reply(message._se.translates.permissionMissing)
   }
 
   if (/#[a-f0-9]{3,6}/.test(color)) {
@@ -25,15 +25,14 @@ const Prompt = (message, client) => {
         message.member.addRole(role)
       })
     }
-    message.reply('Sewritten 사무국입니다, 닉네임에 색칠해봤어요...')
+    message.reply(message._se.translates.colorAccepted)
   } else {
-    message.reply('Sewritten 사무국입니다, 올바른 Hex 코드가 아니예요.')
+    message.reply(message._se.translates.invalidColor)
   }
 }
 const Properties = {
   name: 'palette',
-  description: '앱이 자동으로 서버에 역할을 생성하여 사용자의 닉네임에 색을 칠해줍니다.',
-  usage: 'palette #<HEX 색코드>',
+  usage: 'palette #<HEX Color>',
 
   requiredPermission: 'public'
 }

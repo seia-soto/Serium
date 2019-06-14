@@ -3,27 +3,26 @@ const EndPreferenceIndicator = require('@structures/EndPreferenceIndicator')
 const Prompt = (message, client) => {
   EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
     const toDisable = message._se.data[0]
-    if (!toDisable || typeof preference[toDisable] === 'undefined') return message.reply('정확히 뭘 비활성화해야 하는지 모르겠어요!')
+    if (!toDisable || typeof preference[toDisable] === 'undefined') return message.reply(message._se.translates.preferenceMissing)
 
     preference[toDisable] = false
 
     EndPreferenceIndicator.setGuildSettings(message.guild.id, preference)
-      .then(() => message.reply(`${toDisable} 항목을 비활성화했어요!`))
+      .then(() => message.reply(message._se.translates.disabled.bind({which: toDisable})))
       .catch(error => {
         console.error(error)
 
-        message.reply('앗... 잠시 서비스에 연결할 수가 없었어요, 나중에 다시시도해주시겠어요?')
+        message.reply(message._se.translates._errors.databaseFailure)
       })
   }).catch(error => {
     console.error(error)
 
-    message.reply('앗... 잠시 서비스에 연결할 수가 없었어요, 나중에 다시시도해주시겠어요?')
+    message.reply(message._se.translates._errors.databaseFailure)
   })
 }
 const Properties = {
   name: 'disable',
-  description: '서버 구성설정에서 원하는 것을 비활성화합니다.',
-  usage: 'disable <비활성화할 것>',
+  usage: 'disable <toDisable>',
 
   requiredPermission: 'staff'
 }

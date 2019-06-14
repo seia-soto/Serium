@@ -136,7 +136,7 @@
 			"added": "새 사용자 지정 플러그인 {pluginName}을 이 서버에 추가했어요.",
 			"deleted": "사용자 지정 플러그인 {pluginName}을 이 서버에서 삭제했어요.",
 			"nothingFound": "이 서버에는 {pluginName}과 같은 플러그인이 없어요. 혹시 오타가 난 것은 아닌지 확인해주세요.",
-			"nothingExists": "이 서버에는 아직 추가될 사용자 지정 플러그인이 없어요.",
+			"nothingExists": "이 서버에는 아직 추가된 사용자 지정 플러그인이 없어요.",
 			"errorDuringExecution": "플러그인을 실행하는 중에 오류가 발생했어요."
 		},
 		"avatar": {
