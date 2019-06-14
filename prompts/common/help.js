@@ -35,7 +35,11 @@ const Prompt = (message, client) => {
     message.channel.send({
       embed: {
         title: message._se.translates.help,
-        description: message._se.translates.description,
+        description: message._se.translates.description.bind({
+          githubLink: 'https://github.com/Serium-Departments/Serium',
+          inviteLink: 'https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&redirect_uri=https%3A%2F%2Fauthentication.seia.io%2Fdiscordapp&scope=bot',
+          supportServerLink: 'https://discordapp.com/invite/NjAjJqB'
+        }),
         fields: PromptMap
       }
     })
