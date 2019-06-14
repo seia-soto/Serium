@@ -124,6 +124,11 @@
 			"preferenceMissing": "정확히 무엇을 활성화해야 하는지 모르겠어요. 해당 설정이 사용가능하거나 오타가 있는지 확인해주세요.",
 			"disabled": "{which} 항목을 활성화했어요!"
 		},
+		"language": {
+			"checkedOut": "언어를 *{language}*로 변경했어요.",
+			"unsupported": "*{language}*은(는) 아직 지원하지 않습니다.",
+			"current": "현재 *{language}*을(를) 사용 중이예요."
+		},
 		"palette": {
 			"permissionMissing": "현재 서버에서 역할을 관리할 권한이 없어 아직은 색을 칠할 수가 없어요.",
 			"invalidColor": "올바른 HEX 코드가 아니예요. `se palette #ff9999`와 같이 입력해주세요.",
