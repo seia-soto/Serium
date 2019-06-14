@@ -1,3 +1,0 @@
-CREATE TABLE `database_name`.`serium_servers` ( `idx` INT(9) NOT NULL AUTO_INCREMENT , `identify` TEXT(16) NOT NULL , `preference` VARCHAR(2048) NOT NULL DEFAULT '{"prompt.palette":true,"guildMemberAdd.verifyCaptcha":true}' , PRIMARY KEY (`idx`) ) ENGINE = InnoDB;
-CREATE TABLE `database_name`.`serium_users` ( `idx` INT(9) NOT NULL AUTO_INCREMENT , `identify` TEXT NOT NULL , `preference` VARCHAR(2048) NOT NULL DEFAULT '{"economy":{"shards":0,"lastConfirm":0}}' , PRIMARY KEY (`idx`)) ENGINE = InnoDB;
-CREATE TABLE `database_name`.`serium_plugins` ( `idx` INT(9) NOT NULL AUTO_INCREMENT , `identify` TEXT(16) NOT NULL , `name` VARCHAR(16) NOT NULL , `script` VARCHAR(2048) NOT NULL , PRIMARY KEY (`idx`) ) ENGINE = InnoDB;

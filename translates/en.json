@@ -1,0 +1,183 @@
+{
+	"errors": {
+		"databaseFailure": "Sorry for inconvenience. Task was canceled due to service platform connection faliure.",
+		"apiFailure": "Sorry for inconvenience. Task was canceled during connecting to external API.",
+		"unknownFailure": "Sorry for inconvenience. Service was failed."
+	},
+	"events": {
+		"guildMemberAdd": {
+			"captchaVerification": {
+				"required": "Please write here the letters written on image in {minutes} minutes.",
+				"resolved": "Thank you for taking your time.",
+				"failed": "Failed verifying captcha. If you want to try again, please join this server again."
+			}
+		}
+	},
+	"prompts": {
+		"help": {
+			"help": "Help",
+      "description": "Thank you for using *Serium*. This application is [open-source project]({githubLink}) developed with :heart:.\n[Invite]({inviteLink}) | [Support server]({supportServerLink}) | [View on web]({webLink})\n\nIf you want to configure this server, please type `se configure`.",
+			"detailed": {
+				"title": "Help: {pluginName}",
+				"usage": "**Usage** `{usage}`"
+			}
+		},
+		"ping": {
+			"currentLatency": "Again...! {latency}ms taken!"
+		},
+		"say": {
+			"stringMissing": "I don't know what to send :/"
+		},
+		"serverinfo": {
+			"filters": {
+				"explicitContentFilter": [
+					"Ain't no party like my grandma's tea party. So **Don't scan any messages.**",
+					"**Scan messages from members without a role.** Recommended option for servers that use roles for trusted membership.",
+					"**Scan messages sent by all members.** Recommended option for when you want that squeaky clean shine."
+				],
+				"verificationLevel": [
+					"**None**, Unrestricted",
+					"**Low**, Must have a verified email on their Discord account.",
+					"**Medium**, Must also be registered on Discord for longer than 5 minutes.",
+					"**(╯°□°）╯︵ ┻━┻**, Must also be a member of this server for longer than 10 minutes.",
+					"**┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻**, Must have a verified phone on their Discord account."
+				],
+				"mfaLevel": [
+					"Server two-factor authentication is disabled.",
+					"Server two-factor authentication is enabled."
+				],
+				"regions": {
+					"brazil": ":flag_br: Brazil",
+					"eu-central": ":flag_eu: Central Europe",
+					"hongkong": ":flag_hk: Hong Kong",
+					"india": ":flag_in: India",
+					"japan": ":flag_jp: Japan",
+					"russia": ":flag_ru: Russia",
+					"singapore": ":flag_sg: Singapore",
+					"southafrica": ":flag_za: South Africa",
+					"sydney": ":flag_au: Sydney",
+					"us-central": ":flag_us: US Central",
+					"us-east": ":flag_us: US East",
+					"us-south": ":flag_us: US South",
+					"us-west": ":flag_us: US West",
+					"eu-west": ":flag_eu: Western Europe"
+				},
+				"defaultMessageNotifications": {
+					"all": "All Messages",
+					"mentions": "Only @mentions"
+				}
+			},
+			"channels": "**{channelSize} Channels** ({textChannelSize} text channels, {voiceChannelSize} voice channels)\n",
+			"emojis": "**{emojiSize} Emojis** ({animatedEmojiSize} animated emojis)\n",
+			"members": "**{userSize} Users** ({botUserSize} bots, {onlineUserSize} online, {playingUserSize} playing a game, {webappUserSize} using web client, {mobileUserSize} using mobile, {desktopUserSize} using desktop)\n",
+			"roles": "**Roles {roleSize}개**",
+			"afkChannel": "Afk Channel",
+			"afkChannelName": ":loud_sound: {afkChannel}",
+			"afkChannelNotfound": "No channel",
+			"afkTimeout": "Afk Timeout",
+			"afkTimeoutStatus": "{time} seconds",
+			"serverAbility": "Server Ability",
+			"serverAbilityAvailable": ":sparkling_heart: Available",
+			"serverAbilityUnavailable": ":broken_heart: Unavailable",
+			"owner": "Owner",
+			"identify": "ID",
+			"region": "Region",
+			"createdAt": "Server creation date",
+			"createAtFormat": "YYYY/MM/DD dddd A h:m:s",
+			"defaultMessageNotifications": "Default notification settings",
+			"defaultMessageNotificationsForAllMessages": "All Messages",
+			"defaultMessageNotificationsOnlyMention": "Only @mentions",
+			"explicitContentFilter": "Explicit content filter",
+			"verificationLevel": "Verification level",
+			"mfaLevel": "Server two-factor authentication"
+		},
+		"balance": {
+			"currency": "{name} has {balance} {unit}."
+		},
+		"daily": {
+			"added": "Added {dailyWages} {unit} to your account.",
+			"alreadyRecieved": "You already earned today. You can do it after {time}."
+		},
+		"transfer": {
+			"amountMissing": "You didn't typed how much you want to send.",
+			"destinationMissing": "You didn't typed who you want to send.",
+			"invalidNumber": "{unit} that you want to send is not valid format.",
+			"invalidAmount": "{unit} that you're going to send is bigger than you have.",
+			"working": "Please wait...",
+			"success": "Send {amount} {unit} to {destination}."
+		},
+		"configure": {
+			"namespaces": {
+				"prompt.palette": "Name palette",
+				"guildMemberAdd.verifyCaptcha": "Captcha verification for new members"
+			},
+			"configurationTip": "This is current preferences for server. You can configure detailed preferences with `se <enable|disable> [preferenceName]`.",
+			"extendedAs": {
+				"prompt": "Extended as command",
+				"event": "Extended as event"
+			}
+		},
+		"disable": {
+			"preferenceMissing": "I don't know what you want to disable. Please check if you typed all ok or setting is available.",
+			"disabled": "Disabled {which}!"
+		},
+		"enable": {
+			"preferenceMissing": "I don't know what you want to enable. Please check if you typed all ok or setting is available.",
+			"disabled": "Enabled {which}!"
+		},
+		"language": {
+			"checkedOut": "Changed language to *{language}*.",
+			"unsupported": "*{language}* is not supported yet.",
+			"current": "You're using *{language}*."
+		},
+		"palette": {
+			"permissionMissing": "I cannot paint your nickname because I don't have any permission to edit roles.",
+			"invalidColor": "It is not valid HEX code. You can type like `se palette #ff9999`.",
+			"colorAccepted": "Painted! If you don't like this, please tell me again."
+		},
+		"plugin": {
+			"permissionMissing": "You need administration permission on this server to add or delete custom plugin on this server.",
+			"maximumLimitReached": "Already you set a lot of plugins, you can set maximum {amount} plugins per server.",
+			"maximumNameLengthExceeded": "Name of user customizable plugin must be shorter than or equal to 12.",
+			"added": "Added new user customizable plugin {pluginName} to this server.",
+			"deleted": "Deleted user customizable plugin {pluginName} from this server.",
+			"nothingFound": "There is no plugin named as {pluginName}. Please check you have typo-error.",
+			"nothingExists": "There is no user customizable plugin added in this server.",
+			"errorDuringExecution": "There was an error during execution of plugin."
+		},
+		"avatar": {
+			"userNotfound": "I couldn't find anyone like that name or nickname.",
+			"avatarOf": "It is avatar of {name}!",
+			"directLink": "Direct link"
+		},
+		"cat": {
+			"state": "It is real cat not something like neko, or neko, and neko."
+		},
+		"hug": {
+			"state": "Oops... You're being hugged yourself?",
+			"betweenTwoMember": "{firstMember} hugged {secondMember} just now."
+		},
+		"kiss": {
+			"state": "I am sorry about kissing yourself.",
+			"betweenTwoMember": "{firstMember} kissed {secondMember} just now."
+		},
+		"neko": {
+			"state": "It is cute enough, but myself is more...!"
+		},
+		"anime": {
+			"keywordMissing": "What anime you're searching for? I'll appreciate if you give a keyword.",
+			"onairDuration": "Onair duration",
+			"publicScore": "Score"
+		},
+		"search": {
+			"keywordMissing": "What do you want to ask Google? It is fact that Google knows everything.",
+			"nothingFound": "I couldn't found anything.",
+			"searchResultOf": "Search result of {keyword}"
+		},
+		"translate": {
+			"translation": "Translate",
+			"keywordMissing": "May I get something need translate and destination language code in two char? However, the fact is translator.",
+			"translateConversation": "Translated **{from}** to **{to}**.\n\n{result}"
+		}
+	}
+}

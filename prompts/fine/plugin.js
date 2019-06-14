@@ -36,14 +36,14 @@ const Prompt = (message, client) => {
     if (connectionError) {
       connection.release()
 
-      return message.reply('앗... 잠시 서비스에 연결할 수가 없었어요, 나중에 다시시도해주시겠어요?')
+      return message.reply(message._se.translates._errors.databaseFailure)
     }
 
     connection.query(`SELECT * FROM serium_plugins WHERE identify = ${message.guild.id}`, (queryError, results) => {
       if (queryError) {
         connection.release()
 
-        return message.reply('앗... 잠시 서비스에 연결할 수가 없었어요, 나중에 다시시도해주시겠어요?')
+        return message.reply(message._se.translates._errors.databaseFailure)
       }
 
       const plugins = new Array()
@@ -57,17 +57,17 @@ const Prompt = (message, client) => {
           if (!PermissionParser.isValidFor('staff', message._se.permission)) {
             connection.release()
 
-            return message.reply('이 서버에 플러그인을 추가하려면 관리자 권한이 필요해요!')
+            return message.reply(message._se.translates.permissionMissing)
           }
           if (results.length >= 50) {
             connection.release()
 
-            return message.reply('이미 너무 많은 플러그인을 설정하여 더 많은 플러그인을 설정할 수 없었어요!')
+            return message.reply(message._se.translates.maximumLimitReached.bind({amount: 50}))
           }
           if (opts.name.length > 12) {
             connection.release()
 
-            return message.reply('플러그인 이름은 12자 이하여야 해요.')
+            return message.reply(message._se.translates.maximumNameLengthExceeded)
           }
 
           connection.query(`SELECT * FROM serium_plugins WHERE identify = ? AND name = ?`, [message.guild.id, opts.name], (queryError, results) => {
@@ -79,10 +79,10 @@ const Prompt = (message, client) => {
             connection.query(toExecute, queryError => {
               connection.release()
               if (queryError) {
-                return message.reply('잠시 서비스에 문제가 생겨 플러그인을 지정하지 못했어요! 다시시도해주시겠어요?')
+                return message.reply(message._se.translates._errors.databaseFailure)
               }
 
-              message.reply(`${opts.name} 플러그인을 지정했어요!`)
+              message.reply(message._se.translates.added.bind({pluginName: opts.name}))
             })
           })
           break;
@@ -90,26 +90,26 @@ const Prompt = (message, client) => {
           if (!PermissionParser.isValidFor('staff', message._se.permission)) {
             connection.release()
 
-            return message.reply('이 서버에서 플러그인을 제거하려면 관리자 권한이 필요해요!')
+            return message.reply(message._se.translates.permissionMissing)
           }
           if (opts.name.length > 12) {
             connection.release()
 
-            return message.reply('플러그인 이름은 12자 이하여야 해요.')
+            return message.reply(message._se.translates.maximumNameLengthExceeded)
           }
 
           if (plugins.indexOf(opts.name) === -1) {
             connection.release()
 
-            return message.reply('그런 이름을 가진 플러그인을 찾을 수 없었어요!')
+            return message.reply(message._se.translates.nothingFound.bind({pluginName: opts.name}))
           } else {
             connection.query(`DELETE FROM serium_plugins WHERE identify = ? AND name = ?`, [message.guild.id, opts.name], removalError => {
               connection.release()
 
-              if (removalError) return message.reply('잠시 서비스에 문제가 생겨 플러그인을 삭제하지 못했어요! 다시시도해주시겠어요?')
+              if (removalError) return message.reply(message._se.translates.databaseFailure)
             })
 
-            message.reply(`${opts.name} 플러그인을 삭제했어요!`)
+            message.reply(message._se.translates.deleted.bind({pluginName: opts.name}))
           }
           break;
         case 'list':
@@ -117,8 +117,8 @@ const Prompt = (message, client) => {
 
           message.channel.send({
             embed: {
-              title: `${message.guild.name}의 플러그인`,
-              description: plugins.join(', ') || '현재 추가된 플러그인이 없습니다!'
+              title: message.guild.name,
+              description: plugins.join(', ') || message._se.translates.nothingExists
             }
           })
           break;
@@ -136,10 +136,12 @@ const Prompt = (message, client) => {
           if (plugins.indexOf(opts.action) === -1) {
             connection.release()
 
-            return message.reply('그런 이름을 가진 플러그인을 찾을 수 없었어요!')
+            return message.reply(message._se.translates.nothingFound.bind({pluginName: opts.name}))
           } else {
             const dataStoreName = getDataStoreName(message.guild.id, opts.action)
             const pluginData = loadPluginData(dataStoreName)
+
+            let postCounter = 0
 
             try {
               const virtualEnvironment = new VM({
@@ -168,7 +170,15 @@ const Prompt = (message, client) => {
                     name: message.channel.name,
                     id: message.channel.id
                   },
-                  post: toPost => message.channel.send((toPost || '(empty?)').toString().split('').slice(0, 2000).join('')),
+                  post: toPost => {
+                    if (postCounter > 4) {
+                      return
+                    } else {
+                      postCounter++
+                    }
+
+                    message.channel.send((toPost || '(empty?)').toString().split('').slice(0, 2000).join(''))
+                  },
 
                   // NOTE: Plug-in data store managements: Internal Data Store Bukkit
                   idsb: {
@@ -186,7 +196,7 @@ const Prompt = (message, client) => {
 
               virtualEnvironment.run(results.find(result => result.name === opts.action).script)
             } catch (error) {
-              message.reply(`플러그인 실행 중에 오류가 발생했어요!\n${'```javascript\n' + error + '```'}`)
+              message.reply(`${message._se.translates.errorDuringExecution}\n${'```javascript\n' + error + '```'}`)
             }
 
             connection.release()
@@ -197,8 +207,7 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'plugin',
-  description: '서버 관리와 일부 유틸리티를 구성하기 위한 확장 플러그인 시스템입니다.',
-  usage: 'plugin (<set|remove|list> [플러그인 명칭]> [script]|<플러그인 명칭> [인수(선택적)])',
+  usage: 'plugin (<set|remove|list> [pluginName] [script]|<pluginName> [parameters])',
 
   alias: ['p'],
   requiredPermission: 'public'

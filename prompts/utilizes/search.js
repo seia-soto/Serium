@@ -5,7 +5,7 @@ search.resultsPerPage = 1
 
 const Prompt = (message, client) => {
   if (!message._se.data[0]) {
-    return message.reply('으... 서기한테 너무 무례하게도 검색을 하라면서 검색어는 주시지도 않았어요!')
+    return message.reply(message._se.translates.search.keywordMissing)
   } else {
     const keyword = message._se.data.join(' ')
 
@@ -13,10 +13,10 @@ const Prompt = (message, client) => {
       if (error) {
         console.error(error)
 
-        return message.reply('앗... 지금은 Google에 연결할 수 없었어요!')
+        return message.reply(message._se.translates.unknownFailure)
       }
       if (!response.links[0]) {
-        return message.reply('검색을 해봤는데, 자료가 없어요!')
+        return message.reply(message._se.translates.nothingFound)
       }
 
       message.channel.send({
@@ -25,7 +25,7 @@ const Prompt = (message, client) => {
           description: response.links[0].description,
           url: response.links[0].href,
           footer: {
-            text: `${keyword}에 대한 검색 결과예요!`
+            text: message._se.translates.searchResultOf.bind({keyword: keyword})
           }
         }
       })
@@ -34,8 +34,7 @@ const Prompt = (message, client) => {
 }
 const Properties = {
   name: 'search',
-  description: 'Google은 모든 것을 알고 있어요.',
-  usage: 'search <키워드>',
+  usage: 'search <keyword>',
 
   requiredPermission: 'public'
 }

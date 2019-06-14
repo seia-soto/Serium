@@ -1,0 +1,183 @@
+{
+	"errors": {
+		"databaseFailure": "편의에 불편을 드려 죄송합니다. 서비스 플랫폼 연결에 실패하여 현재 작업이 취소되었습니다.",
+		"apiFailure": "편의에 불편을 드려 죄송합니다. 외부 API 연결 중에 문제가 발생하여 현재 작업이 취소되었습니다.",
+		"unknownFailure": "편의에 불편을 드려 죄송합니다. 서비스에 실패했습니다."
+	},
+	"events": {
+		"guildMemberAdd": {
+			"captchaVerification": {
+				"required": "아래의 이미지에 적혀진 문자를 {minutes}분 내에 입력해주세요.",
+				"resolved": "시간 내 주셔서 감사합니다!",
+				"failed": "캡챠 검증에 실패했습니다. 다시시도하려면 서버에 재입장해주세요."
+			}
+		}
+	},
+	"prompts": {
+		"help": {
+			"help": "도움말",
+			"description": "*Serium*을 사용해주셔서 감사합니다. 이 앱은 :heart:와 함께 개발된 [오픈소스 프로젝트]({githubLink})입니다.\n[초대]({inviteLink}) | [지원 서버]({supportServerLink}) | [웹에서 보기]({webLink})\n\n현재 서버를 세부 설정하고 싶으시다면, `se configure`를 입력해주세요.",
+			"detailed": {
+				"title": "도움말: {pluginName}",
+				"usage": "**사용법** `{usage}`"
+			}
+		},
+		"ping": {
+			"currentLatency": "다시...! {latency}ms가 소요되었어요!"
+		},
+		"say": {
+			"stringMissing": "저는 뭘 보내야 할 지 결정하지 못했어요 :/"
+		},
+		"serverinfo": {
+			"filters": {
+				"explicitContentFilter": [
+					"할머니 댁에서 과자를 먹으며 놀던 그 느낌으로 **메세지를 스캔하지 않습니다.**",
+					"확인된 사용자를 위한 역할이 구비된 서버를 위해 **역할이 없는 사용자의 메세지를 스캔합니다.**",
+					"아주 깨끗한 채팅 환경을 원할 시에는 **모든 멤버의 메세지를 스캔합니다.**"
+				],
+				"verificationLevel": [
+					"**없음**, 제한 없음",
+					"**낮음**, 자신의 Discord 계정이 이메일 인증을 받은 적이 있어야 합니다.",
+					"**중간**, 추가로 Discord에 가입한지 5분이 지나야 합니다.",
+					"**(╯°□°）╯︵ ┻━┻**, 추가로 이 서버의 멤버가 된 지 10분이 지나야 합니다.",
+					"**┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻**, 전화 인증이 완료된 Discord 계정이어야 합니다."
+				],
+				"mfaLevel": [
+					"서버 2단계 인증이 비활성화되어 있습니다.",
+					"서버 2단계 인증이 활성화되어 있습니다."
+				],
+				"regions": {
+					"brazil": ":flag_br: 브라질",
+					"eu-central": ":flag_eu: 중유럽",
+					"hongkong": ":flag_hk: 홍콩",
+					"india": ":flag_in: 인도",
+					"japan": ":flag_jp: 일본",
+					"russia": ":flag_ru: 러시아",
+					"singapore": ":flag_sg: 싱가포르",
+					"southafrica": ":flag_za: 남아프리카",
+					"sydney": ":flag_au: 시드니",
+					"us-central": ":flag_us: 미국 중부",
+					"us-east": ":flag_us: 미국 동부",
+					"us-south": ":flag_us: 미국 남부",
+					"us-west": ":flag_us: 미국 서부",
+					"eu-west": ":flag_eu: 서유럽"
+				},
+				"defaultMessageNotifications": {
+					"all": "모든 메세지",
+					"mentions": "@mentions만"
+				}
+			},
+			"channels": "**채널 {channelSize}개** (텍스트 채널 {textChannelSize}개, 음성 채널 {voiceChannelSize}개)\n",
+			"emojis": "**이모지 {emojiSize}개** (움직이는 이모지 {animatedEmojiSize}개)\n",
+			"members": "**사용자 {userSize}명** (봇 {botUserSize}개, {onlineUserSize}명 접속 중, {playingUserSize}명 게임 플레이 중, {webappUserSize}명 웹 클라이언트 사용 중, {mobileUserSize}명 모바일 사용 중, {desktopUserSize}명 데스크톱 사용 중)\n",
+			"roles": "**역할 {roleSize}개**",
+			"afkChannel": "잠수 채널",
+			"afkChannelName": ":loud_sound: {afkChannel}",
+			"afkChannelNotfound": "채널 없음",
+			"afkTimeout": "잠수 제한시간",
+			"afkTimeoutStatus": "{time}초",
+			"serverAbility": "서버 가용성",
+			"serverAbilityAvailable": ":sparkling_heart: 사용가능",
+			"serverAbilityUnavailable": ":broken_heart: 사용할 수 없음",
+			"owner": "소유자",
+			"identify": "ID",
+			"region": "지역",
+			"createdAt": "서버 생성일",
+			"createAtFormat": "YYYY년 MM월 DD일 dddd A h시 m분 s초",
+			"defaultMessageNotifications": "기본 알림 설정",
+			"defaultMessageNotificationsForAllMessages": "모든 메세지",
+			"defaultMessageNotificationsOnlyMention": "@mentions만",
+			"explicitContentFilter": "유해 콘텐츠 필터",
+			"verificationLevel": "보안 수준",
+			"mfaLevel": "서버 2단계 인증"
+		},
+		"balance": {
+			"currency": "{name}님은 {balance} {unit}만큼 소유하고 있어요."
+		},
+		"daily": {
+			"added": "{dailyWages} {unit}만큼 계정에 추가했어요.",
+			"alreadyRecieved": "이미 오늘 용돈을 지급받아 {time}에 다시 사용가능해요."
+		},
+		"transfer": {
+			"amountMissing": "얼마를 보내야 할 지 입력하지 않으셨어요.",
+			"destinationMissing": "누구에게 보내야 하는지 입력하지 않으셨어요.",
+			"invalidNumber": "보내시려는 {unit}이 올바른 숫자가 아니예요.",
+			"invalidAmount": "보내시려는 {unit}가 현재 소유하고 계신 {unit}보다 더 커요.",
+			"working": "잠시만 기다려주세요...",
+			"success": "{destination}님에게 {amount} {unit}만큼 보냈어요."
+		},
+		"configure": {
+			"namespaces": {
+				"prompt.palette": "네임 파레트",
+				"guildMemberAdd.verifyCaptcha": "새 멤버에 대한 캡챠 검증"
+			},
+			"configurationTip": "현재 서버에 대한 구성설정입니다. `se <enable|disable> [preferenceName]`과 같이 세부 구성을 설정할 수 있습니다.",
+			"extendedAs": {
+				"prompt": "명령 확장",
+				"event": "이벤트 확장"
+			}
+		},
+		"disable": {
+			"preferenceMissing": "정확히 무엇을 비활성화해야 하는지 모르겠어요. 해당 설정이 사용가능하거나 오타가 있는지 확인해주세요.",
+			"disabled": "{which} 항목을 비활성화했어요!"
+		},
+		"enable": {
+			"preferenceMissing": "정확히 무엇을 활성화해야 하는지 모르겠어요. 해당 설정이 사용가능하거나 오타가 있는지 확인해주세요.",
+			"disabled": "{which} 항목을 활성화했어요!"
+		},
+		"language": {
+			"checkedOut": "언어를 *{language}*로 변경했어요.",
+			"unsupported": "*{language}*은(는) 아직 지원하지 않습니다.",
+			"current": "현재 *{language}*을(를) 사용 중이예요."
+		},
+		"palette": {
+			"permissionMissing": "현재 서버에서 역할을 관리할 권한이 없어 아직은 색을 칠할 수가 없어요.",
+			"invalidColor": "올바른 HEX 코드가 아니예요. `se palette #ff9999`와 같이 입력해주세요.",
+			"colorAccepted": "닉네임에 색칠했어요! 혹시 맘에 안 드신다면 다시 말해주세요."
+		},
+		"plugin": {
+			"permissionMissing": "서버에 사용자 지정 플러그인을 추가하거나 제거하려면 관리자 권한이 필요해요.",
+			"maximumLimitReached": "이미 너무 많은 플러그인을 설정했어요, 현재 서버 당 최대 {amount}개의 플러그인을 설정할 수 있습니다.",
+			"maximumNameLengthExceeded": "사용자 지정 플러그인의 이름은 12자 이하여야 해요.",
+			"added": "새 사용자 지정 플러그인 {pluginName}을 이 서버에 추가했어요.",
+			"deleted": "사용자 지정 플러그인 {pluginName}을 이 서버에서 삭제했어요.",
+			"nothingFound": "이 서버에는 {pluginName}과 같은 플러그인이 없어요. 혹시 오타가 난 것은 아닌지 확인해주세요.",
+			"nothingExists": "이 서버에는 아직 추가된 사용자 지정 플러그인이 없어요.",
+			"errorDuringExecution": "플러그인을 실행하는 중에 오류가 발생했어요."
+		},
+		"avatar": {
+			"userNotfound": "그런 이름 혹은 별명을 가진 사용자를 찾지 못했어요.",
+			"avatarOf": "{name}님의 프로필 사진이예요!",
+			"directLink": "직접 링크"
+		},
+		"cat": {
+			"state": "네코라던지, 네코라던지, 네코라던지가 아닌 진짜 고양이 사진이예요."
+		},
+		"hug": {
+			"state": "앗... 스스로 안으시는 건가요?",
+			"betweenTwoMember": "{firstMember}님이 {secondMember}님을 안아주었어요."
+		},
+		"kiss": {
+			"state": "스스로 키스하시는 것에 대해서 유감을 표할게요.",
+			"betweenTwoMember": "{firstMember}님이 {secondMember}님에게 방금... 키스했었어요!"
+		},
+		"neko": {
+			"state": "충분히 귀여워요, 저만큼은 아니겠지만요...!"
+		},
+		"anime": {
+			"keywordMissing": "어떤 애니메이션을 찾으시고 계신가요? 검색어를 주신다면 감사하겠어요.",
+			"onairDuration": "상영기간",
+			"publicScore": "평점"
+		},
+		"search": {
+			"keywordMissing": "Google에 무엇을 물어보고 싶으신가요? 사실 Google이 모두 알고 있는 것은 맞잖아요.",
+			"nothingFound": "검색결과를 찾지 못했어요.",
+			"searchResultOf": "{keyword}에 대한 검색 결과예요."
+		},
+		"translate": {
+			"translation": "번역",
+			"keywordMissing": "번역할 것과 목적어 언어 코드를 줘보시겠어요? 실은 번역기지만요.",
+			"translateConversation": "**{from}**에서 **{to}**로 번역했습니다.\n\n{result}"
+		}
+	}
+}

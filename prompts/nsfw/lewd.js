@@ -2,25 +2,24 @@ const NekosLifeAPI = require('@structures/NekosLifeAPI')
 
 const Prompt = (message, client) => {
   if (!message.channel.nsfw) {
-    message.reply('실은 이런 일은 처리하지 않는다냥?')
+    message.reply('*You need to run command on **NSFW** channel.*')
   } else {
     NekosLifeAPI.nsfw.neko().then(response => {
       message.channel.send({
         embed: {
-          title: '으엥...  이런거 몰라도 되는거 아니야?',
+          title: 'Lewd',
           image: {
             url: response.url
           }
         }
       })
     }).catch(error => {
-      message.reply('미안, 네코씨는 지금 너랑 놀기가 싫다고... 한 번 더 불러봐!')
+      message.reply(message._se.translates._errors.apiFailure)
     })
   }
 }
 const Properties = {
   name: 'lewd',
-  description: 'LEWD is not recommended at all.',
   usage: 'lewd',
 
   requiredPermission: 'public'

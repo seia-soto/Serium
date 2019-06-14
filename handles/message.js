@@ -1,7 +1,9 @@
 const flow = require('@flow')
 const structures = require('@structures')
+const translates = require('@translates')
 
 const {EndPreferenceIndicator, MessageParser, PermissionParser, PreferenceIndicator, PromptIndicator, ReportException} = structures
+
 const prompts = PromptIndicator
 
 const MessageHandler = (rawMessage, client) => {
@@ -17,24 +19,27 @@ const MessageHandler = (rawMessage, client) => {
     (message._se.prompt in prompts)
   ]
   if (!Exceptions.includes(false)) {
-    EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
+    EndPreferenceIndicator.getGuildSettings(message.guild.id).then(guildPreference => {
       try {
         const PostExceptions =
-          (preference[`prompt.${message._se.prompt}`] === false) ||
+          (guildPreference[`prompt.${message._se.prompt}`] === false) ||
           (!PermissionParser.isValidFor(prompts[message._se.prompt].properties.requiredPermission, permission))
         if (PostExceptions) return
 
-        // NOTE: Paste extra values.
-        message._se.permission = permission
+        EndPreferenceIndicator.getUserSettings(message.author.id).then(userPreference => {
+          // NOTE: Paste extra values.
+          message._se.permission = permission
+          message._se.translates = translates[userPreference.language].prompts[message._se.prompt]
+          message._se.translates._language = userPreference.language
+          message._se.translates._errors = translates[userPreference.language].errors
 
-        // NOTE: Execution of function.
-        prompts[message._se.prompt](message, client)
+          // NOTE: Execution of function.
+          prompts[message._se.prompt](message, client)
+        }).catch(error => console.error(error))
       } catch (error) {
         console.error(error)
       }
-    }).catch(error => {
-      console.error(error)
-    })
+    }).catch(error => console.error(error))
   }
 
   // NOTE: Post tasks

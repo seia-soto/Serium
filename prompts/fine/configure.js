@@ -2,25 +2,22 @@ const structures = require('@structures')
 
 const {CaseSensitive, EndPreferenceIndicator} = structures
 
-const namespaces = {
-  'prompt.palette': '네임 파레트',
-  'guildMemberAdd.verifyCaptcha': '새 멤버에 대한 캡챠 검증'
-}
-
 const Prompt = (message, client) => {
+  const namespaces = message._se.translates.namespaces
+
   EndPreferenceIndicator.getGuildSettings(message.guild.id).then(preference => {
     // NOTE: View of current per server preference.
     let embed = {
       embed: {
         title: message.guild.name,
-        description: '현재 서버에 대한 구성 설정이예요! `se <enable|disable> [prefName]`와 같이 세부 구성을 수정할 수 있습니다.',
+        description: message._se.translates.configurationTip,
         fields: [
           {
-            name: '명령 확장',
+            name: message._se.translates.extendedAs.prompt,
             value: ''
           },
           {
-            name: '이벤트 확장',
+            name: message._se.translates.extendedAs.event,
             value: ''
           }
         ]
@@ -40,12 +37,11 @@ const Prompt = (message, client) => {
   }).catch(error => {
     console.error(error)
 
-    message.reply('앗... 잠시 서비스에 연결할 수가 없었어요, 나중에 다시시도해주시겠어요?')
+    message.reply(message._se.translates._errors.databaseFailure)
   })
 }
 const Properties = {
   name: 'configure',
-  description: '현재 서버 구성설정을 보여줍니다.',
   usage: 'configure',
 
   requiredPermission: 'staff'

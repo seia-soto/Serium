@@ -5,18 +5,17 @@ const Prompt = (message, client) => {
     .then(data => {
       message.channel.send({
         embed: {
-          title: '냥냥... 사실 이게 진짜 고양이라고요!',
+          title: message._se.translates.state.bind,
           image: {
             url: JSON.parse(data)[0].url
           }
         }
       })
     })
-    .catch(error => message.reply('고양이.. 지금은 자고 있나?'))
+    .catch(error => message.reply(message._se.translates._errors.apiFailure))
 }
 const Properties = {
   name: 'cat',
-  description: '이 세상에 존재하는 냥캣이라고요! *실제 냥캣*',
   usage: 'cat',
 
   requiredPermission: 'public'
