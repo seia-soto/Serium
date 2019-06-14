@@ -7,11 +7,11 @@ const Prompt = (message, client) => {
   EndPreferenceIndicator.getUserSettings(message.author.id).then(preference => {
     if (message._se.data[0]) {
       if (message._se.data[0] in translates) {
-        preference.langauge = message._se.data[0]
+        preference.language = message._se.data[0]
 
         EndPreferenceIndicator.setUserSettings(message.author.id, preference).then(() => message.reply(message._se.translates.checkedOut.bind({language: message._se.data[0]})))
       } else {
-        message.reply(message._se.translates.unsupported.bind({langauge: message._se.data[0]}))
+        message.reply(message._se.translates.unsupported.bind({language: message._se.data[0]}))
       }
     } else {
       message.channel.send(message._se.translates.current.bind({language: preference.language}))

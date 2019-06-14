@@ -16,6 +16,7 @@
 	"prompts": {
 		"help": {
 			"help": "Help",
+      "description": "Thank you for using *Serium*. This application is [open-source project]({githubLink}) developed with :heart:.\n[Invite]({inviteLink}) | [Support server]({supportServerLink}) | [View on web]({webLink})\n\nIf you want to configure this server, please type `se configure`.",
 			"detailed": {
 				"title": "Help: {pluginName}",
 				"usage": "**Usage** `{usage}`"

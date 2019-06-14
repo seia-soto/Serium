@@ -16,6 +16,7 @@
 	"prompts": {
 		"help": {
 			"help": "도움말",
+			"description": "*Serium*을 사용해주셔서 감사합니다. 이 앱은 :heart:와 함께 개발된 [오픈소스 프로젝트]({githubLink})입니다.\n[초대]({inviteLink}) | [지원 서버]({supportServerLink}) | [웹에서 보기]({webLink})\n\n현재 서버를 세부 설정하고 싶으시다면, `se configure`를 입력해주세요.",
 			"detailed": {
 				"title": "도움말: {pluginName}",
 				"usage": "**사용법** `{usage}`"

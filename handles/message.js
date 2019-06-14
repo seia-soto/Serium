@@ -29,9 +29,9 @@ const MessageHandler = (rawMessage, client) => {
         EndPreferenceIndicator.getUserSettings(message.author.id).then(userPreference => {
           // NOTE: Paste extra values.
           message._se.permission = permission
-          message._se.translates = translates['ko' /*userPreference.language*/].prompts[message._se.prompt]
-          message._se.translates._language = 'ko'
-          message._se.translates._errors = translates['ko'].errors
+          message._se.translates = translates[userPreference.language].prompts[message._se.prompt]
+          message._se.translates._language = userPreference.language
+          message._se.translates._errors = translates[userPreference.language].errors
 
           // NOTE: Execution of function.
           prompts[message._se.prompt](message, client)

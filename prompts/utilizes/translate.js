@@ -1,14 +1,6 @@
 const translate = require('google-translate-query')
 const PreferenceIndicator = require('@structures/PreferenceIndicator')
 
-let basedEmbed = {
-  embed: {
-    title: message._se.translates.translations,
-    description: null,
-    fields: []
-  }
-}
-
 const Prompt = (message, client) => {
   if (message._se.data.length < 2) {
     return message.reply(message._se.translates.keywordMissing)
@@ -16,6 +8,14 @@ const Prompt = (message, client) => {
 
   const toTranslate = message._se.data.slice(1).join(' ')
   const toLanguage = message._se.data[0]
+
+  let basedEmbed = {
+    embed: {
+      title: message._se.translates.translations,
+      description: null,
+      fields: []
+    }
+  }
 
   translate(toTranslate, { to: toLanguage })
     .then(response => {

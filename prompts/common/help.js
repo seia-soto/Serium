@@ -35,7 +35,7 @@ const Prompt = (message, client) => {
     message.channel.send({
       embed: {
         title: message._se.translates.help,
-        description: PreferenceIndicator.App.Externals.PromotionLines.description,
+        description: message._se.translates.description,
         fields: PromptMap
       }
     })

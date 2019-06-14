@@ -22,8 +22,6 @@ App:
       - DatabasePool
       - PermissionIdentities
       - PresenceLines
-      - PromotionLines
-      - LanguageList
 Discord:
   Client:
     autoReconnect: true
