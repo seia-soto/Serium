@@ -17,7 +17,7 @@ const getGuildSettings = identify => {
     DatabasePool.getConnection((connectionError, connection) => {
       if (connectionError) reject(connectionError)
 
-      connection.query(`SELECT preference FROM serium_servers WHERE identify = ${identify}`, (queryError, results) => {
+      connection.query(`SELECT preference FROM serium_servers WHERE identify = ?`, [identify], (queryError, results) => {
         if (queryError) reject(queryError)
 
         if (results[0]) {
@@ -25,7 +25,7 @@ const getGuildSettings = identify => {
 
           resolve(JSON.parse(results[0].preference))
         } else {
-          connection.query(`INSERT INTO serium_servers (identify, preference) VALUES ('${identify}', '${JSON.stringify(defaultGuildPreference)}')`, creationError => {
+          connection.query(`INSERT INTO serium_servers (identify, preference) VALUES (?, ?)`, [identify, JSON.stringify(defaultGuildPreference)], creationError => {
             connection.release()
 
             if (creationError) {
@@ -44,7 +44,7 @@ const setGuildSettings = (identify, data) => {
     DatabasePool.getConnection((connectionError, connection) => {
       if (connectionError) reject(connectionError)
 
-      connection.query(`UPDATE serium_servers SET preference = '${JSON.stringify(data).replace(/\'/g, '\'')}' WHERE identify = ${identify}`, (queryError, results) => {
+      connection.query(`UPDATE serium_servers SET preference = ? WHERE identify = ?`, [JSON.stringify(data), identify], (queryError, results) => {
         if (queryError) reject(queryError)
 
         connection.release()
@@ -58,7 +58,7 @@ const getUserSettings = identify => {
     DatabasePool.getConnection((connectionError, connection) => {
       if (connectionError) reject(connectionError)
 
-      connection.query(`SELECT preference FROM serium_users WHERE identify = ${identify}`, (queryError, results) => {
+      connection.query(`SELECT preference FROM serium_users WHERE identify = ?`, [identify], (queryError, results) => {
         if (queryError) reject(queryError)
 
         if (results[0]) {
@@ -66,7 +66,7 @@ const getUserSettings = identify => {
 
           resolve(JSON.parse(results[0].preference))
         } else {
-          connection.query(`INSERT INTO serium_users (identify, preference) VALUES ('${identify}', '${JSON.stringify(defaultUserPreference)}')`, creationError => {
+          connection.query(`INSERT INTO serium_users (identify, preference) VALUES (?, ?)`, [identify, JSON.stringify(defaultUserPreference)] creationError => {
             connection.release()
 
             if (creationError) {
@@ -85,7 +85,7 @@ const setUserSettings = (identify, data) => {
     DatabasePool.getConnection((connectionError, connection) => {
       if (connectionError) reject(connectionError)
 
-      connection.query(`UPDATE serium_users SET preference = '${JSON.stringify(data).replace(/\'/g, '\'')}' WHERE identify = ${identify}`, (queryError, results) => {
+      connection.query(`UPDATE serium_users SET preference = ? WHERE identify = ?`, [JSON.stringify(data), identify] (queryError, results) => {
         connection.release()
 
         if (queryError) {

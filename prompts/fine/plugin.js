@@ -39,7 +39,7 @@ const Prompt = (message, client) => {
       return message.reply(message._se.translates._errors.databaseFailure)
     }
 
-    connection.query(`SELECT * FROM serium_plugins WHERE identify = ${message.guild.id}`, (queryError, results) => {
+    connection.query(`SELECT * FROM serium_plugins WHERE identify = ?`, [message.guild.id], (queryError, results) => {
       if (queryError) {
         connection.release()
 
