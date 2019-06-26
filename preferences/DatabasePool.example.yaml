@@ -1,6 +1,0 @@
-root:
-  connectionLimit: 8
-  host: localhost
-  user: someone
-  password: secret
-  database: name of database

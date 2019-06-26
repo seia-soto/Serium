@@ -1,9 +1,11 @@
 # Serium-Documentation
 
-Thank you for using Serium as well. I am pleased to show this new documentation for developing and launching this application.
+Thank you for using Serium as well. Also I am appriciate to our contributors.
 
-+ [Free to scratch note](Note.md)
+- Notice
+  - [Change note](./changeNote.md)
+  - [Updating code from v3](./updatingCode.md)
 
-## Languages
+----
 
-- [English](English)
+Copyright 2019 Seia-Soto and project contributors All Rights Reserved.

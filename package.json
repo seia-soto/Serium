@@ -1,8 +1,8 @@
 {
   "name": "serium",
-  "version": "3.7.0",
+  "version": "4.0.0",
   "description": "Discord, there was an error that I am so busy.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node .",
     "test": "node ."
@@ -30,36 +30,14 @@
       "ttakkku"
     ]
   },
-  "license": "Artistic-2.0",
+  "license": "Mozilla-Public-License-2.0",
   "bugs": {
     "url": "https://github.com/Seia-Soto/Serium/issues"
   },
   "homepage": "https://github.com/Seia-Soto/Serium#readme",
   "dependencies": {
     "bufferutil": "^4.0.1",
-    "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.5.1",
-    "google": "^2.1.0",
-    "google-translate-query": "^2.4.3",
-    "js-yaml": "^3.13.1",
-    "module-alias": "^2.2.0",
-    "moment": "^2.24.0",
-    "mysql": "^2.17.1",
-    "nekos.life": "^2.0.4",
-    "querystring": "^0.2.0",
-    "request": "^2.88.0",
-    "sharp": "^0.22.1",
-    "svg-captcha": "^1.3.12",
-    "vm2": "^3.8.2"
-  },
-  "_moduleAliases": {
-    "@root": ".",
-    "@flow": "./flow",
-    "@handles": "./handles",
-    "@preferences": "./preferences",
-    "@prompts": "./prompts",
-    "@structures": "./structures",
-    "@translates": "./translates",
-    "@utils": "./utils"
+    "mysql2": "^1.6.5"
   }
 }

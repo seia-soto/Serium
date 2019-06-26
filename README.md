@@ -1,6 +1,6 @@
 # Serium
 
-The way how to get improved creativity and multi-purpose in Discord. ([Want to invite public app?](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&redirect_uri=https%3A%2F%2Fauthentication.seia.io%2Fdiscordapp&scope=bot))
+The way how to get improved creativity and multi-purpose in Discord. ([> Invite](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&redirect_uri=https%3A%2F%2Fauthentication.seia.io%2Fdiscordapp&scope=bot))
 
 [![Meet us at Discord](https://discordapp.com/api/guilds/563994944604340254/embed.png?style=banner2)](https://discord.gg/NjAjJqB)
 
@@ -17,29 +17,30 @@ The way how to get improved creativity and multi-purpose in Discord. ([Want to i
 
 ## Notice
 
-As I(A.K.A 'Seia-Soto') published new major version 3.0, older versions which major version identified as 2 or 1 is deprecated. There won't any support for previous deprecated versions.
+**Project is now on development process of version 4, and please check important changes written below*(Applied after first commit of version 4, also wrote additional note at end of column if the change applies on other date or there is one more thing to know)*.**
 
 ### Legal
 
-This repository(A.K.A 'application') is under Artistic 2.0 license. All third party software(A.K.A 'dependencies') will inherit their original license.
+Changes and notices about legal:
+
+- Project is moving to Mozilla Public License 2.0 from Artistic License 2.0. (Previous version follows Artistic License 2.0)
+
+List of files including MPL 2.0 header:
+
+- /src/client.js
+- /src/index.js
+- /src/handles/message.js
+- /src/structures/getPermissions.js
+- /src/structures/getPreferences.js
+
+Packages used in this project:
 
 - [bufferutil](https://www.npmjs.com/package/bufferutil) with MIT License
-- [cheerio](https://www.npmjs.com/package/cheerio) with MIT License
 - [discord.js](https://www.npmjs.com/package/discord.js) with Apache 2.0 License
-- [google](https://www.npmjs.com/package/google) with MIT License
-- [google-translate-query](https://www.npmjs.com/package/google-translate-query) with MIT License
-- [js-yaml](https://www.npmjs.com/package/js-yaml) with MIT License
-- [module-alias](https://www.npmjs.com/package/module-alias) with MIT License
-- [moment](https://www.npmjs.com/package/moment) with MIT License
-- [mysql](https://www.npmjs.com/package/mysql) with MIT License
-- [nekos.life](https://www.npmjs.com/package/nekos.life) with MIT License
-- [querystring](https://www.npmjs.com/package/querystring) without license
-- [request](https://www.npmjs.com/package/request) with Apache 2.0 License
-- [sharp](https://www.npmjs.com/package/sharp) with Apache 2.0 License
-- [svg-captcha](https://www.npmjs.com/package/svg-captcha) with MIT License
-- [vm2](https://www.npmjs.com/package/vm2) with MIT License
 
 ### Contributors
+
+Thank you everyone contributing to project <3
 
 #### Developers
 
@@ -65,4 +66,4 @@ This repository(A.K.A 'application') is under Artistic 2.0 license. All third pa
 
 ## Documentation
 
-Documentation can be found on [here](/documentation).
+Documentation can be found on [here](/docs).
