@@ -38,16 +38,16 @@ const getPreferences = async identify => {
 
   preferences.user = await databasePool.execute(
     'SELECT * FROM `' + preferencesRepository.database.prefix + preferencesRepository.database.tables.users + '` WHERE identify = ?',
-    [identify.user]
+    [Number(identify.user)]
   )
   preferences.guild = await databasePool.execute(
     'SELECT * FROM `' + preferencesRepository.database.prefix + preferencesRepository.database.tables.guilds + '` WHERE identify = ?',
-    [identify.guild]
+    [Number(identify.guild)]
   )
 
   // NOTE: Destructure;
-  preferences.user = preferences.user[0].preferences
-  preferences.guild = preferences.guild[0].preferences
+  preferences.user = ((preferences.user[0] || new Array())[0] || new Object()).preferences
+  preferences.guild = ((preferences.guild[0] || new Array())[0] || new Object()).preferences
 
   if (!preferences.user) {
     preferences.user = new Object()
