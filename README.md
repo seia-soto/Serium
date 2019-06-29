@@ -29,6 +29,7 @@ List of files including MPL 2.0 header:
 
 - /src/client.js
 - /src/index.js
+- /src/commands/index.js
 - /src/handles/message.js
 - /src/structures/getPermissions.js
 - /src/structures/getPreferences.js

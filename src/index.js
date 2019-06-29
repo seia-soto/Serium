@@ -1,7 +1,7 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
- 
+
 const Discord = require('discord.js')
 const os = require('os')
 
@@ -12,20 +12,23 @@ if (preferences.client.sharding) {
     preferences.client.shards.totalShards = (preferences.client.shards.totalShards || os.cpus().length)
     preferences.client.shards.token = preferences.client.shards.token || preferences.client.token
 
-    const shards = new Object()
     const manager = new Discord.ShardingManager('./client.js', preferences.client.shards)
+
+    process.on('SIGINT', () => {
+      console.log('Serium > Stopping...')
+
+      manager.shards.forEach((shard, i) => {
+        console.log(`ShardingManager > Killing shard #${i}`)
+
+        shard.kill()
+      })
+
+      // NOTE: Exit.
+      process.exit(0)
+    })
 
     const registerShard = shard => {
       console.log(`ShardingManager > Spawned #${shard.id}`)
-      shards[shard.id] = shard
-
-      shard.on('ready', () => {
-        console.log(`Shard #${shard.id} > Ready and listening events`)
-      })
-
-      if (Object.values(shards).length === preferences.client.shards.totalShards) {
-        console.log(`ShardingManager > Spawned all shards`)
-      }
     }
     const handleMessage = (shard, message) => {
       switch (message) {
@@ -33,17 +36,16 @@ if (preferences.client.sharding) {
           console.log(`Shard #${shard.id} > Recieved update signal`)
           console.log(`Serium > Updating services`)
 
-          Object.values(shards).forEach((oldShard, i) => {
+          manager.shards.forEach((oldShard, i) => {
             setTimeout(() => {
-              manager.createShard(oldShard.id).then(newShard => {
+              manager.createShard(i).then(newShard => {
                 newShard.on('ready', () => {
-                  console.log(`ShardingManager > Updated service #${newShard.id}(prototype: #${oldShard.id}) is ready and killing previous shard`)
+                  console.log(`ShardingManager > Updated service #${i} is ready and killing previous shard`)
 
                   oldShard.kill()
-                  registerShard(newShard)
                 })
               })
-            }, i * preferences.client.shardingDelay)
+            }, (i * preferences.client.shardingDelay) + preferences.client.shardingDelay)
           })
           break;
         default:
