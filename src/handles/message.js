@@ -12,11 +12,11 @@ const cooldown = new Array()
 const eventHandle = async (client, message) => {
   if (message.author.bot) return // NOTE: Block calling service from bot account.
 
-  const preferences = await structures.getPreferences({
+  const preferences = await structures.preferences.get({
     user: message.author.id,
     guild: message.guild.id
   })
-  const permissions = await structures.getPermissions({
+  const permissions = await structures.permissions.get({
     user: message.member,
     guild: message.guild
   })
@@ -37,15 +37,19 @@ const eventHandle = async (client, message) => {
   }
 
   // NOTE: Parsing message context.
-  const command = message.content.replace(preferences.guild.prefix, '').split(' ')
-  const parameters = command.splice(1)
+  const arguments = message.content.replace(preferences.guild.prefix, '').split(' ')
+  const command = commands[arguments[0]]
+  const parameters = arguments.splice(1)
 
-  if (command in commands) {
-    if ((permissions & commands[command].properties.permission) === commands[command].properties.permission) {
-      message.channel.send(translations[preferences.user.language].events.message.scarcePermission.bind({command: command}))
+  // NOTE: Attach values.
+  message._parameters = parameters
+
+  if (command) {
+    if (structures.permissions.compare(permissions, command.properties.permission)) {
+      message.channel.send(translations[preferences.user.language].events.message.scarcePermission.bind({command: command.properties.name}))
       return
     }
-    commands[command].execute(client, message, preferences, translations[preferences.user.language].commands[commands[command].properties.name])
+    command.execute(client, message, preferences, translations[preferences.user.language].commands[command.properties.name])
 
     if (preferencesRepositry.client.cooldown.enabled) {
       cooldown.push(message.author.id)

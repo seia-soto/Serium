@@ -1,3 +1,3 @@
-module.exports.databasePool = require('./databasePool')
-module.exports.getPermissions = require('./getPermissions')
-module.exports.getPreferences = require('./getPreferences')
+module.exports.database = require('./database')
+module.exports.permissions = require('./permissions')
+module.exports.preferences = require('./preferences')

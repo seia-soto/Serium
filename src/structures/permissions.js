@@ -10,6 +10,10 @@ const levels = {
   admin: 0x11
 }
 
+const compare = (permission, targetPermission) => {
+  return ((permission & levels[targetPermission]) !== levels[targetPermission])
+}
+
 const getPermissions = scope => {
   let permissions = levels.everyone
 
@@ -23,4 +27,6 @@ const getPermissions = scope => {
   return permissions
 }
 
-module.exports = getPermissions
+module.exports.get = getPermissions
+module.exports.levels = levels
+module.exports.compare = compare

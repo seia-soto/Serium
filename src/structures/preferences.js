@@ -3,12 +3,12 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 const preferencesRepository = require('../preferences')
-const databasePool = require('./databasePool')
+const database = require('./database')
 
 const defaults = preferencesRepository.client.defaults
 
 const set = async options => {
-  const statement = await databasePool.execute(
+  const statement = await database.execute(
     'INSERT INTO `' + preferencesRepository.database.prefix + preferencesRepository.database.tables[options.type] + '`' +
     '(idx, identify, preferences) VALUES (0, ?, ?)',
     [
@@ -19,7 +19,7 @@ const set = async options => {
   return statement
 }
 const update = async options => {
-  const statement = await databasePool.execute(
+  const statement = await database.execute(
     'UPDATE `' + preferencesRepository.database.prefix + preferencesRepository.database.tables[options.type] + '`' +
     'SET preferences = ? WHERE identify = ?',
     [
@@ -36,11 +36,11 @@ const getPreferences = async identify => {
   preferences.set = set
   preferences.update = update
 
-  preferences.user = await databasePool.execute(
+  preferences.user = await database.execute(
     'SELECT * FROM `' + preferencesRepository.database.prefix + preferencesRepository.database.tables.users + '` WHERE identify = ?',
     [Number(identify.user)]
   )
-  preferences.guild = await databasePool.execute(
+  preferences.guild = await database.execute(
     'SELECT * FROM `' + preferencesRepository.database.prefix + preferencesRepository.database.tables.guilds + '` WHERE identify = ?',
     [Number(identify.guild)]
   )
@@ -78,4 +78,6 @@ const getPreferences = async identify => {
   return preferences
 }
 
-module.exports = getPreferences
+module.exports.get = getPreferences
+module.exports.set = set
+module.exports.update = update
