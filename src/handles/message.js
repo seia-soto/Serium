@@ -37,7 +37,7 @@ const eventHandle = async (client, message) => {
   }
 
   // NOTE: Parsing message context.
-  const arguments = message.content.replace(preferences.guild.prefix, '').split(' ')
+  const arguments = message.content.replace(preferences.guild.prefix, '').split(' ').filter(a => a !== '')
   const command = commands[arguments[0]]
   const parameters = arguments.splice(1)
 
