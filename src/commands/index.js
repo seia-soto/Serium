@@ -14,7 +14,7 @@ Object.keys(categories).forEach(categoryName => {
     module.exports[command.properties.name] = command
     module.exports[command.properties.name].properties.category = categoryName
 
-    command.properties.aliases.forEach(alias => {
+    (command.properties.aliases || []).forEach(alias => {
       module.exports[alias] = command
       module.exports[alias].properties.category = categoryName
       // NOTE: Check this command is alias
