@@ -7,7 +7,15 @@ const properties = {
   name: 'ping',
   aliases: ['pong'],
 
-  permission: 'everyone'
+  permission: 'everyone',
+
+  /*
+  // NOTE: When you add a special selectable feature property to this.
+
+  special: true,
+  precondition: function() or just leave as `undefined`.
+  // NOTE: This function need to return message property to send what required. Also this function will inherit translations of user's language.
+  */
 }
 
 module.exports.execute = command

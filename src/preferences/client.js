@@ -5,7 +5,10 @@ module.exports = {
   // NOTE: Defaults;
   defaults: {
     prefix: 'se ',
-    language: 'en'
+    language: 'en',
+    features: [
+      // NOTE: Selectable features enabled defaultly.
+    ]
   },
 
   // NOTE: Cooldown;

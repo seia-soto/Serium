@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+const fastEquals = require('fast-equals')
+
 const preferencesRepository = require('../preferences')
 const database = require('./database')
 
@@ -33,6 +35,8 @@ const update = async options => {
 const getPreferences = async identify => {
   const preferences = new Object()
 
+  preferences._previous = new Object()
+
   preferences.set = set
   preferences.update = update
 
@@ -46,34 +50,35 @@ const getPreferences = async identify => {
   )
 
   // NOTE: Destructure;
-  preferences.user = ((preferences.user[0] || new Array())[0] || new Object()).preferences
-  preferences.guild = ((preferences.guild[0] || new Array())[0] || new Object()).preferences
+  preferences.user = preferences._previous.user = ((preferences.user[0] || new Array())[0] || new Object()).preferences
+  preferences.guild = preferences._previous.guild = ((preferences.guild[0] || new Array())[0] || new Object()).preferences
 
-  if (!preferences.user) {
-    preferences.user = new Object()
-    preferences.user.language = defaults.language
+  if (typeof preferences.user === 'string') {
+    preferences.user = preferences._previous.user = JSON.parse(preferences.user)
+  }
+  if (typeof preferences.guild === 'string') {
+    preferences.guild = preferences._previous.guild = JSON.parse(preferences.guild)
+  }
 
+  preferences.user.language = preferences.user.language || defaults.language
+
+  preferences.guild.prefix = preferences.guild.prefix || defaults.prefix
+  preferences.guild.features = preferences.guild.features || defaults.features
+
+  if (!fastEquals.deepEqual(preferences._previous.user, preferences.user)) {
     preferences.set({
       type: 'users',
       identify: identify.user,
       context: preferences.user
     })
-    preferences.user = JSON.stringify(preferences.user)
   }
-  if (!preferences.guild) {
-    preferences.guild = new Object()
-    preferences.guild.prefix = defaults.prefix
-
+  if (!fastEquals.deepEqual(preferences._previous.gulid, preferences.gulid)) {
     preferences.set({
       type: 'guilds',
-      identify: identify.guild,
-      context: preferences.guild
+      identify: identify.gulid,
+      context: preferences.gulid
     })
-    preferences.guild = JSON.stringify(preferences.guild)
   }
-
-  preferences.user = JSON.parse(preferences.user)
-  preferences.guild = JSON.parse(preferences.guild)
 
   return preferences
 }

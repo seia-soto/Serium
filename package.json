@@ -38,6 +38,7 @@
   "dependencies": {
     "bufferutil": "^4.0.1",
     "discord.js": "^11.5.1",
+    "fast-equals": "^2.0.0",
     "mysql2": "^1.6.5"
   }
 }
