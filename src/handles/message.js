@@ -28,12 +28,10 @@ const eventHandle = async (client, message) => {
 
   // NOTE: States that needs notice.
   if (!message.guild.me.hasPermission('SEND_MESSAGES')) {
-    message.reply(translations[preferences.user.language].events.message.leakedPermission)
-    return
+    return message.reply(translations[preferences.user.language].events.message.leakedPermission)
   }
   if (cooldown.includes(message.author.id)) {
-    message.reply(translations[preferences.user.language].events.message.coolingDown.bind({seconds: preferencesRepositry.client.cooldown.timeout / 1000}))
-    return
+    return message.reply(translations[preferences.user.language].events.message.coolingDown.bind({seconds: preferencesRepositry.client.cooldown.timeout / 1000}))
   }
 
   // NOTE: Parsing message context.
@@ -45,10 +43,21 @@ const eventHandle = async (client, message) => {
   message._parameters = parameters
 
   if (command) {
-    if (structures.permissions.compare(permissions, command.properties.permission)) {
-      message.channel.send(translations[preferences.user.language].events.message.scarcePermission.bind({command: command.properties.name}))
-      return
+    const _emptyFunction = () => { return false }
+
+    command.properties.precondition = command.properties.precondition || _emptyFunction
+    command.properties.precondition = command.properties.precondition(client, message, preferences, translations[preferences.user.language])
+
+    if (command.properties.special && !preferences.guild.features.includes(command.properties.name)) {
+      return message.reply(translations[preferences.user.language].events.message.disabledFeature.bind({command: command.properties.name}))
     }
+    if (command.precondition) {
+      return message.reply(command.precondition)
+    }
+    if (structures.permissions.compare(permissions, command.properties.permission)) {
+      return message.channel.send(translations[preferences.user.language].events.message.scarcePermission.bind({command: command.properties.name}))
+    }
+
     command.execute(client, message, preferences, translations[preferences.user.language].commands[command.properties.name])
 
     if (preferencesRepositry.client.cooldown.enabled) {

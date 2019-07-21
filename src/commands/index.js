@@ -16,6 +16,12 @@ Object.keys(categories).forEach(categoryName => {
 
     const aliases = command.properties.aliases || []
 
-    aliases.forEach(alias => module.exports[alias] = command)
+    aliases.forEach(alias => {
+      module.exports[alias] = command
+      module.exports[alias].properties.category = categoryName
+      module.exports[alias].properties.name = command.properties.name
+      // NOTE: Check this command is alias
+      module.exports[alias].properties.alias = true
+    })
   })
 })
