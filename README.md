@@ -2,7 +2,7 @@
 
 The way how to get improved creativity and multi-purpose in Discord. ([> Invite](https://discordapp.com/api/oauth2/authorize?client_id=429913480708096000&permissions=8&redirect_uri=https%3A%2F%2Fauthentication.seia.io%2Fdiscordapp&scope=bot))
 
-[![Meet us at Discord](https://discordapp.com/api/guilds/563994944604340254/embed.png?style=banner2)](https://discord.gg/NjAjJqB)
+[Discord server](https://discord.gg/vAEBXWY)
 
 ----
 
@@ -24,20 +24,6 @@ The way how to get improved creativity and multi-purpose in Discord. ([> Invite]
 Changes and notices about legal:
 
 - Project is moving to Mozilla Public License 2.0 from Artistic License 2.0. (Previous version follows Artistic License 2.0)
-
-List of files including MPL 2.0 header:
-
-- /src/client.js
-- /src/index.js
-- /src/commands/index.js
-- /src/handles/message.js
-- /src/structures/getPermissions.js
-- /src/structures/getPreferences.js
-
-Packages used in this project:
-
-- [bufferutil](https://www.npmjs.com/package/bufferutil) with MIT License
-- [discord.js](https://www.npmjs.com/package/discord.js) with Apache 2.0 License
 
 ### Contributors
 
