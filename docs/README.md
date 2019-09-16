@@ -2,9 +2,11 @@
 
 Thank you for using Serium as well. Also I am appriciate to our contributors.
 
-- Notice
-  - [Change note](./changeNote.md)
-  - [Updating code from v3](./updatingCode.md)
+## Table of Contents
+
+Nightly refers `nightly` branch(also known as `master` branch).
+
+- [Nightly](./nightly)
 
 ----
 
