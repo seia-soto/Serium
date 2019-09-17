@@ -33,52 +33,31 @@ const update = async options => {
 }
 
 const getPreferences = async identify => {
-  const preferences = new Object()
-
-  preferences._previous = new Object()
+  const preferences = {}
 
   preferences.set = set
   preferences.update = update
 
-  preferences.user = await database.execute(
+  preferences.user = await database.query(
     'SELECT * FROM `' + preferencesRepository.database.prefix + preferencesRepository.database.tables.users + '` WHERE identify = ?',
     [Number(identify.user)]
   )
-  preferences.guild = await database.execute(
+  preferences.guild = await database.query(
     'SELECT * FROM `' + preferencesRepository.database.prefix + preferencesRepository.database.tables.guilds + '` WHERE identify = ?',
     [Number(identify.guild)]
   )
 
-  // NOTE: Destructure;
-  preferences.user = preferences._previous.user = ((preferences.user[0] || new Array())[0] || new Object()).preferences
-  preferences.guild = preferences._previous.guild = ((preferences.guild[0] || new Array())[0] || new Object()).preferences
-
-  if (typeof preferences.user === 'string') {
-    preferences.user = preferences._previous.user = JSON.parse(preferences.user)
+  if (!preferences.user.error) {
+    preferences.user = JSON.parse(preferences.user.data)
   }
-  if (typeof preferences.guild === 'string') {
-    preferences.guild = preferences._previous.guild = JSON.parse(preferences.guild)
+  if (!preferences.guild.error) {
+    preferences.guild = JSON.parse(preferences.guild.data)
   }
 
   preferences.user.language = preferences.user.language || defaults.language
 
   preferences.guild.prefix = preferences.guild.prefix || defaults.prefix
   preferences.guild.features = preferences.guild.features || defaults.features
-
-  if (!fastEquals.deepEqual(preferences._previous.user, preferences.user)) {
-    preferences.set({
-      type: 'users',
-      identify: identify.user,
-      context: preferences.user
-    })
-  }
-  if (!fastEquals.deepEqual(preferences._previous.gulid, preferences.gulid)) {
-    preferences.set({
-      type: 'guilds',
-      identify: identify.gulid,
-      context: preferences.gulid
-    })
-  }
 
   return preferences
 }

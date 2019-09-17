@@ -4,8 +4,7 @@
   "description": "Discord, there was an error that I am so busy.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node .",
-    "test": "node ."
+    "start": "node ."
   },
   "repository": {
     "type": "git",
