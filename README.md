@@ -31,7 +31,7 @@ Thank you everyone contributing to project <3
 
 #### Developers
 
-- [Seia-Soto](https://github.com/Seia-Soto), Seia(せいあそと{セイアソト}) is student who is developing with small base as well. Known as learner, translator, developer and illustrator.
+[![](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/images/0)](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/links/0)[![](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/images/1)](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/links/1)[![](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/images/2)](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/links/2)[![](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/images/3)](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/links/3)[![](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/images/4)](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/links/4)[![](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/images/5)](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/links/5)[![](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/images/6)](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/links/6)[![](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/images/7)](https://sourcerer.io/fame/Seia-Soto/Seia-Soto/Serium/links/7)
 
 #### Sponsors
 
