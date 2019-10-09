@@ -17,13 +17,11 @@ The way how to get improved creativity and multi-purpose in Discord. ([> Invite]
 
 ## Notice
 
-**Project is now on development process of version 4, and please check important changes written below*(Applied after first commit of version 4, also wrote additional note at end of column if the change applies on other date or there is one more thing to know)*.**
-
 ### Legal
 
 Changes and notices about legal:
 
-- Project is moving to Mozilla Public License 2.0 from Artistic License 2.0. (Previous version follows Artistic License 2.0)
+- Project is moving to Artistic License 2.0 again. (Previous version follows previous' one)
 
 ### Contributors
 
@@ -36,7 +34,7 @@ Thank you everyone contributing to project <3
 #### Sponsors
 
 - [DetegiCE](https://github.com/DetegiCE)
-- [ttakkku](https://github.com/ttakkku), おねがいシマス
+- [ttakkku](https://github.com/ttakkku)
 
 #### Translators
 
@@ -45,7 +43,7 @@ Thank you everyone contributing to project <3
 #### Others
 
 - [Danuel](https://github.com/Danue1)
-- [Ranol](https://github.com/RanolP), Kotlin/Rust/TypeScript ♡
+- [Ranol](https://github.com/RanolP)
 - 네모
 - [starterDroid](https://github.com/Bananamilk452)
 

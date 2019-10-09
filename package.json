@@ -1,6 +1,6 @@
 {
   "name": "serium",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Discord, there was an error that I am so busy.",
   "main": "src/index.js",
   "scripts": {
@@ -29,15 +29,10 @@
       "ttakkku"
     ]
   },
-  "license": "Mozilla-Public-License-2.0",
+  "license": "artistic-2.0",
   "bugs": {
     "url": "https://github.com/Seia-Soto/Serium/issues"
   },
   "homepage": "https://github.com/Seia-Soto/Serium#readme",
-  "dependencies": {
-    "bufferutil": "^4.0.1",
-    "discord.js": "^11.5.1",
-    "fast-equals": "^2.0.0",
-    "mysql2": "^1.6.5"
-  }
+  "dependencies": {}
 }
