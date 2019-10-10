@@ -2,6 +2,16 @@ const { ShardingManager } = require('discord.js')
 
 const config = require('./config')
 
+console.log(`
+[Serium] Thank you for using Serium!
+
+The application was started just now.
+- Double check your Discord application's bot token and config.
+- For security, you should avoid adding *eval* commands.
+- You need build tools like Visual Studio to build project dependencies.
+- If you got a help, you may put me(Seia-Soto) and contributors into credit.
+`)
+
 const manager = new ShardingManager('./client.js', {
   token: config.app.token,
   totalShards: config.app.fork.quantity,
@@ -39,13 +49,13 @@ manager.on('message', (shard, message) => {
         })
         break
       default:
-        console.log(`[Shard#${shard.id}] A new unknown command > ${message.content}`)
+        console.log(`[Shard#${shard.id}] A new unknown command > ${message.action}:${message.type}`)
     }
 
     return null
   }
 
-  return console.log(`[ShardingManager] A new message from shard#${shard.id}: ${message.content}`)
+  return console.log(`[Shard#${shard.id}] ${message}`)
 })
 
 manager.spawn(config.app.fork.quantity, config.app.fork.spawningDelay)
