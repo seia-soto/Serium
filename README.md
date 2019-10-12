@@ -47,7 +47,7 @@ You need to install the software below before we start over.
 
 - [Node.JS](https://nodejs.org/)
 - [MySQL](https://www.mysql.com/)
-- Build tools such as [Build essential](http://linux-command.org/ko/build-essential.html) or [Visual Studio Build Tools](https://go.microsoft.com/fwlink/?LinkId=691126) to build fresh packages
+- Build tools such as [Build essential](http://linux-command.org/ko/build-essential.html) and [Visual Studio Build Tools](https://go.microsoft.com/fwlink/?LinkId=691126) to build fresh packages
 - [Yarn](https://yarnpkg.com/lang/en/)
 - [Git](https://git-scm.com/)
 
@@ -154,5 +154,105 @@ module.exports = {
       }
     }
   }
+}
+```
+
+## Events
+
+You can declare a new event handler just like [Message handler](/handlers/message.js).
+
+Add a new event handler from [main](/index.js).
+
+```js
+client.once('ready', () => {
+  console.log(`[Client] Logged in as ${client.user.tag}`)
+
+  client.on('message', handlers.message.bind(null, client))
+  // NOTE: Add new handlers here:
+})
+```
+
+## Commands
+
+Commands can receive three variables from the message handler.
+
+| Name    | Description                                          |
+|-:-------|-:----------------------------------------------------|
+| client  | Client from Discord.JS lib                           |
+| message | Message received and serialized from Message handler |
+| opts    | ETC things like translations                         |
+
+Check the [example command `ping`](/commands/common/ping.js) included in this project.
+The basic structure of commands is structured as `{category}/{command}`.
+
+```js
+module.exports.execute = (client, message, opts) => {
+  return message.channel.send(opts.translations.pong.bind({
+    responseTime: Math.round(client.ping)
+  }))
+}
+module.exports.properties = {
+  name: 'ping', // NOTE: Name of command.
+  permission: 'dev', // NOTE: Required permission specified in config.js.
+  aliases: ['pong'] // NOTE: Aliases of command.
+}
+```
+
+### opts
+
+This section is created to describe the variable `opts`.
+According to [Message handler](/handlers/message.js), the variable `opts` is including three additional variables.
+
+```js
+{
+  permission: {
+    // NOTE: Permission specified in configuration file.
+    ...
+  },
+  settings: {
+    // NOTE: The settings of user and guild( from database, check out the code(/structures/settings/get)).
+    user: {
+      ...
+    },
+    guild: {
+      ...
+    }
+  },
+  translations: {
+    // NOTE: The commands[commandName] section of translation file.
+    ...
+  }
+}
+```
+
+## Translations
+
+Adding translations is one of the important features of Discord bot.
+Check out [the Korean example translation file](/translations/ko.js).
+
+### String.prototype.bind
+
+Unlike Node.JS's way using [Template literals](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals), Serium implemented the Python-like variable binding function to help translations.
+
+```js
+pong: '퐁! {responseTime}ms가 소요되었습니다.'
+```
+
+This function extends the String prototype is specified in [index.js](/index.js)( or you can see below).
+
+```js
+String.prototype.bind = function (parameters) {
+  let text = this
+  const keys = text.match(/\{(.*?)\}/g)
+
+  if (!keys) return this
+
+  keys.forEach(key => {
+    const keyname = key.replace('{', '').replace('}', '')
+
+    text = text.replace(key, parameters[keyname] || '')
+  })
+
+  return text
 }
 ```
