@@ -1,8 +1,8 @@
 {
   "name": "serium",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Discord, there was an error that I am so busy.",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node ."
   },
@@ -12,24 +12,7 @@
   },
   "keywords": [],
   "author": "Seia-Soto",
-  "contributors": {
-    "structures": [
-      "danueP",
-      "RanolP",
-      "네모"
-    ],
-    "interfaces": [
-      "Lemongreen"
-    ],
-    "translations": [
-      "Choux_a_la_Creme"
-    ],
-    "sponsors": [
-      "DetegiCE",
-      "ttakkku"
-    ]
-  },
-  "license": "Mozilla-Public-License-2.0",
+  "license": "Artistic-2.0",
   "bugs": {
     "url": "https://github.com/Seia-Soto/Serium/issues"
   },
@@ -37,7 +20,17 @@
   "dependencies": {
     "bufferutil": "^4.0.1",
     "discord.js": "^11.5.1",
-    "fast-equals": "^2.0.0",
-    "mysql2": "^1.6.5"
+    "knex": "^0.19.5",
+    "libsodium-wrappers": "^0.7.5",
+    "mysql2": "^1.7.0",
+    "node-opus": "^0.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }

@@ -1,6 +1,3 @@
 node_modules/
 
-preference.yaml
-preferenced.yaml
-
-preferences/DatabasePool.yaml
+config.js
