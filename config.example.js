@@ -2,7 +2,6 @@ module.exports = {
   app: {
     token: '',
     ux: {
-      prefix: 'se',
       basicPermissions: [
         'SEND_MESSAGES'
       ]
