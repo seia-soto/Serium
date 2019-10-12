@@ -1,61 +1,29 @@
-const { ShardingManager } = require('discord.js')
+const Discord = require('discord.js')
 
+const handlers = require('./handlers')
 const config = require('./config')
 
-console.log(`
-[Serium] Thank you for using Serium!
+String.prototype.bind = function (parameters) {
+  let text = this
+  const keys = text.match(/\{(.*?)\}/g)
 
-The application was started just now.
-- Double check your Discord application's bot token and config.
-- For security, you should avoid adding *eval* commands.
-- You need build tools like Visual Studio to build project dependencies.
-- If you got a help, you may put me(Seia-Soto) and contributors into credit.
-`)
+  if (!keys) return this
 
-const manager = new ShardingManager('./client.js', {
-  token: config.app.token,
-  totalShards: config.app.fork.quantity,
-  respawn: config.app.fork.automaticRespawn,
-  shardArgs: config.app.fork.arguments
+  keys.forEach(key => {
+    const keyname = key.replace('{', '').replace('}', '')
+
+    text = text.replace(key, parameters[keyname] || '')
+  })
+
+  return text
+}
+
+const client = new Discord.Client(config.app.client)
+
+client.once('ready', () => {
+  console.log(`[Client] Logged in as ${client.user.tag}`)
+
+  client.on('message', handlers.message.bind(null, client))
 })
 
-manager.on('launch', shard => {
-  console.log(`[ShardingManager] The shard#${shard.id} was started just now.`)
-})
-manager.on('message', (shard, message) => {
-  if (typeof message === 'object' && message !== null) {
-    switch (message.type) {
-      case 'debug':
-        console.log(`[Shard#${shard.id}] DEBUG > ${message.content}`)
-        break
-      case 'broadcast':
-        console.log(`[Shard#${shard.id}] Broadcasting message > ${message.content}`)
-
-        manager.broadcast(message.content)
-        break
-      case 'broadcastEval':
-        console.log(`[Shard#${shard.id}] Broadcasting eval > ${message.content}`)
-
-        manager.broadcastEval(message.content)
-        break
-      case 'respawnAll':
-        console.log(`[ShardingManager] Respawning all shards requested by shard#${shard.id}`)
-
-        manager.respawnAll({
-          shardDelay: config.app.fork.spawningDelay,
-          respawnDelay: config.app.fork.killingDelay,
-          waitForReady: config.app.fork.waitSpawning,
-          currentShardIndex: 0
-        })
-        break
-      default:
-        console.log(`[Shard#${shard.id}] A new unknown command > ${message.action}:${message.type}`)
-    }
-
-    return null
-  }
-
-  return console.log(`[Shard#${shard.id}] ${message}`)
-})
-
-manager.spawn(config.app.fork.quantity, config.app.fork.spawningDelay)
+client.login(config.app.token)

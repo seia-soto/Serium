@@ -1,6 +1,12 @@
 module.exports = {
   app: {
     token: '',
+    ux: {
+      prefix: 'se',
+      basicPermissions: [
+        'SEND_MESSAGES'
+      ]
+    },
     client: {
       requestMethod: 'sequential',
       messageCacheMaxSize: 400,
@@ -38,16 +44,22 @@ module.exports = {
     }
   },
   database: {
-    client: 'mysql2', // WARNING: No support for other DBMS engines.
-    connection: {
-      host: 'localhost',
-      user: '',
-      password: '',
-      database: ''
+    options: {
+      client: 'mysql2', // WARNING: No support for other DBMS engines.
+      connection: {
+        host: 'localhost',
+        user: '',
+        password: '',
+        database: ''
+      },
+      pool: {
+        min: 1,
+        max: 8
+      }
     },
-    pool: {
-      min: 1,
-      max: 8
+    tables: {
+      user: 'user',
+      guild: 'guild'
     }
   },
   permissions: [
@@ -75,7 +87,9 @@ module.exports = {
       name: 'dev',
       flag: 0x11,
       required: {
-        identify: [],
+        identify: [
+          ''
+        ],
         roles: [],
         permissions: []
       }
@@ -83,7 +97,16 @@ module.exports = {
   ],
   defaults: {
     settings: {
-      user: {}
+      user: {
+        index: 0,
+        identify: 0,
+        language: 'ko'
+      },
+      guild: {
+        index: 0,
+        identify: 0,
+        prefix: 'se'
+      }
     }
   }
 }

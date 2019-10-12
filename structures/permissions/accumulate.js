@@ -1,4 +1,4 @@
-const config = require('../../../config')
+const config = require('../../config')
 
 module.exports = member => {
   let memberLevel = 0x0
