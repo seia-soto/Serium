@@ -75,7 +75,7 @@ cp config.example.js config.js
 vi config.js
 ```
 
-### Configuration
+## Configuration
 
 ```js
 module.exports = {
