@@ -33,11 +33,22 @@ module.exports = async (client, message) => {
     missingPermission: !structures.permissions.compare(permissions, commands[message.command].properties.permission.flag)
   }
   const filtered = await structures.functions.findKeyByValue(filters, false)
+
   if (filtered) return message.reply(translations[settings.user.language].general.filtered[filtered])
 
-  commands[message.command].execute(client, message, {
+  const opts = {
     permissions,
     settings,
     translations: translations[settings.user.language].commands[commands[message.command].properties.name]
-  })
+  }
+
+  opts.translations = opts.translations || {}
+  opts.translations._metadata = {
+    language: translations[settings.user.language].language,
+    languageNative: translations[settings.user.language].languageNative,
+    languageCode: translations[settings.user.language].languageCode,
+    countryCode: translations[settings.user.language].countryCode
+  }
+
+  commands[message.command].execute(client, message, opts)
 }
