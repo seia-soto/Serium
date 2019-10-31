@@ -12,7 +12,7 @@ String.prototype.bind = function (parameters) {
   keys.forEach(key => {
     const keyname = key.replace('{', '').replace('}', '')
 
-    text = text.replace(key, parameters[keyname] || '')
+    text = text.replace(key, String(parameters[keyname]) || '')
   })
 
   return text
