@@ -18,8 +18,6 @@ Object.keys(categories).forEach(categoryName => {
 
     aliases.forEach(alias => {
       module.exports[alias] = command
-      // NOTE: Check this command is alias
-      module.exports[alias].properties.alias = true
     })
   })
 })
